@@ -8,6 +8,7 @@ namespace Minesweeper {
 		switch (e.type)
 		{
 		case SDL_QUIT:
+			GameManager::exit();
 			break;
 		default:
 			break;

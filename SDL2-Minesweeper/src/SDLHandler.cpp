@@ -1,5 +1,6 @@
 #pragma once
 #include "../headers/SDLHandler.h"
+#include <iostream>
 
 namespace Minesweeper {
 	SDLHandler::SDLHandler(int w, int h) { create(w, h); }
@@ -11,7 +12,7 @@ namespace Minesweeper {
 			SDL_Log("SDL_INIT FAILED: %s", SDL_GetError());
 			exit(EXIT_FAILURE);
 		}
-		else if (SDL_CreateWindowAndRenderer(w, h, -1, window, renderer) < 0) {
+		else if (SDL_CreateWindowAndRenderer(w, h, 0, &window, &renderer) != 0) {
 			SDL_Log("CONTEXT INTIALIZATION FAILED: %s", SDL_GetError());
 			exit(EXIT_FAILURE);
 		}

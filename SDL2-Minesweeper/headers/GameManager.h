@@ -11,5 +11,6 @@ namespace Minesweeper {
 		static void destroy();
 	public:
 		static int execute();
+		static void exit();
 	};
 }

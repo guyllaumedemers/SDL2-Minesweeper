@@ -1,10 +1,11 @@
 #pragma once
 #include "../headers/GameManager.h"
+#include "../headers/InputHandler.h"
 #include <iostream>
 
 namespace Minesweeper {
-	GameManager::context = nullptr;
-	GameManager::isRunning = false;
+	SDLHandler* GameManager::context = nullptr;
+	bool GameManager::isRunning = false;
 
 	void GameManager::init()
 	{
@@ -16,9 +17,7 @@ namespace Minesweeper {
 	{
 		while (isRunning) {
 			SDL_Event _e;
-			if (SDL_WaitEvent(&_e)) {
-
-			}
+			if (SDL_WaitEvent(&_e)) InputHandler::getInput(_e);
 			context->refresh();
 			//set logic
 			context->draw();
@@ -37,5 +36,10 @@ namespace Minesweeper {
 		run();
 		destroy();
 		return EXIT_SUCCESS;
+	}
+
+	void GameManager::exit()
+	{
+		isRunning = false;
 	}
 }
