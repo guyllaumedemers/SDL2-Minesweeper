@@ -1,6 +1,7 @@
 # SDL2-Minesweeper
 Learning sdl2
 > Refactoring [SDL2-GameDev/Minesweeper](https://github.com/guyllaumedemers/SDL2-GameDev/tree/master/SDL2-Minesweeper)
+> Working on imGui integration, which doesnt have a default CMakeLists file...
 
 ### TODO - ${PROJECT_NAME}/CMakeLists.txt need to be adapted to Modern CMake practice.
 >headers/src files need to be added either with file(GLOB "\*.h" "\*.cpp" )
