@@ -33,6 +33,3 @@ target_link_libraries(${PROJECT_NAME}
 	PUBLIC SDL2::SDL2-static
 	PUBLIC SDL2::SDL2main
 )
-
-# Run on second pass
-add_custom_command(TARGET ${PROJECT_NAME} POST_BUILD COMMAND ${CMAKE_COMMAND} -E copy_directory $<TARGET_FILE_DIR:SDL2::SDL2> $<TARGET_FILE_DIR:${PROJECT_NAME}>)
