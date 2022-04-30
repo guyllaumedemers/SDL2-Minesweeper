@@ -2,7 +2,8 @@
 Learning sdl2
 
 ### TODO - ${PROJECT_NAME}/CMakeLists.txt need to be adapted to Modern CMake practice.
->add_custom_command POST_BUILD require a second pass in order to give executable the compiled .lib require to work. Hightly inefficient and a pain to manually handle.
+>add_custom_command POST_BUILD require a second pass in order to give executable the compiled .lib require to work. Hightly inefficient and a pain to manually handle. </br>
+>headers/src files need to be added either with file(GLOB "\*.h" "\*.cpp" ) Or by other means.
 ```
 # CMakeList.txt : CMake project for SDL2-Minesweeper, include source and define
 # project specific logic here.
