@@ -1,5 +1,5 @@
 #pragma once
-#include <headers/SDLHandler.h>
+#include "../headers/SDLHandler.h"
 
 namespace Minesweeper {
 	SDLHandler::SDLHandler(int w, int h) { create(w, h); }

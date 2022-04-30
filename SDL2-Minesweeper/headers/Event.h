@@ -16,6 +16,6 @@ namespace Minesweeper {
 		~EventHandler();
 		void add(Subscriber&);
 		void remove(Subscriber&);
-		void Invoke();
+		void invoke();
 	};
 }

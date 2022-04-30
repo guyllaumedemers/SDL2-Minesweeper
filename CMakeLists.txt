@@ -4,10 +4,10 @@
 cmake_minimum_required (VERSION 3.8)
 
 # Project Setup
-project ("SDL2-Minesweeper"
-	VERSION 0.1
-	DESCRIPTION "Minesweeper -- Project 2022 -- ImGUI -- SDL2"
-)
+project ("SDL2-Minesweeper")
+set(VERSION 0.1)
+set(PROJECT_DESCRIPTION "Minesweeper -- Project 2022 -- ImGUI -- SDL2")
+set(LANGUAGE C CXX)
 
 # Set Project C++ Standard used.
 set(CMAKE_CXX_STANDARD 17)
@@ -33,6 +33,8 @@ if(NOT EXISTS "${CMAKE_SOURCE_DIR}/external/sdl2/CMakeLists.txt")
     message(FATAL_ERROR "The submodules were not downloaded! GIT_SUBMODULE was turned off or failed. Please update submodules and try again.")
 endif()
 
-# Include sub-projects.
-add_subdirectory ("${CMAKE_SOURCE_DIR}/${PROJECT_NAME}")
-add_subdirectory ("${CMAKE_SOURCE_DIR}/external/sdl2")
+# Add sub-directories for external dependencies
+add_subdirectory ("${PROJECT_NAME}")
+#add_subdirectory ("${CMAKE_SOURCE_DIR}/${PROJECT_NAME}/headers")
+#add_subdirectory ("${CMAKE_SOURCE_DIR}/${PROJECT_NAME}/src")
+#add_subdirectory ("${CMAKE_SOURCE_DIR}/external/sdl2")

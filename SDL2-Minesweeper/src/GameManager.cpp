@@ -1,5 +1,5 @@
 #pragma once
-#include <headers/GameManager.h>
+#include "../headers/GameManager.h"
 #include <iostream>
 
 namespace Minesweeper {

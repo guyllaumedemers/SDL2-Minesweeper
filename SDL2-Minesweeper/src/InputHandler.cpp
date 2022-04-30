@@ -1,6 +1,6 @@
 #pragma once
-#include <headers/InputHandler.h>
-#include <headers/GameManager.h>
+#include "../headers/InputHandler.h"
+#include "../headers/GameManager.h"
 
 namespace Minesweeper {
 	void InputHandler::getInput(SDL_Event& e)
