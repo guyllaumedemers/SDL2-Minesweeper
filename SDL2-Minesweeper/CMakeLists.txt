@@ -25,15 +25,13 @@ add_executable (${PROJECT_NAME} "Main.cpp" ${SOURCE_FILES})
 
 # Specifies include directories to use when compiling a given target. 
 target_include_directories(${PROJECT_NAME} 
-	PUBLIC "${CMAKE_SOURCE_DIR}/external/imgui/sdl2/include"
-	PUBLIC "${CMAKE_SOURCE_DIR}/external/imgui"
-	PUBLIC "${CMAKE_SOURCE_DIR}/external/imgui/backends"
-	PUBLIC "${CMAKE_SOURCE_DIR}/external/imgui/misc/cpp"
+	INTERFACE "${CMAKE_SOURCE_DIR}/external/imgui"
+	INTERFACE "${CMAKE_SOURCE_DIR}/external/imgui/backends"
+	INTERFACE "${CMAKE_SOURCE_DIR}/external/imgui/misc/cpp"
 )
 
 # Specifies the paths in which the linker should search for libraries when linking a given target.
 target_link_directories(${PROJECT_NAME} 
-	PUBLIC "${CMAKE_SOURCE_DIR}/external/imgui/sdl2/src"
 	PUBLIC "${CMAKE_SOURCE_DIR}/external/imgui"
 	PUBLIC "${CMAKE_SOURCE_DIR}/external/imgui/backends"
 	PUBLIC "${CMAKE_SOURCE_DIR}/external/imgui/misc/cpp"
@@ -41,7 +39,8 @@ target_link_directories(${PROJECT_NAME}
 
 # Specify libraries or flags to use when linking a given target and/or its dependents.
 target_link_libraries(${PROJECT_NAME}
-	PUBLIC SDL2::SDL2main
-	PUBLIC SDL2::SDL2-static
-	PUBLIC imgui
+	INTERFACE imgui
+	INTERFACE imgui-sdl
+	INTERFACE imgui-sdlrenderer
+	INTERFACE imgui-stdlib
 )
