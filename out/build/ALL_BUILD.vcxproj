@@ -173,7 +173,7 @@ if %errorlevel% neq 0 goto :VCEnd</Command>
       <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
       <CopyToOutputDirectory>Never</CopyToOutputDirectory>
     </ProjectReference>
-    <ProjectReference Include="D:\VisualStudio\SDL2\SDL2-GameDevCMake\SDL2-Minesweeper\out\build\external\sdl2\SDL2.vcxproj">
+    <ProjectReference Include="D:\VisualStudio\SDL2\SDL2-GameDevCMake\SDL2-Minesweeper\out\build\external\imgui\SDL2\SDL2.vcxproj">
       <Project>{AA301AE3-0630-3762-8F9A-B8E848956033}</Project>
       <Name>SDL2</Name>
     </ProjectReference>
@@ -181,13 +181,19 @@ if %errorlevel% neq 0 goto :VCEnd</Command>
       <Project>{A8BC949D-4ECD-34C7-9F47-0AAAFF013762}</Project>
       <Name>SDL2-Minesweeper</Name>
     </ProjectReference>
-    <ProjectReference Include="D:\VisualStudio\SDL2\SDL2-GameDevCMake\SDL2-Minesweeper\out\build\external\sdl2\SDL2-static.vcxproj">
+    <ProjectReference Include="D:\VisualStudio\SDL2\SDL2-GameDevCMake\SDL2-Minesweeper\out\build\external\imgui\SDL2\SDL2-static.vcxproj">
       <Project>{1BF565AB-D506-3F20-8097-DCD867CA228D}</Project>
       <Name>SDL2-static</Name>
     </ProjectReference>
-    <ProjectReference Include="D:\VisualStudio\SDL2\SDL2-GameDevCMake\SDL2-Minesweeper\out\build\external\sdl2\SDL2main.vcxproj">
+    <ProjectReference Include="D:\VisualStudio\SDL2\SDL2-GameDevCMake\SDL2-Minesweeper\out\build\external\imgui\SDL2\SDL2main.vcxproj">
       <Project>{50795B32-C55F-3467-9744-2E5AD3BF8A9B}</Project>
       <Name>SDL2main</Name>
+    </ProjectReference>
+    <ProjectReference Include="D:\VisualStudio\SDL2\SDL2-GameDevCMake\SDL2-Minesweeper\out\build\external\imgui\imgui.vcxproj">
+      <Project>{47E4A161-B2A1-39A4-82E2-713C7E56EB4F}</Project>
+      <Name>imgui</Name>
+      <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

@@ -35,4 +35,5 @@ endif()
 
 # Add sub-directories for external dependencies
 add_subdirectory("${CMAKE_SOURCE_DIR}/${PROJECT_NAME}")
-add_subdirectory("${CMAKE_SOURCE_DIR}/external/sdl2")
+#add_subdirectory("${CMAKE_SOURCE_DIR}/external/sdl2")
+add_subdirectory("${CMAKE_SOURCE_DIR}/external/imgui")
