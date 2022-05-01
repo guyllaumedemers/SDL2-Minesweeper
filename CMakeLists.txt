@@ -34,5 +34,6 @@ if(NOT EXISTS "${CMAKE_SOURCE_DIR}/external/sdl2/CMakeLists.txt")
 endif()
 
 # Add sub-directories for external dependencies
-add_subdirectory(${PROJECT_NAME})
-add_subdirectory("external/sdl2")
+include_directories("${CMAKE_SOURCE_DIR}/${PROJECT_NAME}")
+include_directories("${CMAKE_SOURCE_DIR}/external/sdl2")
+include_directories("${CMAKE_SOURCE_DIR}/external/imgui")
