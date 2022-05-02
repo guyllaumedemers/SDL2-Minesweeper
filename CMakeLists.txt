@@ -29,11 +29,11 @@ if(GIT_FOUND AND EXISTS "${CMAKE_SOURCE_DIR}/.git")
     endif()
 endif()
 
-#if(NOT EXISTS "${CMAKE_SOURCE_DIR}/external/sdl2/CMakeLists.txt")
-#    message(FATAL_ERROR "The submodules were not downloaded! GIT_SUBMODULE was turned off or failed. Please update submodules and try again.")
-#endif()
+if(NOT EXISTS "${CMAKE_SOURCE_DIR}/external/sdl2/CMakeLists.txt")
+    message(FATAL_ERROR "The submodules were not downloaded! GIT_SUBMODULE was turned off or failed. Please update submodules and try again.")
+endif()
 
-# Add sub-directories for external dependencies
+# Add subdirectory to add other cmakelists
 add_subdirectory("${CMAKE_SOURCE_DIR}/${PROJECT_NAME}")
-#add_subdirectory("${CMAKE_SOURCE_DIR}/external/sdl2")
+add_subdirectory("${CMAKE_SOURCE_DIR}/external/sdl2")
 add_subdirectory("${CMAKE_SOURCE_DIR}/external/imgui")
