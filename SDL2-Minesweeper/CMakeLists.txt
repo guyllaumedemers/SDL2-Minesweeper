@@ -25,6 +25,7 @@ add_executable (${PROJECT_NAME} "Main.cpp" ${SOURCE_FILES})
 
 # Specifies include directories to use when compiling a given target. 
 target_include_directories(${PROJECT_NAME} 
+	INTERFACE "${CMAKE_SOURCE_DIR}/external/imgui/sdl2/include"
 	INTERFACE "${CMAKE_SOURCE_DIR}/external/imgui"
 	INTERFACE "${CMAKE_SOURCE_DIR}/external/imgui/backends"
 	INTERFACE "${CMAKE_SOURCE_DIR}/external/imgui/misc/cpp"
@@ -32,9 +33,10 @@ target_include_directories(${PROJECT_NAME}
 
 # Specifies the paths in which the linker should search for libraries when linking a given target.
 target_link_directories(${PROJECT_NAME} 
-	PUBLIC "${CMAKE_SOURCE_DIR}/external/imgui"
-	PUBLIC "${CMAKE_SOURCE_DIR}/external/imgui/backends"
-	PUBLIC "${CMAKE_SOURCE_DIR}/external/imgui/misc/cpp"
+	INTERFACE "${CMAKE_SOURCE_DIR}/external/imgui/sdl2"
+	INTERFACE "${CMAKE_SOURCE_DIR}/external/imgui"
+	INTERFACE "${CMAKE_SOURCE_DIR}/external/imgui/backends"
+	INTERFACE "${CMAKE_SOURCE_DIR}/external/imgui/misc/cpp"
 )
 
 # Specify libraries or flags to use when linking a given target and/or its dependents.
