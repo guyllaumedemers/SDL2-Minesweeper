@@ -189,12 +189,6 @@ if %errorlevel% neq 0 goto :VCEnd</Command>
       <Project>{50795B32-C55F-3467-9744-2E5AD3BF8A9B}</Project>
       <Name>SDL2main</Name>
     </ProjectReference>
-    <ProjectReference Include="D:\VisualStudio\SDL2\SDL2-GameDevCMake\SDL2-Minesweeper\out\build\external\imgui\imgui.vcxproj">
-      <Project>{47E4A161-B2A1-39A4-82E2-713C7E56EB4F}</Project>
-      <Name>imgui</Name>
-      <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
-      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
-    </ProjectReference>
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

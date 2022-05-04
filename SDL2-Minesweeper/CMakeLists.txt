@@ -23,28 +23,19 @@ list(APPEND SOURCE_FILES
 # Add source to this project's executable.
 add_executable (${PROJECT_NAME} "Main.cpp" ${SOURCE_FILES})
 
-# Specifies include directories to use when compiling a given target.
-target_include_directories(${PROJECT_NAME}
+target_include_directories(${PROJECT_NAME} 
 	PUBLIC "${CMAKE_SOURCE_DIR}/external/sdl2/include"
-	PUBLIC "${CMAKE_SOURCE_DIR}/external/imgui"
-	PUBLIC "${CMAKE_SOURCE_DIR}/external/imgui/backends"
-	PUBLIC "${CMAKE_SOURCE_DIR}/external/imgui/misc/cpp"
 )
 
-# Specifies the paths in which the linker should search for libraries when linking a given target.
-target_link_directories(${PROJECT_NAME}
+target_sources(${PROJECT_NAME} 
 	PUBLIC "${CMAKE_SOURCE_DIR}/external/sdl2/src"
-	PUBLIC "${CMAKE_SOURCE_DIR}/external/imgui"
-	PUBLIC "${CMAKE_SOURCE_DIR}/external/imgui/backends"
-	PUBLIC "${CMAKE_SOURCE_DIR}/external/imgui/misc/cpp"
 )
 
-# Specify libraries or flags to use when linking a given target and/or its dependents.
-target_link_libraries(${PROJECT_NAME}
-	PUBLIC SDL2::SDL2-static
-	PUBLIC SDL2::SDL2main
-	PRIVATE imgui
-	PRIVATE imgui-sdl
-	PRIVATE imgui-sdlrenderer
-	PRIVATE imgui-stdlib
+#target_link_directories(${PROJECT_NAME} 
+#	PUBLIC "${CMAKE_SOURCE_DIR}/external/sdl2"
+#)
+
+target_link_libraries(${PROJECT_NAME} 
+	PUBLIC SDL2-static
+	PUBLIC SDL2main
 )

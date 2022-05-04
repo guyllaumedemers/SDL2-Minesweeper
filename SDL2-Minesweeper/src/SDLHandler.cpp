@@ -1,4 +1,3 @@
-#pragma once
 #include "../headers/SDLHandler.h"
 #include <iostream>
 
@@ -29,8 +28,8 @@ namespace Minesweeper {
 
 	void SDLHandler::refresh()
 	{
-		SDL_RenderClear(renderer);
 		SDL_SetRenderDrawColor(renderer, 0, 0, 0, 255);
+		SDL_RenderClear(renderer);
 	}
 
 	void SDLHandler::draw()
