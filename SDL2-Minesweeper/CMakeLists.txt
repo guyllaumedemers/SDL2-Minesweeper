@@ -20,6 +20,7 @@ list(APPEND SOURCE_FILES
 	"${SOURCE_DIR}/src/Subscriber.cpp"
 	"${SOURCE_DIR}/headers/ImGuiHandler.h"
 	"${SOURCE_DIR}/src/ImGuiHandler.cpp"
+	"${SOURCE_DIR}/headers/CRTMemoryLeak.h"
 )
 
 # Add source to this project's executable.

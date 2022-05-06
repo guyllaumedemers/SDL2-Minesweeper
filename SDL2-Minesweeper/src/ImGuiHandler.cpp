@@ -22,6 +22,8 @@ namespace Toolset {
 		ImGui_ImplSDLRenderer_Shutdown();
 		ImGui_ImplSDL2_Shutdown();
 		ImGui::DestroyContext();
+		delete context;
+		context = nullptr;
 	}
 
 	void ImGuiHandler::processInputs(SDL_Event& e, void(*inputs_callback)(SDL_Event&))
