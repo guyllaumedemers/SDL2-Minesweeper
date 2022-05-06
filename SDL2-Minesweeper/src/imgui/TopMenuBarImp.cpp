@@ -7,20 +7,18 @@ namespace GraphicalToolset {
 
 	void TopMenuBarImp::refresh()
 	{
-		bool my_tool_active = true;
-		ImGui::Begin("My First Tool", &my_tool_active, ImGuiWindowFlags_MenuBar);
-		if (ImGui::BeginMenuBar())
+		if (ImGui::BeginMainMenuBar())
 		{
-			if (ImGui::BeginMenu("File"))
-			{
-				if (ImGui::MenuItem("Open..", "Ctrl+O")) { /* Do stuff */ }
-				if (ImGui::MenuItem("Save", "Ctrl+S")) { /* Do stuff */ }
-				if (ImGui::MenuItem("Close", "Ctrl+W")) { my_tool_active = false; }
+			if (ImGui::MenuItem("New")) {}
+			if (ImGui::BeginMenu("Mode")) {
+				if (ImGui::MenuItem("Easy")) {}
+				if (ImGui::MenuItem("Medium")) {}
+				if (ImGui::MenuItem("Hard")) {}
 				ImGui::EndMenu();
 			}
-			ImGui::EndMenuBar();
+			if (ImGui::MenuItem("Clear")) { /*Clear the Current Game State*/ }
+			if (ImGui::MenuItem("Exit")) { /* Exit Game*/ }
+			ImGui::EndMainMenuBar();
 		}
-		ImGui::End();
-		if (!my_tool_active) {/*Trigger Event Callback*/ }
 	}
 }
