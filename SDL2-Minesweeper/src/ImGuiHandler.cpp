@@ -39,9 +39,10 @@ namespace Toolset {
 		ImGui_ImplSDLRenderer_NewFrame();
 		ImGui_ImplSDL2_NewFrame();
 		ImGui::NewFrame();
-		{
-			// Show ImGui Widget
-		}
+
+		// Show ImGui Widget
+		for (const auto& it : user_interface) it->refresh();
+
 		// Rendering
 		ImGui::Render();
 		// Refresh Rendering Platform/Renderer backends

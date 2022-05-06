@@ -21,6 +21,11 @@ list(APPEND SOURCE_FILES
 	"${SOURCE_DIR}/headers/ImGuiHandler.h"
 	"${SOURCE_DIR}/src/ImGuiHandler.cpp"
 	"${SOURCE_DIR}/headers/CRTMemoryLeak.h"
+	"${SOURCE_DIR}/headers/imgui/ImGuiComponent.h"
+	"${SOURCE_DIR}/headers/imgui/TopMenuBar.h"
+	"${SOURCE_DIR}/src/imgui/TopMenuBar.cpp"
+	"${SOURCE_DIR}/headers/imgui/TopMenuBarImp.h"
+	"${SOURCE_DIR}/src/imgui/TopMenuBarImp.cpp"
 )
 
 # Add source to this project's executable.

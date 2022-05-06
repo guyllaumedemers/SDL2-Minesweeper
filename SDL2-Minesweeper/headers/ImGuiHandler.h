@@ -1,10 +1,15 @@
 #pragma once
 #include "SDLHandler.h"
+#include "imgui/TopMenuBar.h"
+#include <vector>
 
+using namespace GraphicalToolset;
+using namespace std;
 namespace Toolset {
 	class ImGuiHandler {
 	private:
 		SDLHandler* context = nullptr;
+		vector<ImGuiComponent*> user_interface;
 		ImGuiHandler(const ImGuiHandler&) = delete;
 		ImGuiHandler(ImGuiHandler&&) = delete;
 		void create(SDLHandler*);
