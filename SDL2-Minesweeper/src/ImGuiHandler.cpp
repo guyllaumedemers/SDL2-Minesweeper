@@ -9,6 +9,7 @@ namespace Toolset {
 
 	void ImGuiHandler::create(SDLHandler* handler)
 	{
+		user_interface.push_back(new TopMenuBar(new TopMenuBarImp()));	//Temp solution, will probably create a builder pattern to return proper vector<ImGuiComponent*>
 		IMGUI_CHECKVERSION();
 		ImGui::CreateContext();
 		ImGuiIO& io = ImGui::GetIO(); (void)io;

@@ -13,6 +13,7 @@ namespace Minesweeper {
 	void GameManager::init()
 	{
 #ifdef _DEBUG
+		CRTMemoryLeak::init();
 		context = DBG_NEW ImGuiHandler(DBG_NEW SDLHandler(640, 480));
 #else
 		context = new ImGuiHandler(new SDLHandler(640, 480));
