@@ -4,12 +4,12 @@
 #include <iostream>
 
 namespace Minesweeper {
-	SDLHandler* GameManager::context = nullptr;
+	ImGuiHandler* GameManager::context = nullptr;
 	bool GameManager::isRunning = false;
 
 	void GameManager::init()
 	{
-		context = new SDLHandler(640, 480);
+		context = new ImGuiHandler(new SDLHandler(640, 480));
 		isRunning = true;
 	}
 
@@ -17,10 +17,9 @@ namespace Minesweeper {
 	{
 		while (isRunning) {
 			SDL_Event _e;
-			if (SDL_WaitEvent(&_e)) InputHandler::getInput(_e);
-			context->refresh();
-			//set logic
-			context->draw();
+			if (SDL_WaitEvent(&_e)) context->processInputs(_e, [](SDL_Event& e) {InputHandler::getInput(e); });
+			context->refresh([]() {});
+			context->draw([]() {});
 		}
 	}
 

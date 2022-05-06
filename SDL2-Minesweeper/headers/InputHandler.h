@@ -1,7 +1,7 @@
 #pragma once
 #include <SDL.h>
 
-namespace Minesweeper {
+namespace Toolset {
 	class InputHandler {
 	public:
 		static void getInput(SDL_Event& e);

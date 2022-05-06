@@ -1,10 +1,11 @@
 #pragma once
-#include "SDLHandler.h"
+#include "ImGuiHandler.h"
 
+using namespace Toolset;
 namespace Minesweeper {
 	class GameManager {
 	private:
-		static SDLHandler* context;
+		static ImGuiHandler* context;
 		static bool isRunning;
 		static void init();
 		static void run();

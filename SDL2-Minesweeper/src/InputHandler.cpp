@@ -2,7 +2,8 @@
 #include "../headers/InputHandler.h"
 #include "../headers/GameManager.h"
 
-namespace Minesweeper {
+using namespace Minesweeper;
+namespace Toolset {
 	void InputHandler::getInput(SDL_Event& e)
 	{
 		switch (e.type)

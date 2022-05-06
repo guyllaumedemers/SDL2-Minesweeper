@@ -1,7 +1,7 @@
 #pragma once
 #include "../headers/EventHandler.h"
 
-namespace Minesweeper {
+namespace Toolset {
 	EventHandler::EventHandler()
 	{
 	}

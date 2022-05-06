@@ -3,7 +3,7 @@
 #include "Subscriber.h"
 
 using namespace std;
-namespace Minesweeper {
+namespace Toolset {
 	class EventHandler {
 	private:
 		vector<Subscriber> subscribers;

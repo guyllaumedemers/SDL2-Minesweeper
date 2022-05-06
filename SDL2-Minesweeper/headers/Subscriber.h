@@ -1,6 +1,6 @@
 #pragma once
 
-namespace Minesweeper {
+namespace Toolset {
 	class Subscriber {
 	public:
 
