@@ -6,5 +6,6 @@ namespace GraphicalToolset {
 
 	void TopMenuBar::refresh()
 	{
+		imp->refresh();
 	}
 }

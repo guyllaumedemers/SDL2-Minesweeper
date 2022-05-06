@@ -2,13 +2,8 @@
 #include "../headers/EventHandler.h"
 
 namespace Toolset {
-	EventHandler::EventHandler()
-	{
-	}
-
-	EventHandler::~EventHandler()
-	{
-	}
+	EventHandler::EventHandler() {}
+	EventHandler::~EventHandler() {}
 
 	void EventHandler::add(Subscriber&)
 	{

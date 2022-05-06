@@ -120,6 +120,7 @@
     <None Include="D:\VisualStudio\SDL2\SDL2-GameDevCMake\SDL2-Minesweeper\external\imgui" />
     <None Include="D:\VisualStudio\SDL2\SDL2-GameDevCMake\SDL2-Minesweeper\external\imgui\backends" />
     <None Include="D:\VisualStudio\SDL2\SDL2-GameDevCMake\SDL2-Minesweeper\external\imgui\misc\cpp" />
+    <None Include="D:\VisualStudio\SDL2\SDL2-GameDevCMake\SDL2-Minesweeper\external\imgui\misc\single_file" />
   </ItemGroup>
   <ItemGroup>
     <Filter Include="Header Files">

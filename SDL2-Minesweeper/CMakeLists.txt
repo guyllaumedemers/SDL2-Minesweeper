@@ -36,6 +36,7 @@ target_include_directories(${PROJECT_NAME}
 	PUBLIC "${CMAKE_SOURCE_DIR}/external/imgui"
 	PUBLIC "${CMAKE_SOURCE_DIR}/external/imgui/backends"
 	PUBLIC "${CMAKE_SOURCE_DIR}/external/imgui/misc/cpp"
+	PUBLIC "${CMAKE_SOURCE_DIR}/external/imgui/misc/single_file"
 )
 
 target_sources(${PROJECT_NAME} 
@@ -43,6 +44,7 @@ target_sources(${PROJECT_NAME}
 	PUBLIC "${CMAKE_SOURCE_DIR}/external/imgui"
 	PUBLIC "${CMAKE_SOURCE_DIR}/external/imgui/backends"
 	PUBLIC "${CMAKE_SOURCE_DIR}/external/imgui/misc/cpp"
+	PUBLIC "${CMAKE_SOURCE_DIR}/external/imgui/misc/single_file"
 )
 
 #target_link_directories(${PROJECT_NAME} 
