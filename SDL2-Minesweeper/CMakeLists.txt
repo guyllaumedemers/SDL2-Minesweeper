@@ -8,6 +8,8 @@ set(SOURCE_DIR "${CMAKE_SOURCE_DIR}/${PROJECT_NAME}")
 
 # Adding all project local dependencies
 list(APPEND SOURCE_FILES
+	"${SOURCE_DIR}/headers/Subscriber.h"
+	"${SOURCE_DIR}/src/Subscriber.cpp"
 	"${SOURCE_DIR}/headers/EventHandler.h"
 	"${SOURCE_DIR}/src/EventHandler.cpp"
 	"${SOURCE_DIR}/headers/GameManager.h"
@@ -16,8 +18,6 @@ list(APPEND SOURCE_FILES
 	"${SOURCE_DIR}/src/InputHandler.cpp"
 	"${SOURCE_DIR}/headers/SDLHandler.h"
 	"${SOURCE_DIR}/src/SDLHandler.cpp"
-	"${SOURCE_DIR}/headers/Subscriber.h"
-	"${SOURCE_DIR}/src/Subscriber.cpp"
 	"${SOURCE_DIR}/headers/ImGuiHandler.h"
 	"${SOURCE_DIR}/src/ImGuiHandler.cpp"
 	"${SOURCE_DIR}/headers/CRTMemoryLeak.h"

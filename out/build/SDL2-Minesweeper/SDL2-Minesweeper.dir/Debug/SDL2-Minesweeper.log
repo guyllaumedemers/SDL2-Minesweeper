@@ -1,2 +1,54 @@
-﻿  SDLHandler.cpp
-  SDL2-Minesweeper.vcxproj -> D:\VisualStudio\SDL2\SDL2-GameDevCMake\SDL2-Minesweeper\out\build\SDL2-Minesweeper\Debug\SDL2-Minesweeper.exe
+﻿  Main.cpp
+D:\VisualStudio\SDL2\SDL2-GameDevCMake\SDL2-Minesweeper\SDL2-Minesweeper\headers\Subscriber.h(12,15): error C2143: syntax error: missing ';' before '*'
+D:\VisualStudio\SDL2\SDL2-GameDevCMake\SDL2-Minesweeper\SDL2-Minesweeper\headers\Subscriber.h(12,15): error C4430: missing type specifier - int assumed. Note: C++ does not support default-int
+D:\VisualStudio\SDL2\SDL2-GameDevCMake\SDL2-Minesweeper\SDL2-Minesweeper\headers\Subscriber.h(12,34): error C2238: unexpected token(s) preceding ';'
+D:\VisualStudio\SDL2\SDL2-GameDevCMake\SDL2-Minesweeper\SDL2-Minesweeper\headers\Subscriber.h(17,14): error C2061: syntax error: identifier 'EventHandler'
+D:\VisualStudio\SDL2\SDL2-GameDevCMake\SDL2-Minesweeper\SDL2-Minesweeper\headers\Subscriber.h(17,13): error C2535: 'Toolset::Subscriber::Subscriber(void)': member function already defined or declared
+D:\VisualStudio\SDL2\SDL2-GameDevCMake\SDL2-Minesweeper\SDL2-Minesweeper\headers\Subscriber.h(13): message : see declaration of 'Toolset::Subscriber::Subscriber'
+  EventHandler.cpp
+D:\VisualStudio\SDL2\SDL2-GameDevCMake\SDL2-Minesweeper\SDL2-Minesweeper\headers\Subscriber.h(12,15): error C2143: syntax error: missing ';' before '*'
+D:\VisualStudio\SDL2\SDL2-GameDevCMake\SDL2-Minesweeper\SDL2-Minesweeper\headers\Subscriber.h(12,15): error C4430: missing type specifier - int assumed. Note: C++ does not support default-int
+D:\VisualStudio\SDL2\SDL2-GameDevCMake\SDL2-Minesweeper\SDL2-Minesweeper\headers\Subscriber.h(12,34): error C2238: unexpected token(s) preceding ';'
+D:\VisualStudio\SDL2\SDL2-GameDevCMake\SDL2-Minesweeper\SDL2-Minesweeper\headers\Subscriber.h(17,14): error C2061: syntax error: identifier 'EventHandler'
+D:\VisualStudio\SDL2\SDL2-GameDevCMake\SDL2-Minesweeper\SDL2-Minesweeper\headers\Subscriber.h(17,13): error C2535: 'Toolset::Subscriber::Subscriber(void)': member function already defined or declared
+D:\VisualStudio\SDL2\SDL2-GameDevCMake\SDL2-Minesweeper\SDL2-Minesweeper\headers\Subscriber.h(13): message : see declaration of 'Toolset::Subscriber::Subscriber'
+D:\VisualStudio\SDL2\SDL2-GameDevCMake\SDL2-Minesweeper\SDL2-Minesweeper\src\EventHandler.cpp(6,34): warning C4267: 'initializing': conversion from 'size_t' to 'int', possible loss of data
+D:\VisualStudio\SDL2\SDL2-GameDevCMake\SDL2-Minesweeper\SDL2-Minesweeper\src\EventHandler.cpp(21,3): warning C4267: 'initializing': conversion from 'size_t' to 'int', possible loss of data
+  GameManager.cpp
+D:\VisualStudio\SDL2\SDL2-GameDevCMake\SDL2-Minesweeper\SDL2-Minesweeper\headers\Subscriber.h(12,15): error C2143: syntax error: missing ';' before '*'
+D:\VisualStudio\SDL2\SDL2-GameDevCMake\SDL2-Minesweeper\SDL2-Minesweeper\headers\Subscriber.h(12,15): error C4430: missing type specifier - int assumed. Note: C++ does not support default-int
+D:\VisualStudio\SDL2\SDL2-GameDevCMake\SDL2-Minesweeper\SDL2-Minesweeper\headers\Subscriber.h(12,34): error C2238: unexpected token(s) preceding ';'
+D:\VisualStudio\SDL2\SDL2-GameDevCMake\SDL2-Minesweeper\SDL2-Minesweeper\headers\Subscriber.h(17,14): error C2061: syntax error: identifier 'EventHandler'
+D:\VisualStudio\SDL2\SDL2-GameDevCMake\SDL2-Minesweeper\SDL2-Minesweeper\headers\Subscriber.h(17,13): error C2535: 'Toolset::Subscriber::Subscriber(void)': member function already defined or declared
+D:\VisualStudio\SDL2\SDL2-GameDevCMake\SDL2-Minesweeper\SDL2-Minesweeper\headers\Subscriber.h(13): message : see declaration of 'Toolset::Subscriber::Subscriber'
+  InputHandler.cpp
+D:\VisualStudio\SDL2\SDL2-GameDevCMake\SDL2-Minesweeper\SDL2-Minesweeper\headers\Subscriber.h(12,15): error C2143: syntax error: missing ';' before '*'
+D:\VisualStudio\SDL2\SDL2-GameDevCMake\SDL2-Minesweeper\SDL2-Minesweeper\headers\Subscriber.h(12,15): error C4430: missing type specifier - int assumed. Note: C++ does not support default-int
+D:\VisualStudio\SDL2\SDL2-GameDevCMake\SDL2-Minesweeper\SDL2-Minesweeper\headers\Subscriber.h(12,34): error C2238: unexpected token(s) preceding ';'
+D:\VisualStudio\SDL2\SDL2-GameDevCMake\SDL2-Minesweeper\SDL2-Minesweeper\headers\Subscriber.h(17,14): error C2061: syntax error: identifier 'EventHandler'
+D:\VisualStudio\SDL2\SDL2-GameDevCMake\SDL2-Minesweeper\SDL2-Minesweeper\headers\Subscriber.h(17,13): error C2535: 'Toolset::Subscriber::Subscriber(void)': member function already defined or declared
+D:\VisualStudio\SDL2\SDL2-GameDevCMake\SDL2-Minesweeper\SDL2-Minesweeper\headers\Subscriber.h(13): message : see declaration of 'Toolset::Subscriber::Subscriber'
+  Subscriber.cpp
+D:\VisualStudio\SDL2\SDL2-GameDevCMake\SDL2-Minesweeper\SDL2-Minesweeper\headers\EventHandler.h(9,10): error C2065: 'Subscriber': undeclared identifier
+D:\VisualStudio\SDL2\SDL2-GameDevCMake\SDL2-Minesweeper\SDL2-Minesweeper\headers\EventHandler.h(9,21): error C2059: syntax error: '>'
+D:\VisualStudio\SDL2\SDL2-GameDevCMake\SDL2-Minesweeper\SDL2-Minesweeper\headers\EventHandler.h(15,12): error C2061: syntax error: identifier 'Subscriber'
+D:\VisualStudio\SDL2\SDL2-GameDevCMake\SDL2-Minesweeper\SDL2-Minesweeper\headers\EventHandler.h(16,15): error C2061: syntax error: identifier 'Subscriber'
+D:\VisualStudio\SDL2\SDL2-GameDevCMake\SDL2-Minesweeper\SDL2-Minesweeper\src\Subscriber.cpp(5,123): error C2660: 'Toolset::EventHandler::add': function does not take 1 arguments
+D:\VisualStudio\SDL2\SDL2-GameDevCMake\SDL2-Minesweeper\SDL2-Minesweeper\headers\EventHandler.h(15,8): message : see declaration of 'Toolset::EventHandler::add'
+D:\VisualStudio\SDL2\SDL2-GameDevCMake\SDL2-Minesweeper\SDL2-Minesweeper\src\Subscriber.cpp(6,50): error C2660: 'Toolset::EventHandler::remove': function does not take 1 arguments
+D:\VisualStudio\SDL2\SDL2-GameDevCMake\SDL2-Minesweeper\SDL2-Minesweeper\headers\EventHandler.h(16,8): message : see declaration of 'Toolset::EventHandler::remove'
+  ImGuiHandler.cpp
+D:\VisualStudio\SDL2\SDL2-GameDevCMake\SDL2-Minesweeper\SDL2-Minesweeper\headers\Subscriber.h(12,15): error C2143: syntax error: missing ';' before '*'
+D:\VisualStudio\SDL2\SDL2-GameDevCMake\SDL2-Minesweeper\SDL2-Minesweeper\headers\Subscriber.h(12,15): error C4430: missing type specifier - int assumed. Note: C++ does not support default-int
+D:\VisualStudio\SDL2\SDL2-GameDevCMake\SDL2-Minesweeper\SDL2-Minesweeper\headers\Subscriber.h(12,34): error C2238: unexpected token(s) preceding ';'
+D:\VisualStudio\SDL2\SDL2-GameDevCMake\SDL2-Minesweeper\SDL2-Minesweeper\headers\Subscriber.h(17,14): error C2061: syntax error: identifier 'EventHandler'
+D:\VisualStudio\SDL2\SDL2-GameDevCMake\SDL2-Minesweeper\SDL2-Minesweeper\headers\Subscriber.h(17,13): error C2535: 'Toolset::Subscriber::Subscriber(void)': member function already defined or declared
+D:\VisualStudio\SDL2\SDL2-GameDevCMake\SDL2-Minesweeper\SDL2-Minesweeper\headers\Subscriber.h(13): message : see declaration of 'Toolset::Subscriber::Subscriber'
+  TopMenuBar.cpp
+D:\VisualStudio\SDL2\SDL2-GameDevCMake\SDL2-Minesweeper\SDL2-Minesweeper\headers\Subscriber.h(12,15): error C2143: syntax error: missing ';' before '*'
+D:\VisualStudio\SDL2\SDL2-GameDevCMake\SDL2-Minesweeper\SDL2-Minesweeper\headers\Subscriber.h(12,15): error C4430: missing type specifier - int assumed. Note: C++ does not support default-int
+D:\VisualStudio\SDL2\SDL2-GameDevCMake\SDL2-Minesweeper\SDL2-Minesweeper\headers\Subscriber.h(12,34): error C2238: unexpected token(s) preceding ';'
+D:\VisualStudio\SDL2\SDL2-GameDevCMake\SDL2-Minesweeper\SDL2-Minesweeper\headers\Subscriber.h(17,14): error C2061: syntax error: identifier 'EventHandler'
+D:\VisualStudio\SDL2\SDL2-GameDevCMake\SDL2-Minesweeper\SDL2-Minesweeper\headers\Subscriber.h(17,13): error C2535: 'Toolset::Subscriber::Subscriber(void)': member function already defined or declared
+D:\VisualStudio\SDL2\SDL2-GameDevCMake\SDL2-Minesweeper\SDL2-Minesweeper\headers\Subscriber.h(13): message : see declaration of 'Toolset::Subscriber::Subscriber'
+  Generating Code...
