@@ -81,6 +81,9 @@
     <ClInclude Include="D:\VisualStudio\SDL2\SDL2-GameDevCMake\SDL2-Minesweeper\SDL2-Minesweeper\headers\game\Tile.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="D:\VisualStudio\SDL2\SDL2-GameDevCMake\SDL2-Minesweeper\SDL2-Minesweeper\headers\game\Tilebitmask.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
     <ClInclude Include="D:\VisualStudio\SDL2\SDL2-GameDevCMake\SDL2-Minesweeper\SDL2-Minesweeper\headers\imgui\ImGuiComponent.h">
       <Filter>Header Files</Filter>
     </ClInclude>
