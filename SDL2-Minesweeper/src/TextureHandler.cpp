@@ -8,8 +8,8 @@ using namespace std;
 namespace Toolset {
 	void TextureHandler::load(SDL_Renderer* renderer)
 	{
-		for (const auto& file : std::filesystem::directory_iterator(PATH)) {
-			std::filesystem::path path = file.path();
+		for (const auto& file : filesystem::directory_iterator(PATH)) {
+			filesystem::path path = file.path();
 			string s_path = path.generic_u8string();
 			SDL_Texture* temp = loadtexture(renderer, s_path.c_str());
 			vector<string> tokens;

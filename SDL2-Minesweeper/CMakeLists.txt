@@ -27,10 +27,6 @@ target_sources(${PROJECT_NAME}
 	PUBLIC "${CMAKE_SOURCE_DIR}/external/imgui/misc/single_file"
 )
 
-#target_link_directories(${PROJECT_NAME} 
-#	PUBLIC "${CMAKE_SOURCE_DIR}/external/sdl2"
-#)
-
 target_link_libraries(${PROJECT_NAME} 
 	PUBLIC SDL2-static
 	PUBLIC SDL2main

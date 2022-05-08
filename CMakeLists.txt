@@ -13,14 +13,15 @@ set(LANGUAGE C CXX)
 set(CMAKE_CXX_STANDARD 17)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
 set(CMAKE_CXX_EXTENSIONS OFF)
+set(CMAKE_CXX_COMPILE_FEATURES cxx_std_17)
 
-# Unknown command, gcc is updated to the latest, cmake is at 3.22 and should support the flag
-#set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -std=c++17")
-
-# Currently doesnt care for its flag, MSVC non-sense // Debug version seems to set itself to c++17 but release mode doesnt link to #include <filesystem>
-if(MSVC)
-set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} /std:c++17")
-endif(MSVC)
+if (MSVC_VERSION GREATER_EQUAL "1900")
+    include(CheckCXXCompilerFlag)
+    CHECK_CXX_COMPILER_FLAG("/std:c++latest" _cpp_latest_flag_supported)
+    if (_cpp_latest_flag_supported)
+        add_compile_options("/std:c++latest")
+    endif()
+endif()
 
 # Update Git submodule, updated version to point to top level cmakelists
 find_package(Git QUIET)
