@@ -185,15 +185,75 @@ if %errorlevel% neq 0 goto :VCEnd</Command>
       <Project>{1BF565AB-D506-3F20-8097-DCD867CA228D}</Project>
       <Name>SDL2-static</Name>
     </ProjectReference>
+    <ProjectReference Include="D:\VisualStudio\SDL2\SDL2-GameDevCMake\SDL2-Minesweeper\out\build\external\sdl_image\SDL2_image.vcxproj">
+      <Project>{C16114D8-A783-3495-9C6E-4A8FDF3A9A61}</Project>
+      <Name>SDL2_image</Name>
+    </ProjectReference>
     <ProjectReference Include="D:\VisualStudio\SDL2\SDL2-GameDevCMake\SDL2-Minesweeper\out\build\external\sdl2\SDL2main.vcxproj">
       <Project>{50795B32-C55F-3467-9744-2E5AD3BF8A9B}</Project>
       <Name>SDL2main</Name>
+    </ProjectReference>
+    <ProjectReference Include="D:\VisualStudio\SDL2\SDL2-GameDevCMake\SDL2-Minesweeper\out\build\external\sdl_image\external\zlib\example.vcxproj">
+      <Project>{AB19B5D5-6A1E-3380-A1BB-25435D2F0725}</Project>
+      <Name>example</Name>
     </ProjectReference>
     <ProjectReference Include="D:\VisualStudio\SDL2\SDL2-GameDevCMake\SDL2-Minesweeper\out\build\external\imgui\imgui.vcxproj">
       <Project>{47E4A161-B2A1-39A4-82E2-713C7E56EB4F}</Project>
       <Name>imgui</Name>
       <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
       <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </ProjectReference>
+    <ProjectReference Include="D:\VisualStudio\SDL2\SDL2-GameDevCMake\SDL2-Minesweeper\out\build\external\sdl_image\external\jpeg\jpeg.vcxproj">
+      <Project>{03F54483-F760-3C90-A894-E580FBFCAB6B}</Project>
+      <Name>jpeg</Name>
+    </ProjectReference>
+    <ProjectReference Include="D:\VisualStudio\SDL2\SDL2-GameDevCMake\SDL2-Minesweeper\out\build\external\sdl_image\external\zlib\minigzip.vcxproj">
+      <Project>{A4F83939-72A4-3C5F-BE53-C75899C3F56C}</Project>
+      <Name>minigzip</Name>
+    </ProjectReference>
+    <ProjectReference Include="D:\VisualStudio\SDL2\SDL2-GameDevCMake\SDL2-Minesweeper\out\build\external\sdl_image\external\libpng\png.vcxproj">
+      <Project>{2A271C12-4699-3DBE-B493-03A216CFD3D5}</Project>
+      <Name>png</Name>
+    </ProjectReference>
+    <ProjectReference Include="D:\VisualStudio\SDL2\SDL2-GameDevCMake\SDL2-Minesweeper\out\build\external\sdl_image\external\libpng\png-fix-itxt.vcxproj">
+      <Project>{843AE41A-2476-3DB7-B981-7F10FB8C2A48}</Project>
+      <Name>png-fix-itxt</Name>
+    </ProjectReference>
+    <ProjectReference Include="D:\VisualStudio\SDL2\SDL2-GameDevCMake\SDL2-Minesweeper\out\build\external\sdl_image\external\libpng\png_static.vcxproj">
+      <Project>{689E4483-449C-37EC-89F8-B164C9E87CAE}</Project>
+      <Name>png_static</Name>
+    </ProjectReference>
+    <ProjectReference Include="D:\VisualStudio\SDL2\SDL2-GameDevCMake\SDL2-Minesweeper\out\build\external\sdl_image\external\libpng\pngfix.vcxproj">
+      <Project>{8297C449-4D71-3DE5-BA63-F208C04AB0F6}</Project>
+      <Name>pngfix</Name>
+    </ProjectReference>
+    <ProjectReference Include="D:\VisualStudio\SDL2\SDL2-GameDevCMake\SDL2-Minesweeper\out\build\external\sdl_image\external\libpng\pngimage.vcxproj">
+      <Project>{1F25652E-8946-373F-B841-B31325C6370B}</Project>
+      <Name>pngimage</Name>
+    </ProjectReference>
+    <ProjectReference Include="D:\VisualStudio\SDL2\SDL2-GameDevCMake\SDL2-Minesweeper\out\build\external\sdl_image\external\libpng\pngstest.vcxproj">
+      <Project>{F1F227A5-FF83-3DE4-B616-537ABEF16618}</Project>
+      <Name>pngstest</Name>
+    </ProjectReference>
+    <ProjectReference Include="D:\VisualStudio\SDL2\SDL2-GameDevCMake\SDL2-Minesweeper\out\build\external\sdl_image\external\libpng\pngtest.vcxproj">
+      <Project>{82122C84-6547-3516-99A8-64DD01DC2D23}</Project>
+      <Name>pngtest</Name>
+    </ProjectReference>
+    <ProjectReference Include="D:\VisualStudio\SDL2\SDL2-GameDevCMake\SDL2-Minesweeper\out\build\external\sdl_image\external\libpng\pngunknown.vcxproj">
+      <Project>{20530223-A64F-3A23-BC3D-A0DCF557C4BA}</Project>
+      <Name>pngunknown</Name>
+    </ProjectReference>
+    <ProjectReference Include="D:\VisualStudio\SDL2\SDL2-GameDevCMake\SDL2-Minesweeper\out\build\external\sdl_image\external\libpng\pngvalid.vcxproj">
+      <Project>{94A4F5B3-3965-3014-8E1F-50C821FB5367}</Project>
+      <Name>pngvalid</Name>
+    </ProjectReference>
+    <ProjectReference Include="D:\VisualStudio\SDL2\SDL2-GameDevCMake\SDL2-Minesweeper\out\build\external\sdl_image\external\zlib\zlib.vcxproj">
+      <Project>{3D08AAD5-C438-3317-AAFF-C5571C01D34C}</Project>
+      <Name>zlib</Name>
+    </ProjectReference>
+    <ProjectReference Include="D:\VisualStudio\SDL2\SDL2-GameDevCMake\SDL2-Minesweeper\out\build\external\sdl_image\external\zlib\zlibstatic.vcxproj">
+      <Project>{7ED53639-CBD6-369F-8B2D-5A9D64F95996}</Project>
+      <Name>zlibstatic</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

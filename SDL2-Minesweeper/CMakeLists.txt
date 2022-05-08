@@ -3,38 +3,15 @@
 #
 cmake_minimum_required (VERSION 3.8)
 
-# setting project dependecy path
-set(SOURCE_DIR "${CMAKE_SOURCE_DIR}/${PROJECT_NAME}")
-
-file(GLOB_RECURSE SRC_HEADERS ${SOURCE_DIR} *.h *.cpp)
-
-# Adding all project local dependencies
-#list(APPEND SOURCE_FILES
-#	"${SOURCE_DIR}/headers/Subscriber.h"
-#	"${SOURCE_DIR}/src/Subscriber.cpp"
-#	"${SOURCE_DIR}/headers/EventHandler.h"
-#	"${SOURCE_DIR}/src/EventHandler.cpp"
-#	"${SOURCE_DIR}/headers/GameManager.h"
-#	"${SOURCE_DIR}/src/GameManager.cpp"
-#	"${SOURCE_DIR}/headers/InputHandler.h"
-#	"${SOURCE_DIR}/src/InputHandler.cpp"
-#	"${SOURCE_DIR}/headers/SDLHandler.h"
-#	"${SOURCE_DIR}/src/SDLHandler.cpp"
-#	"${SOURCE_DIR}/headers/ImGuiHandler.h"
-#	"${SOURCE_DIR}/src/ImGuiHandler.cpp"
-#	"${SOURCE_DIR}/headers/CRTMemoryLeak.h"
-#	"${SOURCE_DIR}/headers/imgui/ImGuiComponent.h"
-#	"${SOURCE_DIR}/headers/imgui/TopMenuBar.h"
-#	"${SOURCE_DIR}/src/imgui/TopMenuBar.cpp"
-#	"${SOURCE_DIR}/headers/imgui/TopMenuBarImp.h"
-#	"${SOURCE_DIR}/src/imgui/TopMenuBarImp.cpp"
-#)
+# retrieve project dependecy at path
+file(GLOB_RECURSE SRC_HEADERS "${CMAKE_SOURCE_DIR}/${PROJECT_NAME}" *.h *.cpp)
 
 # Add source to this project's executable.
 add_executable (${PROJECT_NAME} "Main.cpp" ${SRC_HEADERS})
 
 target_include_directories(${PROJECT_NAME} 
 	PUBLIC "${CMAKE_SOURCE_DIR}/external/sdl2/include"
+	PUBLIC "${CMAKE_SOURCE_DIR}/external/sdl_image"
 	PUBLIC "${CMAKE_SOURCE_DIR}/external/imgui"
 	PUBLIC "${CMAKE_SOURCE_DIR}/external/imgui/backends"
 	PUBLIC "${CMAKE_SOURCE_DIR}/external/imgui/misc/cpp"
@@ -43,6 +20,7 @@ target_include_directories(${PROJECT_NAME}
 
 target_sources(${PROJECT_NAME} 
 	PUBLIC "${CMAKE_SOURCE_DIR}/external/sdl2/src"
+	PUBLIC "${CMAKE_SOURCE_DIR}/external/sdl_image"
 	PUBLIC "${CMAKE_SOURCE_DIR}/external/imgui"
 	PUBLIC "${CMAKE_SOURCE_DIR}/external/imgui/backends"
 	PUBLIC "${CMAKE_SOURCE_DIR}/external/imgui/misc/cpp"
@@ -56,6 +34,7 @@ target_sources(${PROJECT_NAME}
 target_link_libraries(${PROJECT_NAME} 
 	PUBLIC SDL2-static
 	PUBLIC SDL2main
+	PUBLIC SDL2_image
 	PRIVATE imgui
 	PRIVATE imgui-sdl
 	PRIVATE imgui-sdlrenderer

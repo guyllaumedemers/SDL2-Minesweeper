@@ -11,7 +11,16 @@ set(LANGUAGE C CXX)
 
 # Set Project C++ Standard used.
 set(CMAKE_CXX_STANDARD 17)
-set(CMAKE_CXX_STANDARD_REQUIRED TRUE)
+set(CMAKE_CXX_STANDARD_REQUIRED ON)
+set(CMAKE_CXX_EXTENSIONS OFF)
+
+# Unknown command, gcc is updated to the latest, cmake is at 3.22 and should support the flag
+#set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -std=c++17")
+
+# Currently doesnt care for its flag, MSVC non-sense // Debug version seems to set itself to c++17 but release mode doesnt link to #include <filesystem>
+if(MSVC)
+set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} /std:c++17")
+endif(MSVC)
 
 # Update Git submodule, updated version to point to top level cmakelists
 find_package(Git QUIET)
@@ -29,11 +38,15 @@ if(GIT_FOUND AND EXISTS "${CMAKE_SOURCE_DIR}/.git")
     endif()
 endif()
 
+# imgui doesnt have a cmakelists in his submodule by default, gist version -> https://gist.github.com/rokups/f771217b2d530d170db5cb1e08e9a8f4
 if(NOT EXISTS "${CMAKE_SOURCE_DIR}/external/sdl2/CMakeLists.txt")
+    message(FATAL_ERROR "The submodules were not downloaded! GIT_SUBMODULE was turned off or failed. Please update submodules and try again.")
+elseif(NOT EXISTS "${CMAKE_SOURCE_DIR}/external/sdl_image/CMakeLists.txt")
     message(FATAL_ERROR "The submodules were not downloaded! GIT_SUBMODULE was turned off or failed. Please update submodules and try again.")
 endif()
 
 # Add subdirectory to add other cmakelists
 add_subdirectory("${CMAKE_SOURCE_DIR}/${PROJECT_NAME}")
 add_subdirectory("${CMAKE_SOURCE_DIR}/external/sdl2")
+add_subdirectory("${CMAKE_SOURCE_DIR}/external/sdl_image")
 add_subdirectory("${CMAKE_SOURCE_DIR}/external/imgui")
