@@ -1,15 +1,12 @@
 #pragma once
 #include <SDL.h>
 #include <unordered_map>
-#ifndef PATH
-#define PATH "../res/"
-#endif
 
 using namespace std;
 namespace Toolset {
 	class TextureHandler {
 	private:
-		unordered_map<const char*, SDL_Texture*> textures;
+		static unordered_map<const char*, SDL_Texture*> textures;
 		TextureHandler() = delete;
 		TextureHandler(const TextureHandler&) = delete;
 		TextureHandler(TextureHandler&&) = delete;

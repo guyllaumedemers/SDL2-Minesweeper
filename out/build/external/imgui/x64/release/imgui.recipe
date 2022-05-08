@@ -5,7 +5,7 @@
       <FullPath>D:\VisualStudio\SDL2\SDL2-GameDevCMake\SDL2-Minesweeper\out\build\x64\release\ZERO_CHECK</FullPath>
     </ProjectOutput>
     <ProjectOutput>
-      <FullPath>D:\VisualStudio\SDL2\SDL2-GameDevCMake\SDL2-Minesweeper\out\build\x64\Release\imgui</FullPath>
+      <FullPath>D:\VisualStudio\SDL2\SDL2-GameDevCMake\SDL2-Minesweeper\out\build\external\imgui\x64\release\imgui</FullPath>
     </ProjectOutput>
   </ProjectOutputs>
   <ContentFiles />
