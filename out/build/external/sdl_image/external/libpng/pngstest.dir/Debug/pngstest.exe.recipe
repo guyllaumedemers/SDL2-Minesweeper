@@ -8,13 +8,13 @@
       <FullPath>D:\VisualStudio\SDL2\SDL2-GameDevCMake\SDL2-Minesweeper\out\build\external\sdl_image\external\libpng\x64\Debug\genfiles</FullPath>
     </ProjectOutput>
     <ProjectOutput>
-      <FullPath>D:\VisualStudio\SDL2\SDL2-GameDevCMake\SDL2-Minesweeper\out\build\external\sdl_image\external\zlib\Debug\zlibd1.dll</FullPath>
+      <FullPath>D:\VisualStudio\SDL2\SDL2-GameDevCMake\SDL2-Minesweeper\out\build\bin\Debug\zlibd1.dll</FullPath>
     </ProjectOutput>
     <ProjectOutput>
-      <FullPath>D:\VisualStudio\SDL2\SDL2-GameDevCMake\SDL2-Minesweeper\out\build\external\sdl_image\external\libpng\Debug\libpng16d.dll</FullPath>
+      <FullPath>D:\VisualStudio\SDL2\SDL2-GameDevCMake\SDL2-Minesweeper\out\build\bin\Debug\libpng16d.dll</FullPath>
     </ProjectOutput>
     <ProjectOutput>
-      <FullPath>D:\VisualStudio\SDL2\SDL2-GameDevCMake\SDL2-Minesweeper\out\build\external\sdl_image\external\libpng\Debug\pngstest.exe</FullPath>
+      <FullPath>D:\VisualStudio\SDL2\SDL2-GameDevCMake\SDL2-Minesweeper\out\build\bin\Debug\pngstest.exe</FullPath>
     </ProjectOutput>
   </ProjectOutputs>
   <ContentFiles />

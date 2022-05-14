@@ -1,1 +1,1 @@
-cmake -S . -B out/build -G "Visual Studio 17 2022"
+cmake -S . -B out/build -G "Visual Studio 17 2022" -A x64 -D CMAKE_C_COMPILER="cl.exe" -D CMAKE_CXX_COMPILER="cl.exe"

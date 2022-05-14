@@ -13,7 +13,7 @@ set(SRCDIR "D:/VisualStudio/SDL2/SDL2-GameDevCMake/SDL2-Minesweeper/external/sdl
 set(BINDIR "D:/VisualStudio/SDL2/SDL2-GameDevCMake/SDL2-Minesweeper/out/build/external/sdl_image/external/libpng")
 
 set(AWK "AWK-NOTFOUND")
-set(CMAKE_C_COMPILER "C:/Program Files/Microsoft Visual Studio/2022/Enterprise/VC/Tools/MSVC/14.31.31103/bin/Hostx64/x64/cl.exe")
+set(CMAKE_C_COMPILER "C:/Program Files/Microsoft Visual Studio/2022/Enterprise/VC/Tools/MSVC/14.32.31326/bin/Hostx64/x64/cl.exe")
 set(CMAKE_C_FLAGS /DWIN32 /D_WINDOWS /W3 -DSDL_BUILD_MAJOR_VERSION=2 -DSDL_BUILD_MINOR_VERSION=5 -DSDL_BUILD_MICRO_VERSION=0)
 set(INCDIR "D:/VisualStudio/SDL2/SDL2-GameDevCMake/SDL2-Minesweeper/out/build/external/sdl_image/external/libpng")
 set(PNG_PREFIX "")

@@ -59,25 +59,25 @@
   <PropertyGroup Label="UserMacros" />
   <PropertyGroup>
     <_ProjectFileVersion>10.0.20506.1</_ProjectFileVersion>
-    <OutDir Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">D:\VisualStudio\SDL2\SDL2-GameDevCMake\SDL2-Minesweeper\out\build\external\sdl_image\external\zlib\Debug\</OutDir>
+    <OutDir Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">D:\VisualStudio\SDL2\SDL2-GameDevCMake\SDL2-Minesweeper\out\build\bin\Debug\</OutDir>
     <IntDir Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">example.dir\Debug\</IntDir>
     <TargetName Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">example</TargetName>
     <TargetExt Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">.exe</TargetExt>
     <LinkIncremental Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</LinkIncremental>
     <GenerateManifest Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</GenerateManifest>
-    <OutDir Condition="'$(Configuration)|$(Platform)'=='Release|x64'">D:\VisualStudio\SDL2\SDL2-GameDevCMake\SDL2-Minesweeper\out\build\external\sdl_image\external\zlib\Release\</OutDir>
+    <OutDir Condition="'$(Configuration)|$(Platform)'=='Release|x64'">D:\VisualStudio\SDL2\SDL2-GameDevCMake\SDL2-Minesweeper\out\build\bin\Release\</OutDir>
     <IntDir Condition="'$(Configuration)|$(Platform)'=='Release|x64'">example.dir\Release\</IntDir>
     <TargetName Condition="'$(Configuration)|$(Platform)'=='Release|x64'">example</TargetName>
     <TargetExt Condition="'$(Configuration)|$(Platform)'=='Release|x64'">.exe</TargetExt>
     <LinkIncremental Condition="'$(Configuration)|$(Platform)'=='Release|x64'">false</LinkIncremental>
     <GenerateManifest Condition="'$(Configuration)|$(Platform)'=='Release|x64'">true</GenerateManifest>
-    <OutDir Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">D:\VisualStudio\SDL2\SDL2-GameDevCMake\SDL2-Minesweeper\out\build\external\sdl_image\external\zlib\MinSizeRel\</OutDir>
+    <OutDir Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">D:\VisualStudio\SDL2\SDL2-GameDevCMake\SDL2-Minesweeper\out\build\bin\MinSizeRel\</OutDir>
     <IntDir Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">example.dir\MinSizeRel\</IntDir>
     <TargetName Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">example</TargetName>
     <TargetExt Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">.exe</TargetExt>
     <LinkIncremental Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">false</LinkIncremental>
     <GenerateManifest Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">true</GenerateManifest>
-    <OutDir Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">D:\VisualStudio\SDL2\SDL2-GameDevCMake\SDL2-Minesweeper\out\build\external\sdl_image\external\zlib\RelWithDebInfo\</OutDir>
+    <OutDir Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">D:\VisualStudio\SDL2\SDL2-GameDevCMake\SDL2-Minesweeper\out\build\bin\RelWithDebInfo\</OutDir>
     <IntDir Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">example.dir\RelWithDebInfo\</IntDir>
     <TargetName Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">example</TargetName>
     <TargetExt Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">.exe</TargetExt>
@@ -93,7 +93,6 @@
       <ExceptionHandling>
       </ExceptionHandling>
       <InlineFunctionExpansion>Disabled</InlineFunctionExpansion>
-      <LanguageStandard>stdcpplatest</LanguageStandard>
       <Optimization>Disabled</Optimization>
       <PrecompiledHeader>NotUsing</PrecompiledHeader>
       <RuntimeLibrary>MultiThreadedDebugDLL</RuntimeLibrary>
@@ -115,13 +114,13 @@
       <ProxyFileName>%(Filename)_p.c</ProxyFileName>
     </Midl>
     <Link>
-      <AdditionalDependencies>Debug\zlibd.lib;kernel32.lib;user32.lib;gdi32.lib;winspool.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;comdlg32.lib;advapi32.lib</AdditionalDependencies>
+      <AdditionalDependencies>..\..\..\..\lib\Debug\zlibd.lib;kernel32.lib;user32.lib;gdi32.lib;winspool.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;comdlg32.lib;advapi32.lib</AdditionalDependencies>
       <AdditionalLibraryDirectories>%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
       <AdditionalOptions>%(AdditionalOptions) /machine:x64</AdditionalOptions>
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <IgnoreSpecificDefaultLibraries>%(IgnoreSpecificDefaultLibraries)</IgnoreSpecificDefaultLibraries>
-      <ImportLibrary>D:/VisualStudio/SDL2/SDL2-GameDevCMake/SDL2-Minesweeper/out/build/external/sdl_image/external/zlib/Debug/example.lib</ImportLibrary>
-      <ProgramDataBaseFile>D:/VisualStudio/SDL2/SDL2-GameDevCMake/SDL2-Minesweeper/out/build/external/sdl_image/external/zlib/Debug/example.pdb</ProgramDataBaseFile>
+      <ImportLibrary>D:/VisualStudio/SDL2/SDL2-GameDevCMake/SDL2-Minesweeper/out/build/lib/Debug/example.lib</ImportLibrary>
+      <ProgramDataBaseFile>D:/VisualStudio/SDL2/SDL2-GameDevCMake/SDL2-Minesweeper/out/build/bin/Debug/example.pdb</ProgramDataBaseFile>
       <SubSystem>Console</SubSystem>
     </Link>
     <ProjectReference>
@@ -135,7 +134,6 @@
       <ExceptionHandling>
       </ExceptionHandling>
       <InlineFunctionExpansion>AnySuitable</InlineFunctionExpansion>
-      <LanguageStandard>stdcpplatest</LanguageStandard>
       <Optimization>MaxSpeed</Optimization>
       <PrecompiledHeader>NotUsing</PrecompiledHeader>
       <RuntimeLibrary>MultiThreadedDLL</RuntimeLibrary>
@@ -159,13 +157,13 @@
       <ProxyFileName>%(Filename)_p.c</ProxyFileName>
     </Midl>
     <Link>
-      <AdditionalDependencies>Release\zlib.lib;kernel32.lib;user32.lib;gdi32.lib;winspool.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;comdlg32.lib;advapi32.lib</AdditionalDependencies>
+      <AdditionalDependencies>..\..\..\..\lib\Release\zlib.lib;kernel32.lib;user32.lib;gdi32.lib;winspool.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;comdlg32.lib;advapi32.lib</AdditionalDependencies>
       <AdditionalLibraryDirectories>%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
       <AdditionalOptions>%(AdditionalOptions) /machine:x64</AdditionalOptions>
       <GenerateDebugInformation>false</GenerateDebugInformation>
       <IgnoreSpecificDefaultLibraries>%(IgnoreSpecificDefaultLibraries)</IgnoreSpecificDefaultLibraries>
-      <ImportLibrary>D:/VisualStudio/SDL2/SDL2-GameDevCMake/SDL2-Minesweeper/out/build/external/sdl_image/external/zlib/Release/example.lib</ImportLibrary>
-      <ProgramDataBaseFile>D:/VisualStudio/SDL2/SDL2-GameDevCMake/SDL2-Minesweeper/out/build/external/sdl_image/external/zlib/Release/example.pdb</ProgramDataBaseFile>
+      <ImportLibrary>D:/VisualStudio/SDL2/SDL2-GameDevCMake/SDL2-Minesweeper/out/build/lib/Release/example.lib</ImportLibrary>
+      <ProgramDataBaseFile>D:/VisualStudio/SDL2/SDL2-GameDevCMake/SDL2-Minesweeper/out/build/bin/Release/example.pdb</ProgramDataBaseFile>
       <SubSystem>Console</SubSystem>
     </Link>
     <ProjectReference>
@@ -179,7 +177,6 @@
       <ExceptionHandling>
       </ExceptionHandling>
       <InlineFunctionExpansion>OnlyExplicitInline</InlineFunctionExpansion>
-      <LanguageStandard>stdcpplatest</LanguageStandard>
       <Optimization>MinSpace</Optimization>
       <PrecompiledHeader>NotUsing</PrecompiledHeader>
       <RuntimeLibrary>MultiThreadedDLL</RuntimeLibrary>
@@ -203,13 +200,13 @@
       <ProxyFileName>%(Filename)_p.c</ProxyFileName>
     </Midl>
     <Link>
-      <AdditionalDependencies>MinSizeRel\zlib.lib;kernel32.lib;user32.lib;gdi32.lib;winspool.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;comdlg32.lib;advapi32.lib</AdditionalDependencies>
+      <AdditionalDependencies>..\..\..\..\lib\MinSizeRel\zlib.lib;kernel32.lib;user32.lib;gdi32.lib;winspool.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;comdlg32.lib;advapi32.lib</AdditionalDependencies>
       <AdditionalLibraryDirectories>%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
       <AdditionalOptions>%(AdditionalOptions) /machine:x64</AdditionalOptions>
       <GenerateDebugInformation>false</GenerateDebugInformation>
       <IgnoreSpecificDefaultLibraries>%(IgnoreSpecificDefaultLibraries)</IgnoreSpecificDefaultLibraries>
-      <ImportLibrary>D:/VisualStudio/SDL2/SDL2-GameDevCMake/SDL2-Minesweeper/out/build/external/sdl_image/external/zlib/MinSizeRel/example.lib</ImportLibrary>
-      <ProgramDataBaseFile>D:/VisualStudio/SDL2/SDL2-GameDevCMake/SDL2-Minesweeper/out/build/external/sdl_image/external/zlib/MinSizeRel/example.pdb</ProgramDataBaseFile>
+      <ImportLibrary>D:/VisualStudio/SDL2/SDL2-GameDevCMake/SDL2-Minesweeper/out/build/lib/MinSizeRel/example.lib</ImportLibrary>
+      <ProgramDataBaseFile>D:/VisualStudio/SDL2/SDL2-GameDevCMake/SDL2-Minesweeper/out/build/bin/MinSizeRel/example.pdb</ProgramDataBaseFile>
       <SubSystem>Console</SubSystem>
     </Link>
     <ProjectReference>
@@ -224,7 +221,6 @@
       <ExceptionHandling>
       </ExceptionHandling>
       <InlineFunctionExpansion>OnlyExplicitInline</InlineFunctionExpansion>
-      <LanguageStandard>stdcpplatest</LanguageStandard>
       <Optimization>MaxSpeed</Optimization>
       <PrecompiledHeader>NotUsing</PrecompiledHeader>
       <RuntimeLibrary>MultiThreadedDLL</RuntimeLibrary>
@@ -246,13 +242,13 @@
       <ProxyFileName>%(Filename)_p.c</ProxyFileName>
     </Midl>
     <Link>
-      <AdditionalDependencies>RelWithDebInfo\zlib.lib;kernel32.lib;user32.lib;gdi32.lib;winspool.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;comdlg32.lib;advapi32.lib</AdditionalDependencies>
+      <AdditionalDependencies>..\..\..\..\lib\RelWithDebInfo\zlib.lib;kernel32.lib;user32.lib;gdi32.lib;winspool.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;comdlg32.lib;advapi32.lib</AdditionalDependencies>
       <AdditionalLibraryDirectories>%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
       <AdditionalOptions>%(AdditionalOptions) /machine:x64</AdditionalOptions>
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <IgnoreSpecificDefaultLibraries>%(IgnoreSpecificDefaultLibraries)</IgnoreSpecificDefaultLibraries>
-      <ImportLibrary>D:/VisualStudio/SDL2/SDL2-GameDevCMake/SDL2-Minesweeper/out/build/external/sdl_image/external/zlib/RelWithDebInfo/example.lib</ImportLibrary>
-      <ProgramDataBaseFile>D:/VisualStudio/SDL2/SDL2-GameDevCMake/SDL2-Minesweeper/out/build/external/sdl_image/external/zlib/RelWithDebInfo/example.pdb</ProgramDataBaseFile>
+      <ImportLibrary>D:/VisualStudio/SDL2/SDL2-GameDevCMake/SDL2-Minesweeper/out/build/lib/RelWithDebInfo/example.lib</ImportLibrary>
+      <ProgramDataBaseFile>D:/VisualStudio/SDL2/SDL2-GameDevCMake/SDL2-Minesweeper/out/build/bin/RelWithDebInfo/example.pdb</ProgramDataBaseFile>
       <SubSystem>Console</SubSystem>
     </Link>
     <ProjectReference>
@@ -272,7 +268,7 @@ endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
 exit /b %1
 :cmDone
 if %errorlevel% neq 0 goto :VCEnd</Command>
-      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">C:\msys64\mingw64\share\cmake\Modules\CheckCSourceCompiles.cmake;C:\msys64\mingw64\share\cmake\Modules\CheckFunctionExists.cmake;C:\msys64\mingw64\share\cmake\Modules\CheckIncludeFile.cmake;C:\msys64\mingw64\share\cmake\Modules\CheckIncludeFileCXX.cmake;C:\msys64\mingw64\share\cmake\Modules\CheckTypeSize.cmake;D:\VisualStudio\SDL2\SDL2-GameDevCMake\SDL2-Minesweeper\external\sdl_image\external\zlib\zconf.h.cmakein;D:\VisualStudio\SDL2\SDL2-GameDevCMake\SDL2-Minesweeper\external\sdl_image\external\zlib\zlib.pc.cmakein;%(AdditionalInputs)</AdditionalInputs>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">C:\msys64\mingw64\share\cmake\Modules\CheckCSourceCompiles.cmake;C:\msys64\mingw64\share\cmake\Modules\CheckFunctionExists.c;C:\msys64\mingw64\share\cmake\Modules\CheckFunctionExists.cmake;C:\msys64\mingw64\share\cmake\Modules\CheckIncludeFile.c.in;C:\msys64\mingw64\share\cmake\Modules\CheckIncludeFile.cmake;C:\msys64\mingw64\share\cmake\Modules\CheckIncludeFileCXX.cmake;C:\msys64\mingw64\share\cmake\Modules\CheckTypeSize.c.in;C:\msys64\mingw64\share\cmake\Modules\CheckTypeSize.cmake;D:\VisualStudio\SDL2\SDL2-GameDevCMake\SDL2-Minesweeper\external\sdl_image\external\zlib\zconf.h.cmakein;D:\VisualStudio\SDL2\SDL2-GameDevCMake\SDL2-Minesweeper\external\sdl_image\external\zlib\zlib.pc.cmakein;D:\VisualStudio\SDL2\SDL2-GameDevCMake\SDL2-Minesweeper\out\build\CMakeFiles\CheckTypeSize\OFF64_T.c;%(AdditionalInputs)</AdditionalInputs>
       <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">D:\VisualStudio\SDL2\SDL2-GameDevCMake\SDL2-Minesweeper\out\build\external\sdl_image\external\zlib\CMakeFiles\generate.stamp</Outputs>
       <LinkObjects Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">false</LinkObjects>
       <Message Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Building Custom Rule D:/VisualStudio/SDL2/SDL2-GameDevCMake/SDL2-Minesweeper/external/sdl_image/external/zlib/CMakeLists.txt</Message>
@@ -285,7 +281,7 @@ endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
 exit /b %1
 :cmDone
 if %errorlevel% neq 0 goto :VCEnd</Command>
-      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">C:\msys64\mingw64\share\cmake\Modules\CheckCSourceCompiles.cmake;C:\msys64\mingw64\share\cmake\Modules\CheckFunctionExists.cmake;C:\msys64\mingw64\share\cmake\Modules\CheckIncludeFile.cmake;C:\msys64\mingw64\share\cmake\Modules\CheckIncludeFileCXX.cmake;C:\msys64\mingw64\share\cmake\Modules\CheckTypeSize.cmake;D:\VisualStudio\SDL2\SDL2-GameDevCMake\SDL2-Minesweeper\external\sdl_image\external\zlib\zconf.h.cmakein;D:\VisualStudio\SDL2\SDL2-GameDevCMake\SDL2-Minesweeper\external\sdl_image\external\zlib\zlib.pc.cmakein;%(AdditionalInputs)</AdditionalInputs>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">C:\msys64\mingw64\share\cmake\Modules\CheckCSourceCompiles.cmake;C:\msys64\mingw64\share\cmake\Modules\CheckFunctionExists.c;C:\msys64\mingw64\share\cmake\Modules\CheckFunctionExists.cmake;C:\msys64\mingw64\share\cmake\Modules\CheckIncludeFile.c.in;C:\msys64\mingw64\share\cmake\Modules\CheckIncludeFile.cmake;C:\msys64\mingw64\share\cmake\Modules\CheckIncludeFileCXX.cmake;C:\msys64\mingw64\share\cmake\Modules\CheckTypeSize.c.in;C:\msys64\mingw64\share\cmake\Modules\CheckTypeSize.cmake;D:\VisualStudio\SDL2\SDL2-GameDevCMake\SDL2-Minesweeper\external\sdl_image\external\zlib\zconf.h.cmakein;D:\VisualStudio\SDL2\SDL2-GameDevCMake\SDL2-Minesweeper\external\sdl_image\external\zlib\zlib.pc.cmakein;D:\VisualStudio\SDL2\SDL2-GameDevCMake\SDL2-Minesweeper\out\build\CMakeFiles\CheckTypeSize\OFF64_T.c;%(AdditionalInputs)</AdditionalInputs>
       <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">D:\VisualStudio\SDL2\SDL2-GameDevCMake\SDL2-Minesweeper\out\build\external\sdl_image\external\zlib\CMakeFiles\generate.stamp</Outputs>
       <LinkObjects Condition="'$(Configuration)|$(Platform)'=='Release|x64'">false</LinkObjects>
       <Message Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">Building Custom Rule D:/VisualStudio/SDL2/SDL2-GameDevCMake/SDL2-Minesweeper/external/sdl_image/external/zlib/CMakeLists.txt</Message>
@@ -298,7 +294,7 @@ endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
 exit /b %1
 :cmDone
 if %errorlevel% neq 0 goto :VCEnd</Command>
-      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">C:\msys64\mingw64\share\cmake\Modules\CheckCSourceCompiles.cmake;C:\msys64\mingw64\share\cmake\Modules\CheckFunctionExists.cmake;C:\msys64\mingw64\share\cmake\Modules\CheckIncludeFile.cmake;C:\msys64\mingw64\share\cmake\Modules\CheckIncludeFileCXX.cmake;C:\msys64\mingw64\share\cmake\Modules\CheckTypeSize.cmake;D:\VisualStudio\SDL2\SDL2-GameDevCMake\SDL2-Minesweeper\external\sdl_image\external\zlib\zconf.h.cmakein;D:\VisualStudio\SDL2\SDL2-GameDevCMake\SDL2-Minesweeper\external\sdl_image\external\zlib\zlib.pc.cmakein;%(AdditionalInputs)</AdditionalInputs>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">C:\msys64\mingw64\share\cmake\Modules\CheckCSourceCompiles.cmake;C:\msys64\mingw64\share\cmake\Modules\CheckFunctionExists.c;C:\msys64\mingw64\share\cmake\Modules\CheckFunctionExists.cmake;C:\msys64\mingw64\share\cmake\Modules\CheckIncludeFile.c.in;C:\msys64\mingw64\share\cmake\Modules\CheckIncludeFile.cmake;C:\msys64\mingw64\share\cmake\Modules\CheckIncludeFileCXX.cmake;C:\msys64\mingw64\share\cmake\Modules\CheckTypeSize.c.in;C:\msys64\mingw64\share\cmake\Modules\CheckTypeSize.cmake;D:\VisualStudio\SDL2\SDL2-GameDevCMake\SDL2-Minesweeper\external\sdl_image\external\zlib\zconf.h.cmakein;D:\VisualStudio\SDL2\SDL2-GameDevCMake\SDL2-Minesweeper\external\sdl_image\external\zlib\zlib.pc.cmakein;D:\VisualStudio\SDL2\SDL2-GameDevCMake\SDL2-Minesweeper\out\build\CMakeFiles\CheckTypeSize\OFF64_T.c;%(AdditionalInputs)</AdditionalInputs>
       <Outputs Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">D:\VisualStudio\SDL2\SDL2-GameDevCMake\SDL2-Minesweeper\out\build\external\sdl_image\external\zlib\CMakeFiles\generate.stamp</Outputs>
       <LinkObjects Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">false</LinkObjects>
       <Message Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">Building Custom Rule D:/VisualStudio/SDL2/SDL2-GameDevCMake/SDL2-Minesweeper/external/sdl_image/external/zlib/CMakeLists.txt</Message>
@@ -311,7 +307,7 @@ endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
 exit /b %1
 :cmDone
 if %errorlevel% neq 0 goto :VCEnd</Command>
-      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">C:\msys64\mingw64\share\cmake\Modules\CheckCSourceCompiles.cmake;C:\msys64\mingw64\share\cmake\Modules\CheckFunctionExists.cmake;C:\msys64\mingw64\share\cmake\Modules\CheckIncludeFile.cmake;C:\msys64\mingw64\share\cmake\Modules\CheckIncludeFileCXX.cmake;C:\msys64\mingw64\share\cmake\Modules\CheckTypeSize.cmake;D:\VisualStudio\SDL2\SDL2-GameDevCMake\SDL2-Minesweeper\external\sdl_image\external\zlib\zconf.h.cmakein;D:\VisualStudio\SDL2\SDL2-GameDevCMake\SDL2-Minesweeper\external\sdl_image\external\zlib\zlib.pc.cmakein;%(AdditionalInputs)</AdditionalInputs>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">C:\msys64\mingw64\share\cmake\Modules\CheckCSourceCompiles.cmake;C:\msys64\mingw64\share\cmake\Modules\CheckFunctionExists.c;C:\msys64\mingw64\share\cmake\Modules\CheckFunctionExists.cmake;C:\msys64\mingw64\share\cmake\Modules\CheckIncludeFile.c.in;C:\msys64\mingw64\share\cmake\Modules\CheckIncludeFile.cmake;C:\msys64\mingw64\share\cmake\Modules\CheckIncludeFileCXX.cmake;C:\msys64\mingw64\share\cmake\Modules\CheckTypeSize.c.in;C:\msys64\mingw64\share\cmake\Modules\CheckTypeSize.cmake;D:\VisualStudio\SDL2\SDL2-GameDevCMake\SDL2-Minesweeper\external\sdl_image\external\zlib\zconf.h.cmakein;D:\VisualStudio\SDL2\SDL2-GameDevCMake\SDL2-Minesweeper\external\sdl_image\external\zlib\zlib.pc.cmakein;D:\VisualStudio\SDL2\SDL2-GameDevCMake\SDL2-Minesweeper\out\build\CMakeFiles\CheckTypeSize\OFF64_T.c;%(AdditionalInputs)</AdditionalInputs>
       <Outputs Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">D:\VisualStudio\SDL2\SDL2-GameDevCMake\SDL2-Minesweeper\out\build\external\sdl_image\external\zlib\CMakeFiles\generate.stamp</Outputs>
       <LinkObjects Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">false</LinkObjects>
     </CustomBuild>

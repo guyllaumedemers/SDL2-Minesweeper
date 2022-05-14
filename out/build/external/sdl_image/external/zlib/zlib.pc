@@ -1,8 +1,8 @@
-prefix=C:/Program Files (x86)/SDL2-Minesweeper
-exec_prefix=C:/Program Files (x86)/SDL2-Minesweeper
-libdir=C:/Program Files (x86)/SDL2-Minesweeper/lib
-sharedlibdir=C:/Program Files (x86)/SDL2-Minesweeper/lib
-includedir=C:/Program Files (x86)/SDL2-Minesweeper/include
+prefix=C:/Program Files/SDL2-Minesweeper
+exec_prefix=C:/Program Files/SDL2-Minesweeper
+libdir=C:/Program Files/SDL2-Minesweeper/lib
+sharedlibdir=C:/Program Files/SDL2-Minesweeper/lib
+includedir=C:/Program Files/SDL2-Minesweeper/include
 
 Name: zlib
 Description: zlib compression library

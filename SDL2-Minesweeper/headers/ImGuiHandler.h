@@ -1,6 +1,6 @@
 #pragma once
 #include "SDLHandler.h"
-#include "imgui/TopMenuBar.h"
+#include "imgui/ImGuiComponent.h"
 #include <vector>
 
 using namespace GraphicalToolset;

@@ -3,17 +3,22 @@
 #include "../headers/StringExtension.h"
 #include <SDL_image.h>
 #ifndef MY_RESOURCES_PATH
-#define MY_RESOURCES_PATH "../res/"
+#define MY_RESOURCES_PATH "/res/sprites"
 #endif
 #include <filesystem>
 
 namespace Toolset {
-	unordered_map<const char*, SDL_Texture*> TextureHandler::textures;
+	unordered_map<string, SDL_Texture*> TextureHandler::textures;
 
 	void TextureHandler::load(SDL_Renderer* renderer)
 	{
-		for (const auto& file : filesystem::directory_iterator(MY_RESOURCES_PATH)) {
-			filesystem::path path = file.path();
+		string build_path = std::filesystem::current_path()
+			.parent_path()
+			.generic_u8string();
+		build_path += MY_RESOURCES_PATH;
+		cout << build_path << endl;
+		for (const auto& file : std::filesystem::directory_iterator(build_path)) {
+			std::filesystem::path path = file.path();
 			string s_path = path.generic_u8string();
 			SDL_Texture* temp = loadtexture(renderer, s_path.c_str());
 			vector<string> tokens;
@@ -62,6 +67,7 @@ namespace Toolset {
 
 	SDL_Texture* TextureHandler::get(const char* key)
 	{
-		return nullptr;
+		if (textures.find(key) != textures.end()) return textures[key];
+		else return nullptr;
 	}
 }

@@ -6,7 +6,7 @@ using namespace std;
 namespace Toolset {
 	class TextureHandler {
 	private:
-		static unordered_map<const char*, SDL_Texture*> textures;
+		static unordered_map<string, SDL_Texture*> textures;
 		TextureHandler() = delete;
 		TextureHandler(const TextureHandler&) = delete;
 		TextureHandler(TextureHandler&&) = delete;

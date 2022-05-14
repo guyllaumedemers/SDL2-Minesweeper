@@ -1,5 +1,6 @@
 #pragma once
 #include "../headers/SDLHandler.h"
+#include "../headers/TextureHandler.h"
 #include <iostream>
 
 namespace Toolset {
@@ -18,6 +19,8 @@ namespace Toolset {
 			SDL_Log("CONTEXT INTIALIZATION FAILED: %s", SDL_GetError());
 			exit(EXIT_FAILURE);
 		}
+		TextureHandler::init();
+		TextureHandler::load(renderer);
 	}
 
 	void SDLHandler::destroy()

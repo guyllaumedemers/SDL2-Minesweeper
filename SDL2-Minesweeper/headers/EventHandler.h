@@ -1,6 +1,6 @@
 #pragma once
-#include <vector>
 #include "Subscriber.h"
+#include <vector>
 
 using namespace std;
 namespace Toolset {

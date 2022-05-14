@@ -59,25 +59,25 @@
   <PropertyGroup Label="UserMacros" />
   <PropertyGroup>
     <_ProjectFileVersion>10.0.20506.1</_ProjectFileVersion>
-    <OutDir Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">D:\VisualStudio\SDL2\SDL2-GameDevCMake\SDL2-Minesweeper\out\build\external\sdl_image\external\libpng\Debug\</OutDir>
+    <OutDir Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">D:\VisualStudio\SDL2\SDL2-GameDevCMake\SDL2-Minesweeper\out\build\bin\Debug\</OutDir>
     <IntDir Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">pngvalid.dir\Debug\</IntDir>
     <TargetName Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">pngvalid</TargetName>
     <TargetExt Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">.exe</TargetExt>
     <LinkIncremental Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</LinkIncremental>
     <GenerateManifest Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</GenerateManifest>
-    <OutDir Condition="'$(Configuration)|$(Platform)'=='Release|x64'">D:\VisualStudio\SDL2\SDL2-GameDevCMake\SDL2-Minesweeper\out\build\external\sdl_image\external\libpng\Release\</OutDir>
+    <OutDir Condition="'$(Configuration)|$(Platform)'=='Release|x64'">D:\VisualStudio\SDL2\SDL2-GameDevCMake\SDL2-Minesweeper\out\build\bin\Release\</OutDir>
     <IntDir Condition="'$(Configuration)|$(Platform)'=='Release|x64'">pngvalid.dir\Release\</IntDir>
     <TargetName Condition="'$(Configuration)|$(Platform)'=='Release|x64'">pngvalid</TargetName>
     <TargetExt Condition="'$(Configuration)|$(Platform)'=='Release|x64'">.exe</TargetExt>
     <LinkIncremental Condition="'$(Configuration)|$(Platform)'=='Release|x64'">false</LinkIncremental>
     <GenerateManifest Condition="'$(Configuration)|$(Platform)'=='Release|x64'">true</GenerateManifest>
-    <OutDir Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">D:\VisualStudio\SDL2\SDL2-GameDevCMake\SDL2-Minesweeper\out\build\external\sdl_image\external\libpng\MinSizeRel\</OutDir>
+    <OutDir Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">D:\VisualStudio\SDL2\SDL2-GameDevCMake\SDL2-Minesweeper\out\build\bin\MinSizeRel\</OutDir>
     <IntDir Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">pngvalid.dir\MinSizeRel\</IntDir>
     <TargetName Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">pngvalid</TargetName>
     <TargetExt Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">.exe</TargetExt>
     <LinkIncremental Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">false</LinkIncremental>
     <GenerateManifest Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">true</GenerateManifest>
-    <OutDir Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">D:\VisualStudio\SDL2\SDL2-GameDevCMake\SDL2-Minesweeper\out\build\external\sdl_image\external\libpng\RelWithDebInfo\</OutDir>
+    <OutDir Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">D:\VisualStudio\SDL2\SDL2-GameDevCMake\SDL2-Minesweeper\out\build\bin\RelWithDebInfo\</OutDir>
     <IntDir Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">pngvalid.dir\RelWithDebInfo\</IntDir>
     <TargetName Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">pngvalid</TargetName>
     <TargetExt Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">.exe</TargetExt>
@@ -93,7 +93,6 @@
       <ExceptionHandling>
       </ExceptionHandling>
       <InlineFunctionExpansion>Disabled</InlineFunctionExpansion>
-      <LanguageStandard>stdcpplatest</LanguageStandard>
       <Optimization>Disabled</Optimization>
       <PrecompiledHeader>NotUsing</PrecompiledHeader>
       <RuntimeLibrary>MultiThreadedDebugDLL</RuntimeLibrary>
@@ -115,13 +114,13 @@
       <ProxyFileName>%(Filename)_p.c</ProxyFileName>
     </Midl>
     <Link>
-      <AdditionalDependencies>Debug\libpng16d.lib;..\zlib\Debug\zlibd.lib;kernel32.lib;user32.lib;gdi32.lib;winspool.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;comdlg32.lib;advapi32.lib</AdditionalDependencies>
+      <AdditionalDependencies>..\..\..\..\lib\Debug\libpng16d.lib;..\..\..\..\lib\Debug\zlibd.lib;kernel32.lib;user32.lib;gdi32.lib;winspool.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;comdlg32.lib;advapi32.lib</AdditionalDependencies>
       <AdditionalLibraryDirectories>%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
       <AdditionalOptions>%(AdditionalOptions) /machine:x64</AdditionalOptions>
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <IgnoreSpecificDefaultLibraries>%(IgnoreSpecificDefaultLibraries)</IgnoreSpecificDefaultLibraries>
-      <ImportLibrary>D:/VisualStudio/SDL2/SDL2-GameDevCMake/SDL2-Minesweeper/out/build/external/sdl_image/external/libpng/Debug/pngvalid.lib</ImportLibrary>
-      <ProgramDataBaseFile>D:/VisualStudio/SDL2/SDL2-GameDevCMake/SDL2-Minesweeper/out/build/external/sdl_image/external/libpng/Debug/pngvalid.pdb</ProgramDataBaseFile>
+      <ImportLibrary>D:/VisualStudio/SDL2/SDL2-GameDevCMake/SDL2-Minesweeper/out/build/lib/Debug/pngvalid.lib</ImportLibrary>
+      <ProgramDataBaseFile>D:/VisualStudio/SDL2/SDL2-GameDevCMake/SDL2-Minesweeper/out/build/bin/Debug/pngvalid.pdb</ProgramDataBaseFile>
       <SubSystem>Console</SubSystem>
     </Link>
     <ProjectReference>
@@ -135,7 +134,6 @@
       <ExceptionHandling>
       </ExceptionHandling>
       <InlineFunctionExpansion>AnySuitable</InlineFunctionExpansion>
-      <LanguageStandard>stdcpplatest</LanguageStandard>
       <Optimization>MaxSpeed</Optimization>
       <PrecompiledHeader>NotUsing</PrecompiledHeader>
       <RuntimeLibrary>MultiThreadedDLL</RuntimeLibrary>
@@ -159,13 +157,13 @@
       <ProxyFileName>%(Filename)_p.c</ProxyFileName>
     </Midl>
     <Link>
-      <AdditionalDependencies>Release\libpng16.lib;..\zlib\Release\zlib.lib;kernel32.lib;user32.lib;gdi32.lib;winspool.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;comdlg32.lib;advapi32.lib</AdditionalDependencies>
+      <AdditionalDependencies>..\..\..\..\lib\Release\libpng16.lib;..\..\..\..\lib\Release\zlib.lib;kernel32.lib;user32.lib;gdi32.lib;winspool.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;comdlg32.lib;advapi32.lib</AdditionalDependencies>
       <AdditionalLibraryDirectories>%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
       <AdditionalOptions>%(AdditionalOptions) /machine:x64</AdditionalOptions>
       <GenerateDebugInformation>false</GenerateDebugInformation>
       <IgnoreSpecificDefaultLibraries>%(IgnoreSpecificDefaultLibraries)</IgnoreSpecificDefaultLibraries>
-      <ImportLibrary>D:/VisualStudio/SDL2/SDL2-GameDevCMake/SDL2-Minesweeper/out/build/external/sdl_image/external/libpng/Release/pngvalid.lib</ImportLibrary>
-      <ProgramDataBaseFile>D:/VisualStudio/SDL2/SDL2-GameDevCMake/SDL2-Minesweeper/out/build/external/sdl_image/external/libpng/Release/pngvalid.pdb</ProgramDataBaseFile>
+      <ImportLibrary>D:/VisualStudio/SDL2/SDL2-GameDevCMake/SDL2-Minesweeper/out/build/lib/Release/pngvalid.lib</ImportLibrary>
+      <ProgramDataBaseFile>D:/VisualStudio/SDL2/SDL2-GameDevCMake/SDL2-Minesweeper/out/build/bin/Release/pngvalid.pdb</ProgramDataBaseFile>
       <SubSystem>Console</SubSystem>
     </Link>
     <ProjectReference>
@@ -179,7 +177,6 @@
       <ExceptionHandling>
       </ExceptionHandling>
       <InlineFunctionExpansion>OnlyExplicitInline</InlineFunctionExpansion>
-      <LanguageStandard>stdcpplatest</LanguageStandard>
       <Optimization>MinSpace</Optimization>
       <PrecompiledHeader>NotUsing</PrecompiledHeader>
       <RuntimeLibrary>MultiThreadedDLL</RuntimeLibrary>
@@ -203,13 +200,13 @@
       <ProxyFileName>%(Filename)_p.c</ProxyFileName>
     </Midl>
     <Link>
-      <AdditionalDependencies>MinSizeRel\libpng16.lib;..\zlib\MinSizeRel\zlib.lib;kernel32.lib;user32.lib;gdi32.lib;winspool.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;comdlg32.lib;advapi32.lib</AdditionalDependencies>
+      <AdditionalDependencies>..\..\..\..\lib\MinSizeRel\libpng16.lib;..\..\..\..\lib\MinSizeRel\zlib.lib;kernel32.lib;user32.lib;gdi32.lib;winspool.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;comdlg32.lib;advapi32.lib</AdditionalDependencies>
       <AdditionalLibraryDirectories>%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
       <AdditionalOptions>%(AdditionalOptions) /machine:x64</AdditionalOptions>
       <GenerateDebugInformation>false</GenerateDebugInformation>
       <IgnoreSpecificDefaultLibraries>%(IgnoreSpecificDefaultLibraries)</IgnoreSpecificDefaultLibraries>
-      <ImportLibrary>D:/VisualStudio/SDL2/SDL2-GameDevCMake/SDL2-Minesweeper/out/build/external/sdl_image/external/libpng/MinSizeRel/pngvalid.lib</ImportLibrary>
-      <ProgramDataBaseFile>D:/VisualStudio/SDL2/SDL2-GameDevCMake/SDL2-Minesweeper/out/build/external/sdl_image/external/libpng/MinSizeRel/pngvalid.pdb</ProgramDataBaseFile>
+      <ImportLibrary>D:/VisualStudio/SDL2/SDL2-GameDevCMake/SDL2-Minesweeper/out/build/lib/MinSizeRel/pngvalid.lib</ImportLibrary>
+      <ProgramDataBaseFile>D:/VisualStudio/SDL2/SDL2-GameDevCMake/SDL2-Minesweeper/out/build/bin/MinSizeRel/pngvalid.pdb</ProgramDataBaseFile>
       <SubSystem>Console</SubSystem>
     </Link>
     <ProjectReference>
@@ -224,7 +221,6 @@
       <ExceptionHandling>
       </ExceptionHandling>
       <InlineFunctionExpansion>OnlyExplicitInline</InlineFunctionExpansion>
-      <LanguageStandard>stdcpplatest</LanguageStandard>
       <Optimization>MaxSpeed</Optimization>
       <PrecompiledHeader>NotUsing</PrecompiledHeader>
       <RuntimeLibrary>MultiThreadedDLL</RuntimeLibrary>
@@ -246,13 +242,13 @@
       <ProxyFileName>%(Filename)_p.c</ProxyFileName>
     </Midl>
     <Link>
-      <AdditionalDependencies>RelWithDebInfo\libpng16.lib;..\zlib\RelWithDebInfo\zlib.lib;kernel32.lib;user32.lib;gdi32.lib;winspool.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;comdlg32.lib;advapi32.lib</AdditionalDependencies>
+      <AdditionalDependencies>..\..\..\..\lib\RelWithDebInfo\libpng16.lib;..\..\..\..\lib\RelWithDebInfo\zlib.lib;kernel32.lib;user32.lib;gdi32.lib;winspool.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;comdlg32.lib;advapi32.lib</AdditionalDependencies>
       <AdditionalLibraryDirectories>%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
       <AdditionalOptions>%(AdditionalOptions) /machine:x64</AdditionalOptions>
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <IgnoreSpecificDefaultLibraries>%(IgnoreSpecificDefaultLibraries)</IgnoreSpecificDefaultLibraries>
-      <ImportLibrary>D:/VisualStudio/SDL2/SDL2-GameDevCMake/SDL2-Minesweeper/out/build/external/sdl_image/external/libpng/RelWithDebInfo/pngvalid.lib</ImportLibrary>
-      <ProgramDataBaseFile>D:/VisualStudio/SDL2/SDL2-GameDevCMake/SDL2-Minesweeper/out/build/external/sdl_image/external/libpng/RelWithDebInfo/pngvalid.pdb</ProgramDataBaseFile>
+      <ImportLibrary>D:/VisualStudio/SDL2/SDL2-GameDevCMake/SDL2-Minesweeper/out/build/lib/RelWithDebInfo/pngvalid.lib</ImportLibrary>
+      <ProgramDataBaseFile>D:/VisualStudio/SDL2/SDL2-GameDevCMake/SDL2-Minesweeper/out/build/bin/RelWithDebInfo/pngvalid.pdb</ProgramDataBaseFile>
       <SubSystem>Console</SubSystem>
     </Link>
     <ProjectReference>
@@ -272,7 +268,7 @@ endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
 exit /b %1
 :cmDone
 if %errorlevel% neq 0 goto :VCEnd</Command>
-      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">C:\msys64\mingw64\share\cmake\Modules\CMakeASMInformation.cmake;C:\msys64\mingw64\share\cmake\Modules\CMakeParseArguments.cmake;C:\msys64\mingw64\share\cmake\Modules\CheckCSourceCompiles.cmake;C:\msys64\mingw64\share\cmake\Modules\Compiler\MSVC-ASM.cmake;C:\msys64\mingw64\share\cmake\Modules\FindPackageHandleStandardArgs.cmake;C:\msys64\mingw64\share\cmake\Modules\FindPackageMessage.cmake;C:\msys64\mingw64\share\cmake\Modules\FindZLIB.cmake;C:\msys64\mingw64\share\cmake\Modules\GNUInstallDirs.cmake;D:\VisualStudio\SDL2\SDL2-GameDevCMake\SDL2-Minesweeper\external\sdl_image\external\libpng\scripts\genchk.cmake.in;D:\VisualStudio\SDL2\SDL2-GameDevCMake\SDL2-Minesweeper\external\sdl_image\external\libpng\scripts\genout.cmake.in;D:\VisualStudio\SDL2\SDL2-GameDevCMake\SDL2-Minesweeper\external\sdl_image\external\libpng\scripts\gensrc.cmake.in;D:\VisualStudio\SDL2\SDL2-GameDevCMake\SDL2-Minesweeper\external\sdl_image\external\libpng\scripts\pnglibconf.h.prebuilt;D:\VisualStudio\SDL2\SDL2-GameDevCMake\SDL2-Minesweeper\external\sdl_image\external\libpng\scripts\test.cmake.in;D:\VisualStudio\SDL2\SDL2-GameDevCMake\SDL2-Minesweeper\out\build\CMakeFiles\3.23.1\CMakeASMCompiler.cmake;%(AdditionalInputs)</AdditionalInputs>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">C:\msys64\mingw64\share\cmake\Modules\CMakeASMCompiler.cmake.in;C:\msys64\mingw64\share\cmake\Modules\CMakeASMInformation.cmake;C:\msys64\mingw64\share\cmake\Modules\CMakeCompilerIdDetection.cmake;C:\msys64\mingw64\share\cmake\Modules\CMakeDetermineASMCompiler.cmake;C:\msys64\mingw64\share\cmake\Modules\CMakeDetermineCompiler.cmake;C:\msys64\mingw64\share\cmake\Modules\CMakeDetermineCompilerId.cmake;C:\msys64\mingw64\share\cmake\Modules\CMakeFindBinUtils.cmake;C:\msys64\mingw64\share\cmake\Modules\CMakeParseArguments.cmake;C:\msys64\mingw64\share\cmake\Modules\CMakeTestASMCompiler.cmake;C:\msys64\mingw64\share\cmake\Modules\CheckCSourceCompiles.cmake;C:\msys64\mingw64\share\cmake\Modules\Compiler\MSVC-ASM.cmake;C:\msys64\mingw64\share\cmake\Modules\FindPackageHandleStandardArgs.cmake;C:\msys64\mingw64\share\cmake\Modules\FindPackageMessage.cmake;C:\msys64\mingw64\share\cmake\Modules\FindZLIB.cmake;C:\msys64\mingw64\share\cmake\Modules\GNUInstallDirs.cmake;D:\VisualStudio\SDL2\SDL2-GameDevCMake\SDL2-Minesweeper\external\sdl_image\external\libpng\scripts\genchk.cmake.in;D:\VisualStudio\SDL2\SDL2-GameDevCMake\SDL2-Minesweeper\external\sdl_image\external\libpng\scripts\genout.cmake.in;D:\VisualStudio\SDL2\SDL2-GameDevCMake\SDL2-Minesweeper\external\sdl_image\external\libpng\scripts\gensrc.cmake.in;D:\VisualStudio\SDL2\SDL2-GameDevCMake\SDL2-Minesweeper\external\sdl_image\external\libpng\scripts\pnglibconf.h.prebuilt;D:\VisualStudio\SDL2\SDL2-GameDevCMake\SDL2-Minesweeper\external\sdl_image\external\libpng\scripts\test.cmake.in;D:\VisualStudio\SDL2\SDL2-GameDevCMake\SDL2-Minesweeper\out\build\CMakeFiles\3.23.1\CMakeASMCompiler.cmake;%(AdditionalInputs)</AdditionalInputs>
       <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">D:\VisualStudio\SDL2\SDL2-GameDevCMake\SDL2-Minesweeper\out\build\external\sdl_image\external\libpng\CMakeFiles\generate.stamp</Outputs>
       <LinkObjects Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">false</LinkObjects>
       <Message Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Building Custom Rule D:/VisualStudio/SDL2/SDL2-GameDevCMake/SDL2-Minesweeper/external/sdl_image/external/libpng/CMakeLists.txt</Message>
@@ -285,7 +281,7 @@ endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
 exit /b %1
 :cmDone
 if %errorlevel% neq 0 goto :VCEnd</Command>
-      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">C:\msys64\mingw64\share\cmake\Modules\CMakeASMInformation.cmake;C:\msys64\mingw64\share\cmake\Modules\CMakeParseArguments.cmake;C:\msys64\mingw64\share\cmake\Modules\CheckCSourceCompiles.cmake;C:\msys64\mingw64\share\cmake\Modules\Compiler\MSVC-ASM.cmake;C:\msys64\mingw64\share\cmake\Modules\FindPackageHandleStandardArgs.cmake;C:\msys64\mingw64\share\cmake\Modules\FindPackageMessage.cmake;C:\msys64\mingw64\share\cmake\Modules\FindZLIB.cmake;C:\msys64\mingw64\share\cmake\Modules\GNUInstallDirs.cmake;D:\VisualStudio\SDL2\SDL2-GameDevCMake\SDL2-Minesweeper\external\sdl_image\external\libpng\scripts\genchk.cmake.in;D:\VisualStudio\SDL2\SDL2-GameDevCMake\SDL2-Minesweeper\external\sdl_image\external\libpng\scripts\genout.cmake.in;D:\VisualStudio\SDL2\SDL2-GameDevCMake\SDL2-Minesweeper\external\sdl_image\external\libpng\scripts\gensrc.cmake.in;D:\VisualStudio\SDL2\SDL2-GameDevCMake\SDL2-Minesweeper\external\sdl_image\external\libpng\scripts\pnglibconf.h.prebuilt;D:\VisualStudio\SDL2\SDL2-GameDevCMake\SDL2-Minesweeper\external\sdl_image\external\libpng\scripts\test.cmake.in;D:\VisualStudio\SDL2\SDL2-GameDevCMake\SDL2-Minesweeper\out\build\CMakeFiles\3.23.1\CMakeASMCompiler.cmake;%(AdditionalInputs)</AdditionalInputs>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">C:\msys64\mingw64\share\cmake\Modules\CMakeASMCompiler.cmake.in;C:\msys64\mingw64\share\cmake\Modules\CMakeASMInformation.cmake;C:\msys64\mingw64\share\cmake\Modules\CMakeCompilerIdDetection.cmake;C:\msys64\mingw64\share\cmake\Modules\CMakeDetermineASMCompiler.cmake;C:\msys64\mingw64\share\cmake\Modules\CMakeDetermineCompiler.cmake;C:\msys64\mingw64\share\cmake\Modules\CMakeDetermineCompilerId.cmake;C:\msys64\mingw64\share\cmake\Modules\CMakeFindBinUtils.cmake;C:\msys64\mingw64\share\cmake\Modules\CMakeParseArguments.cmake;C:\msys64\mingw64\share\cmake\Modules\CMakeTestASMCompiler.cmake;C:\msys64\mingw64\share\cmake\Modules\CheckCSourceCompiles.cmake;C:\msys64\mingw64\share\cmake\Modules\Compiler\MSVC-ASM.cmake;C:\msys64\mingw64\share\cmake\Modules\FindPackageHandleStandardArgs.cmake;C:\msys64\mingw64\share\cmake\Modules\FindPackageMessage.cmake;C:\msys64\mingw64\share\cmake\Modules\FindZLIB.cmake;C:\msys64\mingw64\share\cmake\Modules\GNUInstallDirs.cmake;D:\VisualStudio\SDL2\SDL2-GameDevCMake\SDL2-Minesweeper\external\sdl_image\external\libpng\scripts\genchk.cmake.in;D:\VisualStudio\SDL2\SDL2-GameDevCMake\SDL2-Minesweeper\external\sdl_image\external\libpng\scripts\genout.cmake.in;D:\VisualStudio\SDL2\SDL2-GameDevCMake\SDL2-Minesweeper\external\sdl_image\external\libpng\scripts\gensrc.cmake.in;D:\VisualStudio\SDL2\SDL2-GameDevCMake\SDL2-Minesweeper\external\sdl_image\external\libpng\scripts\pnglibconf.h.prebuilt;D:\VisualStudio\SDL2\SDL2-GameDevCMake\SDL2-Minesweeper\external\sdl_image\external\libpng\scripts\test.cmake.in;D:\VisualStudio\SDL2\SDL2-GameDevCMake\SDL2-Minesweeper\out\build\CMakeFiles\3.23.1\CMakeASMCompiler.cmake;%(AdditionalInputs)</AdditionalInputs>
       <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">D:\VisualStudio\SDL2\SDL2-GameDevCMake\SDL2-Minesweeper\out\build\external\sdl_image\external\libpng\CMakeFiles\generate.stamp</Outputs>
       <LinkObjects Condition="'$(Configuration)|$(Platform)'=='Release|x64'">false</LinkObjects>
       <Message Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">Building Custom Rule D:/VisualStudio/SDL2/SDL2-GameDevCMake/SDL2-Minesweeper/external/sdl_image/external/libpng/CMakeLists.txt</Message>
@@ -298,7 +294,7 @@ endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
 exit /b %1
 :cmDone
 if %errorlevel% neq 0 goto :VCEnd</Command>
-      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">C:\msys64\mingw64\share\cmake\Modules\CMakeASMInformation.cmake;C:\msys64\mingw64\share\cmake\Modules\CMakeParseArguments.cmake;C:\msys64\mingw64\share\cmake\Modules\CheckCSourceCompiles.cmake;C:\msys64\mingw64\share\cmake\Modules\Compiler\MSVC-ASM.cmake;C:\msys64\mingw64\share\cmake\Modules\FindPackageHandleStandardArgs.cmake;C:\msys64\mingw64\share\cmake\Modules\FindPackageMessage.cmake;C:\msys64\mingw64\share\cmake\Modules\FindZLIB.cmake;C:\msys64\mingw64\share\cmake\Modules\GNUInstallDirs.cmake;D:\VisualStudio\SDL2\SDL2-GameDevCMake\SDL2-Minesweeper\external\sdl_image\external\libpng\scripts\genchk.cmake.in;D:\VisualStudio\SDL2\SDL2-GameDevCMake\SDL2-Minesweeper\external\sdl_image\external\libpng\scripts\genout.cmake.in;D:\VisualStudio\SDL2\SDL2-GameDevCMake\SDL2-Minesweeper\external\sdl_image\external\libpng\scripts\gensrc.cmake.in;D:\VisualStudio\SDL2\SDL2-GameDevCMake\SDL2-Minesweeper\external\sdl_image\external\libpng\scripts\pnglibconf.h.prebuilt;D:\VisualStudio\SDL2\SDL2-GameDevCMake\SDL2-Minesweeper\external\sdl_image\external\libpng\scripts\test.cmake.in;D:\VisualStudio\SDL2\SDL2-GameDevCMake\SDL2-Minesweeper\out\build\CMakeFiles\3.23.1\CMakeASMCompiler.cmake;%(AdditionalInputs)</AdditionalInputs>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">C:\msys64\mingw64\share\cmake\Modules\CMakeASMCompiler.cmake.in;C:\msys64\mingw64\share\cmake\Modules\CMakeASMInformation.cmake;C:\msys64\mingw64\share\cmake\Modules\CMakeCompilerIdDetection.cmake;C:\msys64\mingw64\share\cmake\Modules\CMakeDetermineASMCompiler.cmake;C:\msys64\mingw64\share\cmake\Modules\CMakeDetermineCompiler.cmake;C:\msys64\mingw64\share\cmake\Modules\CMakeDetermineCompilerId.cmake;C:\msys64\mingw64\share\cmake\Modules\CMakeFindBinUtils.cmake;C:\msys64\mingw64\share\cmake\Modules\CMakeParseArguments.cmake;C:\msys64\mingw64\share\cmake\Modules\CMakeTestASMCompiler.cmake;C:\msys64\mingw64\share\cmake\Modules\CheckCSourceCompiles.cmake;C:\msys64\mingw64\share\cmake\Modules\Compiler\MSVC-ASM.cmake;C:\msys64\mingw64\share\cmake\Modules\FindPackageHandleStandardArgs.cmake;C:\msys64\mingw64\share\cmake\Modules\FindPackageMessage.cmake;C:\msys64\mingw64\share\cmake\Modules\FindZLIB.cmake;C:\msys64\mingw64\share\cmake\Modules\GNUInstallDirs.cmake;D:\VisualStudio\SDL2\SDL2-GameDevCMake\SDL2-Minesweeper\external\sdl_image\external\libpng\scripts\genchk.cmake.in;D:\VisualStudio\SDL2\SDL2-GameDevCMake\SDL2-Minesweeper\external\sdl_image\external\libpng\scripts\genout.cmake.in;D:\VisualStudio\SDL2\SDL2-GameDevCMake\SDL2-Minesweeper\external\sdl_image\external\libpng\scripts\gensrc.cmake.in;D:\VisualStudio\SDL2\SDL2-GameDevCMake\SDL2-Minesweeper\external\sdl_image\external\libpng\scripts\pnglibconf.h.prebuilt;D:\VisualStudio\SDL2\SDL2-GameDevCMake\SDL2-Minesweeper\external\sdl_image\external\libpng\scripts\test.cmake.in;D:\VisualStudio\SDL2\SDL2-GameDevCMake\SDL2-Minesweeper\out\build\CMakeFiles\3.23.1\CMakeASMCompiler.cmake;%(AdditionalInputs)</AdditionalInputs>
       <Outputs Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">D:\VisualStudio\SDL2\SDL2-GameDevCMake\SDL2-Minesweeper\out\build\external\sdl_image\external\libpng\CMakeFiles\generate.stamp</Outputs>
       <LinkObjects Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">false</LinkObjects>
       <Message Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">Building Custom Rule D:/VisualStudio/SDL2/SDL2-GameDevCMake/SDL2-Minesweeper/external/sdl_image/external/libpng/CMakeLists.txt</Message>
@@ -311,7 +307,7 @@ endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
 exit /b %1
 :cmDone
 if %errorlevel% neq 0 goto :VCEnd</Command>
-      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">C:\msys64\mingw64\share\cmake\Modules\CMakeASMInformation.cmake;C:\msys64\mingw64\share\cmake\Modules\CMakeParseArguments.cmake;C:\msys64\mingw64\share\cmake\Modules\CheckCSourceCompiles.cmake;C:\msys64\mingw64\share\cmake\Modules\Compiler\MSVC-ASM.cmake;C:\msys64\mingw64\share\cmake\Modules\FindPackageHandleStandardArgs.cmake;C:\msys64\mingw64\share\cmake\Modules\FindPackageMessage.cmake;C:\msys64\mingw64\share\cmake\Modules\FindZLIB.cmake;C:\msys64\mingw64\share\cmake\Modules\GNUInstallDirs.cmake;D:\VisualStudio\SDL2\SDL2-GameDevCMake\SDL2-Minesweeper\external\sdl_image\external\libpng\scripts\genchk.cmake.in;D:\VisualStudio\SDL2\SDL2-GameDevCMake\SDL2-Minesweeper\external\sdl_image\external\libpng\scripts\genout.cmake.in;D:\VisualStudio\SDL2\SDL2-GameDevCMake\SDL2-Minesweeper\external\sdl_image\external\libpng\scripts\gensrc.cmake.in;D:\VisualStudio\SDL2\SDL2-GameDevCMake\SDL2-Minesweeper\external\sdl_image\external\libpng\scripts\pnglibconf.h.prebuilt;D:\VisualStudio\SDL2\SDL2-GameDevCMake\SDL2-Minesweeper\external\sdl_image\external\libpng\scripts\test.cmake.in;D:\VisualStudio\SDL2\SDL2-GameDevCMake\SDL2-Minesweeper\out\build\CMakeFiles\3.23.1\CMakeASMCompiler.cmake;%(AdditionalInputs)</AdditionalInputs>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">C:\msys64\mingw64\share\cmake\Modules\CMakeASMCompiler.cmake.in;C:\msys64\mingw64\share\cmake\Modules\CMakeASMInformation.cmake;C:\msys64\mingw64\share\cmake\Modules\CMakeCompilerIdDetection.cmake;C:\msys64\mingw64\share\cmake\Modules\CMakeDetermineASMCompiler.cmake;C:\msys64\mingw64\share\cmake\Modules\CMakeDetermineCompiler.cmake;C:\msys64\mingw64\share\cmake\Modules\CMakeDetermineCompilerId.cmake;C:\msys64\mingw64\share\cmake\Modules\CMakeFindBinUtils.cmake;C:\msys64\mingw64\share\cmake\Modules\CMakeParseArguments.cmake;C:\msys64\mingw64\share\cmake\Modules\CMakeTestASMCompiler.cmake;C:\msys64\mingw64\share\cmake\Modules\CheckCSourceCompiles.cmake;C:\msys64\mingw64\share\cmake\Modules\Compiler\MSVC-ASM.cmake;C:\msys64\mingw64\share\cmake\Modules\FindPackageHandleStandardArgs.cmake;C:\msys64\mingw64\share\cmake\Modules\FindPackageMessage.cmake;C:\msys64\mingw64\share\cmake\Modules\FindZLIB.cmake;C:\msys64\mingw64\share\cmake\Modules\GNUInstallDirs.cmake;D:\VisualStudio\SDL2\SDL2-GameDevCMake\SDL2-Minesweeper\external\sdl_image\external\libpng\scripts\genchk.cmake.in;D:\VisualStudio\SDL2\SDL2-GameDevCMake\SDL2-Minesweeper\external\sdl_image\external\libpng\scripts\genout.cmake.in;D:\VisualStudio\SDL2\SDL2-GameDevCMake\SDL2-Minesweeper\external\sdl_image\external\libpng\scripts\gensrc.cmake.in;D:\VisualStudio\SDL2\SDL2-GameDevCMake\SDL2-Minesweeper\external\sdl_image\external\libpng\scripts\pnglibconf.h.prebuilt;D:\VisualStudio\SDL2\SDL2-GameDevCMake\SDL2-Minesweeper\external\sdl_image\external\libpng\scripts\test.cmake.in;D:\VisualStudio\SDL2\SDL2-GameDevCMake\SDL2-Minesweeper\out\build\CMakeFiles\3.23.1\CMakeASMCompiler.cmake;%(AdditionalInputs)</AdditionalInputs>
       <Outputs Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">D:\VisualStudio\SDL2\SDL2-GameDevCMake\SDL2-Minesweeper\out\build\external\sdl_image\external\libpng\CMakeFiles\generate.stamp</Outputs>
       <LinkObjects Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">false</LinkObjects>
     </CustomBuild>

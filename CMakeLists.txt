@@ -3,25 +3,32 @@
 #
 cmake_minimum_required (VERSION 3.8)
 
+# set MSVC compiler flags for language version required
+if (MSVC_VERSION GREATER_EQUAL "1900")
+    include(CheckCXXCompilerFlag)
+    CHECK_CXX_COMPILER_FLAG("/std:c++17" _cpp_latest_flag_supported)
+    if (_cpp_latest_flag_supported)
+        add_compile_options("/std:c++17")
+    endif()
+endif()
+
+# Set Project C++ Standard used.
+set(CMAKE_CXX_STANDARD 17)
+set(CMAKE_CXX_STANDARD_REQUIRED ON)
+set(CMAKE_CXX_EXTENSIONS OFF)
+set(CMAKE_CXX_COMPILE_FEATURES cxx_std_17)
+
 # Project Setup
 project ("SDL2-Minesweeper")
 set(VERSION 0.1)
 set(PROJECT_DESCRIPTION "Minesweeper -- Project 2022 -- ImGUI -- SDL2")
 set(LANGUAGE C CXX)
 
-# Set Project C++ Standard used.
-set(CMAKE_CXX_STANDARD 17)
-set(CMAKE_CXX_STANDARD_REQUIRED ON)
-set(CMAKE_CXX_EXTENSIONS ON)
-set(CMAKE_CXX_COMPILE_FEATURES cxx_std_17)
-
-if (MSVC_VERSION GREATER_EQUAL "1900")
-    include(CheckCXXCompilerFlag)
-    CHECK_CXX_COMPILER_FLAG("/std:c++latest" _cpp_latest_flag_supported)
-    if (_cpp_latest_flag_supported)
-        add_compile_options("/std:c++latest")
-    endif()
-endif()
+# control where the static and shared libraries are built so that on windows
+# we don't need to tinker with the path to run the executable
+set(CMAKE_ARCHIVE_OUTPUT_DIRECTORY "${PROJECT_BINARY_DIR}/lib")
+set(CMAKE_LIBRARY_OUTPUT_DIRECTORY "${PROJECT_BINARY_DIR}/lib")
+set(CMAKE_RUNTIME_OUTPUT_DIRECTORY "${PROJECT_BINARY_DIR}/bin")
 
 # Update Git submodule, updated version to point to top level cmakelists
 find_package(Git QUIET)
@@ -40,9 +47,8 @@ if(GIT_FOUND AND EXISTS "${CMAKE_SOURCE_DIR}/.git")
 endif()
 
 # imgui doesnt have a cmakelists in his submodule by default, gist version -> https://gist.github.com/rokups/f771217b2d530d170db5cb1e08e9a8f4
-if(NOT EXISTS "${CMAKE_SOURCE_DIR}/external/sdl2/CMakeLists.txt")
-    message(FATAL_ERROR "The submodules were not downloaded! GIT_SUBMODULE was turned off or failed. Please update submodules and try again.")
-elseif(NOT EXISTS "${CMAKE_SOURCE_DIR}/external/sdl_image/CMakeLists.txt")
+# OR NOT EXISTS "${CMAKE_SOURCE_DIR}/external/sdl_image/CMakeLists.txt"
+if(NOT EXISTS "${CMAKE_SOURCE_DIR}/external/sdl2/CMakeLists.txt" OR NOT EXISTS "${CMAKE_SOURCE_DIR}/external/sdl_image/CMakeLists.txt")
     message(FATAL_ERROR "The submodules were not downloaded! GIT_SUBMODULE was turned off or failed. Please update submodules and try again.")
 endif()
 
@@ -50,4 +56,4 @@ endif()
 add_subdirectory("${CMAKE_SOURCE_DIR}/${PROJECT_NAME}")
 add_subdirectory("${CMAKE_SOURCE_DIR}/external/sdl2")
 add_subdirectory("${CMAKE_SOURCE_DIR}/external/sdl_image")
-add_subdirectory("${CMAKE_SOURCE_DIR}/external/imgui")
+#add_subdirectory("${CMAKE_SOURCE_DIR}/external/imgui")
