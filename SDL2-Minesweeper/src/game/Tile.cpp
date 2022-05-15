@@ -2,8 +2,8 @@
 #include "../../headers/game/Tile.h"
 
 namespace Minesweeper {
-	Tile::Tile(SDL_Texture* texture, const int& arr_pos) : texture(texture), index(arr_pos), bitmask(Tilebitmask::None) { }
-	Tile::~Tile() { texture = nullptr; }
+	Tile::Tile() : bitmask(Tilebitmask::None) { }
+	Tile::~Tile() {}
 
 	void Tile::add(Tilebitmask&& value)
 	{

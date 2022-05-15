@@ -8,7 +8,7 @@ using namespace std;
 namespace Toolset {
 	class ImGuiHandler {
 	private:
-		SDLHandler* context = nullptr;
+		SDLHandler* sdl_context = nullptr;
 		vector<ImGuiComponent*> user_interface;
 		ImGuiHandler(const ImGuiHandler&) = delete;
 		ImGuiHandler(ImGuiHandler&&) = delete;

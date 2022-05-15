@@ -8,7 +8,7 @@
 #endif
 
 namespace Toolset {
-	ImGuiHandler::ImGuiHandler(SDLHandler* handler) : context(handler) { create(context); }
+	ImGuiHandler::ImGuiHandler(SDLHandler* handler) : sdl_context(handler) { create(sdl_context); }
 	ImGuiHandler::~ImGuiHandler() { destroy(); }
 
 	void ImGuiHandler::create(SDLHandler* handler)
@@ -32,8 +32,8 @@ namespace Toolset {
 		ImGui_ImplSDL2_Shutdown();
 		ImGui::DestroyContext();
 		for (auto& it : user_interface) delete it;
-		delete context;
-		context = nullptr;
+		delete sdl_context;
+		sdl_context = nullptr;
 	}
 
 	void ImGuiHandler::processInputs(SDL_Event& e, void(*inputs_callback)(SDL_Event&))
@@ -56,13 +56,13 @@ namespace Toolset {
 		// Rendering
 		ImGui::Render();
 		// Refresh Rendering Platform/Renderer backends
-		context->refresh(refresh_callback);
+		sdl_context->refresh(refresh_callback);
 	}
 
 	void ImGuiHandler::draw(void (*draw_callback)())
 	{
 		// Render Platform/Renderer backends and gameobjects
 		ImGui_ImplSDLRenderer_RenderDrawData(ImGui::GetDrawData());
-		context->draw(draw_callback);
+		sdl_context->draw(draw_callback);
 	}
 }

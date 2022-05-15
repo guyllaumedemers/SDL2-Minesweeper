@@ -5,5 +5,5 @@
 
 int main(int argc, char* argv[])
 {
-	return Minesweeper::GameManager::execute();
+	return Toolset::GameManager::execute();
 }

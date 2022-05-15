@@ -20,7 +20,7 @@
       <FullPath>D:\VisualStudio\SDL2\SDL2-GameDevCMake\SDL2-Minesweeper\out\build\Debug\SDL2_image.dll</FullPath>
     </ProjectOutput>
     <ProjectOutput>
-      <FullPath>D:\VisualStudio\SDL2\SDL2-GameDevCMake\SDL2-Minesweeper\out\build\external\imgui\x64\Debug\imgui</FullPath>
+      <FullPath>D:\VisualStudio\SDL2\SDL2-GameDevCMake\SDL2-Minesweeper\out\build\x64\Debug\imgui</FullPath>
     </ProjectOutput>
     <ProjectOutput>
       <FullPath>D:\VisualStudio\SDL2\SDL2-GameDevCMake\SDL2-Minesweeper\out\build\Debug\SDL2-Minesweeper.exe</FullPath>

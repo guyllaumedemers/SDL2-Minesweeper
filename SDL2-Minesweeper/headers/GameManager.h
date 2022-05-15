@@ -1,11 +1,13 @@
 #pragma once
 #include "ImGuiHandler.h"
+#include "game/GameManagerImp.h"
 
-using namespace Toolset;
-namespace Minesweeper {
+using namespace Minesweeper;
+namespace Toolset {
 	class GameManager {
 	private:
-		static ImGuiHandler* context;
+		static ImGuiHandler* imgui_context;
+		static GameManagerImp* imp;
 		static bool isRunning;
 		static void init();
 		static void run();
