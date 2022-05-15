@@ -1,6 +1,9 @@
 #pragma once
 #include "../headers/GameManager.h"
 #include "../headers/InputHandler.h"
+#ifdef _DEBUG
+#include "../headers/CRTMemoryLeak.h"
+#endif
 #include <iostream>
 
 namespace Minesweeper {
@@ -9,7 +12,11 @@ namespace Minesweeper {
 
 	void GameManager::init()
 	{
+#ifdef _DEBUG
+		context = DBG_NEW ImGuiHandler(DBG_NEW SDLHandler(640, 480));
+#else		
 		context = new ImGuiHandler(new SDLHandler(640, 480));
+#endif
 		isRunning = true;
 	}
 

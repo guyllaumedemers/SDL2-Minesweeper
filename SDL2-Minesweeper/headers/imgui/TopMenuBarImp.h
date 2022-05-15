@@ -2,13 +2,13 @@
 #include "ImGuiComponent.h"
 
 namespace GraphicalToolset {
-	class TopMenuBarImp : virtual public ImGuiComponent {
+	class TopMenuBarImp {
 	private:
 		TopMenuBarImp(const TopMenuBarImp&) = delete;
 		TopMenuBarImp(TopMenuBarImp&&) = delete;
 	public:
 		TopMenuBarImp();
 		~TopMenuBarImp();
-		void refresh() override;
+		void refresh();
 	};
 }

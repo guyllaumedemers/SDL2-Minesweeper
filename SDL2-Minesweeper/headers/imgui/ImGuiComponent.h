@@ -6,9 +6,9 @@ namespace GraphicalToolset {
 		ImGuiComponent(const ImGuiComponent&) = delete;
 		ImGuiComponent(ImGuiComponent&&) = delete;
 	protected:
-		ImGuiComponent() {};
-		virtual ~ImGuiComponent() {};
+		ImGuiComponent() = default;
 	public:
+		virtual ~ImGuiComponent() = 0 {};
 		virtual void refresh() = 0;
 	};
 }

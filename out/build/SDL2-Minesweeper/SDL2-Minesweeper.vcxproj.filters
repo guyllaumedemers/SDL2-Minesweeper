@@ -36,6 +36,9 @@
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="D:\VisualStudio\SDL2\SDL2-GameDevCMake\SDL2-Minesweeper\SDL2-Minesweeper\headers\CRTMemoryLeak.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
     <ClInclude Include="D:\VisualStudio\SDL2\SDL2-GameDevCMake\SDL2-Minesweeper\SDL2-Minesweeper\headers\EventHandler.h">
       <Filter>Header Files</Filter>
     </ClInclude>

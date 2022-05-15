@@ -13,6 +13,7 @@ namespace GraphicalToolset {
 		vector<EventHandler*> events;
 		TopMenuBar(const TopMenuBar&) = delete;
 		TopMenuBar(TopMenuBar&&) = delete;
+		void destroy();
 	public:
 		TopMenuBar(TopMenuBarImp*);
 		~TopMenuBar();

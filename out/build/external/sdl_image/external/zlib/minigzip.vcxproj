@@ -59,25 +59,25 @@
   <PropertyGroup Label="UserMacros" />
   <PropertyGroup>
     <_ProjectFileVersion>10.0.20506.1</_ProjectFileVersion>
-    <OutDir Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">D:\VisualStudio\SDL2\SDL2-GameDevCMake\SDL2-Minesweeper\out\build\bin\Debug\</OutDir>
+    <OutDir Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">D:\VisualStudio\SDL2\SDL2-GameDevCMake\SDL2-Minesweeper\out\build\Debug\</OutDir>
     <IntDir Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">minigzip.dir\Debug\</IntDir>
     <TargetName Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">minigzip</TargetName>
     <TargetExt Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">.exe</TargetExt>
     <LinkIncremental Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</LinkIncremental>
     <GenerateManifest Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</GenerateManifest>
-    <OutDir Condition="'$(Configuration)|$(Platform)'=='Release|x64'">D:\VisualStudio\SDL2\SDL2-GameDevCMake\SDL2-Minesweeper\out\build\bin\Release\</OutDir>
+    <OutDir Condition="'$(Configuration)|$(Platform)'=='Release|x64'">D:\VisualStudio\SDL2\SDL2-GameDevCMake\SDL2-Minesweeper\out\build\Release\</OutDir>
     <IntDir Condition="'$(Configuration)|$(Platform)'=='Release|x64'">minigzip.dir\Release\</IntDir>
     <TargetName Condition="'$(Configuration)|$(Platform)'=='Release|x64'">minigzip</TargetName>
     <TargetExt Condition="'$(Configuration)|$(Platform)'=='Release|x64'">.exe</TargetExt>
     <LinkIncremental Condition="'$(Configuration)|$(Platform)'=='Release|x64'">false</LinkIncremental>
     <GenerateManifest Condition="'$(Configuration)|$(Platform)'=='Release|x64'">true</GenerateManifest>
-    <OutDir Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">D:\VisualStudio\SDL2\SDL2-GameDevCMake\SDL2-Minesweeper\out\build\bin\MinSizeRel\</OutDir>
+    <OutDir Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">D:\VisualStudio\SDL2\SDL2-GameDevCMake\SDL2-Minesweeper\out\build\MinSizeRel\</OutDir>
     <IntDir Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">minigzip.dir\MinSizeRel\</IntDir>
     <TargetName Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">minigzip</TargetName>
     <TargetExt Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">.exe</TargetExt>
     <LinkIncremental Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">false</LinkIncremental>
     <GenerateManifest Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">true</GenerateManifest>
-    <OutDir Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">D:\VisualStudio\SDL2\SDL2-GameDevCMake\SDL2-Minesweeper\out\build\bin\RelWithDebInfo\</OutDir>
+    <OutDir Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">D:\VisualStudio\SDL2\SDL2-GameDevCMake\SDL2-Minesweeper\out\build\RelWithDebInfo\</OutDir>
     <IntDir Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">minigzip.dir\RelWithDebInfo\</IntDir>
     <TargetName Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">minigzip</TargetName>
     <TargetExt Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">.exe</TargetExt>
@@ -114,13 +114,13 @@
       <ProxyFileName>%(Filename)_p.c</ProxyFileName>
     </Midl>
     <Link>
-      <AdditionalDependencies>..\..\..\..\lib\Debug\zlibd.lib;kernel32.lib;user32.lib;gdi32.lib;winspool.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;comdlg32.lib;advapi32.lib</AdditionalDependencies>
+      <AdditionalDependencies>..\..\..\..\bin\Debug\zlibd.lib;kernel32.lib;user32.lib;gdi32.lib;winspool.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;comdlg32.lib;advapi32.lib</AdditionalDependencies>
       <AdditionalLibraryDirectories>%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
       <AdditionalOptions>%(AdditionalOptions) /machine:x64</AdditionalOptions>
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <IgnoreSpecificDefaultLibraries>%(IgnoreSpecificDefaultLibraries)</IgnoreSpecificDefaultLibraries>
-      <ImportLibrary>D:/VisualStudio/SDL2/SDL2-GameDevCMake/SDL2-Minesweeper/out/build/lib/Debug/minigzip.lib</ImportLibrary>
-      <ProgramDataBaseFile>D:/VisualStudio/SDL2/SDL2-GameDevCMake/SDL2-Minesweeper/out/build/bin/Debug/minigzip.pdb</ProgramDataBaseFile>
+      <ImportLibrary>D:/VisualStudio/SDL2/SDL2-GameDevCMake/SDL2-Minesweeper/out/build/bin/Debug/minigzip.lib</ImportLibrary>
+      <ProgramDataBaseFile>D:/VisualStudio/SDL2/SDL2-GameDevCMake/SDL2-Minesweeper/out/build/Debug/minigzip.pdb</ProgramDataBaseFile>
       <SubSystem>Console</SubSystem>
     </Link>
     <ProjectReference>
@@ -157,13 +157,13 @@
       <ProxyFileName>%(Filename)_p.c</ProxyFileName>
     </Midl>
     <Link>
-      <AdditionalDependencies>..\..\..\..\lib\Release\zlib.lib;kernel32.lib;user32.lib;gdi32.lib;winspool.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;comdlg32.lib;advapi32.lib</AdditionalDependencies>
+      <AdditionalDependencies>..\..\..\..\bin\Release\zlib.lib;kernel32.lib;user32.lib;gdi32.lib;winspool.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;comdlg32.lib;advapi32.lib</AdditionalDependencies>
       <AdditionalLibraryDirectories>%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
       <AdditionalOptions>%(AdditionalOptions) /machine:x64</AdditionalOptions>
       <GenerateDebugInformation>false</GenerateDebugInformation>
       <IgnoreSpecificDefaultLibraries>%(IgnoreSpecificDefaultLibraries)</IgnoreSpecificDefaultLibraries>
-      <ImportLibrary>D:/VisualStudio/SDL2/SDL2-GameDevCMake/SDL2-Minesweeper/out/build/lib/Release/minigzip.lib</ImportLibrary>
-      <ProgramDataBaseFile>D:/VisualStudio/SDL2/SDL2-GameDevCMake/SDL2-Minesweeper/out/build/bin/Release/minigzip.pdb</ProgramDataBaseFile>
+      <ImportLibrary>D:/VisualStudio/SDL2/SDL2-GameDevCMake/SDL2-Minesweeper/out/build/bin/Release/minigzip.lib</ImportLibrary>
+      <ProgramDataBaseFile>D:/VisualStudio/SDL2/SDL2-GameDevCMake/SDL2-Minesweeper/out/build/Release/minigzip.pdb</ProgramDataBaseFile>
       <SubSystem>Console</SubSystem>
     </Link>
     <ProjectReference>
@@ -200,13 +200,13 @@
       <ProxyFileName>%(Filename)_p.c</ProxyFileName>
     </Midl>
     <Link>
-      <AdditionalDependencies>..\..\..\..\lib\MinSizeRel\zlib.lib;kernel32.lib;user32.lib;gdi32.lib;winspool.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;comdlg32.lib;advapi32.lib</AdditionalDependencies>
+      <AdditionalDependencies>..\..\..\..\bin\MinSizeRel\zlib.lib;kernel32.lib;user32.lib;gdi32.lib;winspool.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;comdlg32.lib;advapi32.lib</AdditionalDependencies>
       <AdditionalLibraryDirectories>%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
       <AdditionalOptions>%(AdditionalOptions) /machine:x64</AdditionalOptions>
       <GenerateDebugInformation>false</GenerateDebugInformation>
       <IgnoreSpecificDefaultLibraries>%(IgnoreSpecificDefaultLibraries)</IgnoreSpecificDefaultLibraries>
-      <ImportLibrary>D:/VisualStudio/SDL2/SDL2-GameDevCMake/SDL2-Minesweeper/out/build/lib/MinSizeRel/minigzip.lib</ImportLibrary>
-      <ProgramDataBaseFile>D:/VisualStudio/SDL2/SDL2-GameDevCMake/SDL2-Minesweeper/out/build/bin/MinSizeRel/minigzip.pdb</ProgramDataBaseFile>
+      <ImportLibrary>D:/VisualStudio/SDL2/SDL2-GameDevCMake/SDL2-Minesweeper/out/build/bin/MinSizeRel/minigzip.lib</ImportLibrary>
+      <ProgramDataBaseFile>D:/VisualStudio/SDL2/SDL2-GameDevCMake/SDL2-Minesweeper/out/build/MinSizeRel/minigzip.pdb</ProgramDataBaseFile>
       <SubSystem>Console</SubSystem>
     </Link>
     <ProjectReference>
@@ -242,13 +242,13 @@
       <ProxyFileName>%(Filename)_p.c</ProxyFileName>
     </Midl>
     <Link>
-      <AdditionalDependencies>..\..\..\..\lib\RelWithDebInfo\zlib.lib;kernel32.lib;user32.lib;gdi32.lib;winspool.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;comdlg32.lib;advapi32.lib</AdditionalDependencies>
+      <AdditionalDependencies>..\..\..\..\bin\RelWithDebInfo\zlib.lib;kernel32.lib;user32.lib;gdi32.lib;winspool.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;comdlg32.lib;advapi32.lib</AdditionalDependencies>
       <AdditionalLibraryDirectories>%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
       <AdditionalOptions>%(AdditionalOptions) /machine:x64</AdditionalOptions>
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <IgnoreSpecificDefaultLibraries>%(IgnoreSpecificDefaultLibraries)</IgnoreSpecificDefaultLibraries>
-      <ImportLibrary>D:/VisualStudio/SDL2/SDL2-GameDevCMake/SDL2-Minesweeper/out/build/lib/RelWithDebInfo/minigzip.lib</ImportLibrary>
-      <ProgramDataBaseFile>D:/VisualStudio/SDL2/SDL2-GameDevCMake/SDL2-Minesweeper/out/build/bin/RelWithDebInfo/minigzip.pdb</ProgramDataBaseFile>
+      <ImportLibrary>D:/VisualStudio/SDL2/SDL2-GameDevCMake/SDL2-Minesweeper/out/build/bin/RelWithDebInfo/minigzip.lib</ImportLibrary>
+      <ProgramDataBaseFile>D:/VisualStudio/SDL2/SDL2-GameDevCMake/SDL2-Minesweeper/out/build/RelWithDebInfo/minigzip.pdb</ProgramDataBaseFile>
       <SubSystem>Console</SubSystem>
     </Link>
     <ProjectReference>

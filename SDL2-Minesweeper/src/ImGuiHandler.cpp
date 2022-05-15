@@ -3,7 +3,9 @@
 #include "../headers/imgui/TopMenuBar.h"
 //#include <imgui_impl_sdl.h>
 //#include <imgui_impl_sdlrenderer.h>
-
+#ifdef _DEBUG
+#include "../headers/CRTMemoryLeak.h"
+#endif
 
 namespace Toolset {
 	ImGuiHandler::ImGuiHandler(SDLHandler* handler) : context(handler) { create(context); }
@@ -11,7 +13,11 @@ namespace Toolset {
 
 	void ImGuiHandler::create(SDLHandler* handler)
 	{
+#ifdef _DEBUG
+		user_interface.push_back(DBG_NEW TopMenuBar(DBG_NEW TopMenuBarImp()));
+#else		
 		user_interface.push_back(new TopMenuBar(new TopMenuBarImp()));	//Temp solution, will probably create a builder pattern to return proper vector<ImGuiComponent*>
+#endif
 		/*IMGUI_CHECKVERSION();
 		ImGui::CreateContext();
 		ImGuiIO& io = ImGui::GetIO(); (void)io;
@@ -25,6 +31,7 @@ namespace Toolset {
 		/*ImGui_ImplSDLRenderer_Shutdown();
 		ImGui_ImplSDL2_Shutdown();
 		ImGui::DestroyContext();*/
+		for (auto& it : user_interface) delete it;
 		delete context;
 		context = nullptr;
 	}

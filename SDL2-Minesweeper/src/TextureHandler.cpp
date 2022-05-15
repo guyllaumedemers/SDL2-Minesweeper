@@ -2,22 +2,19 @@
 #include "../headers/TextureHandler.h"
 #include "../headers/StringExtension.h"
 #include <SDL_image.h>
+#include <filesystem>
 #ifndef MY_RESOURCES_PATH
 #define MY_RESOURCES_PATH "/res/sprites"
 #endif
-#include <filesystem>
 
 namespace Toolset {
 	unordered_map<string, SDL_Texture*> TextureHandler::textures;
 
 	void TextureHandler::load(SDL_Renderer* renderer)
 	{
-		string build_path = std::filesystem::current_path()
-			.parent_path()
-			.generic_u8string();
-		build_path += MY_RESOURCES_PATH;
-		cout << build_path << endl;
-		for (const auto& file : std::filesystem::directory_iterator(build_path)) {
+		std::filesystem::path build_path = std::filesystem::current_path().parent_path();
+		string res_path = build_path.generic_u8string() + MY_RESOURCES_PATH;
+		for (const auto& file : std::filesystem::directory_iterator(res_path)) {
 			std::filesystem::path path = file.path();
 			string s_path = path.generic_u8string();
 			SDL_Texture* temp = loadtexture(renderer, s_path.c_str());

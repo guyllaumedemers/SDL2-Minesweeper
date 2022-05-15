@@ -1,2 +1,2 @@
-cd out/build/SDL2-Minesweeper/Release
+cd out/build/Debug
 start SDL2-Minesweeper

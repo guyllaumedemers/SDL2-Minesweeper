@@ -59,25 +59,25 @@
   <PropertyGroup Label="UserMacros" />
   <PropertyGroup>
     <_ProjectFileVersion>10.0.20506.1</_ProjectFileVersion>
-    <OutDir Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">D:\VisualStudio\SDL2\SDL2-GameDevCMake\SDL2-Minesweeper\out\build\bin\Debug\</OutDir>
+    <OutDir Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">D:\VisualStudio\SDL2\SDL2-GameDevCMake\SDL2-Minesweeper\out\build\Debug\</OutDir>
     <IntDir Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">pngtest.dir\Debug\</IntDir>
     <TargetName Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">pngtest</TargetName>
     <TargetExt Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">.exe</TargetExt>
     <LinkIncremental Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</LinkIncremental>
     <GenerateManifest Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</GenerateManifest>
-    <OutDir Condition="'$(Configuration)|$(Platform)'=='Release|x64'">D:\VisualStudio\SDL2\SDL2-GameDevCMake\SDL2-Minesweeper\out\build\bin\Release\</OutDir>
+    <OutDir Condition="'$(Configuration)|$(Platform)'=='Release|x64'">D:\VisualStudio\SDL2\SDL2-GameDevCMake\SDL2-Minesweeper\out\build\Release\</OutDir>
     <IntDir Condition="'$(Configuration)|$(Platform)'=='Release|x64'">pngtest.dir\Release\</IntDir>
     <TargetName Condition="'$(Configuration)|$(Platform)'=='Release|x64'">pngtest</TargetName>
     <TargetExt Condition="'$(Configuration)|$(Platform)'=='Release|x64'">.exe</TargetExt>
     <LinkIncremental Condition="'$(Configuration)|$(Platform)'=='Release|x64'">false</LinkIncremental>
     <GenerateManifest Condition="'$(Configuration)|$(Platform)'=='Release|x64'">true</GenerateManifest>
-    <OutDir Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">D:\VisualStudio\SDL2\SDL2-GameDevCMake\SDL2-Minesweeper\out\build\bin\MinSizeRel\</OutDir>
+    <OutDir Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">D:\VisualStudio\SDL2\SDL2-GameDevCMake\SDL2-Minesweeper\out\build\MinSizeRel\</OutDir>
     <IntDir Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">pngtest.dir\MinSizeRel\</IntDir>
     <TargetName Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">pngtest</TargetName>
     <TargetExt Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">.exe</TargetExt>
     <LinkIncremental Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">false</LinkIncremental>
     <GenerateManifest Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">true</GenerateManifest>
-    <OutDir Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">D:\VisualStudio\SDL2\SDL2-GameDevCMake\SDL2-Minesweeper\out\build\bin\RelWithDebInfo\</OutDir>
+    <OutDir Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">D:\VisualStudio\SDL2\SDL2-GameDevCMake\SDL2-Minesweeper\out\build\RelWithDebInfo\</OutDir>
     <IntDir Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">pngtest.dir\RelWithDebInfo\</IntDir>
     <TargetName Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">pngtest</TargetName>
     <TargetExt Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">.exe</TargetExt>
@@ -114,13 +114,13 @@
       <ProxyFileName>%(Filename)_p.c</ProxyFileName>
     </Midl>
     <Link>
-      <AdditionalDependencies>..\..\..\..\lib\Debug\libpng16d.lib;..\..\..\..\lib\Debug\zlibd.lib;kernel32.lib;user32.lib;gdi32.lib;winspool.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;comdlg32.lib;advapi32.lib</AdditionalDependencies>
+      <AdditionalDependencies>..\..\..\..\bin\Debug\libpng16d.lib;..\..\..\..\bin\Debug\zlibd.lib;kernel32.lib;user32.lib;gdi32.lib;winspool.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;comdlg32.lib;advapi32.lib</AdditionalDependencies>
       <AdditionalLibraryDirectories>%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
       <AdditionalOptions>%(AdditionalOptions) /machine:x64</AdditionalOptions>
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <IgnoreSpecificDefaultLibraries>%(IgnoreSpecificDefaultLibraries)</IgnoreSpecificDefaultLibraries>
-      <ImportLibrary>D:/VisualStudio/SDL2/SDL2-GameDevCMake/SDL2-Minesweeper/out/build/lib/Debug/pngtest.lib</ImportLibrary>
-      <ProgramDataBaseFile>D:/VisualStudio/SDL2/SDL2-GameDevCMake/SDL2-Minesweeper/out/build/bin/Debug/pngtest.pdb</ProgramDataBaseFile>
+      <ImportLibrary>D:/VisualStudio/SDL2/SDL2-GameDevCMake/SDL2-Minesweeper/out/build/bin/Debug/pngtest.lib</ImportLibrary>
+      <ProgramDataBaseFile>D:/VisualStudio/SDL2/SDL2-GameDevCMake/SDL2-Minesweeper/out/build/Debug/pngtest.pdb</ProgramDataBaseFile>
       <SubSystem>Console</SubSystem>
     </Link>
     <ProjectReference>
@@ -157,13 +157,13 @@
       <ProxyFileName>%(Filename)_p.c</ProxyFileName>
     </Midl>
     <Link>
-      <AdditionalDependencies>..\..\..\..\lib\Release\libpng16.lib;..\..\..\..\lib\Release\zlib.lib;kernel32.lib;user32.lib;gdi32.lib;winspool.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;comdlg32.lib;advapi32.lib</AdditionalDependencies>
+      <AdditionalDependencies>..\..\..\..\bin\Release\libpng16.lib;..\..\..\..\bin\Release\zlib.lib;kernel32.lib;user32.lib;gdi32.lib;winspool.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;comdlg32.lib;advapi32.lib</AdditionalDependencies>
       <AdditionalLibraryDirectories>%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
       <AdditionalOptions>%(AdditionalOptions) /machine:x64</AdditionalOptions>
       <GenerateDebugInformation>false</GenerateDebugInformation>
       <IgnoreSpecificDefaultLibraries>%(IgnoreSpecificDefaultLibraries)</IgnoreSpecificDefaultLibraries>
-      <ImportLibrary>D:/VisualStudio/SDL2/SDL2-GameDevCMake/SDL2-Minesweeper/out/build/lib/Release/pngtest.lib</ImportLibrary>
-      <ProgramDataBaseFile>D:/VisualStudio/SDL2/SDL2-GameDevCMake/SDL2-Minesweeper/out/build/bin/Release/pngtest.pdb</ProgramDataBaseFile>
+      <ImportLibrary>D:/VisualStudio/SDL2/SDL2-GameDevCMake/SDL2-Minesweeper/out/build/bin/Release/pngtest.lib</ImportLibrary>
+      <ProgramDataBaseFile>D:/VisualStudio/SDL2/SDL2-GameDevCMake/SDL2-Minesweeper/out/build/Release/pngtest.pdb</ProgramDataBaseFile>
       <SubSystem>Console</SubSystem>
     </Link>
     <ProjectReference>
@@ -200,13 +200,13 @@
       <ProxyFileName>%(Filename)_p.c</ProxyFileName>
     </Midl>
     <Link>
-      <AdditionalDependencies>..\..\..\..\lib\MinSizeRel\libpng16.lib;..\..\..\..\lib\MinSizeRel\zlib.lib;kernel32.lib;user32.lib;gdi32.lib;winspool.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;comdlg32.lib;advapi32.lib</AdditionalDependencies>
+      <AdditionalDependencies>..\..\..\..\bin\MinSizeRel\libpng16.lib;..\..\..\..\bin\MinSizeRel\zlib.lib;kernel32.lib;user32.lib;gdi32.lib;winspool.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;comdlg32.lib;advapi32.lib</AdditionalDependencies>
       <AdditionalLibraryDirectories>%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
       <AdditionalOptions>%(AdditionalOptions) /machine:x64</AdditionalOptions>
       <GenerateDebugInformation>false</GenerateDebugInformation>
       <IgnoreSpecificDefaultLibraries>%(IgnoreSpecificDefaultLibraries)</IgnoreSpecificDefaultLibraries>
-      <ImportLibrary>D:/VisualStudio/SDL2/SDL2-GameDevCMake/SDL2-Minesweeper/out/build/lib/MinSizeRel/pngtest.lib</ImportLibrary>
-      <ProgramDataBaseFile>D:/VisualStudio/SDL2/SDL2-GameDevCMake/SDL2-Minesweeper/out/build/bin/MinSizeRel/pngtest.pdb</ProgramDataBaseFile>
+      <ImportLibrary>D:/VisualStudio/SDL2/SDL2-GameDevCMake/SDL2-Minesweeper/out/build/bin/MinSizeRel/pngtest.lib</ImportLibrary>
+      <ProgramDataBaseFile>D:/VisualStudio/SDL2/SDL2-GameDevCMake/SDL2-Minesweeper/out/build/MinSizeRel/pngtest.pdb</ProgramDataBaseFile>
       <SubSystem>Console</SubSystem>
     </Link>
     <ProjectReference>
@@ -242,13 +242,13 @@
       <ProxyFileName>%(Filename)_p.c</ProxyFileName>
     </Midl>
     <Link>
-      <AdditionalDependencies>..\..\..\..\lib\RelWithDebInfo\libpng16.lib;..\..\..\..\lib\RelWithDebInfo\zlib.lib;kernel32.lib;user32.lib;gdi32.lib;winspool.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;comdlg32.lib;advapi32.lib</AdditionalDependencies>
+      <AdditionalDependencies>..\..\..\..\bin\RelWithDebInfo\libpng16.lib;..\..\..\..\bin\RelWithDebInfo\zlib.lib;kernel32.lib;user32.lib;gdi32.lib;winspool.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;comdlg32.lib;advapi32.lib</AdditionalDependencies>
       <AdditionalLibraryDirectories>%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
       <AdditionalOptions>%(AdditionalOptions) /machine:x64</AdditionalOptions>
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <IgnoreSpecificDefaultLibraries>%(IgnoreSpecificDefaultLibraries)</IgnoreSpecificDefaultLibraries>
-      <ImportLibrary>D:/VisualStudio/SDL2/SDL2-GameDevCMake/SDL2-Minesweeper/out/build/lib/RelWithDebInfo/pngtest.lib</ImportLibrary>
-      <ProgramDataBaseFile>D:/VisualStudio/SDL2/SDL2-GameDevCMake/SDL2-Minesweeper/out/build/bin/RelWithDebInfo/pngtest.pdb</ProgramDataBaseFile>
+      <ImportLibrary>D:/VisualStudio/SDL2/SDL2-GameDevCMake/SDL2-Minesweeper/out/build/bin/RelWithDebInfo/pngtest.lib</ImportLibrary>
+      <ProgramDataBaseFile>D:/VisualStudio/SDL2/SDL2-GameDevCMake/SDL2-Minesweeper/out/build/RelWithDebInfo/pngtest.pdb</ProgramDataBaseFile>
       <SubSystem>Console</SubSystem>
     </Link>
     <ProjectReference>

@@ -59,25 +59,25 @@
   <PropertyGroup Label="UserMacros" />
   <PropertyGroup>
     <_ProjectFileVersion>10.0.20506.1</_ProjectFileVersion>
-    <OutDir Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">D:\VisualStudio\SDL2\SDL2-GameDevCMake\SDL2-Minesweeper\out\build\bin\Debug\</OutDir>
+    <OutDir Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">D:\VisualStudio\SDL2\SDL2-GameDevCMake\SDL2-Minesweeper\out\build\Debug\</OutDir>
     <IntDir Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">SDL2-Minesweeper.dir\Debug\</IntDir>
     <TargetName Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">SDL2-Minesweeper</TargetName>
     <TargetExt Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">.exe</TargetExt>
     <LinkIncremental Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</LinkIncremental>
     <GenerateManifest Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</GenerateManifest>
-    <OutDir Condition="'$(Configuration)|$(Platform)'=='Release|x64'">D:\VisualStudio\SDL2\SDL2-GameDevCMake\SDL2-Minesweeper\out\build\bin\Release\</OutDir>
+    <OutDir Condition="'$(Configuration)|$(Platform)'=='Release|x64'">D:\VisualStudio\SDL2\SDL2-GameDevCMake\SDL2-Minesweeper\out\build\Release\</OutDir>
     <IntDir Condition="'$(Configuration)|$(Platform)'=='Release|x64'">SDL2-Minesweeper.dir\Release\</IntDir>
     <TargetName Condition="'$(Configuration)|$(Platform)'=='Release|x64'">SDL2-Minesweeper</TargetName>
     <TargetExt Condition="'$(Configuration)|$(Platform)'=='Release|x64'">.exe</TargetExt>
     <LinkIncremental Condition="'$(Configuration)|$(Platform)'=='Release|x64'">false</LinkIncremental>
     <GenerateManifest Condition="'$(Configuration)|$(Platform)'=='Release|x64'">true</GenerateManifest>
-    <OutDir Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">D:\VisualStudio\SDL2\SDL2-GameDevCMake\SDL2-Minesweeper\out\build\bin\MinSizeRel\</OutDir>
+    <OutDir Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">D:\VisualStudio\SDL2\SDL2-GameDevCMake\SDL2-Minesweeper\out\build\MinSizeRel\</OutDir>
     <IntDir Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">SDL2-Minesweeper.dir\MinSizeRel\</IntDir>
     <TargetName Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">SDL2-Minesweeper</TargetName>
     <TargetExt Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">.exe</TargetExt>
     <LinkIncremental Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">false</LinkIncremental>
     <GenerateManifest Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">true</GenerateManifest>
-    <OutDir Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">D:\VisualStudio\SDL2\SDL2-GameDevCMake\SDL2-Minesweeper\out\build\bin\RelWithDebInfo\</OutDir>
+    <OutDir Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">D:\VisualStudio\SDL2\SDL2-GameDevCMake\SDL2-Minesweeper\out\build\RelWithDebInfo\</OutDir>
     <IntDir Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">SDL2-Minesweeper.dir\RelWithDebInfo\</IntDir>
     <TargetName Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">SDL2-Minesweeper</TargetName>
     <TargetExt Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">.exe</TargetExt>
@@ -127,13 +127,13 @@ exit /b %1
 if %errorlevel% neq 0 goto :VCEnd</Command>
     </PostBuildEvent>
     <Link>
-      <AdditionalDependencies>..\lib\Debug\SDL2maind.lib;..\lib\Debug\SDL2_image.lib;..\lib\Debug\SDL2d.lib;kernel32.lib;user32.lib;gdi32.lib;winspool.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;comdlg32.lib;advapi32.lib</AdditionalDependencies>
+      <AdditionalDependencies>..\bin\Debug\SDL2maind.lib;..\bin\Debug\SDL2_image.lib;..\bin\Debug\SDL2d.lib;kernel32.lib;user32.lib;gdi32.lib;winspool.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;comdlg32.lib;advapi32.lib</AdditionalDependencies>
       <AdditionalLibraryDirectories>D:/VisualStudio/SDL2/SDL2-GameDevCMake/SDL2-Minesweeper/external/sdl2/src;D:/VisualStudio/SDL2/SDL2-GameDevCMake/SDL2-Minesweeper/external/sdl2/src/$(Configuration);D:/VisualStudio/SDL2/SDL2-GameDevCMake/SDL2-Minesweeper/external/sdl_image;D:/VisualStudio/SDL2/SDL2-GameDevCMake/SDL2-Minesweeper/external/sdl_image/$(Configuration);%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
       <AdditionalOptions>%(AdditionalOptions) /machine:x64</AdditionalOptions>
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <IgnoreSpecificDefaultLibraries>%(IgnoreSpecificDefaultLibraries)</IgnoreSpecificDefaultLibraries>
-      <ImportLibrary>D:/VisualStudio/SDL2/SDL2-GameDevCMake/SDL2-Minesweeper/out/build/lib/Debug/SDL2-Minesweeper.lib</ImportLibrary>
-      <ProgramDataBaseFile>D:/VisualStudio/SDL2/SDL2-GameDevCMake/SDL2-Minesweeper/out/build/bin/Debug/SDL2-Minesweeper.pdb</ProgramDataBaseFile>
+      <ImportLibrary>D:/VisualStudio/SDL2/SDL2-GameDevCMake/SDL2-Minesweeper/out/build/bin/Debug/SDL2-Minesweeper.lib</ImportLibrary>
+      <ProgramDataBaseFile>D:/VisualStudio/SDL2/SDL2-GameDevCMake/SDL2-Minesweeper/out/build/Debug/SDL2-Minesweeper.pdb</ProgramDataBaseFile>
       <SubSystem>Console</SubSystem>
     </Link>
     <ProjectReference>
@@ -183,13 +183,13 @@ exit /b %1
 if %errorlevel% neq 0 goto :VCEnd</Command>
     </PostBuildEvent>
     <Link>
-      <AdditionalDependencies>..\lib\Release\SDL2main.lib;..\lib\Release\SDL2_image.lib;..\lib\Release\SDL2.lib;kernel32.lib;user32.lib;gdi32.lib;winspool.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;comdlg32.lib;advapi32.lib</AdditionalDependencies>
+      <AdditionalDependencies>..\bin\Release\SDL2main.lib;..\bin\Release\SDL2_image.lib;..\bin\Release\SDL2.lib;kernel32.lib;user32.lib;gdi32.lib;winspool.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;comdlg32.lib;advapi32.lib</AdditionalDependencies>
       <AdditionalLibraryDirectories>D:/VisualStudio/SDL2/SDL2-GameDevCMake/SDL2-Minesweeper/external/sdl2/src;D:/VisualStudio/SDL2/SDL2-GameDevCMake/SDL2-Minesweeper/external/sdl2/src/$(Configuration);D:/VisualStudio/SDL2/SDL2-GameDevCMake/SDL2-Minesweeper/external/sdl_image;D:/VisualStudio/SDL2/SDL2-GameDevCMake/SDL2-Minesweeper/external/sdl_image/$(Configuration);%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
       <AdditionalOptions>%(AdditionalOptions) /machine:x64</AdditionalOptions>
       <GenerateDebugInformation>false</GenerateDebugInformation>
       <IgnoreSpecificDefaultLibraries>%(IgnoreSpecificDefaultLibraries)</IgnoreSpecificDefaultLibraries>
-      <ImportLibrary>D:/VisualStudio/SDL2/SDL2-GameDevCMake/SDL2-Minesweeper/out/build/lib/Release/SDL2-Minesweeper.lib</ImportLibrary>
-      <ProgramDataBaseFile>D:/VisualStudio/SDL2/SDL2-GameDevCMake/SDL2-Minesweeper/out/build/bin/Release/SDL2-Minesweeper.pdb</ProgramDataBaseFile>
+      <ImportLibrary>D:/VisualStudio/SDL2/SDL2-GameDevCMake/SDL2-Minesweeper/out/build/bin/Release/SDL2-Minesweeper.lib</ImportLibrary>
+      <ProgramDataBaseFile>D:/VisualStudio/SDL2/SDL2-GameDevCMake/SDL2-Minesweeper/out/build/Release/SDL2-Minesweeper.pdb</ProgramDataBaseFile>
       <SubSystem>Console</SubSystem>
     </Link>
     <ProjectReference>
@@ -239,13 +239,13 @@ exit /b %1
 if %errorlevel% neq 0 goto :VCEnd</Command>
     </PostBuildEvent>
     <Link>
-      <AdditionalDependencies>..\lib\MinSizeRel\SDL2main.lib;..\lib\MinSizeRel\SDL2_image.lib;..\lib\MinSizeRel\SDL2.lib;kernel32.lib;user32.lib;gdi32.lib;winspool.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;comdlg32.lib;advapi32.lib</AdditionalDependencies>
+      <AdditionalDependencies>..\bin\MinSizeRel\SDL2main.lib;..\bin\MinSizeRel\SDL2_image.lib;..\bin\MinSizeRel\SDL2.lib;kernel32.lib;user32.lib;gdi32.lib;winspool.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;comdlg32.lib;advapi32.lib</AdditionalDependencies>
       <AdditionalLibraryDirectories>D:/VisualStudio/SDL2/SDL2-GameDevCMake/SDL2-Minesweeper/external/sdl2/src;D:/VisualStudio/SDL2/SDL2-GameDevCMake/SDL2-Minesweeper/external/sdl2/src/$(Configuration);D:/VisualStudio/SDL2/SDL2-GameDevCMake/SDL2-Minesweeper/external/sdl_image;D:/VisualStudio/SDL2/SDL2-GameDevCMake/SDL2-Minesweeper/external/sdl_image/$(Configuration);%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
       <AdditionalOptions>%(AdditionalOptions) /machine:x64</AdditionalOptions>
       <GenerateDebugInformation>false</GenerateDebugInformation>
       <IgnoreSpecificDefaultLibraries>%(IgnoreSpecificDefaultLibraries)</IgnoreSpecificDefaultLibraries>
-      <ImportLibrary>D:/VisualStudio/SDL2/SDL2-GameDevCMake/SDL2-Minesweeper/out/build/lib/MinSizeRel/SDL2-Minesweeper.lib</ImportLibrary>
-      <ProgramDataBaseFile>D:/VisualStudio/SDL2/SDL2-GameDevCMake/SDL2-Minesweeper/out/build/bin/MinSizeRel/SDL2-Minesweeper.pdb</ProgramDataBaseFile>
+      <ImportLibrary>D:/VisualStudio/SDL2/SDL2-GameDevCMake/SDL2-Minesweeper/out/build/bin/MinSizeRel/SDL2-Minesweeper.lib</ImportLibrary>
+      <ProgramDataBaseFile>D:/VisualStudio/SDL2/SDL2-GameDevCMake/SDL2-Minesweeper/out/build/MinSizeRel/SDL2-Minesweeper.pdb</ProgramDataBaseFile>
       <SubSystem>Console</SubSystem>
     </Link>
     <ProjectReference>
@@ -294,13 +294,13 @@ exit /b %1
 if %errorlevel% neq 0 goto :VCEnd</Command>
     </PostBuildEvent>
     <Link>
-      <AdditionalDependencies>..\lib\RelWithDebInfo\SDL2main.lib;..\lib\RelWithDebInfo\SDL2_image.lib;..\lib\RelWithDebInfo\SDL2.lib;kernel32.lib;user32.lib;gdi32.lib;winspool.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;comdlg32.lib;advapi32.lib</AdditionalDependencies>
+      <AdditionalDependencies>..\bin\RelWithDebInfo\SDL2main.lib;..\bin\RelWithDebInfo\SDL2_image.lib;..\bin\RelWithDebInfo\SDL2.lib;kernel32.lib;user32.lib;gdi32.lib;winspool.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;comdlg32.lib;advapi32.lib</AdditionalDependencies>
       <AdditionalLibraryDirectories>D:/VisualStudio/SDL2/SDL2-GameDevCMake/SDL2-Minesweeper/external/sdl2/src;D:/VisualStudio/SDL2/SDL2-GameDevCMake/SDL2-Minesweeper/external/sdl2/src/$(Configuration);D:/VisualStudio/SDL2/SDL2-GameDevCMake/SDL2-Minesweeper/external/sdl_image;D:/VisualStudio/SDL2/SDL2-GameDevCMake/SDL2-Minesweeper/external/sdl_image/$(Configuration);%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
       <AdditionalOptions>%(AdditionalOptions) /machine:x64</AdditionalOptions>
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <IgnoreSpecificDefaultLibraries>%(IgnoreSpecificDefaultLibraries)</IgnoreSpecificDefaultLibraries>
-      <ImportLibrary>D:/VisualStudio/SDL2/SDL2-GameDevCMake/SDL2-Minesweeper/out/build/lib/RelWithDebInfo/SDL2-Minesweeper.lib</ImportLibrary>
-      <ProgramDataBaseFile>D:/VisualStudio/SDL2/SDL2-GameDevCMake/SDL2-Minesweeper/out/build/bin/RelWithDebInfo/SDL2-Minesweeper.pdb</ProgramDataBaseFile>
+      <ImportLibrary>D:/VisualStudio/SDL2/SDL2-GameDevCMake/SDL2-Minesweeper/out/build/bin/RelWithDebInfo/SDL2-Minesweeper.lib</ImportLibrary>
+      <ProgramDataBaseFile>D:/VisualStudio/SDL2/SDL2-GameDevCMake/SDL2-Minesweeper/out/build/RelWithDebInfo/SDL2-Minesweeper.pdb</ProgramDataBaseFile>
       <SubSystem>Console</SubSystem>
     </Link>
     <ProjectReference>
@@ -366,6 +366,7 @@ if %errorlevel% neq 0 goto :VCEnd</Command>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="D:\VisualStudio\SDL2\SDL2-GameDevCMake\SDL2-Minesweeper\SDL2-Minesweeper\Main.cpp" />
+    <ClInclude Include="D:\VisualStudio\SDL2\SDL2-GameDevCMake\SDL2-Minesweeper\SDL2-Minesweeper\headers\CRTMemoryLeak.h" />
     <ClInclude Include="D:\VisualStudio\SDL2\SDL2-GameDevCMake\SDL2-Minesweeper\SDL2-Minesweeper\headers\EventHandler.h" />
     <ClInclude Include="D:\VisualStudio\SDL2\SDL2-GameDevCMake\SDL2-Minesweeper\SDL2-Minesweeper\headers\GameManager.h" />
     <ClInclude Include="D:\VisualStudio\SDL2\SDL2-GameDevCMake\SDL2-Minesweeper\SDL2-Minesweeper\headers\ImGuiHandler.h" />

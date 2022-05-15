@@ -8,10 +8,10 @@
       <FullPath>D:\VisualStudio\SDL2\SDL2-GameDevCMake\SDL2-Minesweeper\out\build\x64\Debug\genfiles</FullPath>
     </ProjectOutput>
     <ProjectOutput>
-      <FullPath>D:\VisualStudio\SDL2\SDL2-GameDevCMake\SDL2-Minesweeper\out\build\bin\Debug\zlibd1.dll</FullPath>
+      <FullPath>D:\VisualStudio\SDL2\SDL2-GameDevCMake\SDL2-Minesweeper\out\build\Debug\zlibd1.dll</FullPath>
     </ProjectOutput>
     <ProjectOutput>
-      <FullPath>D:\VisualStudio\SDL2\SDL2-GameDevCMake\SDL2-Minesweeper\out\build\bin\Debug\libpng16d.dll</FullPath>
+      <FullPath>D:\VisualStudio\SDL2\SDL2-GameDevCMake\SDL2-Minesweeper\out\build\Debug\libpng16d.dll</FullPath>
     </ProjectOutput>
   </ProjectOutputs>
   <ContentFiles />

@@ -59,25 +59,25 @@
   <PropertyGroup Label="UserMacros" />
   <PropertyGroup>
     <_ProjectFileVersion>10.0.20506.1</_ProjectFileVersion>
-    <OutDir Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">D:\VisualStudio\SDL2\SDL2-GameDevCMake\SDL2-Minesweeper\out\build\bin\Debug\</OutDir>
+    <OutDir Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">D:\VisualStudio\SDL2\SDL2-GameDevCMake\SDL2-Minesweeper\out\build\Debug\</OutDir>
     <IntDir Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">SDL2.dir\Debug\</IntDir>
     <TargetName Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">SDL2d</TargetName>
     <TargetExt Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">.dll</TargetExt>
     <LinkIncremental Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</LinkIncremental>
     <GenerateManifest Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</GenerateManifest>
-    <OutDir Condition="'$(Configuration)|$(Platform)'=='Release|x64'">D:\VisualStudio\SDL2\SDL2-GameDevCMake\SDL2-Minesweeper\out\build\bin\Release\</OutDir>
+    <OutDir Condition="'$(Configuration)|$(Platform)'=='Release|x64'">D:\VisualStudio\SDL2\SDL2-GameDevCMake\SDL2-Minesweeper\out\build\Release\</OutDir>
     <IntDir Condition="'$(Configuration)|$(Platform)'=='Release|x64'">SDL2.dir\Release\</IntDir>
     <TargetName Condition="'$(Configuration)|$(Platform)'=='Release|x64'">SDL2</TargetName>
     <TargetExt Condition="'$(Configuration)|$(Platform)'=='Release|x64'">.dll</TargetExt>
     <LinkIncremental Condition="'$(Configuration)|$(Platform)'=='Release|x64'">false</LinkIncremental>
     <GenerateManifest Condition="'$(Configuration)|$(Platform)'=='Release|x64'">true</GenerateManifest>
-    <OutDir Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">D:\VisualStudio\SDL2\SDL2-GameDevCMake\SDL2-Minesweeper\out\build\bin\MinSizeRel\</OutDir>
+    <OutDir Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">D:\VisualStudio\SDL2\SDL2-GameDevCMake\SDL2-Minesweeper\out\build\MinSizeRel\</OutDir>
     <IntDir Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">SDL2.dir\MinSizeRel\</IntDir>
     <TargetName Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">SDL2</TargetName>
     <TargetExt Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">.dll</TargetExt>
     <LinkIncremental Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">false</LinkIncremental>
     <GenerateManifest Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">true</GenerateManifest>
-    <OutDir Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">D:\VisualStudio\SDL2\SDL2-GameDevCMake\SDL2-Minesweeper\out\build\bin\RelWithDebInfo\</OutDir>
+    <OutDir Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">D:\VisualStudio\SDL2\SDL2-GameDevCMake\SDL2-Minesweeper\out\build\RelWithDebInfo\</OutDir>
     <IntDir Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">SDL2.dir\RelWithDebInfo\</IntDir>
     <TargetName Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">SDL2</TargetName>
     <TargetExt Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">.dll</TargetExt>
@@ -121,8 +121,8 @@
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <IgnoreAllDefaultLibraries>true</IgnoreAllDefaultLibraries>
       <IgnoreSpecificDefaultLibraries>%(IgnoreSpecificDefaultLibraries)</IgnoreSpecificDefaultLibraries>
-      <ImportLibrary>D:/VisualStudio/SDL2/SDL2-GameDevCMake/SDL2-Minesweeper/out/build/lib/Debug/SDL2d.lib</ImportLibrary>
-      <ProgramDataBaseFile>D:/VisualStudio/SDL2/SDL2-GameDevCMake/SDL2-Minesweeper/out/build/bin/Debug/SDL2d.pdb</ProgramDataBaseFile>
+      <ImportLibrary>D:/VisualStudio/SDL2/SDL2-GameDevCMake/SDL2-Minesweeper/out/build/bin/Debug/SDL2d.lib</ImportLibrary>
+      <ProgramDataBaseFile>D:/VisualStudio/SDL2/SDL2-GameDevCMake/SDL2-Minesweeper/out/build/Debug/SDL2d.pdb</ProgramDataBaseFile>
       <SubSystem>Console</SubSystem>
     </Link>
     <ProjectReference>
@@ -167,8 +167,8 @@
       <GenerateDebugInformation>false</GenerateDebugInformation>
       <IgnoreAllDefaultLibraries>true</IgnoreAllDefaultLibraries>
       <IgnoreSpecificDefaultLibraries>%(IgnoreSpecificDefaultLibraries)</IgnoreSpecificDefaultLibraries>
-      <ImportLibrary>D:/VisualStudio/SDL2/SDL2-GameDevCMake/SDL2-Minesweeper/out/build/lib/Release/SDL2.lib</ImportLibrary>
-      <ProgramDataBaseFile>D:/VisualStudio/SDL2/SDL2-GameDevCMake/SDL2-Minesweeper/out/build/bin/Release/SDL2.pdb</ProgramDataBaseFile>
+      <ImportLibrary>D:/VisualStudio/SDL2/SDL2-GameDevCMake/SDL2-Minesweeper/out/build/bin/Release/SDL2.lib</ImportLibrary>
+      <ProgramDataBaseFile>D:/VisualStudio/SDL2/SDL2-GameDevCMake/SDL2-Minesweeper/out/build/Release/SDL2.pdb</ProgramDataBaseFile>
       <SubSystem>Console</SubSystem>
     </Link>
     <ProjectReference>
@@ -212,8 +212,8 @@
       <AdditionalOptions>%(AdditionalOptions) /machine:x64</AdditionalOptions>
       <GenerateDebugInformation>false</GenerateDebugInformation>
       <IgnoreSpecificDefaultLibraries>%(IgnoreSpecificDefaultLibraries)</IgnoreSpecificDefaultLibraries>
-      <ImportLibrary>D:/VisualStudio/SDL2/SDL2-GameDevCMake/SDL2-Minesweeper/out/build/lib/MinSizeRel/SDL2.lib</ImportLibrary>
-      <ProgramDataBaseFile>D:/VisualStudio/SDL2/SDL2-GameDevCMake/SDL2-Minesweeper/out/build/bin/MinSizeRel/SDL2.pdb</ProgramDataBaseFile>
+      <ImportLibrary>D:/VisualStudio/SDL2/SDL2-GameDevCMake/SDL2-Minesweeper/out/build/bin/MinSizeRel/SDL2.lib</ImportLibrary>
+      <ProgramDataBaseFile>D:/VisualStudio/SDL2/SDL2-GameDevCMake/SDL2-Minesweeper/out/build/MinSizeRel/SDL2.pdb</ProgramDataBaseFile>
       <SubSystem>Console</SubSystem>
     </Link>
     <ProjectReference>
@@ -256,8 +256,8 @@
       <AdditionalOptions>%(AdditionalOptions) /machine:x64</AdditionalOptions>
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <IgnoreSpecificDefaultLibraries>%(IgnoreSpecificDefaultLibraries)</IgnoreSpecificDefaultLibraries>
-      <ImportLibrary>D:/VisualStudio/SDL2/SDL2-GameDevCMake/SDL2-Minesweeper/out/build/lib/RelWithDebInfo/SDL2.lib</ImportLibrary>
-      <ProgramDataBaseFile>D:/VisualStudio/SDL2/SDL2-GameDevCMake/SDL2-Minesweeper/out/build/bin/RelWithDebInfo/SDL2.pdb</ProgramDataBaseFile>
+      <ImportLibrary>D:/VisualStudio/SDL2/SDL2-GameDevCMake/SDL2-Minesweeper/out/build/bin/RelWithDebInfo/SDL2.lib</ImportLibrary>
+      <ProgramDataBaseFile>D:/VisualStudio/SDL2/SDL2-GameDevCMake/SDL2-Minesweeper/out/build/RelWithDebInfo/SDL2.pdb</ProgramDataBaseFile>
       <SubSystem>Console</SubSystem>
     </Link>
     <ProjectReference>

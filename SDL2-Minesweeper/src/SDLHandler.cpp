@@ -25,6 +25,7 @@ namespace Toolset {
 
 	void SDLHandler::destroy()
 	{
+		TextureHandler::destroy();
 		SDL_DestroyWindow(window);
 		window = nullptr;
 		SDL_DestroyRenderer(renderer);
