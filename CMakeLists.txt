@@ -47,7 +47,6 @@ if(GIT_FOUND AND EXISTS "${CMAKE_SOURCE_DIR}/.git")
 endif()
 
 # imgui doesnt have a cmakelists in his submodule by default, gist version -> https://gist.github.com/rokups/f771217b2d530d170db5cb1e08e9a8f4
-# OR NOT EXISTS "${CMAKE_SOURCE_DIR}/external/sdl_image/CMakeLists.txt"
 if(NOT EXISTS "${CMAKE_SOURCE_DIR}/external/sdl2/CMakeLists.txt" OR NOT EXISTS "${CMAKE_SOURCE_DIR}/external/sdl_image/CMakeLists.txt")
     message(FATAL_ERROR "The submodules were not downloaded! GIT_SUBMODULE was turned off or failed. Please update submodules and try again.")
 endif()
@@ -56,4 +55,4 @@ endif()
 add_subdirectory("${CMAKE_SOURCE_DIR}/${PROJECT_NAME}")
 add_subdirectory("${CMAKE_SOURCE_DIR}/external/sdl2")
 add_subdirectory("${CMAKE_SOURCE_DIR}/external/sdl_image")
-#add_subdirectory("${CMAKE_SOURCE_DIR}/external/imgui")
+add_subdirectory("${CMAKE_SOURCE_DIR}/external/imgui")

@@ -86,7 +86,7 @@
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <ClCompile>
-      <AdditionalIncludeDirectories>D:\VisualStudio\SDL2\SDL2-GameDevCMake\SDL2-Minesweeper\external\sdl2\include;D:\VisualStudio\SDL2\SDL2-GameDevCMake\SDL2-Minesweeper\external\sdl_image;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>D:\VisualStudio\SDL2\SDL2-GameDevCMake\SDL2-Minesweeper\external\sdl2\include;D:\VisualStudio\SDL2\SDL2-GameDevCMake\SDL2-Minesweeper\external\sdl_image;D:\VisualStudio\SDL2\SDL2-GameDevCMake\SDL2-Minesweeper\external\imgui;D:\VisualStudio\SDL2\SDL2-GameDevCMake\SDL2-Minesweeper\external\imgui\misc\single_file;D:\VisualStudio\SDL2\SDL2-GameDevCMake\SDL2-Minesweeper\external\imgui\misc\cpp;D:\VisualStudio\SDL2\SDL2-GameDevCMake\SDL2-Minesweeper\external\imgui\backends;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <AssemblerListingLocation>$(IntDir)</AssemblerListingLocation>
       <BasicRuntimeChecks>EnableFastChecks</BasicRuntimeChecks>
       <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
@@ -99,15 +99,15 @@
       <RuntimeTypeInfo>true</RuntimeTypeInfo>
       <UseFullPaths>false</UseFullPaths>
       <WarningLevel>Level3</WarningLevel>
-      <PreprocessorDefinitions>%(PreprocessorDefinitions);WIN32;_WINDOWS;CMAKE_INTDIR="Debug"</PreprocessorDefinitions>
+      <PreprocessorDefinitions>%(PreprocessorDefinitions);WIN32;_WINDOWS;IMGUI_DISABLE_OBSOLETE_FUNCTIONS=1;CMAKE_INTDIR="Debug"</PreprocessorDefinitions>
       <ObjectFileName>$(IntDir)</ObjectFileName>
     </ClCompile>
     <ResourceCompile>
-      <PreprocessorDefinitions>%(PreprocessorDefinitions);WIN32;_DEBUG;_WINDOWS;CMAKE_INTDIR=\"Debug\"</PreprocessorDefinitions>
-      <AdditionalIncludeDirectories>D:\VisualStudio\SDL2\SDL2-GameDevCMake\SDL2-Minesweeper\external\sdl2\include;D:\VisualStudio\SDL2\SDL2-GameDevCMake\SDL2-Minesweeper\external\sdl_image;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <PreprocessorDefinitions>%(PreprocessorDefinitions);WIN32;_DEBUG;_WINDOWS;IMGUI_DISABLE_OBSOLETE_FUNCTIONS=1;CMAKE_INTDIR=\"Debug\"</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>D:\VisualStudio\SDL2\SDL2-GameDevCMake\SDL2-Minesweeper\external\sdl2\include;D:\VisualStudio\SDL2\SDL2-GameDevCMake\SDL2-Minesweeper\external\sdl_image;D:\VisualStudio\SDL2\SDL2-GameDevCMake\SDL2-Minesweeper\external\imgui;D:\VisualStudio\SDL2\SDL2-GameDevCMake\SDL2-Minesweeper\external\imgui\misc\single_file;D:\VisualStudio\SDL2\SDL2-GameDevCMake\SDL2-Minesweeper\external\imgui\misc\cpp;D:\VisualStudio\SDL2\SDL2-GameDevCMake\SDL2-Minesweeper\external\imgui\backends;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ResourceCompile>
     <Midl>
-      <AdditionalIncludeDirectories>D:\VisualStudio\SDL2\SDL2-GameDevCMake\SDL2-Minesweeper\external\sdl2\include;D:\VisualStudio\SDL2\SDL2-GameDevCMake\SDL2-Minesweeper\external\sdl_image;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>D:\VisualStudio\SDL2\SDL2-GameDevCMake\SDL2-Minesweeper\external\sdl2\include;D:\VisualStudio\SDL2\SDL2-GameDevCMake\SDL2-Minesweeper\external\sdl_image;D:\VisualStudio\SDL2\SDL2-GameDevCMake\SDL2-Minesweeper\external\imgui;D:\VisualStudio\SDL2\SDL2-GameDevCMake\SDL2-Minesweeper\external\imgui\misc\single_file;D:\VisualStudio\SDL2\SDL2-GameDevCMake\SDL2-Minesweeper\external\imgui\misc\cpp;D:\VisualStudio\SDL2\SDL2-GameDevCMake\SDL2-Minesweeper\external\imgui\backends;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <OutputDirectory>$(ProjectDir)/$(IntDir)</OutputDirectory>
       <HeaderFileName>%(Filename).h</HeaderFileName>
       <TypeLibraryName>%(Filename).tlb</TypeLibraryName>
@@ -128,7 +128,7 @@ if %errorlevel% neq 0 goto :VCEnd</Command>
     </PostBuildEvent>
     <Link>
       <AdditionalDependencies>..\bin\Debug\SDL2maind.lib;..\bin\Debug\SDL2_image.lib;..\bin\Debug\SDL2d.lib;kernel32.lib;user32.lib;gdi32.lib;winspool.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;comdlg32.lib;advapi32.lib</AdditionalDependencies>
-      <AdditionalLibraryDirectories>D:/VisualStudio/SDL2/SDL2-GameDevCMake/SDL2-Minesweeper/external/sdl2/src;D:/VisualStudio/SDL2/SDL2-GameDevCMake/SDL2-Minesweeper/external/sdl2/src/$(Configuration);D:/VisualStudio/SDL2/SDL2-GameDevCMake/SDL2-Minesweeper/external/sdl_image;D:/VisualStudio/SDL2/SDL2-GameDevCMake/SDL2-Minesweeper/external/sdl_image/$(Configuration);%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalLibraryDirectories>D:/VisualStudio/SDL2/SDL2-GameDevCMake/SDL2-Minesweeper/external/sdl2/src;D:/VisualStudio/SDL2/SDL2-GameDevCMake/SDL2-Minesweeper/external/sdl2/src/$(Configuration);D:/VisualStudio/SDL2/SDL2-GameDevCMake/SDL2-Minesweeper/external/sdl_image;D:/VisualStudio/SDL2/SDL2-GameDevCMake/SDL2-Minesweeper/external/sdl_image/$(Configuration);D:/VisualStudio/SDL2/SDL2-GameDevCMake/SDL2-Minesweeper/external/imgui;D:/VisualStudio/SDL2/SDL2-GameDevCMake/SDL2-Minesweeper/external/imgui/$(Configuration);D:/VisualStudio/SDL2/SDL2-GameDevCMake/SDL2-Minesweeper/external/imgui/backends;D:/VisualStudio/SDL2/SDL2-GameDevCMake/SDL2-Minesweeper/external/imgui/backends/$(Configuration);D:/VisualStudio/SDL2/SDL2-GameDevCMake/SDL2-Minesweeper/external/imgui/misc/single_file;D:/VisualStudio/SDL2/SDL2-GameDevCMake/SDL2-Minesweeper/external/imgui/misc/single_file/$(Configuration);%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
       <AdditionalOptions>%(AdditionalOptions) /machine:x64</AdditionalOptions>
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <IgnoreSpecificDefaultLibraries>%(IgnoreSpecificDefaultLibraries)</IgnoreSpecificDefaultLibraries>
@@ -142,7 +142,7 @@ if %errorlevel% neq 0 goto :VCEnd</Command>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
     <ClCompile>
-      <AdditionalIncludeDirectories>D:\VisualStudio\SDL2\SDL2-GameDevCMake\SDL2-Minesweeper\external\sdl2\include;D:\VisualStudio\SDL2\SDL2-GameDevCMake\SDL2-Minesweeper\external\sdl_image;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>D:\VisualStudio\SDL2\SDL2-GameDevCMake\SDL2-Minesweeper\external\sdl2\include;D:\VisualStudio\SDL2\SDL2-GameDevCMake\SDL2-Minesweeper\external\sdl_image;D:\VisualStudio\SDL2\SDL2-GameDevCMake\SDL2-Minesweeper\external\imgui;D:\VisualStudio\SDL2\SDL2-GameDevCMake\SDL2-Minesweeper\external\imgui\misc\single_file;D:\VisualStudio\SDL2\SDL2-GameDevCMake\SDL2-Minesweeper\external\imgui\misc\cpp;D:\VisualStudio\SDL2\SDL2-GameDevCMake\SDL2-Minesweeper\external\imgui\backends;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <AssemblerListingLocation>$(IntDir)</AssemblerListingLocation>
       <ExceptionHandling>Sync</ExceptionHandling>
       <InlineFunctionExpansion>AnySuitable</InlineFunctionExpansion>
@@ -153,17 +153,17 @@ if %errorlevel% neq 0 goto :VCEnd</Command>
       <RuntimeTypeInfo>true</RuntimeTypeInfo>
       <UseFullPaths>false</UseFullPaths>
       <WarningLevel>Level3</WarningLevel>
-      <PreprocessorDefinitions>%(PreprocessorDefinitions);WIN32;_WINDOWS;NDEBUG;CMAKE_INTDIR="Release"</PreprocessorDefinitions>
+      <PreprocessorDefinitions>%(PreprocessorDefinitions);WIN32;_WINDOWS;NDEBUG;IMGUI_DISABLE_OBSOLETE_FUNCTIONS=1;CMAKE_INTDIR="Release"</PreprocessorDefinitions>
       <ObjectFileName>$(IntDir)</ObjectFileName>
       <DebugInformationFormat>
       </DebugInformationFormat>
     </ClCompile>
     <ResourceCompile>
-      <PreprocessorDefinitions>%(PreprocessorDefinitions);WIN32;_WINDOWS;NDEBUG;CMAKE_INTDIR=\"Release\"</PreprocessorDefinitions>
-      <AdditionalIncludeDirectories>D:\VisualStudio\SDL2\SDL2-GameDevCMake\SDL2-Minesweeper\external\sdl2\include;D:\VisualStudio\SDL2\SDL2-GameDevCMake\SDL2-Minesweeper\external\sdl_image;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <PreprocessorDefinitions>%(PreprocessorDefinitions);WIN32;_WINDOWS;NDEBUG;IMGUI_DISABLE_OBSOLETE_FUNCTIONS=1;CMAKE_INTDIR=\"Release\"</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>D:\VisualStudio\SDL2\SDL2-GameDevCMake\SDL2-Minesweeper\external\sdl2\include;D:\VisualStudio\SDL2\SDL2-GameDevCMake\SDL2-Minesweeper\external\sdl_image;D:\VisualStudio\SDL2\SDL2-GameDevCMake\SDL2-Minesweeper\external\imgui;D:\VisualStudio\SDL2\SDL2-GameDevCMake\SDL2-Minesweeper\external\imgui\misc\single_file;D:\VisualStudio\SDL2\SDL2-GameDevCMake\SDL2-Minesweeper\external\imgui\misc\cpp;D:\VisualStudio\SDL2\SDL2-GameDevCMake\SDL2-Minesweeper\external\imgui\backends;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ResourceCompile>
     <Midl>
-      <AdditionalIncludeDirectories>D:\VisualStudio\SDL2\SDL2-GameDevCMake\SDL2-Minesweeper\external\sdl2\include;D:\VisualStudio\SDL2\SDL2-GameDevCMake\SDL2-Minesweeper\external\sdl_image;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>D:\VisualStudio\SDL2\SDL2-GameDevCMake\SDL2-Minesweeper\external\sdl2\include;D:\VisualStudio\SDL2\SDL2-GameDevCMake\SDL2-Minesweeper\external\sdl_image;D:\VisualStudio\SDL2\SDL2-GameDevCMake\SDL2-Minesweeper\external\imgui;D:\VisualStudio\SDL2\SDL2-GameDevCMake\SDL2-Minesweeper\external\imgui\misc\single_file;D:\VisualStudio\SDL2\SDL2-GameDevCMake\SDL2-Minesweeper\external\imgui\misc\cpp;D:\VisualStudio\SDL2\SDL2-GameDevCMake\SDL2-Minesweeper\external\imgui\backends;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <OutputDirectory>$(ProjectDir)/$(IntDir)</OutputDirectory>
       <HeaderFileName>%(Filename).h</HeaderFileName>
       <TypeLibraryName>%(Filename).tlb</TypeLibraryName>
@@ -184,7 +184,7 @@ if %errorlevel% neq 0 goto :VCEnd</Command>
     </PostBuildEvent>
     <Link>
       <AdditionalDependencies>..\bin\Release\SDL2main.lib;..\bin\Release\SDL2_image.lib;..\bin\Release\SDL2.lib;kernel32.lib;user32.lib;gdi32.lib;winspool.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;comdlg32.lib;advapi32.lib</AdditionalDependencies>
-      <AdditionalLibraryDirectories>D:/VisualStudio/SDL2/SDL2-GameDevCMake/SDL2-Minesweeper/external/sdl2/src;D:/VisualStudio/SDL2/SDL2-GameDevCMake/SDL2-Minesweeper/external/sdl2/src/$(Configuration);D:/VisualStudio/SDL2/SDL2-GameDevCMake/SDL2-Minesweeper/external/sdl_image;D:/VisualStudio/SDL2/SDL2-GameDevCMake/SDL2-Minesweeper/external/sdl_image/$(Configuration);%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalLibraryDirectories>D:/VisualStudio/SDL2/SDL2-GameDevCMake/SDL2-Minesweeper/external/sdl2/src;D:/VisualStudio/SDL2/SDL2-GameDevCMake/SDL2-Minesweeper/external/sdl2/src/$(Configuration);D:/VisualStudio/SDL2/SDL2-GameDevCMake/SDL2-Minesweeper/external/sdl_image;D:/VisualStudio/SDL2/SDL2-GameDevCMake/SDL2-Minesweeper/external/sdl_image/$(Configuration);D:/VisualStudio/SDL2/SDL2-GameDevCMake/SDL2-Minesweeper/external/imgui;D:/VisualStudio/SDL2/SDL2-GameDevCMake/SDL2-Minesweeper/external/imgui/$(Configuration);D:/VisualStudio/SDL2/SDL2-GameDevCMake/SDL2-Minesweeper/external/imgui/backends;D:/VisualStudio/SDL2/SDL2-GameDevCMake/SDL2-Minesweeper/external/imgui/backends/$(Configuration);D:/VisualStudio/SDL2/SDL2-GameDevCMake/SDL2-Minesweeper/external/imgui/misc/single_file;D:/VisualStudio/SDL2/SDL2-GameDevCMake/SDL2-Minesweeper/external/imgui/misc/single_file/$(Configuration);%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
       <AdditionalOptions>%(AdditionalOptions) /machine:x64</AdditionalOptions>
       <GenerateDebugInformation>false</GenerateDebugInformation>
       <IgnoreSpecificDefaultLibraries>%(IgnoreSpecificDefaultLibraries)</IgnoreSpecificDefaultLibraries>
@@ -198,7 +198,7 @@ if %errorlevel% neq 0 goto :VCEnd</Command>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">
     <ClCompile>
-      <AdditionalIncludeDirectories>D:\VisualStudio\SDL2\SDL2-GameDevCMake\SDL2-Minesweeper\external\sdl2\include;D:\VisualStudio\SDL2\SDL2-GameDevCMake\SDL2-Minesweeper\external\sdl_image;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>D:\VisualStudio\SDL2\SDL2-GameDevCMake\SDL2-Minesweeper\external\sdl2\include;D:\VisualStudio\SDL2\SDL2-GameDevCMake\SDL2-Minesweeper\external\sdl_image;D:\VisualStudio\SDL2\SDL2-GameDevCMake\SDL2-Minesweeper\external\imgui;D:\VisualStudio\SDL2\SDL2-GameDevCMake\SDL2-Minesweeper\external\imgui\misc\single_file;D:\VisualStudio\SDL2\SDL2-GameDevCMake\SDL2-Minesweeper\external\imgui\misc\cpp;D:\VisualStudio\SDL2\SDL2-GameDevCMake\SDL2-Minesweeper\external\imgui\backends;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <AssemblerListingLocation>$(IntDir)</AssemblerListingLocation>
       <ExceptionHandling>Sync</ExceptionHandling>
       <InlineFunctionExpansion>OnlyExplicitInline</InlineFunctionExpansion>
@@ -209,17 +209,17 @@ if %errorlevel% neq 0 goto :VCEnd</Command>
       <RuntimeTypeInfo>true</RuntimeTypeInfo>
       <UseFullPaths>false</UseFullPaths>
       <WarningLevel>Level3</WarningLevel>
-      <PreprocessorDefinitions>%(PreprocessorDefinitions);WIN32;_WINDOWS;NDEBUG;CMAKE_INTDIR="MinSizeRel"</PreprocessorDefinitions>
+      <PreprocessorDefinitions>%(PreprocessorDefinitions);WIN32;_WINDOWS;NDEBUG;IMGUI_DISABLE_OBSOLETE_FUNCTIONS=1;CMAKE_INTDIR="MinSizeRel"</PreprocessorDefinitions>
       <ObjectFileName>$(IntDir)</ObjectFileName>
       <DebugInformationFormat>
       </DebugInformationFormat>
     </ClCompile>
     <ResourceCompile>
-      <PreprocessorDefinitions>%(PreprocessorDefinitions);WIN32;_WINDOWS;NDEBUG;CMAKE_INTDIR=\"MinSizeRel\"</PreprocessorDefinitions>
-      <AdditionalIncludeDirectories>D:\VisualStudio\SDL2\SDL2-GameDevCMake\SDL2-Minesweeper\external\sdl2\include;D:\VisualStudio\SDL2\SDL2-GameDevCMake\SDL2-Minesweeper\external\sdl_image;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <PreprocessorDefinitions>%(PreprocessorDefinitions);WIN32;_WINDOWS;NDEBUG;IMGUI_DISABLE_OBSOLETE_FUNCTIONS=1;CMAKE_INTDIR=\"MinSizeRel\"</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>D:\VisualStudio\SDL2\SDL2-GameDevCMake\SDL2-Minesweeper\external\sdl2\include;D:\VisualStudio\SDL2\SDL2-GameDevCMake\SDL2-Minesweeper\external\sdl_image;D:\VisualStudio\SDL2\SDL2-GameDevCMake\SDL2-Minesweeper\external\imgui;D:\VisualStudio\SDL2\SDL2-GameDevCMake\SDL2-Minesweeper\external\imgui\misc\single_file;D:\VisualStudio\SDL2\SDL2-GameDevCMake\SDL2-Minesweeper\external\imgui\misc\cpp;D:\VisualStudio\SDL2\SDL2-GameDevCMake\SDL2-Minesweeper\external\imgui\backends;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ResourceCompile>
     <Midl>
-      <AdditionalIncludeDirectories>D:\VisualStudio\SDL2\SDL2-GameDevCMake\SDL2-Minesweeper\external\sdl2\include;D:\VisualStudio\SDL2\SDL2-GameDevCMake\SDL2-Minesweeper\external\sdl_image;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>D:\VisualStudio\SDL2\SDL2-GameDevCMake\SDL2-Minesweeper\external\sdl2\include;D:\VisualStudio\SDL2\SDL2-GameDevCMake\SDL2-Minesweeper\external\sdl_image;D:\VisualStudio\SDL2\SDL2-GameDevCMake\SDL2-Minesweeper\external\imgui;D:\VisualStudio\SDL2\SDL2-GameDevCMake\SDL2-Minesweeper\external\imgui\misc\single_file;D:\VisualStudio\SDL2\SDL2-GameDevCMake\SDL2-Minesweeper\external\imgui\misc\cpp;D:\VisualStudio\SDL2\SDL2-GameDevCMake\SDL2-Minesweeper\external\imgui\backends;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <OutputDirectory>$(ProjectDir)/$(IntDir)</OutputDirectory>
       <HeaderFileName>%(Filename).h</HeaderFileName>
       <TypeLibraryName>%(Filename).tlb</TypeLibraryName>
@@ -240,7 +240,7 @@ if %errorlevel% neq 0 goto :VCEnd</Command>
     </PostBuildEvent>
     <Link>
       <AdditionalDependencies>..\bin\MinSizeRel\SDL2main.lib;..\bin\MinSizeRel\SDL2_image.lib;..\bin\MinSizeRel\SDL2.lib;kernel32.lib;user32.lib;gdi32.lib;winspool.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;comdlg32.lib;advapi32.lib</AdditionalDependencies>
-      <AdditionalLibraryDirectories>D:/VisualStudio/SDL2/SDL2-GameDevCMake/SDL2-Minesweeper/external/sdl2/src;D:/VisualStudio/SDL2/SDL2-GameDevCMake/SDL2-Minesweeper/external/sdl2/src/$(Configuration);D:/VisualStudio/SDL2/SDL2-GameDevCMake/SDL2-Minesweeper/external/sdl_image;D:/VisualStudio/SDL2/SDL2-GameDevCMake/SDL2-Minesweeper/external/sdl_image/$(Configuration);%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalLibraryDirectories>D:/VisualStudio/SDL2/SDL2-GameDevCMake/SDL2-Minesweeper/external/sdl2/src;D:/VisualStudio/SDL2/SDL2-GameDevCMake/SDL2-Minesweeper/external/sdl2/src/$(Configuration);D:/VisualStudio/SDL2/SDL2-GameDevCMake/SDL2-Minesweeper/external/sdl_image;D:/VisualStudio/SDL2/SDL2-GameDevCMake/SDL2-Minesweeper/external/sdl_image/$(Configuration);D:/VisualStudio/SDL2/SDL2-GameDevCMake/SDL2-Minesweeper/external/imgui;D:/VisualStudio/SDL2/SDL2-GameDevCMake/SDL2-Minesweeper/external/imgui/$(Configuration);D:/VisualStudio/SDL2/SDL2-GameDevCMake/SDL2-Minesweeper/external/imgui/backends;D:/VisualStudio/SDL2/SDL2-GameDevCMake/SDL2-Minesweeper/external/imgui/backends/$(Configuration);D:/VisualStudio/SDL2/SDL2-GameDevCMake/SDL2-Minesweeper/external/imgui/misc/single_file;D:/VisualStudio/SDL2/SDL2-GameDevCMake/SDL2-Minesweeper/external/imgui/misc/single_file/$(Configuration);%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
       <AdditionalOptions>%(AdditionalOptions) /machine:x64</AdditionalOptions>
       <GenerateDebugInformation>false</GenerateDebugInformation>
       <IgnoreSpecificDefaultLibraries>%(IgnoreSpecificDefaultLibraries)</IgnoreSpecificDefaultLibraries>
@@ -254,7 +254,7 @@ if %errorlevel% neq 0 goto :VCEnd</Command>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">
     <ClCompile>
-      <AdditionalIncludeDirectories>D:\VisualStudio\SDL2\SDL2-GameDevCMake\SDL2-Minesweeper\external\sdl2\include;D:\VisualStudio\SDL2\SDL2-GameDevCMake\SDL2-Minesweeper\external\sdl_image;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>D:\VisualStudio\SDL2\SDL2-GameDevCMake\SDL2-Minesweeper\external\sdl2\include;D:\VisualStudio\SDL2\SDL2-GameDevCMake\SDL2-Minesweeper\external\sdl_image;D:\VisualStudio\SDL2\SDL2-GameDevCMake\SDL2-Minesweeper\external\imgui;D:\VisualStudio\SDL2\SDL2-GameDevCMake\SDL2-Minesweeper\external\imgui\misc\single_file;D:\VisualStudio\SDL2\SDL2-GameDevCMake\SDL2-Minesweeper\external\imgui\misc\cpp;D:\VisualStudio\SDL2\SDL2-GameDevCMake\SDL2-Minesweeper\external\imgui\backends;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <AssemblerListingLocation>$(IntDir)</AssemblerListingLocation>
       <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
       <ExceptionHandling>Sync</ExceptionHandling>
@@ -266,15 +266,15 @@ if %errorlevel% neq 0 goto :VCEnd</Command>
       <RuntimeTypeInfo>true</RuntimeTypeInfo>
       <UseFullPaths>false</UseFullPaths>
       <WarningLevel>Level3</WarningLevel>
-      <PreprocessorDefinitions>%(PreprocessorDefinitions);WIN32;_WINDOWS;NDEBUG;CMAKE_INTDIR="RelWithDebInfo"</PreprocessorDefinitions>
+      <PreprocessorDefinitions>%(PreprocessorDefinitions);WIN32;_WINDOWS;NDEBUG;IMGUI_DISABLE_OBSOLETE_FUNCTIONS=1;CMAKE_INTDIR="RelWithDebInfo"</PreprocessorDefinitions>
       <ObjectFileName>$(IntDir)</ObjectFileName>
     </ClCompile>
     <ResourceCompile>
-      <PreprocessorDefinitions>%(PreprocessorDefinitions);WIN32;_WINDOWS;NDEBUG;CMAKE_INTDIR=\"RelWithDebInfo\"</PreprocessorDefinitions>
-      <AdditionalIncludeDirectories>D:\VisualStudio\SDL2\SDL2-GameDevCMake\SDL2-Minesweeper\external\sdl2\include;D:\VisualStudio\SDL2\SDL2-GameDevCMake\SDL2-Minesweeper\external\sdl_image;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <PreprocessorDefinitions>%(PreprocessorDefinitions);WIN32;_WINDOWS;NDEBUG;IMGUI_DISABLE_OBSOLETE_FUNCTIONS=1;CMAKE_INTDIR=\"RelWithDebInfo\"</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>D:\VisualStudio\SDL2\SDL2-GameDevCMake\SDL2-Minesweeper\external\sdl2\include;D:\VisualStudio\SDL2\SDL2-GameDevCMake\SDL2-Minesweeper\external\sdl_image;D:\VisualStudio\SDL2\SDL2-GameDevCMake\SDL2-Minesweeper\external\imgui;D:\VisualStudio\SDL2\SDL2-GameDevCMake\SDL2-Minesweeper\external\imgui\misc\single_file;D:\VisualStudio\SDL2\SDL2-GameDevCMake\SDL2-Minesweeper\external\imgui\misc\cpp;D:\VisualStudio\SDL2\SDL2-GameDevCMake\SDL2-Minesweeper\external\imgui\backends;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ResourceCompile>
     <Midl>
-      <AdditionalIncludeDirectories>D:\VisualStudio\SDL2\SDL2-GameDevCMake\SDL2-Minesweeper\external\sdl2\include;D:\VisualStudio\SDL2\SDL2-GameDevCMake\SDL2-Minesweeper\external\sdl_image;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>D:\VisualStudio\SDL2\SDL2-GameDevCMake\SDL2-Minesweeper\external\sdl2\include;D:\VisualStudio\SDL2\SDL2-GameDevCMake\SDL2-Minesweeper\external\sdl_image;D:\VisualStudio\SDL2\SDL2-GameDevCMake\SDL2-Minesweeper\external\imgui;D:\VisualStudio\SDL2\SDL2-GameDevCMake\SDL2-Minesweeper\external\imgui\misc\single_file;D:\VisualStudio\SDL2\SDL2-GameDevCMake\SDL2-Minesweeper\external\imgui\misc\cpp;D:\VisualStudio\SDL2\SDL2-GameDevCMake\SDL2-Minesweeper\external\imgui\backends;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <OutputDirectory>$(ProjectDir)/$(IntDir)</OutputDirectory>
       <HeaderFileName>%(Filename).h</HeaderFileName>
       <TypeLibraryName>%(Filename).tlb</TypeLibraryName>
@@ -295,7 +295,7 @@ if %errorlevel% neq 0 goto :VCEnd</Command>
     </PostBuildEvent>
     <Link>
       <AdditionalDependencies>..\bin\RelWithDebInfo\SDL2main.lib;..\bin\RelWithDebInfo\SDL2_image.lib;..\bin\RelWithDebInfo\SDL2.lib;kernel32.lib;user32.lib;gdi32.lib;winspool.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;comdlg32.lib;advapi32.lib</AdditionalDependencies>
-      <AdditionalLibraryDirectories>D:/VisualStudio/SDL2/SDL2-GameDevCMake/SDL2-Minesweeper/external/sdl2/src;D:/VisualStudio/SDL2/SDL2-GameDevCMake/SDL2-Minesweeper/external/sdl2/src/$(Configuration);D:/VisualStudio/SDL2/SDL2-GameDevCMake/SDL2-Minesweeper/external/sdl_image;D:/VisualStudio/SDL2/SDL2-GameDevCMake/SDL2-Minesweeper/external/sdl_image/$(Configuration);%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalLibraryDirectories>D:/VisualStudio/SDL2/SDL2-GameDevCMake/SDL2-Minesweeper/external/sdl2/src;D:/VisualStudio/SDL2/SDL2-GameDevCMake/SDL2-Minesweeper/external/sdl2/src/$(Configuration);D:/VisualStudio/SDL2/SDL2-GameDevCMake/SDL2-Minesweeper/external/sdl_image;D:/VisualStudio/SDL2/SDL2-GameDevCMake/SDL2-Minesweeper/external/sdl_image/$(Configuration);D:/VisualStudio/SDL2/SDL2-GameDevCMake/SDL2-Minesweeper/external/imgui;D:/VisualStudio/SDL2/SDL2-GameDevCMake/SDL2-Minesweeper/external/imgui/$(Configuration);D:/VisualStudio/SDL2/SDL2-GameDevCMake/SDL2-Minesweeper/external/imgui/backends;D:/VisualStudio/SDL2/SDL2-GameDevCMake/SDL2-Minesweeper/external/imgui/backends/$(Configuration);D:/VisualStudio/SDL2/SDL2-GameDevCMake/SDL2-Minesweeper/external/imgui/misc/single_file;D:/VisualStudio/SDL2/SDL2-GameDevCMake/SDL2-Minesweeper/external/imgui/misc/single_file/$(Configuration);%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
       <AdditionalOptions>%(AdditionalOptions) /machine:x64</AdditionalOptions>
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <IgnoreSpecificDefaultLibraries>%(IgnoreSpecificDefaultLibraries)</IgnoreSpecificDefaultLibraries>
@@ -390,6 +390,21 @@ if %errorlevel% neq 0 goto :VCEnd</Command>
     <ClCompile Include="D:\VisualStudio\SDL2\SDL2-GameDevCMake\SDL2-Minesweeper\SDL2-Minesweeper\src\game\Tile.cpp" />
     <ClCompile Include="D:\VisualStudio\SDL2\SDL2-GameDevCMake\SDL2-Minesweeper\SDL2-Minesweeper\src\imgui\TopMenuBar.cpp" />
     <ClCompile Include="D:\VisualStudio\SDL2\SDL2-GameDevCMake\SDL2-Minesweeper\SDL2-Minesweeper\src\imgui\TopMenuBarImp.cpp" />
+    <ClInclude Include="D:\VisualStudio\SDL2\SDL2-GameDevCMake\SDL2-Minesweeper\external\imgui\imconfig.h" />
+    <ClCompile Include="D:\VisualStudio\SDL2\SDL2-GameDevCMake\SDL2-Minesweeper\external\imgui\imgui.cpp" />
+    <ClInclude Include="D:\VisualStudio\SDL2\SDL2-GameDevCMake\SDL2-Minesweeper\external\imgui\imgui.h" />
+    <ClCompile Include="D:\VisualStudio\SDL2\SDL2-GameDevCMake\SDL2-Minesweeper\external\imgui\imgui_demo.cpp" />
+    <ClCompile Include="D:\VisualStudio\SDL2\SDL2-GameDevCMake\SDL2-Minesweeper\external\imgui\imgui_draw.cpp" />
+    <ClInclude Include="D:\VisualStudio\SDL2\SDL2-GameDevCMake\SDL2-Minesweeper\external\imgui\imgui_internal.h" />
+    <ClCompile Include="D:\VisualStudio\SDL2\SDL2-GameDevCMake\SDL2-Minesweeper\external\imgui\imgui_tables.cpp" />
+    <ClCompile Include="D:\VisualStudio\SDL2\SDL2-GameDevCMake\SDL2-Minesweeper\external\imgui\imgui_widgets.cpp" />
+    <ClInclude Include="D:\VisualStudio\SDL2\SDL2-GameDevCMake\SDL2-Minesweeper\external\imgui\imstb_rectpack.h" />
+    <ClInclude Include="D:\VisualStudio\SDL2\SDL2-GameDevCMake\SDL2-Minesweeper\external\imgui\imstb_textedit.h" />
+    <ClInclude Include="D:\VisualStudio\SDL2\SDL2-GameDevCMake\SDL2-Minesweeper\external\imgui\imstb_truetype.h" />
+    <ClInclude Include="D:\VisualStudio\SDL2\SDL2-GameDevCMake\SDL2-Minesweeper\external\imgui\backends\imgui_impl_sdl.h" />
+    <ClCompile Include="D:\VisualStudio\SDL2\SDL2-GameDevCMake\SDL2-Minesweeper\external\imgui\backends\imgui_impl_sdl.cpp" />
+    <ClInclude Include="D:\VisualStudio\SDL2\SDL2-GameDevCMake\SDL2-Minesweeper\external\imgui\backends\imgui_impl_sdlrenderer.h" />
+    <ClCompile Include="D:\VisualStudio\SDL2\SDL2-GameDevCMake\SDL2-Minesweeper\external\imgui\backends\imgui_impl_sdlrenderer.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="D:\VisualStudio\SDL2\SDL2-GameDevCMake\SDL2-Minesweeper\out\build\ZERO_CHECK.vcxproj">
@@ -409,6 +424,12 @@ if %errorlevel% neq 0 goto :VCEnd</Command>
     <ProjectReference Include="D:\VisualStudio\SDL2\SDL2-GameDevCMake\SDL2-Minesweeper\out\build\external\sdl2\SDL2main.vcxproj">
       <Project>{50795B32-C55F-3467-9744-2E5AD3BF8A9B}</Project>
       <Name>SDL2main</Name>
+    </ProjectReference>
+    <ProjectReference Include="D:\VisualStudio\SDL2\SDL2-GameDevCMake\SDL2-Minesweeper\out\build\external\imgui\imgui.vcxproj">
+      <Project>{47E4A161-B2A1-39A4-82E2-713C7E56EB4F}</Project>
+      <Name>imgui</Name>
+      <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
