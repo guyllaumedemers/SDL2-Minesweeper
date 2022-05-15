@@ -1,5 +1,5 @@
 # SDL2-Minesweeper
-Learning sdl2 and CMake
+Learning sdl2 and CMake, Out-of-Source Build
 > Refactoring [SDL2-GameDev/Minesweeper](https://github.com/guyllaumedemers/SDL2-GameDev/tree/master/SDL2-Minesweeper)
 
 ## Quiet Issue // Open Folder Mode only
