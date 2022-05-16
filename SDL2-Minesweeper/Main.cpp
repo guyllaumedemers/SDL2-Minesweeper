@@ -3,6 +3,7 @@
 #pragma once
 #include "headers/GameManager.h"
 
+using namespace Toolset;
 int main(int argc, char* argv[])
 {
 	return Toolset::GameManager::execute();

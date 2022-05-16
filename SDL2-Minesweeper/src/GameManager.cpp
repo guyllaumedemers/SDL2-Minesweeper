@@ -9,6 +9,8 @@
 namespace Toolset {
 	ImGuiHandler* GameManager::imgui_context = nullptr;
 	GameManagerImp* GameManager::imp = nullptr;
+	Subscriber* GameManager::applicationQuitListener = nullptr;
+	Subscriber* GameManager::mouseDownListener = nullptr;
 	bool GameManager::isRunning = false;
 
 	void GameManager::init()
@@ -17,9 +19,13 @@ namespace Toolset {
 		CRTMemoryLeak::init();
 		imgui_context = DBG_NEW ImGuiHandler(DBG_NEW SDLHandler(640, 480));
 		imp = DBG_NEW GameManagerImp(Mode::Easy);
+		applicationQuitListener = DBG_NEW Subscriber(InputHandler::onApplicationQuitEvent, []() { exit(); });
+		mouseDownListener = DBG_NEW Subscriber(InputHandler::onMouseDownEvent, []() {});
 #else		
 		imgui_context = new ImGuiHandler(new SDLHandler(640, 480));
 		imp = new GameManagerImp(Mode::Easy);
+		applicationQuitListener = new Subscriber(InputHandler::onApplicationQuitEvent, []() { exit(); });
+		mouseDownListener = new Subscriber(InputHandler::onMouseDownEvent, []() {});
 #endif
 		isRunning = true;
 	}
