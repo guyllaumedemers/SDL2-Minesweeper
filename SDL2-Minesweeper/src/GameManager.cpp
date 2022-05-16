@@ -20,7 +20,7 @@ namespace Toolset {
 		imgui_context = DBG_NEW ImGuiHandler(DBG_NEW SDLHandler(640, 480));
 		imp = DBG_NEW GameManagerImp(Mode::Easy);
 		applicationQuitListener = DBG_NEW Subscriber(InputHandler::onApplicationQuitEvent, []() { exit(); });
-		mouseDownListener = DBG_NEW Subscriber(InputHandler::onMouseDownEvent, []() {});
+		mouseDownListener = DBG_NEW Subscriber(InputHandler::onMouseDownEvent, []() { imp->processInputs(); });
 #else		
 		imgui_context = new ImGuiHandler(new SDLHandler(640, 480));
 		imp = new GameManagerImp(Mode::Easy);

@@ -7,12 +7,12 @@ namespace Toolset {
 		SDLHandler() = delete;
 		SDLHandler(const SDLHandler&) = delete;
 		SDLHandler(SDLHandler&&) = delete;
-		void create(int w, int h);
+		void create(const int&, const int&);
 		void destroy();
 	public:
 		SDL_Window* window = nullptr;
 		SDL_Renderer* renderer = nullptr;
-		SDLHandler(int w, int h);
+		SDLHandler(const int&, const int&);
 		~SDLHandler();
 		void refresh(void(*)());
 		void draw(void (*)());

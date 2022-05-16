@@ -48,4 +48,9 @@ namespace Minesweeper {
 		delete level;
 		level = nullptr;
 	}
+
+	void LevelHandler::update(const int& row, const int& col)
+	{
+		//TODO Do Game Logic Here for Tile Update
+	}
 }

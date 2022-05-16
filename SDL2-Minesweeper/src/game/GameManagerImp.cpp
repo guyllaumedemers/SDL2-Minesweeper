@@ -1,9 +1,11 @@
 #pragma once
 #include "../../headers/game/GameManagerImp.h"
+#include "../../headers/InputHandler.h"
 #ifdef _DEBUG
 #include "../../headers/CRTMemoryLeak.h"
 #endif
 
+using namespace Toolset;
 namespace Minesweeper {
 	GameManagerImp::GameManagerImp(const Mode& mode) { create(mode); }
 	GameManagerImp::~GameManagerImp() { destroy(); }
@@ -21,6 +23,14 @@ namespace Minesweeper {
 	{
 		delete level_context;
 		level_context = nullptr;
+	}
+
+	void GameManagerImp::processInputs()
+	{
+		int row = 0;
+		int col = 0;
+		InputHandler::getMouseState(row, col);
+		level_context->update(row, col);
 	}
 
 	void GameManagerImp::refresh()

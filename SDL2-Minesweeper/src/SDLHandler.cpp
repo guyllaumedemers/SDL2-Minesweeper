@@ -4,10 +4,10 @@
 #include <iostream>
 
 namespace Toolset {
-	SDLHandler::SDLHandler(int w, int h) { create(w, h); }
+	SDLHandler::SDLHandler(const int& w, const int& h) { create(w, h); }
 	SDLHandler::~SDLHandler() { destroy(); }
 
-	void SDLHandler::create(int w, int h)
+	void SDLHandler::create(const int& w, const int& h)
 	{
 		if (SDL_Init(SDL_INIT_EVERYTHING) != 0)
 		{

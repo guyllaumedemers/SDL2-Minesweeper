@@ -1,6 +1,7 @@
 #pragma once
 #include "LevelHandler.h"
 #include "Mode.h"
+#include <SDL.h>
 
 namespace Minesweeper {
 	class GameManagerImp {
@@ -13,6 +14,7 @@ namespace Minesweeper {
 	public:
 		GameManagerImp(const Mode&);
 		~GameManagerImp();
+		void processInputs();
 		void refresh();
 		void draw();
 	};

@@ -14,5 +14,6 @@ namespace Minesweeper {
 	public:
 		LevelHandler(const Mode & = Mode::Easy);
 		~LevelHandler();
+		void update(const int&, const int&);
 	};
 }
