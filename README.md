@@ -13,4 +13,4 @@ Learning sdl2 and CMake, Out-of-Source Build
 
 ### Thoughts
 > Will have to go over the args list for every prototype functions to verify if it would be better to pass args by lvalue or rvalue</br>
-> Currently abusing const keyword
+> Currently abusing const & keyword
