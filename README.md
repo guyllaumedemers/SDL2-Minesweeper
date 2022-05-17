@@ -12,5 +12,5 @@ Learning sdl2 and CMake, Out-of-Source Build
 > Vanilla project showed that #include \<filestream> is still accessible in release mode when build with CMake using MSVC generator and cl.exe compiler. HOWEVER, once imgui submodule gets added to the project, the same issue arise. sdl2 lib build and works fine without conflicting with #include \<filestream> so I blame imgui cmakelist and will have to investigate on policies version control to fix this conflict.
 
 ### Thoughts
-> Will have to go over the args list for every prototype functions to verify if it would be better to pass args by lvalue or rvalue
+> Will have to go over the args list for every prototype functions to verify if it would be better to pass args by lvalue or rvalue</br>
 > Currently abusing const keyword
