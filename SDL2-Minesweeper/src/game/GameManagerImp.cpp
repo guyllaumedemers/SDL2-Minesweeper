@@ -1,10 +1,10 @@
 #pragma once
 #include "../../headers/game/GameManagerImp.h"
 #include "../../headers/InputHandler.h"
+#include "../../headers/game/Screen.h"
 #ifdef _DEBUG
 #include "../../headers/CRTMemoryLeak.h"
 #endif
-#include <iostream>
 
 using namespace Toolset;
 namespace Minesweeper {
@@ -18,6 +18,9 @@ namespace Minesweeper {
 #else
 		level_context = new LevelHandler(mode);
 #endif
+		int w = level_context->getLevel()->getCols() * Tile::size;
+		int h = level_context->getLevel()->getRows() * Tile::size;
+		Screen::setScreenSize(w, h);
 	}
 
 	void GameManagerImp::destroy()

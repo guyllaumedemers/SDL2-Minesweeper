@@ -15,6 +15,8 @@ namespace Minesweeper {
 #else
 		map = new Tile[rows * cols];
 #endif
+		this->rows = rows;
+		this->cols = cols;
 		this->bombs = bombs;
 		this->flags = flags;
 	}
@@ -27,16 +29,16 @@ namespace Minesweeper {
 
 	int Level::getRows()
 	{
-		return 0;
+		return rows;
 	}
 
 	int Level::getCols()
 	{
-		return 0;
+		return cols;
 	}
 
-	int Level::getIndex()
+	const Tile& Level::getTile(const int& index) const
 	{
-		return 0;
+		return map[index];
 	}
 }

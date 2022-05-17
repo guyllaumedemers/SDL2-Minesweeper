@@ -1,9 +1,12 @@
 #pragma once
 #include "../../headers/game/LevelHandler.h"
+#include "../../headers/game/Screen.h"
 #ifdef _DEBUG
 #include "../../headers/CRTMemoryLeak.h"
 #endif
+#include <SDL.h>
 
+using namespace Toolset;
 namespace Minesweeper {
 	LevelHandler::LevelHandler(const Mode& mode) { create(mode); }
 	LevelHandler::~LevelHandler() { destroy(); }
@@ -20,7 +23,7 @@ namespace Minesweeper {
 			level = DBG_NEW Level(16, 16, 40, 40);
 			break;
 		case Mode::Hard:
-			level = DBG_NEW Level(30, 16, 99, 99);
+			level = DBG_NEW Level(16, 30, 99, 99);
 			break;
 		default:
 			throw "ERROR::LEVEL_CREATION::FAILED";
@@ -35,7 +38,7 @@ namespace Minesweeper {
 			level = new Level(16, 16, 40, 40);
 			break;
 		case Mode::Hard:
-			level = new Level(30, 16, 99, 99);
+			level = new Level(16, 30, 99, 99);
 			break;
 		default:
 			throw "ERROR::LEVEL_CREATION::FAILED";
@@ -51,18 +54,48 @@ namespace Minesweeper {
 
 	void LevelHandler::update(const int& row, const int& col)
 	{
-		//TODO Do Game Logic Here for Tile Update
+		//TODO Update Tile State
 	}
 
 	void LevelHandler::refresh(SDL_Renderer* renderer)
 	{
-		//TODO Do level logic
+		//Do nothing for now
 	}
 
 	void LevelHandler::draw(SDL_Renderer* renderer)
 	{
-		for (int i = 0; i < level->getRows() * level->getCols(); ++i) {
+		SDL_Texture* target = SDL_CreateTexture(renderer, SDL_PIXELFORMAT_RGBA8888, SDL_TEXTUREACCESS_TARGET, Screen::w, Screen::h);
+		SDL_SetRenderTarget(renderer, target);
+		int rows = level->getRows();
+		int cols = level->getCols();
+		int size = Tile::size;
+		for (int i = 0; i < rows * cols; ++i) {
+			SDL_Texture* sub_target = SDL_CreateTexture(renderer, SDL_PIXELFORMAT_RGBA8888, SDL_TEXTUREACCESS_TARGET, size, size);
+			SDL_SetRenderTarget(renderer, sub_target);
 
+			SDL_Rect dest = {
+				i % cols,
+				i / cols,
+				size,
+				size
+			};
+
+			const Tile& tile = level->getTile(i);
+			tile.draw(renderer);
+
+			SDL_SetRenderTarget(renderer, target);
+			SDL_RenderCopy(renderer, sub_target, NULL, &dest);
+			SDL_DestroyTexture(sub_target);
+			sub_target = nullptr;
 		}
+		SDL_SetRenderTarget(renderer, NULL);
+		SDL_RenderCopy(renderer, target, NULL, NULL);
+		SDL_DestroyTexture(target);
+		target = nullptr;
+	}
+
+	Level* LevelHandler::getLevel()
+	{
+		return level;
 	}
 }

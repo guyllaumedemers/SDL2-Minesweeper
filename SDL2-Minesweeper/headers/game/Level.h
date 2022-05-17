@@ -1,6 +1,9 @@
 #pragma once
 #include "Tile.h"
 
+/// <summary>
+/// Using array sequence of tiles to improve efficiency by accessing sequential memory blocks
+/// </summary>
 namespace Minesweeper {
 	struct Level {
 	private:
@@ -19,6 +22,6 @@ namespace Minesweeper {
 		~Level();
 		int getRows();
 		int getCols();
-		int getIndex();
+		const Tile& getTile(const int&) const;
 	};
 }

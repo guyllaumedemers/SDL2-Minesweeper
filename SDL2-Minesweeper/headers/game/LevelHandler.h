@@ -18,5 +18,6 @@ namespace Minesweeper {
 		void update(const int&, const int&);
 		void refresh(SDL_Renderer*);
 		void draw(SDL_Renderer*);
+		Level* getLevel();
 	};
 }

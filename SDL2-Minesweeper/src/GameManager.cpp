@@ -1,10 +1,11 @@
 #pragma once
 #include "../headers/GameManager.h"
 #include "../headers/InputHandler.h"
-#include <iostream>
+#include "../headers/game/Screen.h"
 #ifdef _DEBUG
 #include "../headers/CRTMemoryLeak.h"
 #endif
+#include <iostream>
 
 namespace Toolset {
 	ImGuiHandler* GameManager::imgui_context = nullptr;
@@ -17,13 +18,13 @@ namespace Toolset {
 	{
 #ifdef _DEBUG
 		CRTMemoryLeak::init();
-		imgui_context = DBG_NEW ImGuiHandler(DBG_NEW SDLHandler(640, 480));
-		imp = DBG_NEW GameManagerImp(Mode::Easy);
+		imp = DBG_NEW GameManagerImp(Mode::Hard);
+		imgui_context = DBG_NEW ImGuiHandler(DBG_NEW SDLHandler(Screen::w, Screen::h));
 		applicationQuitListener = DBG_NEW Subscriber(InputHandler::onApplicationQuitEvent, []() { exit(); });
 		mouseDownListener = DBG_NEW Subscriber(InputHandler::onMouseDownEvent, []() { imp->processInputs(); });
 #else		
-		imgui_context = new ImGuiHandler(new SDLHandler(640, 480));
-		imp = new GameManagerImp(Mode::Easy);
+		imp = new GameManagerImp(Mode::Hard);
+		imgui_context = new ImGuiHandler(new SDLHandler(Screen::w, Screen::h));
 		applicationQuitListener = new Subscriber(InputHandler::onApplicationQuitEvent, []() { exit(); });
 		mouseDownListener = new Subscriber(InputHandler::onMouseDownEvent, []() {});
 #endif
