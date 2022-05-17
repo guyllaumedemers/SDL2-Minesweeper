@@ -35,14 +35,15 @@ namespace Toolset {
 		while (isRunning) {
 			SDL_Event _e;
 			if (SDL_WaitEvent(&_e)) imgui_context->processInputs(_e, [](SDL_Event& e) { InputHandler::getInput(e); });
-			imgui_context->refresh([]() { imp->refresh(); });
-			imgui_context->draw([]() { imp->draw(); });
+			imgui_context->refresh([](SDL_Renderer* renderer) { imp->refresh(renderer); });
+			imgui_context->draw([](SDL_Renderer* renderer) { imp->draw(renderer); });
 			//TODO Frame Capping
 		}
 	}
 
 	void GameManager::destroy()
 	{
+		InputHandler::destroy();
 		delete imp;
 		imp = nullptr;
 		delete imgui_context;

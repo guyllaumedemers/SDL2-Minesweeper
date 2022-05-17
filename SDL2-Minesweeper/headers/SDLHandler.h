@@ -14,7 +14,7 @@ namespace Toolset {
 		SDL_Renderer* renderer = nullptr;
 		SDLHandler(const int&, const int&);
 		~SDLHandler();
-		void refresh(void(*)());
-		void draw(void (*)());
+		void refresh(void(*)(SDL_Renderer*));
+		void draw(void (*)(SDL_Renderer*));
 	};
 }

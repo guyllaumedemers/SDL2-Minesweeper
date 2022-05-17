@@ -33,18 +33,18 @@ namespace Toolset {
 		SDL_Quit();
 	}
 
-	void SDLHandler::refresh(void (*refresh_callback)())
+	void SDLHandler::refresh(void (*refresh_callback)(SDL_Renderer*))
 	{
 		SDL_SetRenderDrawColor(renderer, 0, 0, 0, 255);
 		SDL_RenderClear(renderer);
 		SDL_assert(refresh_callback);
-		refresh_callback();
+		refresh_callback(renderer);
 	}
 
-	void SDLHandler::draw(void (*draw_callback)())
+	void SDLHandler::draw(void (*draw_callback)(SDL_Renderer*))
 	{
 		SDL_assert(draw_callback);
-		draw_callback();
+		draw_callback(renderer);
 		SDL_RenderPresent(renderer);
 	}
 }

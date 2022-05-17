@@ -43,7 +43,7 @@ namespace Toolset {
 		inputs_callback(e);
 	}
 
-	void ImGuiHandler::refresh(void (*refresh_callback)())
+	void ImGuiHandler::refresh(void (*refresh_callback)(SDL_Renderer*))
 	{
 		// Start the Dear ImGui frame
 		ImGui_ImplSDLRenderer_NewFrame();
@@ -59,7 +59,7 @@ namespace Toolset {
 		sdl_context->refresh(refresh_callback);
 	}
 
-	void ImGuiHandler::draw(void (*draw_callback)())
+	void ImGuiHandler::draw(void (*draw_callback)(SDL_Renderer*))
 	{
 		// Render Platform/Renderer backends and gameobjects
 		ImGui_ImplSDLRenderer_RenderDrawData(ImGui::GetDrawData());

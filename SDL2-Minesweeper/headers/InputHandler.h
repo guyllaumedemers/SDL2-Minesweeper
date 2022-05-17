@@ -9,5 +9,6 @@ namespace Toolset {
 		static EventHandler* onMouseDownEvent;
 		static void getInput(SDL_Event& e);
 		static void getMouseState(int&, int&);
+		static void destroy();
 	};
 }

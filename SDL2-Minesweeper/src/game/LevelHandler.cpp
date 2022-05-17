@@ -53,4 +53,16 @@ namespace Minesweeper {
 	{
 		//TODO Do Game Logic Here for Tile Update
 	}
+
+	void LevelHandler::refresh(SDL_Renderer* renderer)
+	{
+		//TODO Do level logic
+	}
+
+	void LevelHandler::draw(SDL_Renderer* renderer)
+	{
+		for (int i = 0; i < level->getRows() * level->getCols(); ++i) {
+
+		}
+	}
 }

@@ -1,4 +1,16 @@
-﻿  GameManager.cpp
+﻿  Main.cpp
+  EventHandler.cpp
+D:\VisualStudio\SDL2\SDL2-GameDevCMake\SDL2-Minesweeper\SDL2-Minesweeper\src\EventHandler.cpp(6,34): warning C4267: 'initializing': conversion from 'size_t' to 'int', possible loss of data
+D:\VisualStudio\SDL2\SDL2-GameDevCMake\SDL2-Minesweeper\SDL2-Minesweeper\src\EventHandler.cpp(21,3): warning C4267: 'initializing': conversion from 'size_t' to 'int', possible loss of data
+  GameManager.cpp
+  ImGuiHandler.cpp
+  InputHandler.cpp
+  SDLHandler.cpp
+  Subscriber.cpp
   GameManagerImp.cpp
+  LevelHandler.cpp
+C:\Program Files (x86)\Windows Kits\10\Include\10.0.19041.0\ucrt\crtdbg.h(307,1): warning C4005: '_malloca': macro redefinition
+C:\Program Files (x86)\Windows Kits\10\Include\10.0.19041.0\ucrt\malloc.h(124): message : see previous definition of '_malloca'
+  TopMenuBar.cpp
   Generating Code...
   SDL2-Minesweeper.vcxproj -> D:\VisualStudio\SDL2\SDL2-GameDevCMake\SDL2-Minesweeper\out\build\Debug\SDL2-Minesweeper.exe

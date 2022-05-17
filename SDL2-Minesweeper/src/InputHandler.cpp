@@ -32,4 +32,12 @@ namespace Toolset {
 	{
 		SDL_GetMouseState(&x, &y);
 	}
+
+	void InputHandler::destroy()
+	{
+		delete onApplicationQuitEvent;
+		onApplicationQuitEvent = nullptr;
+		delete onMouseDownEvent;
+		onMouseDownEvent = nullptr;
+	}
 }

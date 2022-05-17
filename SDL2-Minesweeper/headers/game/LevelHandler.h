@@ -1,6 +1,7 @@
 #pragma once
 #include "Level.h"
 #include "Mode.h"
+#include <SDL.h>
 
 namespace Minesweeper {
 	class LevelHandler {
@@ -15,5 +16,7 @@ namespace Minesweeper {
 		LevelHandler(const Mode & = Mode::Easy);
 		~LevelHandler();
 		void update(const int&, const int&);
+		void refresh(SDL_Renderer*);
+		void draw(SDL_Renderer*);
 	};
 }

@@ -18,7 +18,7 @@ namespace Toolset {
 		ImGuiHandler(SDLHandler*);
 		~ImGuiHandler();
 		void processInputs(SDL_Event&, void(*)(SDL_Event&));
-		void refresh(void (*)());
-		void draw(void (*)());
+		void refresh(void (*)(SDL_Renderer*));
+		void draw(void (*)(SDL_Renderer*));
 	};
 }

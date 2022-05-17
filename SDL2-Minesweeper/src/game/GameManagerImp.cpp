@@ -4,6 +4,7 @@
 #ifdef _DEBUG
 #include "../../headers/CRTMemoryLeak.h"
 #endif
+#include <iostream>
 
 using namespace Toolset;
 namespace Minesweeper {
@@ -33,11 +34,13 @@ namespace Minesweeper {
 		level_context->update(row, col);
 	}
 
-	void GameManagerImp::refresh()
+	void GameManagerImp::refresh(SDL_Renderer* renderer)
 	{
+		level_context->refresh(renderer);
 	}
 
-	void GameManagerImp::draw()
+	void GameManagerImp::draw(SDL_Renderer* renderer)
 	{
+		level_context->draw(renderer);
 	}
 }

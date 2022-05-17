@@ -15,7 +15,7 @@ namespace Minesweeper {
 		GameManagerImp(const Mode&);
 		~GameManagerImp();
 		void processInputs();
-		void refresh();
-		void draw();
+		void refresh(SDL_Renderer*);
+		void draw(SDL_Renderer*);
 	};
 }
