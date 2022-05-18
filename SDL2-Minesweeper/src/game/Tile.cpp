@@ -36,7 +36,6 @@ namespace Minesweeper {
 			SDL_RenderCopy(renderer, TextureHandler::get(textures[4].c_str()), NULL, NULL);				// Hit
 			SDL_RenderCopy(renderer, temp = TextureHandler::get(textures[3].c_str()), NULL, NULL);		// Bomb
 		}
-		SDL_DestroyTexture(temp);
 		temp = nullptr;
 	}
 
