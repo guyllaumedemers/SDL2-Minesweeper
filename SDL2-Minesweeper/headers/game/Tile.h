@@ -14,7 +14,7 @@ namespace Minesweeper {
 		~Tile();
 		void add(Tilebitmask&&);
 		void remove(Tilebitmask&&);
-		void draw(SDL_Renderer*) const;
+		void refresh(SDL_Renderer*) const;
 		const Tilebitmask& getmask() const;
 	};
 }

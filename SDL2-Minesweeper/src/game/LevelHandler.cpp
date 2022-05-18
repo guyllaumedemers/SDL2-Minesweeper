@@ -59,11 +59,6 @@ namespace Minesweeper {
 
 	void LevelHandler::refresh(SDL_Renderer* renderer)
 	{
-		//Do nothing for now
-	}
-
-	void LevelHandler::draw(SDL_Renderer* renderer)
-	{
 		SDL_Texture* target = SDL_CreateTexture(renderer, SDL_PIXELFORMAT_RGBA8888, SDL_TEXTUREACCESS_TARGET, Screen::w, Screen::h);
 		SDL_SetRenderTarget(renderer, target);
 		int rows = level->getRows();
@@ -81,7 +76,7 @@ namespace Minesweeper {
 			};
 
 			const Tile& tile = level->getTile(i);
-			tile.draw(renderer);
+			tile.refresh(renderer);
 
 			SDL_SetRenderTarget(renderer, target);
 			SDL_RenderCopy(renderer, sub_target, NULL, &dest);
@@ -92,6 +87,11 @@ namespace Minesweeper {
 		SDL_RenderCopy(renderer, target, NULL, NULL);
 		SDL_DestroyTexture(target);
 		target = nullptr;
+	}
+
+	void LevelHandler::draw(SDL_Renderer* renderer)
+	{
+		//TODO Draw doodles
 	}
 
 	Level* LevelHandler::getLevel()

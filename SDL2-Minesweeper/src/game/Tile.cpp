@@ -17,7 +17,7 @@ namespace Minesweeper {
 		bitmask &= ~value;
 	}
 
-	void Tile::draw(SDL_Renderer* renderer) const
+	void Tile::refresh(SDL_Renderer* renderer) const
 	{
 		//TODO Renderer Tile according to his bitmask flags
 	}
