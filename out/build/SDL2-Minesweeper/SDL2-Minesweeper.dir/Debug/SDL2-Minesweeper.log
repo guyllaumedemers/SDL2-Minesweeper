@@ -1,4 +1,4 @@
-﻿  LevelHandler.cpp
-  Tile.cpp
-  Generating Code...
+﻿  Tile.cpp
+D:\VisualStudio\SDL2\SDL2-GameDevCMake\SDL2-Minesweeper\SDL2-Minesweeper\src\game\Tile.cpp(39,3): warning C4150: deletion of pointer to incomplete type 'SDL_Texture'; no destructor called
+D:\VisualStudio\SDL2\SDL2-GameDevCMake\SDL2-Minesweeper\external\sdl2\include\SDL_render.h(147): message : see declaration of 'SDL_Texture'
   SDL2-Minesweeper.vcxproj -> D:\VisualStudio\SDL2\SDL2-GameDevCMake\SDL2-Minesweeper\out\build\Debug\SDL2-Minesweeper.exe
