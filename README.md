@@ -13,4 +13,7 @@ Learning sdl2 and CMake, Out-of-Source Build
 
 ### Thoughts
 > Will have to go over the args list for every prototype functions to verify if it would be better to pass args by lvalue or rvalue</br>
-> Currently abusing const & keyword
+> Keeping const &, rvalue implicitly converted to lvalue when needed.
+
+### ImGui Issue
+> Imgui BeginMainMenuBar eats up a part of sdl2 renderer viewport and display 1 tile less than expected.
