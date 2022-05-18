@@ -37,7 +37,7 @@ namespace Minesweeper {
 		return cols;
 	}
 
-	const Tile& Level::getTile(const int& index) const
+	Tile& Level::getTile(const int& index) const
 	{
 		return map[index];
 	}

@@ -69,13 +69,13 @@ namespace Minesweeper {
 			SDL_SetRenderTarget(renderer, sub_target);
 
 			SDL_Rect dest = {
-				i % cols,
-				i / cols,
+				(i % cols) * size,
+				(i / cols) * size,
 				size,
 				size
 			};
 
-			const Tile& tile = level->getTile(i);
+			Tile& tile = level->getTile(i);
 			tile.refresh(renderer);
 
 			SDL_SetRenderTarget(renderer, target);

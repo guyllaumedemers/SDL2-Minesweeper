@@ -22,6 +22,6 @@ namespace Minesweeper {
 		~Level();
 		int getRows();
 		int getCols();
-		const Tile& getTile(const int&) const;
+		Tile& getTile(const int&) const;
 	};
 }
