@@ -9,4 +9,8 @@ Learning sdl2 and CMake, Out-of-Source Build
 > Open Folder Mode, Intellisense doesnt update after cmake build config files and compile application [link](https://docs.microsoft.com/en-us/cpp/build/open-folder-projects-cpp?view=msvc-170)
 
 ### Testing
-> Vanilla project showed that #include \<filestream> is still accessible in release mode when build with CMake using MSVC generator and cl.exe compiler. HOWEVER, once imgui submodule gets added to the project, the same issue arise. sdl2 lib build and works fine without conflicting with #include \<filestream> so I blame imgui cmakelist and will have to investigate on policies version control to fix this conflict. 
+> Vanilla project showed that #include \<filestream> is still accessible in release mode when build with CMake using MSVC generator and cl.exe compiler. HOWEVER, once imgui submodule gets added to the project, the same issue arise. sdl2 lib build and works fine without conflicting with #include \<filestream> so I blame imgui cmakelist and will have to investigate on policies version control to fix this conflict.
+
+### Thoughts
+> Will have to go over the args list for every prototype functions to verify if it would be better to pass args by lvalue or rvalue</br>
+> Currently abusing const & keyword
