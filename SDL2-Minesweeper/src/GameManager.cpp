@@ -19,12 +19,12 @@ namespace Toolset {
 #ifdef _DEBUG
 		CRTMemoryLeak::init();
 		imp = DBG_NEW GameManagerImp(Mode::Hard);
-		imgui_context = DBG_NEW ImGuiHandler(DBG_NEW SDLHandler(Screen::w, Screen::h));
+		imgui_context = DBG_NEW ImGuiHandler();
 		applicationQuitListener = DBG_NEW Subscriber(InputHandler::onApplicationQuitEvent, []() { exit(); });
 		mouseDownListener = DBG_NEW Subscriber(InputHandler::onMouseDownEvent, []() { imp->processInputs(); });
 #else		
 		imp = new GameManagerImp(Mode::Hard);
-		imgui_context = new ImGuiHandler(new SDLHandler(Screen::w, Screen::h));
+		imgui_context = new ImGuiHandler();
 		applicationQuitListener = new Subscriber(InputHandler::onApplicationQuitEvent, []() { exit(); });
 		mouseDownListener = new Subscriber(InputHandler::onMouseDownEvent, []() {});
 #endif

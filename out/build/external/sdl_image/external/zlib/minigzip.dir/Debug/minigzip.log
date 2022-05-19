@@ -1,0 +1,4 @@
+﻿  Building Custom Rule D:/VisualStudio/SDL2/SDL2-GameDevCMake/SDL2-Minesweeper/external/sdl_image/external/zlib/CMakeLists.txt
+  minigzip.c
+D:\VisualStudio\SDL2\SDL2-GameDevCMake\SDL2-Minesweeper\external\sdl_image\external\zlib\test\minigzip.c(503,20): warning C4267: 'initializing': conversion from 'size_t' to 'unsigned int', possible loss of data
+  minigzip.vcxproj -> D:\VisualStudio\SDL2\SDL2-GameDevCMake\SDL2-Minesweeper\out\build\Debug\minigzip.exe

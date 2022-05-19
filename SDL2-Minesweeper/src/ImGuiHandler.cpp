@@ -1,6 +1,7 @@
 #pragma once
 #include "../headers/ImGuiHandler.h"
-#include "../headers/imgui/TopMenuBar.h"
+#include "../headers/game/Screen.h"
+#include <imgui.h>
 #include <imgui_impl_sdl.h>
 #include <imgui_impl_sdlrenderer.h>
 #ifdef _DEBUG
@@ -8,22 +9,22 @@
 #endif
 
 namespace Toolset {
-	ImGuiHandler::ImGuiHandler(SDLHandler* handler) : sdl_context(handler) { create(sdl_context); }
+	ImGuiHandler::ImGuiHandler() : sdl_context(nullptr), isOpen(true) { create(); }
 	ImGuiHandler::~ImGuiHandler() { destroy(); }
 
-	void ImGuiHandler::create(SDLHandler* handler)
+	void ImGuiHandler::create()
 	{
-#ifdef _DEBUG
-		user_interface.push_back(DBG_NEW TopMenuBar(DBG_NEW TopMenuBarImp()));
-#else		
-		user_interface.push_back(new TopMenuBar(new TopMenuBarImp()));	//Temp solution, will probably create a builder pattern to return proper vector<ImGuiComponent*>
-#endif
 		IMGUI_CHECKVERSION();
 		ImGui::CreateContext();
 		ImGuiIO& io = ImGui::GetIO(); (void)io;
 		ImGui::StyleColorsDark();
-		ImGui_ImplSDL2_InitForSDLRenderer(handler->window, handler->renderer);
-		ImGui_ImplSDLRenderer_Init(handler->renderer);
+#ifdef _DEBUG
+		sdl_context = DBG_NEW SDLHandler(Screen::w, Screen::h + ImGui::GetFrameHeightWithSpacing());
+#else
+		sdl_context = new SDLHandler(Screen::w, Screen::h + ImGui::GetFrameHeightWithSpacing());
+#endif
+		ImGui_ImplSDL2_InitForSDLRenderer(sdl_context->window, sdl_context->renderer);
+		ImGui_ImplSDLRenderer_Init(sdl_context->renderer);
 	}
 
 	void ImGuiHandler::destroy()
@@ -31,7 +32,6 @@ namespace Toolset {
 		ImGui_ImplSDLRenderer_Shutdown();
 		ImGui_ImplSDL2_Shutdown();
 		ImGui::DestroyContext();
-		for (auto& it : user_interface) delete it;
 		delete sdl_context;
 		sdl_context = nullptr;
 	}
@@ -50,8 +50,20 @@ namespace Toolset {
 		ImGui_ImplSDL2_NewFrame();
 		ImGui::NewFrame();
 
-		// Show ImGui Widget
-		for (const auto& it : user_interface) it->refresh();
+		ImGuiWindowFlags windowflags = ImGuiWindowFlags_MenuBar | ImGuiWindowFlags_NoTitleBar;
+		
+
+		if (ImGui::Begin("Minesweeper", &isOpen, windowflags)) {
+			if (ImGui::BeginMenuBar()) {
+				if (ImGui::BeginMenu("Game")) {
+					ImGui::EndMenu();
+				}
+				if (ImGui::MenuItem("Help")) {
+				}
+				ImGui::EndMenuBar();
+			}
+			ImGui::End();
+		}
 
 		// Rendering
 		ImGui::Render();

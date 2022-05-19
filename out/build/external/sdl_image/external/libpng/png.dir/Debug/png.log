@@ -1,1 +1,19 @@
-﻿  png.vcxproj -> D:\VisualStudio\SDL2\SDL2-GameDevCMake\SDL2-Minesweeper\out\build\Debug\libpng16d.dll
+﻿  Building Custom Rule D:/VisualStudio/SDL2/SDL2-GameDevCMake/SDL2-Minesweeper/external/sdl_image/external/libpng/CMakeLists.txt
+  png.c
+  pngerror.c
+  pngget.c
+  pngmem.c
+  pngpread.c
+  pngread.c
+  pngrio.c
+  pngrtran.c
+  pngrutil.c
+  pngset.c
+  pngtrans.c
+  pngwio.c
+  pngwrite.c
+  pngwtran.c
+  pngwutil.c
+  Generating Code...
+     Creating library D:/VisualStudio/SDL2/SDL2-GameDevCMake/SDL2-Minesweeper/out/build/bin/Debug/libpng16d.lib and object D:/VisualStudio/SDL2/SDL2-GameDevCMake/SDL2-Minesweeper/out/build/bin/Debug/libpng16d.exp
+  png.vcxproj -> D:\VisualStudio\SDL2\SDL2-GameDevCMake\SDL2-Minesweeper\out\build\Debug\libpng16d.dll

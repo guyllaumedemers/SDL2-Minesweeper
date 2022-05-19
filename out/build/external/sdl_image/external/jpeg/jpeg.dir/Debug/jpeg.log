@@ -1,1 +1,61 @@
-﻿  jpeg.vcxproj -> D:\VisualStudio\SDL2\SDL2-GameDevCMake\SDL2-Minesweeper\out\build\bin\Debug\jpeg.lib
+﻿  Building Custom Rule D:/VisualStudio/SDL2/SDL2-GameDevCMake/SDL2-Minesweeper/external/sdl_image/external/jpeg/CMakeLists.txt
+  jaricom.c
+  jcapimin.c
+  jcapistd.c
+  jcarith.c
+  jccoefct.c
+  jccolor.c
+  jcdctmgr.c
+  jchuff.c
+  jcinit.c
+  jcmainct.c
+  jcmarker.c
+  jcmaster.c
+  jcomapi.c
+  jcparam.c
+  jcprepct.c
+  jcsample.c
+  jctrans.c
+  jdapimin.c
+  jdapistd.c
+  jdarith.c
+  Generating Code...
+  Compiling...
+  jdatadst.c
+  jdatasrc.c
+  jdcoefct.c
+  jdcolor.c
+  jddctmgr.c
+  jdhuff.c
+  jdinput.c
+  jdmainct.c
+  jdmarker.c
+D:\VisualStudio\SDL2\SDL2-GameDevCMake\SDL2-Minesweeper\external\sdl_image\external\jpeg\jdmarker.c(331,5): warning C4996: 'strncpy': This function or variable may be unsafe. Consider using strncpy_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+D:\VisualStudio\SDL2\SDL2-GameDevCMake\SDL2-Minesweeper\external\sdl_image\external\jpeg\jdmarker.c(654,5): warning C4996: 'strncpy': This function or variable may be unsafe. Consider using strncpy_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+  jdmaster.c
+  jdmerge.c
+  jdpostct.c
+  jdsample.c
+  jdtrans.c
+  jerror.c
+D:\VisualStudio\SDL2\SDL2-GameDevCMake\SDL2-Minesweeper\external\sdl_image\external\jpeg\jerror.c(194,5): warning C4996: 'sprintf': This function or variable may be unsafe. Consider using sprintf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+D:\VisualStudio\SDL2\SDL2-GameDevCMake\SDL2-Minesweeper\external\sdl_image\external\jpeg\jerror.c(196,5): warning C4996: 'sprintf': This function or variable may be unsafe. Consider using sprintf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+  jfdctflt.c
+  jfdctfst.c
+  jfdctint.c
+  jidctflt.c
+  jquant1.c
+  Generating Code...
+  Compiling...
+  jquant2.c
+  jutils.c
+  jmemmgr.c
+D:\VisualStudio\SDL2\SDL2-GameDevCMake\SDL2-Minesweeper\external\sdl_image\external\jpeg\jmemmgr.c(1103,19): warning C4996: 'getenv': This function or variable may be unsafe. Consider using _dupenv_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+D:\VisualStudio\SDL2\SDL2-GameDevCMake\SDL2-Minesweeper\external\sdl_image\external\jpeg\jmemmgr.c(1106,11): warning C4996: 'sscanf': This function or variable may be unsafe. Consider using sscanf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+  jmemansi.c
+D:\VisualStudio\SDL2\SDL2-GameDevCMake\SDL2-Minesweeper\external\sdl_image\external\jpeg\jmemansi.c(144,26): warning C4996: 'tmpfile': This function or variable may be unsafe. Consider using tmpfile_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+D:\VisualStudio\SDL2\SDL2-GameDevCMake\SDL2-Minesweeper\external\sdl_image\external\jpeg\jmemansi.c(145,5): warning C4996: 'strncpy': This function or variable may be unsafe. Consider using strncpy_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+  jidctint.c
+  jidctfst.c
+  Generating Code...
+  jpeg.vcxproj -> D:\VisualStudio\SDL2\SDL2-GameDevCMake\SDL2-Minesweeper\out\build\bin\Debug\jpeg.lib
