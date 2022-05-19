@@ -6,7 +6,6 @@ using namespace std;
 namespace Toolset {
 	class ImGuiHandler {
 	private:
-		bool isOpen = false;
 		SDLHandler* sdl_context = nullptr;
 		ImGuiHandler(const ImGuiHandler&) = delete;
 		ImGuiHandler(ImGuiHandler&&) = delete;
