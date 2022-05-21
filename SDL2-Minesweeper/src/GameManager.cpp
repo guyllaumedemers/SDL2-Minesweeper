@@ -1,11 +1,10 @@
 #pragma once
 #include "../headers/GameManager.h"
-#include "../headers/InputHandler.h"
 #include "../headers/game/Screen.h"
+#include "../headers/InputHandler.h"
 #ifdef _DEBUG
 #include "../headers/CRTMemoryLeak.h"
 #endif
-#include <iostream>
 
 namespace Toolset {
 	ImGuiHandler* GameManager::imgui_context = nullptr;
@@ -18,15 +17,15 @@ namespace Toolset {
 	{
 #ifdef _DEBUG
 		CRTMemoryLeak::init();
-		imp = DBG_NEW GameManagerImp(Mode::Hard);
-		imgui_context = DBG_NEW ImGuiHandler();
+		imp = DBG_NEW GameManagerImp(Mode::Hard, [](const int& w, const int& h) { Screen::setScreenSize(w, h); });
+		imgui_context = DBG_NEW ImGuiHandler(Screen::w, Screen::h);
 		applicationQuitListener = DBG_NEW Subscriber(InputHandler::onApplicationQuitEvent, []() { exit(); });
 		mouseDownListener = DBG_NEW Subscriber(InputHandler::onMouseDownEvent, []() { imp->processInputs(); });
 #else		
-		imp = new GameManagerImp(Mode::Hard);
-		imgui_context = new ImGuiHandler();
+		imp = new GameManagerImp(Mode::Hard, [](const int& w, const int& h) { Screen::setScreenSize(w, h); });
+		imgui_context = new ImGuiHandler(Screen::w, Screen::h);
 		applicationQuitListener = new Subscriber(InputHandler::onApplicationQuitEvent, []() { exit(); });
-		mouseDownListener = new Subscriber(InputHandler::onMouseDownEvent, []() {});
+		mouseDownListener = new Subscriber(InputHandler::onMouseDownEvent, []() { imp->processInputs(); });
 #endif
 		isRunning = true;
 	}
@@ -36,7 +35,7 @@ namespace Toolset {
 		while (isRunning) {
 			SDL_Event _e;
 			if (SDL_WaitEvent(&_e)) imgui_context->processInputs(_e, [](SDL_Event& e) { InputHandler::getInput(e); });
-			imgui_context->refresh([](SDL_Renderer* renderer) { imp->refresh(renderer); });
+			imgui_context->refresh([](SDL_Renderer* renderer) { imp->refresh(renderer, Screen::w, Screen::h); }, Screen::w, Screen::h);
 			imgui_context->draw([](SDL_Renderer* renderer) { imp->draw(renderer); });
 			//TODO Frame Capping
 		}

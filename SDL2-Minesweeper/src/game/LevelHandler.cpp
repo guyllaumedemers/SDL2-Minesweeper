@@ -1,12 +1,11 @@
 #pragma once
 #include "../../headers/game/LevelHandler.h"
-#include "../../headers/game/Screen.h"
+#include <SDL.h>
 #ifdef _DEBUG
 #include "../../headers/CRTMemoryLeak.h"
 #endif
-#include <SDL.h>
+#include <iostream>
 
-using namespace Toolset;
 namespace Minesweeper {
 	LevelHandler::LevelHandler(const Mode& mode) { create(mode); }
 	LevelHandler::~LevelHandler() { destroy(); }
@@ -54,12 +53,13 @@ namespace Minesweeper {
 
 	void LevelHandler::update(const int& row, const int& col)
 	{
-		//TODO Update Tile State
+		Tile& target = level->getTile(row * level->getCols() + col);
+
 	}
 
-	void LevelHandler::refresh(SDL_Renderer* renderer)
+	void LevelHandler::refresh(SDL_Renderer* renderer, const int& w, const int& h)
 	{
-		SDL_Texture* target = SDL_CreateTexture(renderer, SDL_PIXELFORMAT_RGBA8888, SDL_TEXTUREACCESS_TARGET, Screen::w, Screen::h);
+		SDL_Texture* target = SDL_CreateTexture(renderer, SDL_PIXELFORMAT_RGBA8888, SDL_TEXTUREACCESS_TARGET, w, h);
 		SDL_SetRenderTarget(renderer, target);
 		int rows = level->getRows();
 		int cols = level->getCols();

@@ -19,6 +19,7 @@ namespace Toolset {
 			SDL_Log("CONTEXT INTIALIZATION FAILED: %s", SDL_GetError());
 			exit(EXIT_FAILURE);
 		}
+		SDL_SetWindowTitle(window, "Minesweeper");
 		TextureHandler::init();
 		TextureHandler::load(renderer);
 	}

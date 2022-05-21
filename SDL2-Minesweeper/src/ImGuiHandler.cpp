@@ -1,6 +1,5 @@
 #pragma once
 #include "../headers/ImGuiHandler.h"
-#include "../headers/game/Screen.h"
 #include "../headers/game/Tile.h"
 #include <imgui.h>
 #include <imgui_impl_sdl.h>
@@ -9,26 +8,24 @@
 #ifdef _DEBUG
 #include "../headers/CRTMemoryLeak.h"
 #endif
-#include <iostream>
 
 using namespace Minesweeper;
 using namespace std;
 namespace Toolset {
-	static SDL_Texture* rendererTexture = nullptr;
-	ImGuiHandler::ImGuiHandler() : sdl_context(nullptr) { create(); }
+	ImGuiHandler::ImGuiHandler(const int& w, const int& h) : sdl_context(nullptr) { create(w, h); }
 	ImGuiHandler::~ImGuiHandler() { destroy(); }
 
-	void ImGuiHandler::create()
+	void ImGuiHandler::create(const int& w, const int& h)
 	{
 		IMGUI_CHECKVERSION();
 		ImGui::CreateContext();
 		ImGuiIO& io = ImGui::GetIO(); (void)io;
-		//io.ConfigFlags |= ImGuiConfigFlags_DockingEnable;
 		ImGui::StyleColorsDark();
+		//Handle imgui ui overlap by using manual offset
 #ifdef _DEBUG
-		sdl_context = DBG_NEW SDLHandler(Screen::w, Screen::h + Tile::size);
+		sdl_context = DBG_NEW SDLHandler(w, h + Tile::size);
 #else
-		sdl_context = new SDLHandler(Screen::w, Screen::h + Tile::size);
+		sdl_context = new SDLHandler(w, h + Tile::size);
 #endif
 		ImGui_ImplSDL2_InitForSDLRenderer(sdl_context->window, sdl_context->renderer);
 		ImGui_ImplSDLRenderer_Init(sdl_context->renderer);
@@ -39,8 +36,6 @@ namespace Toolset {
 		ImGui_ImplSDLRenderer_Shutdown();
 		ImGui_ImplSDL2_Shutdown();
 		ImGui::DestroyContext();
-		SDL_DestroyTexture(rendererTexture);
-		rendererTexture = nullptr;
 		delete sdl_context;
 		sdl_context = nullptr;
 	}
@@ -52,7 +47,7 @@ namespace Toolset {
 		inputs_callback(e);
 	}
 
-	void ImGuiHandler::refresh(void (*refresh_callback)(SDL_Renderer*))
+	void ImGuiHandler::refresh(void (*refresh_callback)(SDL_Renderer*), const int& w, const int& h)
 	{
 		// Start the Dear ImGui frame
 		ImGui_ImplSDLRenderer_NewFrame();
@@ -78,34 +73,20 @@ namespace Toolset {
 			window_flags |= ImGuiWindowFlags_NoTitleBar | ImGuiWindowFlags_NoCollapse | ImGuiWindowFlags_NoResize | ImGuiWindowFlags_NoMove;
 			window_flags |= ImGuiWindowFlags_NoBringToFrontOnFocus | ImGuiWindowFlags_NoNavFocus | ImGuiWindowFlags_NoScrollbar;
 		}
-		else
-		{
-			dockspace_flags &= ~ImGuiDockNodeFlags_PassthruCentralNode;
-		}
-
-		// When using ImGuiDockNodeFlags_PassthruCentralNode, DockSpace() will render our background
-		// and handle the pass-thru hole, so we ask Begin() to not render a background.
-		if (dockspace_flags & ImGuiDockNodeFlags_PassthruCentralNode)
-			window_flags |= ImGuiWindowFlags_NoBackground;
 
 		// Important: note that we proceed even if Begin() returns false (aka window is collapsed).
 		// This is because we want to keep our DockSpace() active. If a DockSpace() is inactive,
 		// all active windows docked into it will lose their parent and become undocked.
 		// We cannot preserve the docking relationship between an active window and an inactive docking, otherwise
 		// any change of dockspace/settings would lead to windows being stuck in limbo and never being visible.
-		if (!opt_padding) ImGui::PushStyleVar(ImGuiStyleVar_WindowPadding, ImVec2(0.0f, 0.0f));
+		if (!opt_padding)
+			ImGui::PushStyleVar(ImGuiStyleVar_WindowPadding, ImVec2(0.0f, 0.0f));
 
-		ImGui::Begin("DockSpace Demo", &p_open, window_flags);
-		if (!opt_padding) ImGui::PopStyleVar();
-		if (opt_fullscreen) ImGui::PopStyleVar(2);
-
-		// Submit the DockSpace
-		ImGuiIO& io = ImGui::GetIO();
-		if (io.ConfigFlags & ImGuiConfigFlags_DockingEnable)
-		{
-			ImGuiID dockspace_id = ImGui::GetID("MyDockSpace");
-			ImGui::DockSpace(dockspace_id, ImVec2(0.0f, 0.0f), dockspace_flags);
-		}
+		ImGui::Begin("Minesweeper", &p_open, window_flags);
+		if (!opt_padding)
+			ImGui::PopStyleVar();
+		if (opt_fullscreen)
+			ImGui::PopStyleVar(2);
 
 		if (ImGui::BeginMenuBar())
 		{
@@ -126,8 +107,9 @@ namespace Toolset {
 		}
 		const ImGuiViewport* viewport = ImGui::GetMainViewport();
 		ImGui::SetNextWindowPos(ImVec2(viewport->WorkPos.x, viewport->WorkPos.y + ImGui::GetFrameHeightWithSpacing()));
-		rendererTexture = SDL_CreateTexture(sdl_context->renderer, SDL_PIXELFORMAT_RGBA8888, SDL_TEXTUREACCESS_TARGET, Screen::w, Screen::h);
-		ImGui::Image((ImTextureID)rendererTexture, ImVec2(Screen::w, Screen::h));
+		SDL_Texture* rendererTexture = SDL_CreateTexture(sdl_context->renderer, SDL_PIXELFORMAT_RGBA8888, SDL_TEXTUREACCESS_TARGET, w, h);
+		ImGui::Image((ImTextureID)rendererTexture, ImVec2(w, h));
+		rendererTexture = nullptr;
 
 		ImGui::End();
 

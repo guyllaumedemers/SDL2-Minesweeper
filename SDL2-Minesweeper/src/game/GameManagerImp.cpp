@@ -1,17 +1,16 @@
 #pragma once
 #include "../../headers/game/GameManagerImp.h"
 #include "../../headers/InputHandler.h"
-#include "../../headers/game/Screen.h"
 #ifdef _DEBUG
 #include "../../headers/CRTMemoryLeak.h"
 #endif
 
 using namespace Toolset;
 namespace Minesweeper {
-	GameManagerImp::GameManagerImp(const Mode& mode) { create(mode); }
+	GameManagerImp::GameManagerImp(const Mode& mode, void(*screencallback)(const int&, const int&)) { create(mode, screencallback); }
 	GameManagerImp::~GameManagerImp() { destroy(); }
 
-	void GameManagerImp::create(const Mode& mode)
+	void GameManagerImp::create(const Mode& mode, void(*screencallback)(const int&, const int&))
 	{
 #ifdef _DEBUG
 		level_context = DBG_NEW LevelHandler(mode);
@@ -20,7 +19,7 @@ namespace Minesweeper {
 #endif
 		int w = level_context->getLevel()->getCols() * Tile::size;
 		int h = level_context->getLevel()->getRows() * Tile::size;
-		Screen::setScreenSize(w, h);
+		screencallback(w, h);
 	}
 
 	void GameManagerImp::destroy()
@@ -31,15 +30,15 @@ namespace Minesweeper {
 
 	void GameManagerImp::processInputs()
 	{
-		int row = 0;
-		int col = 0;
-		InputHandler::getMouseState(row, col);
-		level_context->update(row, col);
+		int mousePosX = 0;
+		int mousePosY = 0;
+		InputHandler::getMouseState(mousePosX, mousePosY);
+		level_context->update((mousePosY - Tile::size) / Tile::size, mousePosX / Tile::size);
 	}
 
-	void GameManagerImp::refresh(SDL_Renderer* renderer)
+	void GameManagerImp::refresh(SDL_Renderer* renderer, const int& w, const int& h)
 	{
-		level_context->refresh(renderer);
+		level_context->refresh(renderer, w, h);
 	}
 
 	void GameManagerImp::draw(SDL_Renderer* renderer)

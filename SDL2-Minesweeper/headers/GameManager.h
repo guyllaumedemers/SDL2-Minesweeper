@@ -1,7 +1,7 @@
 #pragma once
 #include "ImGuiHandler.h"
-#include "game/GameManagerImp.h"
 #include "EventHandler.h"
+#include "game/GameManagerImp.h"
 
 using namespace Minesweeper;
 namespace Toolset {

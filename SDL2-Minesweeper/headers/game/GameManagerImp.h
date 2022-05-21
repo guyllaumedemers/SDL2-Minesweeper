@@ -9,13 +9,13 @@ namespace Minesweeper {
 		LevelHandler* level_context = nullptr;
 		GameManagerImp(const GameManagerImp&) = delete;
 		GameManagerImp(GameManagerImp&&) = delete;
-		void create(const Mode&);
+		void create(const Mode&, void(*)(const int&, const int&));
 		void destroy();
 	public:
-		GameManagerImp(const Mode&);
+		GameManagerImp(const Mode&, void(*)(const int&, const int&));
 		~GameManagerImp();
 		void processInputs();
-		void refresh(SDL_Renderer*);
+		void refresh(SDL_Renderer*, const int&, const int&);
 		void draw(SDL_Renderer*);
 	};
 }
