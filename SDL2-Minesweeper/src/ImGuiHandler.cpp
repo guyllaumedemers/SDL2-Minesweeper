@@ -26,9 +26,9 @@ namespace Toolset {
 		//io.ConfigFlags |= ImGuiConfigFlags_DockingEnable;
 		ImGui::StyleColorsDark();
 #ifdef _DEBUG
-		sdl_context = DBG_NEW SDLHandler(Screen::w, Screen::h);
+		sdl_context = DBG_NEW SDLHandler(Screen::w, Screen::h + Tile::size);
 #else
-		sdl_context = new SDLHandler(Screen::w, Screen::h);
+		sdl_context = new SDLHandler(Screen::w, Screen::h + Tile::size);
 #endif
 		ImGui_ImplSDL2_InitForSDLRenderer(sdl_context->window, sdl_context->renderer);
 		ImGui_ImplSDLRenderer_Init(sdl_context->renderer);
@@ -124,7 +124,8 @@ namespace Toolset {
 			if (ImGui::MenuItem("Help")) { /*Display Doc Help*/ }
 			ImGui::EndMenuBar();
 		}
-
+		const ImGuiViewport* viewport = ImGui::GetMainViewport();
+		ImGui::SetNextWindowPos(ImVec2(viewport->WorkPos.x, viewport->WorkPos.y + ImGui::GetFrameHeightWithSpacing()));
 		rendererTexture = SDL_CreateTexture(sdl_context->renderer, SDL_PIXELFORMAT_RGBA8888, SDL_TEXTUREACCESS_TARGET, Screen::w, Screen::h);
 		ImGui::Image((ImTextureID)rendererTexture, ImVec2(Screen::w, Screen::h));
 
