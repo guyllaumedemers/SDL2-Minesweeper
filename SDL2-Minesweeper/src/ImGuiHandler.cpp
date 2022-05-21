@@ -1,16 +1,20 @@
 #pragma once
 #include "../headers/ImGuiHandler.h"
 #include "../headers/game/Screen.h"
+#include "../headers/game/Tile.h"
 #include <imgui.h>
 #include <imgui_impl_sdl.h>
 #include <imgui_impl_sdlrenderer.h>
+#include <imgui_internal.h>
 #ifdef _DEBUG
 #include "../headers/CRTMemoryLeak.h"
 #endif
 #include <iostream>
 
+using namespace Minesweeper;
 using namespace std;
 namespace Toolset {
+	static SDL_Texture* rendererTexture = nullptr;
 	ImGuiHandler::ImGuiHandler() : sdl_context(nullptr) { create(); }
 	ImGuiHandler::~ImGuiHandler() { destroy(); }
 
@@ -19,11 +23,12 @@ namespace Toolset {
 		IMGUI_CHECKVERSION();
 		ImGui::CreateContext();
 		ImGuiIO& io = ImGui::GetIO(); (void)io;
+		//io.ConfigFlags |= ImGuiConfigFlags_DockingEnable;
 		ImGui::StyleColorsDark();
 #ifdef _DEBUG
-		sdl_context = DBG_NEW SDLHandler(Screen::w, Screen::h + ImGui::GetFrameHeightWithSpacing());
+		sdl_context = DBG_NEW SDLHandler(Screen::w, Screen::h);
 #else
-		sdl_context = new SDLHandler(Screen::w, Screen::h + ImGui::GetFrameHeightWithSpacing());
+		sdl_context = new SDLHandler(Screen::w, Screen::h);
 #endif
 		ImGui_ImplSDL2_InitForSDLRenderer(sdl_context->window, sdl_context->renderer);
 		ImGui_ImplSDLRenderer_Init(sdl_context->renderer);
@@ -34,6 +39,8 @@ namespace Toolset {
 		ImGui_ImplSDLRenderer_Shutdown();
 		ImGui_ImplSDL2_Shutdown();
 		ImGui::DestroyContext();
+		SDL_DestroyTexture(rendererTexture);
+		rendererTexture = nullptr;
 		delete sdl_context;
 		sdl_context = nullptr;
 	}
@@ -69,7 +76,7 @@ namespace Toolset {
 			ImGui::PushStyleVar(ImGuiStyleVar_WindowRounding, 0.0f);
 			ImGui::PushStyleVar(ImGuiStyleVar_WindowBorderSize, 0.0f);
 			window_flags |= ImGuiWindowFlags_NoTitleBar | ImGuiWindowFlags_NoCollapse | ImGuiWindowFlags_NoResize | ImGuiWindowFlags_NoMove;
-			window_flags |= ImGuiWindowFlags_NoBringToFrontOnFocus | ImGuiWindowFlags_NoNavFocus;
+			window_flags |= ImGuiWindowFlags_NoBringToFrontOnFocus | ImGuiWindowFlags_NoNavFocus | ImGuiWindowFlags_NoScrollbar;
 		}
 		else
 		{
@@ -99,33 +106,31 @@ namespace Toolset {
 		ImGuiIO& io = ImGui::GetIO();
 		if (io.ConfigFlags & ImGuiConfigFlags_DockingEnable)
 		{
-			cout << "Calling" << endl;
 			ImGuiID dockspace_id = ImGui::GetID("MyDockSpace");
 			ImGui::DockSpace(dockspace_id, ImVec2(0.0f, 0.0f), dockspace_flags);
 		}
 
-		if (ImGui::BeginMenuBar())
-		{
-			if (ImGui::BeginMenu("Game"))
-			{
-				if (ImGui::MenuItem("New Game")) {/*Create New Game Callback*/ }
-				if (ImGui::BeginMenu("Mode")) {
-					if (ImGui::MenuItem("Easy")) { /*Set Mode Callback*/ }
-					if (ImGui::MenuItem("Medium")) { /*Set Mode Callback*/ }
-					if (ImGui::MenuItem("Hard")) { /*Set Mode Callback*/ }
-					ImGui::EndMenu();
-				}
-				if (ImGui::MenuItem("Quit")) { /*Exit Callback*/ }
-				ImGui::EndMenu();
-			}
-			if (ImGui::MenuItem("Help")) { /*Display Doc Help*/ }
-			ImGui::EndMenuBar();
-		}
+		//if (ImGui::BeginMenuBar())
+		//{
+		//	if (ImGui::BeginMenu("Game"))
+		//	{
+		//		if (ImGui::MenuItem("New Game")) {/*Create New Game Callback*/ }
+		//		if (ImGui::BeginMenu("Mode")) {
+		//			if (ImGui::MenuItem("Easy")) { /*Set Mode Callback*/ }
+		//			if (ImGui::MenuItem("Medium")) { /*Set Mode Callback*/ }
+		//			if (ImGui::MenuItem("Hard")) { /*Set Mode Callback*/ }
+		//			ImGui::EndMenu();
+		//		}
+		//		if (ImGui::MenuItem("Quit")) { /*Exit Callback*/ }
+		//		ImGui::EndMenu();
+		//	}
+		//	if (ImGui::MenuItem("Help")) { /*Display Doc Help*/ }
+		//	ImGui::EndMenuBar();
+		//}
 
+		rendererTexture = SDL_CreateTexture(sdl_context->renderer, SDL_PIXELFORMAT_RGBA8888, SDL_TEXTUREACCESS_TARGET, Screen::w, Screen::h);
+		ImGui::Image((ImTextureID)rendererTexture, ImVec2(Screen::w, Screen::h));
 
-		ImGui::End();
-
-		ImGui::Begin("Test");
 		ImGui::End();
 
 		// Rendering
