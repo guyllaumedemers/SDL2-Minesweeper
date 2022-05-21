@@ -93,14 +93,11 @@ namespace Toolset {
 		// all active windows docked into it will lose their parent and become undocked.
 		// We cannot preserve the docking relationship between an active window and an inactive docking, otherwise
 		// any change of dockspace/settings would lead to windows being stuck in limbo and never being visible.
-		if (!opt_padding)
-			ImGui::PushStyleVar(ImGuiStyleVar_WindowPadding, ImVec2(0.0f, 0.0f));
-		ImGui::Begin("DockSpace Demo", &p_open, window_flags);
-		if (!opt_padding)
-			ImGui::PopStyleVar();
+		if (!opt_padding) ImGui::PushStyleVar(ImGuiStyleVar_WindowPadding, ImVec2(0.0f, 0.0f));
 
-		if (opt_fullscreen)
-			ImGui::PopStyleVar(2);
+		ImGui::Begin("DockSpace Demo", &p_open, window_flags);
+		if (!opt_padding) ImGui::PopStyleVar();
+		if (opt_fullscreen) ImGui::PopStyleVar(2);
 
 		// Submit the DockSpace
 		ImGuiIO& io = ImGui::GetIO();
@@ -110,23 +107,23 @@ namespace Toolset {
 			ImGui::DockSpace(dockspace_id, ImVec2(0.0f, 0.0f), dockspace_flags);
 		}
 
-		//if (ImGui::BeginMenuBar())
-		//{
-		//	if (ImGui::BeginMenu("Game"))
-		//	{
-		//		if (ImGui::MenuItem("New Game")) {/*Create New Game Callback*/ }
-		//		if (ImGui::BeginMenu("Mode")) {
-		//			if (ImGui::MenuItem("Easy")) { /*Set Mode Callback*/ }
-		//			if (ImGui::MenuItem("Medium")) { /*Set Mode Callback*/ }
-		//			if (ImGui::MenuItem("Hard")) { /*Set Mode Callback*/ }
-		//			ImGui::EndMenu();
-		//		}
-		//		if (ImGui::MenuItem("Quit")) { /*Exit Callback*/ }
-		//		ImGui::EndMenu();
-		//	}
-		//	if (ImGui::MenuItem("Help")) { /*Display Doc Help*/ }
-		//	ImGui::EndMenuBar();
-		//}
+		if (ImGui::BeginMenuBar())
+		{
+			if (ImGui::BeginMenu("Game"))
+			{
+				if (ImGui::MenuItem("New Game")) {/*Create New Game Callback*/ }
+				if (ImGui::BeginMenu("Mode")) {
+					if (ImGui::MenuItem("Easy")) { /*Set Mode Callback*/ }
+					if (ImGui::MenuItem("Medium")) { /*Set Mode Callback*/ }
+					if (ImGui::MenuItem("Hard")) { /*Set Mode Callback*/ }
+					ImGui::EndMenu();
+				}
+				if (ImGui::MenuItem("Quit")) { /*Exit Callback*/ }
+				ImGui::EndMenu();
+			}
+			if (ImGui::MenuItem("Help")) { /*Display Doc Help*/ }
+			ImGui::EndMenuBar();
+		}
 
 		rendererTexture = SDL_CreateTexture(sdl_context->renderer, SDL_PIXELFORMAT_RGBA8888, SDL_TEXTUREACCESS_TARGET, Screen::w, Screen::h);
 		ImGui::Image((ImTextureID)rendererTexture, ImVec2(Screen::w, Screen::h));
