@@ -16,4 +16,5 @@ Learning sdl2 and CMake, Out-of-Source Build
 > Keeping const &, rvalue implicitly converted to lvalue when needed.
 
 ### ImGui Issue
-> Imgui BeginMainMenuBar eats up a part of sdl2 renderer viewport and display 1 tile less than expected.
+> Imgui BeginMainMenuBar eats up a part of sdl2 renderer viewport and display 1 tile less than expected.</br>
+> *TODO*, retrieve sdl2_context window renderer SDL_Surface* for use in dockable space inside imgui::image() // Otherwise sdl2 context will render on screen and use the whole window context space.
