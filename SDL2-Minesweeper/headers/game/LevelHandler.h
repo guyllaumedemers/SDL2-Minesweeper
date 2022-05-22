@@ -3,7 +3,8 @@
 #include "Mode.h"
 #include <SDL.h>
 
-namespace Minesweeper {
+using namespace Minesweeper;
+namespace Toolset {
 	class LevelHandler {
 	private:
 		Level* level = nullptr;

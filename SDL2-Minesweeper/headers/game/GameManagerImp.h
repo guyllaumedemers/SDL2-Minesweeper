@@ -3,7 +3,7 @@
 #include "Mode.h"
 #include <SDL.h>
 
-namespace Minesweeper {
+namespace Toolset {
 	class GameManagerImp {
 	private:
 		LevelHandler* level_context = nullptr;

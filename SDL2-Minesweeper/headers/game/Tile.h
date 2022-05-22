@@ -10,10 +10,10 @@ namespace Minesweeper {
 		const static string textures[];
 	private:
 		Tilebitmask bitmask = Tilebitmask::None;
+		int index = -1;
 		int value = 0;
 		Tile(const Tile&) = delete;
 		Tile(Tile&&) = delete;
-		int getValue();
 	public:
 		Tile();
 		~Tile();
@@ -21,6 +21,9 @@ namespace Minesweeper {
 		void remove(const Tilebitmask&);
 		void refresh(SDL_Renderer*);
 		const Tilebitmask& getmask() const;
+		const int& getIndex() const;
+		const int& getValue() const;
+		void setIndex(const int&);
 		void setValue(const int&);
 	};
 }

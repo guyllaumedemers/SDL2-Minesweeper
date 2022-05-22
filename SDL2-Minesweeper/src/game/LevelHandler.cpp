@@ -4,9 +4,9 @@
 #ifdef _DEBUG
 #include "../../headers/CRTMemoryLeak.h"
 #endif
-#include <iostream>
 
-namespace Minesweeper {
+using namespace std;
+namespace Toolset {
 	LevelHandler::LevelHandler(const Mode& mode) { create(mode); }
 	LevelHandler::~LevelHandler() { destroy(); }
 
@@ -53,45 +53,17 @@ namespace Minesweeper {
 
 	void LevelHandler::update(const int& row, const int& col)
 	{
-		Tile& target = level->getTile(row * level->getCols() + col);
-
+		level->update(row, col);
 	}
 
 	void LevelHandler::refresh(SDL_Renderer* renderer, const int& w, const int& h)
 	{
-		SDL_Texture* target = SDL_CreateTexture(renderer, SDL_PIXELFORMAT_RGBA8888, SDL_TEXTUREACCESS_TARGET, w, h);
-		SDL_SetRenderTarget(renderer, target);
-		int rows = level->getRows();
-		int cols = level->getCols();
-		int size = Tile::size;
-		for (int i = 0; i < rows * cols; ++i) {
-			SDL_Texture* sub_target = SDL_CreateTexture(renderer, SDL_PIXELFORMAT_RGBA8888, SDL_TEXTUREACCESS_TARGET, size, size);
-			SDL_SetRenderTarget(renderer, sub_target);
-
-			SDL_Rect dest = {
-				(i % cols) * size,
-				(i / cols) * size,
-				size,
-				size
-			};
-
-			Tile& tile = level->getTile(i);
-			tile.refresh(renderer);
-
-			SDL_SetRenderTarget(renderer, target);
-			SDL_RenderCopy(renderer, sub_target, NULL, &dest);
-			SDL_DestroyTexture(sub_target);
-			sub_target = nullptr;
-		}
-		SDL_SetRenderTarget(renderer, NULL);
-		SDL_RenderCopy(renderer, target, NULL, NULL);
-		SDL_DestroyTexture(target);
-		target = nullptr;
+		level->refresh(renderer, w, h);
 	}
 
 	void LevelHandler::draw(SDL_Renderer* renderer)
 	{
-		//TODO Draw doodles
+		level->draw(renderer);
 	}
 
 	Level* LevelHandler::getLevel()

@@ -7,7 +7,7 @@ namespace Minesweeper {
 	const int Tile::size = 20;
 	const string Tile::textures[5] = { "Covered", "Uncovered", "Flag", "Bomb", "Hit" };
 
-	Tile::Tile() : bitmask(Tilebitmask::Covered), value(0) { }
+	Tile::Tile() : bitmask(Tilebitmask::Covered), value(0), index(-1) { }
 	Tile::~Tile() {}
 
 	void Tile::add(const Tilebitmask& value)
@@ -45,9 +45,19 @@ namespace Minesweeper {
 		return bitmask;
 	}
 
-	int Tile::getValue()
+	const int& Tile::getIndex() const
 	{
-		return 0;
+		return index;
+	}
+
+	const int& Tile::getValue() const
+	{
+		return value;
+	}
+
+	void Tile::setIndex(const int& value)
+	{
+		this->index = value;
 	}
 
 	void Tile::setValue(const int& value)

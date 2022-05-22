@@ -5,12 +5,11 @@
 #include "../../headers/CRTMemoryLeak.h"
 #endif
 
-using namespace Toolset;
-namespace Minesweeper {
-	GameManagerImp::GameManagerImp(const Mode& mode, void(*screencallback)(const int&, const int&)) { create(mode, screencallback); }
+namespace Toolset {
+	GameManagerImp::GameManagerImp(const Mode& mode, void(*screen_callback)(const int&, const int&)) { create(mode, screen_callback); }
 	GameManagerImp::~GameManagerImp() { destroy(); }
 
-	void GameManagerImp::create(const Mode& mode, void(*screencallback)(const int&, const int&))
+	void GameManagerImp::create(const Mode& mode, void(*screen_callback)(const int&, const int&))
 	{
 #ifdef _DEBUG
 		level_context = DBG_NEW LevelHandler(mode);
@@ -19,7 +18,7 @@ namespace Minesweeper {
 #endif
 		int w = level_context->getLevel()->getCols() * Tile::size;
 		int h = level_context->getLevel()->getRows() * Tile::size;
-		screencallback(w, h);
+		screen_callback(w, h);
 	}
 
 	void GameManagerImp::destroy()
