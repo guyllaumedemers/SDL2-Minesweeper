@@ -4,6 +4,7 @@
 #ifdef _DEBUG
 #include "../../headers/CRTMemoryLeak.h"
 #endif
+#include <iostream>
 
 namespace Toolset {
 	GameManagerImp::GameManagerImp(const Mode& mode, void(*screen_callback)(const int&, const int&)) { create(mode, screen_callback); }
@@ -32,6 +33,7 @@ namespace Toolset {
 		int mousePosX = 0;
 		int mousePosY = 0;
 		InputHandler::getMouseState(mousePosX, mousePosY);
+		if (mousePosY - Tile::size < 0) return;
 		level_context->update((mousePosY - Tile::size) / Tile::size, mousePosX / Tile::size);
 	}
 

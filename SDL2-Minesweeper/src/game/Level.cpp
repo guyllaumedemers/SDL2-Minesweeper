@@ -127,7 +127,7 @@ namespace Minesweeper {
 			}
 			{
 				/// <summary>
-				/// verify that the neighbors too process next are of valid type
+				/// verify that the neighbors to process next are of valid type
 				/// </summary>
 				/// <param name="target"></param>
 				for (const auto& it : neighbors) {
