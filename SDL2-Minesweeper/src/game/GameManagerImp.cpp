@@ -34,7 +34,7 @@ namespace Toolset {
 		int mousePosY = 0;
 		InputHandler::getMouseState(mousePosX, mousePosY);
 		if (mousePosY - Tile::size < 0) return;
-		level_context->update((mousePosY - Tile::size) / Tile::size, mousePosX / Tile::size);
+		else level_context->update((mousePosY - Tile::size) / Tile::size, mousePosX / Tile::size);
 	}
 
 	void GameManagerImp::refresh(SDL_Renderer* renderer, const int& w, const int& h)

@@ -176,7 +176,7 @@ namespace Minesweeper {
 		};
 		for (const auto& it : indices) {
 			/// <summary>
-			/// Require Edge processcing
+			/// edge processing
 			/// </summary>
 			/// <param name="memoization_map"></param>
 			/// <param name="index"></param>
