@@ -2,10 +2,10 @@
 <Project>
   <ProjectOutputs>
     <ProjectOutput>
-      <FullPath>D:\VisualStudio\SDL2\SDL2-GameDevCMake\SDL2-Minesweeper\out\build\external\sdl2\x64\Debug\ZERO_CHECK</FullPath>
+      <FullPath>D:\VisualStudio\SDL2\SDL2-GameDevCMake\SDL2-Minesweeper\out\build\x64\Debug\ZERO_CHECK</FullPath>
     </ProjectOutput>
     <ProjectOutput>
-      <FullPath>D:\VisualStudio\SDL2\SDL2-GameDevCMake\SDL2-Minesweeper\out\build\x64\Debug\genfiles</FullPath>
+      <FullPath>D:\VisualStudio\SDL2\SDL2-GameDevCMake\SDL2-Minesweeper\out\build\external\sdl_image\external\libpng\x64\Debug\genfiles</FullPath>
     </ProjectOutput>
     <ProjectOutput>
       <FullPath>D:\VisualStudio\SDL2\SDL2-GameDevCMake\SDL2-Minesweeper\out\build\Debug\zlibd1.dll</FullPath>

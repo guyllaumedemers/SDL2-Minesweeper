@@ -24,13 +24,13 @@ namespace Minesweeper {
 	{
 		SDL_Texture* temp = nullptr;
 		SDL_SetTextureBlendMode(temp, SDL_BLENDMODE_BLEND);												// Might not work
-		if ((bitmask & Tilebitmask::Covered) == Tilebitmask::Covered) {
+		if ((int)(bitmask & Tilebitmask::Covered)) {
 			SDL_RenderCopy(renderer, TextureHandler::get(textures[0].c_str()), NULL, NULL);
-			if ((bitmask & Tilebitmask::Flag) == Tilebitmask::Flag) SDL_RenderCopy(renderer, temp = TextureHandler::get(textures[2].c_str()), NULL, NULL);
+			if ((int)(bitmask & Tilebitmask::Flag)) SDL_RenderCopy(renderer, temp = TextureHandler::get(textures[2].c_str()), NULL, NULL);
 		}
-		else if ((bitmask & Tilebitmask::Uncovered) == Tilebitmask::Uncovered) {
+		else if ((int)(bitmask & Tilebitmask::Uncovered)) {
 			SDL_RenderCopy(renderer, TextureHandler::get(textures[1].c_str()), NULL, NULL);
-			if ((bitmask & Tilebitmask::Numbered) == Tilebitmask::Numbered) SDL_RenderCopy(renderer, temp = TextureHandler::get(to_string(getValue()).c_str()), NULL, NULL);
+			if ((int)(bitmask & Tilebitmask::Numbered)) SDL_RenderCopy(renderer, temp = TextureHandler::get(to_string(getValue()).c_str()), NULL, NULL);
 		}
 		else {
 			SDL_RenderCopy(renderer, TextureHandler::get(textures[4].c_str()), NULL, NULL);				// Hit

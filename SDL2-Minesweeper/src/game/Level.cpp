@@ -115,6 +115,10 @@ namespace Minesweeper {
 		while (!pool.empty()) {
 
 			Tile& current = *(pool.front());
+			if (memoization_map.find(current.getIndex()) != memoization_map.end()) {
+				pool.pop();
+				continue;
+			}
 			vector<Tile*> neighbors = getNeighbors(memoization_map, current.getIndex());
 			{
 				/// <summary>
@@ -164,7 +168,7 @@ namespace Minesweeper {
 	vector<Tile*> Level::getNeighbors(unordered_map<int, Tile*>& memoization_map, const int& index)
 	{
 		vector<Tile*> collection;
-		static int indices[8] = {
+		int indices[8] = {
 			index + 1,
 			index - 1,
 			index + cols,
