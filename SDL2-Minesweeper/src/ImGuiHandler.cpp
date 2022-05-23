@@ -1,5 +1,6 @@
 #pragma once
 #include "../headers/ImGuiHandler.h"
+#include "../headers/EventManager.h"
 #include "../headers/game/Tile.h"
 #include <imgui.h>
 #include <imgui_impl_sdl.h>
@@ -43,13 +44,13 @@ namespace Toolset {
 	void ImGuiHandler::processInputs(SDL_Event& e, void(*inputs_callback)(SDL_Event&))
 	{
 		ImGui_ImplSDL2_ProcessEvent(&e);
+		if (ImGui::IsAnyItemHovered()) return;
 		SDL_assert(inputs_callback);
 		inputs_callback(e);
 	}
 
 	void ImGuiHandler::refresh(void (*refresh_callback)(SDL_Renderer*), const int& w, const int& h)
 	{
-		// Start the Dear ImGui frame
 		ImGui_ImplSDLRenderer_NewFrame();
 		ImGui_ImplSDL2_NewFrame();
 		ImGui::NewFrame();
@@ -59,8 +60,6 @@ namespace Toolset {
 		static bool p_open = true;
 		static ImGuiDockNodeFlags dockspace_flags = ImGuiDockNodeFlags_None;
 
-		// We are using the ImGuiWindowFlags_NoDocking flag to make the parent window not dockable into,
-		// because it would be confusing to have two docking targets within each others.
 		ImGuiWindowFlags window_flags = ImGuiWindowFlags_MenuBar | ImGuiWindowFlags_NoDocking;
 		if (opt_fullscreen)
 		{
@@ -74,37 +73,78 @@ namespace Toolset {
 			window_flags |= ImGuiWindowFlags_NoBringToFrontOnFocus | ImGuiWindowFlags_NoNavFocus | ImGuiWindowFlags_NoScrollbar;
 		}
 
-		// Important: note that we proceed even if Begin() returns false (aka window is collapsed).
-		// This is because we want to keep our DockSpace() active. If a DockSpace() is inactive,
-		// all active windows docked into it will lose their parent and become undocked.
-		// We cannot preserve the docking relationship between an active window and an inactive docking, otherwise
-		// any change of dockspace/settings would lead to windows being stuck in limbo and never being visible.
-		if (!opt_padding)
-			ImGui::PushStyleVar(ImGuiStyleVar_WindowPadding, ImVec2(0.0f, 0.0f));
+		if (!opt_padding) ImGui::PushStyleVar(ImGuiStyleVar_WindowPadding, ImVec2(0.0f, 0.0f));
 
-		ImGui::Begin("Minesweeper", &p_open, window_flags);
+		static const string menu_infos[9] = {
+			"Minesweeper",
+			"Game",
+			"New Game",
+			"Mode",
+			"Easy",
+			"Medium",
+			"Hard",
+			"Quit",
+			"Help"
+		};
+
+
+		EventHandler* event_selected = nullptr;
+		/// <summary>
+		/// imgui window begin
+		/// </summary>
+		ImGui::Begin(menu_infos[0].c_str(), &p_open, window_flags);
+
 		if (!opt_padding)
 			ImGui::PopStyleVar();
+
 		if (opt_fullscreen)
 			ImGui::PopStyleVar(2);
 
 		if (ImGui::BeginMenuBar())
 		{
-			if (ImGui::BeginMenu("Game"))
+			/// <summary>
+			/// game menu
+			/// </summary>
+			if (ImGui::BeginMenu(menu_infos[1].c_str()))
 			{
-				if (ImGui::MenuItem("New Game")) {/*Create New Game Callback*/ }
-				if (ImGui::BeginMenu("Mode")) {
-					if (ImGui::MenuItem("Easy")) { /*Set Mode Callback*/ }
-					if (ImGui::MenuItem("Medium")) { /*Set Mode Callback*/ }
-					if (ImGui::MenuItem("Hard")) { /*Set Mode Callback*/ }
+				/// <summary>
+				/// new game
+				/// </summary>
+				if (ImGui::MenuItem(menu_infos[2].c_str())) {
+					event_selected = EventManager::get("onNewGameSelectedEvent");
+					if (event_selected) event_selected->invoke();
+				}
+				/// <summary>
+				/// mode selection
+				/// </summary>
+				if (ImGui::BeginMenu(menu_infos[3].c_str())) {
+					/// <summary>
+					/// modes
+					/// </summary>
+					event_selected = EventManager::get("onModeSelectionChangedEvent");
+					if (ImGui::MenuItem(menu_infos[4].c_str())) { if (event_selected) event_selected->invoke(); }
+					if (ImGui::MenuItem(menu_infos[5].c_str())) { if (event_selected) event_selected->invoke(); }
+					if (ImGui::MenuItem(menu_infos[6].c_str())) { if (event_selected) event_selected->invoke(); }
 					ImGui::EndMenu();
 				}
-				if (ImGui::MenuItem("Quit")) { /*Exit Callback*/ }
+				/// <summary>
+				/// exit
+				/// </summary>
+				event_selected = EventManager::get("onApplicationQuitEvent");
+				if (ImGui::MenuItem(menu_infos[7].c_str())) { if (event_selected) event_selected->invoke(); }
 				ImGui::EndMenu();
 			}
-			if (ImGui::MenuItem("Help")) { /*Display Doc Help*/ }
+			/// <summary>
+			/// help document
+			/// </summary>
+			event_selected = EventManager::get("onHelpDocumentSelectedEvent");
+			if (ImGui::MenuItem(menu_infos[8].c_str())) { if (event_selected) event_selected->invoke(); }
 			ImGui::EndMenuBar();
 		}
+
+		/// <summary>
+		/// sdl rendering in imgui window
+		/// </summary>
 		const ImGuiViewport* viewport = ImGui::GetMainViewport();
 		ImGui::SetNextWindowPos(ImVec2(viewport->WorkPos.x, viewport->WorkPos.y + ImGui::GetFrameHeightWithSpacing()));
 		SDL_Texture* rendererTexture = SDL_CreateTexture(sdl_context->renderer, SDL_PIXELFORMAT_RGBA8888, SDL_TEXTUREACCESS_TARGET, w, h);
@@ -113,15 +153,12 @@ namespace Toolset {
 
 		ImGui::End();
 
-		// Rendering
 		ImGui::Render();
-		// Refresh Rendering Platform/Renderer backends
 		sdl_context->refresh(refresh_callback);
 	}
 
 	void ImGuiHandler::draw(void (*draw_callback)(SDL_Renderer*))
 	{
-		// Render Platform/Renderer backends and gameobjects
 		ImGui_ImplSDLRenderer_RenderDrawData(ImGui::GetDrawData());
 		sdl_context->draw(draw_callback);
 	}

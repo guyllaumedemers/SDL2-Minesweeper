@@ -1,32 +1,41 @@
 #pragma once
 #include "../headers/GameManager.h"
-#include "../headers/game/Screen.h"
+#include "../headers/EventManager.h"
 #include "../headers/InputHandler.h"
+#include "../headers/game/Screen.h"
 #ifdef _DEBUG
 #include "../headers/CRTMemoryLeak.h"
 #endif
 
 namespace Toolset {
+	/// <summary>
+	/// static fields
+	/// </summary>
 	ImGuiHandler* GameManager::imgui_context = nullptr;
 	GameManagerImp* GameManager::imp = nullptr;
+	bool GameManager::isRunning = false;
+
+	/// <summary>
+	/// static subscribers
+	/// </summary>
 	Subscriber* GameManager::applicationQuitListener = nullptr;
 	Subscriber* GameManager::mouseDownListener = nullptr;
-	bool GameManager::isRunning = false;
+	Subscriber* GameManager::newGameListener = nullptr;
+	Subscriber* GameManager::modeChangedListener = nullptr;
+	Subscriber* GameManager::helpDocumentListener = nullptr;
 
 	void GameManager::init()
 	{
+		EventManager::create();
 #ifdef _DEBUG
 		CRTMemoryLeak::init();
 		imp = DBG_NEW GameManagerImp(Mode::Hard, [](const int& w, const int& h) { Screen::setScreenSize(w, h); });
 		imgui_context = DBG_NEW ImGuiHandler(Screen::w, Screen::h);
-		applicationQuitListener = DBG_NEW Subscriber(InputHandler::onApplicationQuitEvent, []() { exit(); });
-		mouseDownListener = DBG_NEW Subscriber(InputHandler::onMouseDownEvent, []() { imp->processInputs(); });
 #else		
 		imp = new GameManagerImp(Mode::Hard, [](const int& w, const int& h) { Screen::setScreenSize(w, h); });
 		imgui_context = new ImGuiHandler(Screen::w, Screen::h);
-		applicationQuitListener = new Subscriber(InputHandler::onApplicationQuitEvent, []() { exit(); });
-		mouseDownListener = new Subscriber(InputHandler::onMouseDownEvent, []() { imp->processInputs(); });
 #endif
+		registerEvents();
 		isRunning = true;
 	}
 
@@ -43,7 +52,7 @@ namespace Toolset {
 
 	void GameManager::destroy()
 	{
-		InputHandler::destroy();
+		EventManager::destroy();
 		delete imp;
 		imp = nullptr;
 		delete imgui_context;
@@ -61,5 +70,22 @@ namespace Toolset {
 	void GameManager::exit()
 	{
 		isRunning = false;
+	}
+
+	void GameManager::registerEvents()
+	{
+#ifdef _DEBUG
+		applicationQuitListener = DBG_NEW Subscriber(EventManager::get("onApplicationQuitEvent"), []() { exit(); });
+		mouseDownListener = DBG_NEW Subscriber(EventManager::get("onMouseDownEvent"), []() { imp->processInputs(); });
+		newGameListener = DBG_NEW Subscriber(EventManager::get("onNewGameSelectedEvent"), []() { /*DoSomething()*/});
+		modeChangedListener = DBG_NEW Subscriber(EventManager::get("onModeSelectionChangedEvent"), []() { /*DoSomething()*/});
+		helpDocumentListener = DBG_NEW Subscriber(EventManager::get("onHelpDocumentSelectedEvent"), []() { /*DoSomething()*/});
+#else		
+		applicationQuitListener = new Subscriber(EventManager::get("onApplicationQuitEvent"), []() { exit(); });
+		mouseDownListener = new Subscriber(EventManager::get("onMouseDownEvent"), []() { imp->processInputs(); });
+		newGameListener = new Subscriber(EventManager::get("onNewGameSelectedEvent"), []() { /*DoSomething()*/});
+		modeChangedListener = new Subscriber(EventManager::get("onModeSelectionChangedEvent"), []() { /*DoSomething()*/});
+		helpDocumentListener = new Subscriber(EventManager::get("onHelpDocumentSelectedEvent"), []() { /*DoSomething()*/});
+#endif
 	}
 }

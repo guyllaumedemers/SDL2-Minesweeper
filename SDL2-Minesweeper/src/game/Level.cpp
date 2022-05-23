@@ -15,7 +15,7 @@ namespace Minesweeper {
 	/// </summary>
 	static Tile& optional = Tile();
 
-	Level::Level(const int& rows, const int& cols, const int& bombs, const int& flags) { create(rows, cols, bombs, flags); }
+	Level::Level(const int& rows, const int& cols, const int& bombs, const int& flags) : onBombHitEvent(nullptr) { create(rows, cols, bombs, flags); }
 	Level::~Level() { destroy(); }
 
 	void Level::create(const int& rows, const int& cols, const int& bombs, const int& flags)
@@ -95,6 +95,7 @@ namespace Minesweeper {
 
 	void Level::draw(SDL_Renderer* renderer)
 	{
+		//Do nothing
 	}
 
 	int Level::getRows()
@@ -125,6 +126,22 @@ namespace Minesweeper {
 		/// <param name="target"></param>
 		target.remove(Tilebitmask::Covered);
 		target.add(Tilebitmask::Hit);
+		/// <summary>
+		/// game lost event callback
+		/// </summary>
+		/// <param name="target"></param>
+		if (onBombHitEvent) onBombHitEvent->invoke();
+		showAll();
+	}
+
+	void Level::showAll()
+	{
+		for (int i = 0; i < getRows() * getCols(); ++i)
+		{
+			Tile& temp = getTile(i);
+			if ((int)(temp.getmask() & Tilebitmask::Bomb)) continue;
+			//TODO Uncover all tiles with proper values
+		}
 	}
 
 	void Level::run(Tile& target)
@@ -137,6 +154,10 @@ namespace Minesweeper {
 		while (!pool.empty()) {
 
 			Tile& current = *(pool.front());
+			/// <summary>
+			/// edge case handling for when a tile is added twice in the queue array
+			/// </summary>
+			/// <param name="target"></param>
 			if (memoization_map.find(current.getIndex()) != memoization_map.end()) {
 				pool.pop();
 				continue;

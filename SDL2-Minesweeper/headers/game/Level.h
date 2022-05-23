@@ -1,8 +1,10 @@
 #pragma once
 #include "Tile.h"
+#include "../EventHandler.h"
 #include <unordered_map>
 #include <vector>
 
+using namespace Toolset;
 using namespace std;
 /// <summary>
 /// Using array sequence of tiles to improve efficiency by accessing sequential memory blocks
@@ -13,6 +15,7 @@ namespace Minesweeper {
 	/// </summary>
 	struct Level {
 	private:
+		EventHandler* onBombHitEvent = nullptr;
 		int rows = 0;
 		int cols = 0;
 		int flags = 0;
@@ -25,6 +28,7 @@ namespace Minesweeper {
 		void destroy();
 		void run(Tile&);
 		void discard(Tile&);
+		void showAll();
 		vector<Tile*> getNeighbors(unordered_map<int, Tile*>&, const int&);
 	public:
 		Level(const int&, const int&, const int&, const int&);

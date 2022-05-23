@@ -1,0 +1,10 @@
+^D:\VISUALSTUDIO\SDL2\SDL2-GAMEDEVCMAKE\SDL2-MINESWEEPER\EXTERNAL\SDL_IMAGE\EXTERNAL\JPEG\CMAKELISTS.TXT
+setlocal
+C:\msys64\mingw64\bin\cmake.exe -SD:/VisualStudio/SDL2/SDL2-GameDevCMake/SDL2-Minesweeper -BD:/VisualStudio/SDL2/SDL2-GameDevCMake/SDL2-Minesweeper/out/build --check-stamp-file D:/VisualStudio/SDL2/SDL2-GameDevCMake/SDL2-Minesweeper/out/build/external/sdl_image/external/jpeg/CMakeFiles/generate.stamp
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal & call :cmErrorLevel %errorlevel% & goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd

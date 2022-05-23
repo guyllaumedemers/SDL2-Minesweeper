@@ -1,7 +1,5 @@
 #pragma once
 #include "SDLHandler.h"
-#include "EventHandler.h"
-#include <vector>
 
 using namespace std;
 namespace Toolset {

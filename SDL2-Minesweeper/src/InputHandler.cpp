@@ -1,27 +1,23 @@
 #pragma once
 #include "../headers/InputHandler.h"
+#include "../headers/EventManager.h"
 #ifdef _DEBUG
 #include "../headers/CRTMemoryLeak.h"
 #endif
 
 namespace Toolset {
-#ifdef _DEBUG
-	EventHandler* InputHandler::onApplicationQuitEvent = DBG_NEW EventHandler();
-	EventHandler* InputHandler::onMouseDownEvent = DBG_NEW EventHandler();
-#else
-	EventHandler* InputHandler::onApplicationQuitEvent = new EventHandler();
-	EventHandler* InputHandler::onMouseDownEvent = new EventHandler();
-#endif
-
 	void InputHandler::getInput(SDL_Event& e)
 	{
+		EventHandler* event_selected = nullptr;
 		switch (e.type)
 		{
 		case SDL_QUIT:
-			if (onApplicationQuitEvent) onApplicationQuitEvent->invoke();
+			event_selected = EventManager::get("onApplicationQuitEvent");
+			if (event_selected) event_selected->invoke();
 			break;
 		case SDL_MOUSEBUTTONDOWN:
-			if (onMouseDownEvent) onMouseDownEvent->invoke();
+			event_selected = EventManager::get("onMouseDownEvent");
+			if (event_selected) event_selected->invoke();
 			break;
 		default:
 			break;
@@ -31,13 +27,5 @@ namespace Toolset {
 	void InputHandler::getMouseState(int& x, int& y)
 	{
 		SDL_GetMouseState(&x, &y);
-	}
-
-	void InputHandler::destroy()
-	{
-		delete onApplicationQuitEvent;
-		onApplicationQuitEvent = nullptr;
-		delete onMouseDownEvent;
-		onMouseDownEvent = nullptr;
 	}
 }
