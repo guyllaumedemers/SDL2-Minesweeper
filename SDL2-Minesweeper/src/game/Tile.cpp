@@ -23,22 +23,57 @@ namespace Minesweeper {
 	void Tile::refresh(SDL_Renderer* renderer)
 	{
 		SDL_Texture* temp = nullptr;
-		SDL_SetTextureBlendMode(temp, SDL_BLENDMODE_BLEND);												// Might not work
+		SDL_SetTextureBlendMode(temp, SDL_BLENDMODE_BLEND);
 
 		if ((int)(bitmask & Tilebitmask::Covered)) {
-			SDL_RenderCopy(renderer, TextureHandler::get(textures[0].c_str()), NULL, NULL);
-			if ((int)(bitmask & Tilebitmask::Flag)) SDL_RenderCopy(renderer, temp = TextureHandler::get(textures[2].c_str()), NULL, NULL);
+			/// <summary>
+			/// handling textures for flags
+			/// </summary>
+			/// <param name="renderer"></param>
+			SDL_RenderCopy(renderer,
+				TextureHandler::get(textures[0].c_str()),
+				NULL,
+				NULL
+			);
+			if ((int)(bitmask & Tilebitmask::Flag)) SDL_RenderCopy(renderer,
+				temp = TextureHandler::get(textures[2].c_str()),
+				NULL,
+				NULL
+			);
 		}
 		else if ((int)(bitmask & Tilebitmask::Uncovered)) {
-			SDL_RenderCopy(renderer, TextureHandler::get(textures[1].c_str()), NULL, NULL);
-			if ((int)(bitmask & Tilebitmask::Numbered)) SDL_RenderCopy(renderer, temp = TextureHandler::get(to_string(getValue()).c_str()), NULL, NULL);
+			/// <summary>
+			/// handling textures for tile discovery
+			/// </summary>
+			/// <param name="renderer"></param>
+			SDL_RenderCopy(renderer,
+				TextureHandler::get(textures[1].c_str()),
+				NULL,
+				NULL
+			);
+			if ((int)(bitmask & Tilebitmask::Numbered)) SDL_RenderCopy(renderer,
+				temp = TextureHandler::get(to_string(getValue()).c_str()),
+				NULL,
+				NULL
+			);
 		}
 		else {
-			if ((int)(bitmask & Tilebitmask::Hit)) SDL_RenderCopy(renderer, TextureHandler::get(textures[4].c_str()), NULL, NULL);
-			SDL_RenderCopy(renderer, temp = TextureHandler::get(textures[3].c_str()), NULL, NULL);
+			/// <summary>
+			/// handling textures onHit
+			/// </summary>
+			/// <param name="renderer"></param>
+			if ((int)(bitmask & Tilebitmask::Hit)) SDL_RenderCopy(renderer,
+				TextureHandler::get(textures[4].c_str()),
+				NULL,
+				NULL
+			);
+			SDL_RenderCopy(renderer,
+				temp = TextureHandler::get(textures[3].c_str()),
+				NULL,
+				NULL
+			);
 		}
-		temp = nullptr;																					// Check for potential memory leak, shouldnt happen as the SDL_Texture* reference the TextureHandler stored texture pointer which we dont want to free.
-																										// Also, there's no heap allocation since we are referencing from the texture handler which means this pointer exist only on the stack
+		temp = nullptr;
 	}
 
 	const Tilebitmask& Tile::getmask() const

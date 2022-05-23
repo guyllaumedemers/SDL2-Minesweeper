@@ -150,6 +150,17 @@ namespace Minesweeper {
 				int nbBombs = 0;
 				for (const auto& it : neighbors) if ((int)(it->getmask() & Tilebitmask::Bomb)) ++nbBombs;
 				current.setValue(nbBombs);
+				if (nbBombs != 0) {
+					/// <summary>
+					/// update tile bitmask value
+					/// </summary>
+					/// <param name="target"></param>
+					if (current.getValue() > 0) current.add(Tilebitmask::Numbered);
+					current.remove(Tilebitmask::Covered);
+					current.add(Tilebitmask::Uncovered);
+					pool.pop();
+					continue;
+				}
 			}
 			{
 				/// <summary>
@@ -174,10 +185,9 @@ namespace Minesweeper {
 			}
 			{
 				/// <summary>
-				/// update tile bitmask value
+				/// update tile bitmask value for empties
 				/// </summary>
 				/// <param name="target"></param>
-				if (current.getValue() > 0) current.add(Tilebitmask::Numbered);
 				current.remove(Tilebitmask::Covered);
 				current.add(Tilebitmask::Uncovered);
 			}
