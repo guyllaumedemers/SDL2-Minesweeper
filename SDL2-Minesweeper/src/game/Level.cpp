@@ -29,7 +29,19 @@ namespace Minesweeper {
 		this->cols = cols;
 		this->bombs = bombs;
 		this->flags = flags;
+
 		for (int i = 0; i < rows * cols; ++i) map[i].setIndex(i);
+		int nbBombs = bombs;
+		while (nbBombs > 0) {
+			int index = rand() % (rows * cols);
+
+			while ((int)(map[index].getmask() & Tilebitmask::Bomb)) {
+				index = rand() % (rows * cols);
+			}
+
+			map[index].add(Tilebitmask::Bomb);
+			--nbBombs;
+		}
 	}
 
 	void Level::destroy()
@@ -103,6 +115,16 @@ namespace Minesweeper {
 
 	void Level::discard(Tile& target)
 	{
+		int invalidMove =
+			(int)(target.getmask() & Tilebitmask::Flag) +
+			(int)(target.getmask() & Tilebitmask::Uncovered);
+		if (invalidMove > 0) return;
+		/// <summary>
+		/// handles clicking on a bomb behaviour
+		/// </summary>
+		/// <param name="target"></param>
+		target.remove(Tilebitmask::Covered);
+		target.add(Tilebitmask::Hit);
 	}
 
 	void Level::run(Tile& target)
@@ -156,8 +178,8 @@ namespace Minesweeper {
 				/// </summary>
 				/// <param name="target"></param>
 				if (current.getValue() > 0) current.add(Tilebitmask::Numbered);
-				else current.add(Tilebitmask::Uncovered);
 				current.remove(Tilebitmask::Covered);
+				current.add(Tilebitmask::Uncovered);
 			}
 			pool.pop();
 			neighbors.clear();

@@ -3,12 +3,12 @@
 namespace Minesweeper {
 	enum class Tilebitmask {
 		None = 0,
-		Empty = 1,
-		Flag = 2,
-		Bomb = 4,
-		Covered = 8,
-		Uncovered = 16,
-		Numbered = 32
+		Flag = 1,
+		Bomb = 2,
+		Covered = 4,
+		Uncovered = 8,
+		Numbered = 16,
+		Hit = 32
 	};
 
 	inline Tilebitmask operator|(const Tilebitmask& lhs, const Tilebitmask& rhs) {
