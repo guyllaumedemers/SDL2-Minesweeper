@@ -217,7 +217,7 @@ namespace Minesweeper {
 			/// <param name="memoization_map"></param>
 			/// <param name="index"></param>
 			/// <returns></returns>
-			if (it % cols == 0 && index < it || it % cols == cols - 1 && index > it) continue;
+			if (it % cols == 0 && index % cols == cols - 1 || it % cols == cols - 1 && index % cols == 0) continue;
 			/// <summary>
 			/// standard lookup
 			/// </summary>
