@@ -34,10 +34,11 @@ namespace Toolset {
 	{
 		while (isRunning) {
 			SDL_Event _e;
-			if (SDL_WaitEvent(&_e)) imgui_context->processInputs(_e, [](SDL_Event& e) { InputHandler::getInput(e); });
-			imgui_context->refresh([](SDL_Renderer* renderer) { imp->refresh(renderer, Screen::w, Screen::h); }, Screen::w, Screen::h);
-			imgui_context->draw([](SDL_Renderer* renderer) { imp->draw(renderer); });
-			//TODO Frame Capping
+			if (SDL_WaitEvent(&_e)) {
+				imgui_context->processInputs(_e, [](SDL_Event& e) { InputHandler::getInput(e); });
+				imgui_context->refresh([](SDL_Renderer* renderer) { imp->refresh(renderer, Screen::w, Screen::h); }, Screen::w, Screen::h);
+				imgui_context->draw([](SDL_Renderer* renderer) { imp->draw(renderer); });
+			}
 		}
 	}
 
