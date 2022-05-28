@@ -7,8 +7,6 @@ namespace Toolset {
 		SDLHandler() = delete;
 		SDLHandler(const SDLHandler&) = delete;
 		SDLHandler(SDLHandler&&) = delete;
-		void create(const int&, const int&);
-		void destroy();
 	public:
 		SDL_Window* window = nullptr;
 		SDL_Renderer* renderer = nullptr;

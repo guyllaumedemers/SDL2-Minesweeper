@@ -1,13 +1,11 @@
 #pragma once
 #include "../headers/SDLHandler.h"
 #include "../headers/TextureHandler.h"
+
 #include <iostream>
 
 namespace Toolset {
-	SDLHandler::SDLHandler(const int& w, const int& h) { create(w, h); }
-	SDLHandler::~SDLHandler() { destroy(); }
-
-	void SDLHandler::create(const int& w, const int& h)
+	SDLHandler::SDLHandler(const int& w, const int& h)
 	{
 		if (SDL_Init(SDL_INIT_EVERYTHING) != 0)
 		{
@@ -24,7 +22,7 @@ namespace Toolset {
 		TextureHandler::load(renderer);
 	}
 
-	void SDLHandler::destroy()
+	SDLHandler::~SDLHandler()
 	{
 		TextureHandler::destroy();
 		SDL_DestroyWindow(window);

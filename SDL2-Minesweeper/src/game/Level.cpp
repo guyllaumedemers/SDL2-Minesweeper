@@ -1,12 +1,12 @@
 #pragma once
 #include "../../headers/game/Level.h"
-#include <utility>
-#include <queue>
+
 #include <string>
+#include <queue>
+
 #ifdef _DEBUG
 #include "../../headers/CRTMemoryLeak.h"
 #endif
-#include <iostream>
 
 using namespace std;
 namespace Minesweeper {
@@ -15,10 +15,7 @@ namespace Minesweeper {
 	/// </summary>
 	static Tile& optional = Tile();
 
-	Level::Level(const int& rows, const int& cols, const int& bombs, const int& flags) : onBombHitEvent(nullptr) { create(rows, cols, bombs, flags); }
-	Level::~Level() { destroy(); }
-
-	void Level::create(const int& rows, const int& cols, const int& bombs, const int& flags)
+	Level::Level(const int& rows, const int& cols, const int& bombs, const int& flags)
 	{
 #ifdef _DEBUG
 		map = DBG_NEW Tile[rows * cols];
@@ -44,7 +41,7 @@ namespace Minesweeper {
 		}
 	}
 
-	void Level::destroy()
+	Level::~Level()
 	{
 		delete[] map;
 		map = nullptr;
@@ -130,7 +127,6 @@ namespace Minesweeper {
 		/// game lost event callback
 		/// </summary>
 		/// <param name="target"></param>
-		if (onBombHitEvent) onBombHitEvent->invoke();
 		showAll();
 	}
 

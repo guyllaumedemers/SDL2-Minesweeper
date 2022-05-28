@@ -1,6 +1,7 @@
 #pragma once
 #include "LevelHandler.h"
 #include "Mode.h"
+
 #include <SDL.h>
 
 namespace Toolset {

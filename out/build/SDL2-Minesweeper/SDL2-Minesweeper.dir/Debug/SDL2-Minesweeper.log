@@ -1,8 +1,0 @@
-﻿  Main.cpp
-  EventManager.cpp
-  GameManager.cpp
-  ImGuiHandler.cpp
-D:\VisualStudio\SDL2\SDL2-GameDevCMake\SDL2-Minesweeper\SDL2-Minesweeper\src\ImGuiHandler.cpp(151,56): warning C4244: 'argument': conversion from 'const int' to 'float', possible loss of data
-D:\VisualStudio\SDL2\SDL2-GameDevCMake\SDL2-Minesweeper\SDL2-Minesweeper\src\ImGuiHandler.cpp(151,53): warning C4244: 'argument': conversion from 'const int' to 'float', possible loss of data
-  Generating Code...
-  SDL2-Minesweeper.vcxproj -> D:\VisualStudio\SDL2\SDL2-GameDevCMake\SDL2-Minesweeper\out\build\Debug\SDL2-Minesweeper.exe

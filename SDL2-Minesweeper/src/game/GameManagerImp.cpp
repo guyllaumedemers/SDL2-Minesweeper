@@ -1,10 +1,10 @@
 #pragma once
 #include "../../headers/game/GameManagerImp.h"
 #include "../../headers/InputHandler.h"
+
 #ifdef _DEBUG
 #include "../../headers/CRTMemoryLeak.h"
 #endif
-#include <iostream>
 
 namespace Toolset {
 	GameManagerImp::GameManagerImp(const Mode& mode, void(*screen_callback)(const int&, const int&)) { create(mode, screen_callback); }

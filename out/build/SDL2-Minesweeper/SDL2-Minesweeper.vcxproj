@@ -367,14 +367,14 @@ if %errorlevel% neq 0 goto :VCEnd</Command>
   <ItemGroup>
     <ClCompile Include="D:\VisualStudio\SDL2\SDL2-GameDevCMake\SDL2-Minesweeper\SDL2-Minesweeper\Main.cpp" />
     <ClInclude Include="D:\VisualStudio\SDL2\SDL2-GameDevCMake\SDL2-Minesweeper\SDL2-Minesweeper\headers\CRTMemoryLeak.h" />
-    <ClInclude Include="D:\VisualStudio\SDL2\SDL2-GameDevCMake\SDL2-Minesweeper\SDL2-Minesweeper\headers\EventHandler.h" />
-    <ClInclude Include="D:\VisualStudio\SDL2\SDL2-GameDevCMake\SDL2-Minesweeper\SDL2-Minesweeper\headers\EventManager.h" />
+    <ClInclude Include="D:\VisualStudio\SDL2\SDL2-GameDevCMake\SDL2-Minesweeper\SDL2-Minesweeper\headers\Event.h" />
     <ClInclude Include="D:\VisualStudio\SDL2\SDL2-GameDevCMake\SDL2-Minesweeper\SDL2-Minesweeper\headers\GameManager.h" />
     <ClInclude Include="D:\VisualStudio\SDL2\SDL2-GameDevCMake\SDL2-Minesweeper\SDL2-Minesweeper\headers\ImGuiHandler.h" />
+    <ClInclude Include="D:\VisualStudio\SDL2\SDL2-GameDevCMake\SDL2-Minesweeper\SDL2-Minesweeper\headers\ImGuiHandlerImp.h" />
+    <ClInclude Include="D:\VisualStudio\SDL2\SDL2-GameDevCMake\SDL2-Minesweeper\SDL2-Minesweeper\headers\ImGuiHandlerImpSDL.h" />
     <ClInclude Include="D:\VisualStudio\SDL2\SDL2-GameDevCMake\SDL2-Minesweeper\SDL2-Minesweeper\headers\InputHandler.h" />
     <ClInclude Include="D:\VisualStudio\SDL2\SDL2-GameDevCMake\SDL2-Minesweeper\SDL2-Minesweeper\headers\SDLHandler.h" />
     <ClInclude Include="D:\VisualStudio\SDL2\SDL2-GameDevCMake\SDL2-Minesweeper\SDL2-Minesweeper\headers\StringExtension.h" />
-    <ClInclude Include="D:\VisualStudio\SDL2\SDL2-GameDevCMake\SDL2-Minesweeper\SDL2-Minesweeper\headers\Subscriber.h" />
     <ClInclude Include="D:\VisualStudio\SDL2\SDL2-GameDevCMake\SDL2-Minesweeper\SDL2-Minesweeper\headers\TextureHandler.h" />
     <ClInclude Include="D:\VisualStudio\SDL2\SDL2-GameDevCMake\SDL2-Minesweeper\SDL2-Minesweeper\headers\game\GameManagerImp.h" />
     <ClInclude Include="D:\VisualStudio\SDL2\SDL2-GameDevCMake\SDL2-Minesweeper\SDL2-Minesweeper\headers\game\Level.h" />
@@ -383,13 +383,9 @@ if %errorlevel% neq 0 goto :VCEnd</Command>
     <ClInclude Include="D:\VisualStudio\SDL2\SDL2-GameDevCMake\SDL2-Minesweeper\SDL2-Minesweeper\headers\game\Screen.h" />
     <ClInclude Include="D:\VisualStudio\SDL2\SDL2-GameDevCMake\SDL2-Minesweeper\SDL2-Minesweeper\headers\game\Tile.h" />
     <ClInclude Include="D:\VisualStudio\SDL2\SDL2-GameDevCMake\SDL2-Minesweeper\SDL2-Minesweeper\headers\game\Tilebitmask.h" />
-    <ClCompile Include="D:\VisualStudio\SDL2\SDL2-GameDevCMake\SDL2-Minesweeper\SDL2-Minesweeper\src\EventHandler.cpp" />
-    <ClCompile Include="D:\VisualStudio\SDL2\SDL2-GameDevCMake\SDL2-Minesweeper\SDL2-Minesweeper\src\EventManager.cpp" />
     <ClCompile Include="D:\VisualStudio\SDL2\SDL2-GameDevCMake\SDL2-Minesweeper\SDL2-Minesweeper\src\GameManager.cpp" />
-    <ClCompile Include="D:\VisualStudio\SDL2\SDL2-GameDevCMake\SDL2-Minesweeper\SDL2-Minesweeper\src\ImGuiHandler.cpp" />
     <ClCompile Include="D:\VisualStudio\SDL2\SDL2-GameDevCMake\SDL2-Minesweeper\SDL2-Minesweeper\src\InputHandler.cpp" />
     <ClCompile Include="D:\VisualStudio\SDL2\SDL2-GameDevCMake\SDL2-Minesweeper\SDL2-Minesweeper\src\SDLHandler.cpp" />
-    <ClCompile Include="D:\VisualStudio\SDL2\SDL2-GameDevCMake\SDL2-Minesweeper\SDL2-Minesweeper\src\Subscriber.cpp" />
     <ClCompile Include="D:\VisualStudio\SDL2\SDL2-GameDevCMake\SDL2-Minesweeper\SDL2-Minesweeper\src\TextureHandler.cpp" />
     <ClCompile Include="D:\VisualStudio\SDL2\SDL2-GameDevCMake\SDL2-Minesweeper\SDL2-Minesweeper\src\game\GameManagerImp.cpp" />
     <ClCompile Include="D:\VisualStudio\SDL2\SDL2-GameDevCMake\SDL2-Minesweeper\SDL2-Minesweeper\src\game\Level.cpp" />

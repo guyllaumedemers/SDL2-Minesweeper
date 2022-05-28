@@ -1,16 +1,15 @@
 #pragma once
 #include "../../headers/game/LevelHandler.h"
+
 #include <SDL.h>
+
 #ifdef _DEBUG
 #include "../../headers/CRTMemoryLeak.h"
 #endif
 
 using namespace std;
 namespace Toolset {
-	LevelHandler::LevelHandler(const Mode& mode) { create(mode); }
-	LevelHandler::~LevelHandler() { destroy(); }
-
-	void LevelHandler::create(const Mode& mode)
+	LevelHandler::LevelHandler(const Mode& mode)
 	{
 #ifdef _DEBUG
 		switch (mode)
@@ -45,7 +44,7 @@ namespace Toolset {
 #endif
 	}
 
-	void LevelHandler::destroy()
+	LevelHandler::~LevelHandler()
 	{
 		delete level;
 		level = nullptr;

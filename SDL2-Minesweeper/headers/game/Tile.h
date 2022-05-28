@@ -1,7 +1,8 @@
 #pragma once
+#include "Tilebitmask.h"
+
 #include <SDL.h>
 #include <string>
-#include "Tilebitmask.h"
 
 using namespace std;
 namespace Minesweeper {

@@ -4,11 +4,19 @@
 
 using namespace Toolset;
 namespace Minesweeper {
+	/// <summary>
+	/// Static fields
+	/// </summary>
 	const int Tile::size = 20;
 	const string Tile::textures[5] = { "Covered", "Uncovered", "Flag", "Bomb", "Hit" };
 
-	Tile::Tile() : bitmask(Tilebitmask::Covered), value(0), index(-1) { }
-	Tile::~Tile() {}
+	Tile::Tile() : bitmask(Tilebitmask::Covered), value(0), index(-1)
+	{
+	}
+
+	Tile::~Tile()
+	{
+	}
 
 	void Tile::add(const Tilebitmask& value)
 	{

@@ -1,8 +1,10 @@
 #pragma once
 #include "../headers/TextureHandler.h"
 #include "../headers/StringExtension.h"
+
 #include <SDL_image.h>
 #include <filesystem>
+
 #ifndef MY_RESOURCES_PATH
 #define MY_RESOURCES_PATH "/res/sprites"
 #endif

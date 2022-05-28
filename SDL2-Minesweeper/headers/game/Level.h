@@ -1,21 +1,20 @@
 #pragma once
 #include "Tile.h"
-#include "../EventHandler.h"
+
 #include <unordered_map>
 #include <vector>
+#include <SDL.h>
 
-using namespace Toolset;
-using namespace std;
 /// <summary>
 /// Using array sequence of tiles to improve efficiency by accessing sequential memory blocks
 /// </summary>
+using namespace std;
 namespace Minesweeper {
 	/// <summary>
 	/// Specific to the game type in dev, not reusable
 	/// </summary>
 	struct Level {
 	private:
-		EventHandler* onBombHitEvent = nullptr;
 		int rows = 0;
 		int cols = 0;
 		int flags = 0;
@@ -24,8 +23,6 @@ namespace Minesweeper {
 		Level() = delete;
 		Level(const Level&) = delete;
 		Level(Level&&) = delete;
-		void create(const int&, const int&, const int&, const int&);
-		void destroy();
 		void run(Tile&);
 		void discard(Tile&);
 		void showAll();
