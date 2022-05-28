@@ -7,7 +7,7 @@ namespace Toolset {
 	template<class T>
 	class Event {
 	private:
-		vector<Subscriber*> subscribers;
+		vector<Subscriber<T>*> subscribers;
 		Event(const Event&) = delete;
 		Event(Event&&) = delete;
 		Event() = delete;
@@ -55,8 +55,9 @@ namespace Toolset {
 	template<class T>
 	void Event<T>::remove(Subscriber<T>* subscriber)
 	{
-		if (subscribers.find(subscriber) != subscribers.end()) {
-
+		if (auto it = subscribers.find(subscriber) != subscribers.end()) {
+			delete it;
+			it = nullptr;
 		}
 	}
 

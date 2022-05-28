@@ -1,0 +1,26 @@
+﻿  EventHandler.cpp
+c1xx : fatal error C1083: Cannot open source file: '..\..\..\SDL2-Minesweeper\headers\EventHandler.cpp': No such file or directory
+  InputHandler.cpp
+D:\VisualStudio\SDL2\SDL2-GameDevCMake\SDL2-Minesweeper\SDL2-Minesweeper\headers\Subscriber.h(6,9): error C2059: syntax error: ')'
+D:\VisualStudio\SDL2\SDL2-GameDevCMake\SDL2-Minesweeper\SDL2-Minesweeper\headers\Subscriber.h(13): message : see reference to class template instantiation 'Toolset::Subscriber<T>' being compiled
+D:\VisualStudio\SDL2\SDL2-GameDevCMake\SDL2-Minesweeper\SDL2-Minesweeper\headers\Subscriber.h(6,1): error C2238: unexpected token(s) preceding ';'
+D:\VisualStudio\SDL2\SDL2-GameDevCMake\SDL2-Minesweeper\SDL2-Minesweeper\headers\Event.h(10,1): error C2955: 'Toolset::Subscriber': use of class template requires template argument list
+D:\VisualStudio\SDL2\SDL2-GameDevCMake\SDL2-Minesweeper\SDL2-Minesweeper\headers\Subscriber.h(5): message : see declaration of 'Toolset::Subscriber'
+D:\VisualStudio\SDL2\SDL2-GameDevCMake\SDL2-Minesweeper\SDL2-Minesweeper\headers\Event.h(20): message : see reference to class template instantiation 'Toolset::Event<T>' being compiled
+D:\VisualStudio\SDL2\SDL2-GameDevCMake\SDL2-Minesweeper\SDL2-Minesweeper\headers\Event.h(10,10): error C2955: 'Toolset::Subscriber': use of class template requires template argument list
+D:\VisualStudio\SDL2\SDL2-GameDevCMake\SDL2-Minesweeper\SDL2-Minesweeper\headers\Subscriber.h(5): message : see declaration of 'Toolset::Subscriber'
+D:\VisualStudio\SDL2\SDL2-GameDevCMake\SDL2-Minesweeper\SDL2-Minesweeper\headers\Event.h(10,3): error C2976: 'std::vector': too few template arguments
+C:\Program Files\Microsoft Visual Studio\2022\Enterprise\VC\Tools\MSVC\14.32.31326\include\vector(480): message : see declaration of 'std::vector'
+D:\VisualStudio\SDL2\SDL2-GameDevCMake\SDL2-Minesweeper\SDL2-Minesweeper\headers\Event.h(10,23): error C2955: 'std::vector': use of class template requires template argument list
+C:\Program Files\Microsoft Visual Studio\2022\Enterprise\VC\Tools\MSVC\14.32.31326\include\vector(480): message : see declaration of 'std::vector'
+D:\VisualStudio\SDL2\SDL2-GameDevCMake\SDL2-Minesweeper\SDL2-Minesweeper\headers\Event.h(15,1): error C2535: 'Toolset::Event<T>::Event(void)': member function already defined or declared
+D:\VisualStudio\SDL2\SDL2-GameDevCMake\SDL2-Minesweeper\SDL2-Minesweeper\headers\Event.h(13): message : see declaration of 'Toolset::Event<T>::Event'
+D:\VisualStudio\SDL2\SDL2-GameDevCMake\SDL2-Minesweeper\SDL2-Minesweeper\headers\Event.h(26,12): error C2995: 'Toolset::Event<T>::Event(void)': function template has already been defined
+D:\VisualStudio\SDL2\SDL2-GameDevCMake\SDL2-Minesweeper\SDL2-Minesweeper\headers\Event.h(13): message : see declaration of 'Toolset::Event<T>::Event'
+D:\VisualStudio\SDL2\SDL2-GameDevCMake\SDL2-Minesweeper\SDL2-Minesweeper\src\InputHandler.cpp(15,56): error C2664: 'void Toolset::EventHandler::invoke<bool>(std::string,T &)': cannot convert argument 2 from 'bool' to 'T &'
+          with
+          [
+              T=bool
+          ]
+D:\VisualStudio\SDL2\SDL2-GameDevCMake\SDL2-Minesweeper\SDL2-Minesweeper\src\../headers/EventHandler.h(71,21): message : see declaration of 'Toolset::EventHandler::invoke'
+  Generating Code...

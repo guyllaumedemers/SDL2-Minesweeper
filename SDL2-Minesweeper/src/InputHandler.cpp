@@ -1,5 +1,6 @@
 #pragma once
 #include "../headers/InputHandler.h"
+#include "../headers/EventHandler.h"
 
 #ifdef _DEBUG
 #include "../headers/CRTMemoryLeak.h"
@@ -11,6 +12,7 @@ namespace Toolset {
 		switch (e.type)
 		{
 		case SDL_QUIT:
+			//EventHandler::invoke<bool>("onApplicationQuit", true);
 			break;
 		case SDL_MOUSEBUTTONDOWN:
 			break;
