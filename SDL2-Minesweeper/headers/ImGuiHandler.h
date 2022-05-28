@@ -3,6 +3,7 @@
 #include "ImGuiHandlerImpSDL.h"
 
 #include <SDL.h>
+#include <type_traits>
 
 #ifdef _DEBUG
 #include "CRTMemoryLeak.h"
@@ -31,9 +32,9 @@ namespace Toolset {
 	ImGuiHandler<GraphicAPIsRendering, GraphicAPIsEvent>::ImGuiHandler(const int& w, const int& h)
 	{
 #ifdef _DEBUG
-		imp = DBG_NEW ImGuiHandlerImpSDL<GraphicAPIsRendering, GraphicAPIsEvent>(w, h);
+		if (is_same<GraphicAPIsRendering, SDL_Renderer>::value) imp = DBG_NEW ImGuiHandlerImpSDL<GraphicAPIsRendering, GraphicAPIsEvent>(w, h);
 #else
-		imp = new ImGuiHandlerImpSDL<GraphicAPIsRendering, GraphicAPIsEvent>(w, h);
+		if (is_same<GraphicAPIsRendering, SDL_Renderer>::value) imp = new ImGuiHandlerImpSDL<GraphicAPIsRendering, GraphicAPIsEvent>(w, h);
 #endif
 	}
 

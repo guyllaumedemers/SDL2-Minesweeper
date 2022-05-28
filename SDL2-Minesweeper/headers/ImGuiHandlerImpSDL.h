@@ -111,8 +111,6 @@ namespace Toolset {
 			"Help"
 		};
 
-
-		//EventHandler* event_selected = nullptr;
 		/// <summary>
 		/// imgui window begin
 		/// </summary>
@@ -135,8 +133,6 @@ namespace Toolset {
 				/// new game
 				/// </summary>
 				if (ImGui::MenuItem(menu_infos[2].c_str())) {
-					/*event_selected = EventManager::get("onNewGameSelectedEvent");
-					if (event_selected) event_selected->invoke();*/
 				}
 				/// <summary>
 				/// mode selection
@@ -145,21 +141,21 @@ namespace Toolset {
 					/// <summary>
 					/// modes
 					/// </summary>
-					if (ImGui::MenuItem(menu_infos[4].c_str())) {  }
-					if (ImGui::MenuItem(menu_infos[5].c_str())) {  }
-					if (ImGui::MenuItem(menu_infos[6].c_str())) {  }
+					if (ImGui::MenuItem(menu_infos[4].c_str())) {}
+					if (ImGui::MenuItem(menu_infos[5].c_str())) {}
+					if (ImGui::MenuItem(menu_infos[6].c_str())) {}
 					ImGui::EndMenu();
 				}
 				/// <summary>
 				/// exit
 				/// </summary>
-				if (ImGui::MenuItem(menu_infos[7].c_str())) {  }
+				if (ImGui::MenuItem(menu_infos[7].c_str())) {}
 				ImGui::EndMenu();
 			}
 			/// <summary>
 			/// help document
 			/// </summary>
-			if (ImGui::MenuItem(menu_infos[8].c_str())) { }
+			if (ImGui::MenuItem(menu_infos[8].c_str())) {}
 			ImGui::EndMenuBar();
 		}
 
