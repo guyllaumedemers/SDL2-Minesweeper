@@ -1,26 +1,52 @@
 ﻿  EventHandler.cpp
-c1xx : fatal error C1083: Cannot open source file: '..\..\..\SDL2-Minesweeper\headers\EventHandler.cpp': No such file or directory
+  GameManager.cpp
+D:\VisualStudio\SDL2\SDL2-GameDevCMake\SDL2-Minesweeper\SDL2-Minesweeper\headers\Event.h(36,1): warning C4267: 'initializing': conversion from 'size_t' to 'int', possible loss of data
+D:\VisualStudio\SDL2\SDL2-GameDevCMake\SDL2-Minesweeper\SDL2-Minesweeper\headers\Event.h(35): message : while compiling class template member function 'Toolset::Event<bool>::~Event(void)'
+D:\VisualStudio\SDL2\SDL2-GameDevCMake\SDL2-Minesweeper\SDL2-Minesweeper\src\GameManager.cpp(32): message : see reference to class template instantiation 'Toolset::Event<bool>' being compiled
+D:\VisualStudio\SDL2\SDL2-GameDevCMake\SDL2-Minesweeper\SDL2-Minesweeper\headers\ImGuiHandlerImpSDL.h(168,56): warning C4244: 'argument': conversion from 'const int' to 'float', possible loss of data
+D:\VisualStudio\SDL2\SDL2-GameDevCMake\SDL2-Minesweeper\SDL2-Minesweeper\headers\ImGuiHandlerImpSDL.h(78): message : while compiling class template member function 'void Toolset::ImGuiHandlerImpSDL<GraphicAPIsRendering,GraphicAPIsEvent>::refresh(void (__cdecl *)(GraphicAPIsRendering *),const int &,const int &)'
+          with
+          [
+              GraphicAPIsRendering=SDL_Renderer,
+              GraphicAPIsEvent=SDL_Event
+          ]
+D:\VisualStudio\SDL2\SDL2-GameDevCMake\SDL2-Minesweeper\SDL2-Minesweeper\headers\ImGuiHandler.h(35): message : see reference to class template instantiation 'Toolset::ImGuiHandlerImpSDL<GraphicAPIsRendering,GraphicAPIsEvent>' being compiled
+          with
+          [
+              GraphicAPIsRendering=SDL_Renderer,
+              GraphicAPIsEvent=SDL_Event
+          ]
+D:\VisualStudio\SDL2\SDL2-GameDevCMake\SDL2-Minesweeper\SDL2-Minesweeper\headers\ImGuiHandler.h(33): message : while compiling class template member function 'Toolset::ImGuiHandler<SDL_Renderer,SDL_Event>::ImGuiHandler(const int &,const int &)'
+D:\VisualStudio\SDL2\SDL2-GameDevCMake\SDL2-Minesweeper\SDL2-Minesweeper\src\GameManager.cpp(31): message : see reference to function template instantiation 'Toolset::ImGuiHandler<SDL_Renderer,SDL_Event>::ImGuiHandler(const int &,const int &)' being compiled
+D:\VisualStudio\SDL2\SDL2-GameDevCMake\SDL2-Minesweeper\SDL2-Minesweeper\src\GameManager.cpp(31): message : see reference to class template instantiation 'Toolset::ImGuiHandler<SDL_Renderer,SDL_Event>' being compiled
+D:\VisualStudio\SDL2\SDL2-GameDevCMake\SDL2-Minesweeper\SDL2-Minesweeper\headers\ImGuiHandlerImpSDL.h(168,53): warning C4244: 'argument': conversion from 'const int' to 'float', possible loss of data
   InputHandler.cpp
-D:\VisualStudio\SDL2\SDL2-GameDevCMake\SDL2-Minesweeper\SDL2-Minesweeper\headers\Subscriber.h(6,9): error C2059: syntax error: ')'
-D:\VisualStudio\SDL2\SDL2-GameDevCMake\SDL2-Minesweeper\SDL2-Minesweeper\headers\Subscriber.h(13): message : see reference to class template instantiation 'Toolset::Subscriber<T>' being compiled
-D:\VisualStudio\SDL2\SDL2-GameDevCMake\SDL2-Minesweeper\SDL2-Minesweeper\headers\Subscriber.h(6,1): error C2238: unexpected token(s) preceding ';'
-D:\VisualStudio\SDL2\SDL2-GameDevCMake\SDL2-Minesweeper\SDL2-Minesweeper\headers\Event.h(10,1): error C2955: 'Toolset::Subscriber': use of class template requires template argument list
-D:\VisualStudio\SDL2\SDL2-GameDevCMake\SDL2-Minesweeper\SDL2-Minesweeper\headers\Subscriber.h(5): message : see declaration of 'Toolset::Subscriber'
-D:\VisualStudio\SDL2\SDL2-GameDevCMake\SDL2-Minesweeper\SDL2-Minesweeper\headers\Event.h(20): message : see reference to class template instantiation 'Toolset::Event<T>' being compiled
-D:\VisualStudio\SDL2\SDL2-GameDevCMake\SDL2-Minesweeper\SDL2-Minesweeper\headers\Event.h(10,10): error C2955: 'Toolset::Subscriber': use of class template requires template argument list
-D:\VisualStudio\SDL2\SDL2-GameDevCMake\SDL2-Minesweeper\SDL2-Minesweeper\headers\Subscriber.h(5): message : see declaration of 'Toolset::Subscriber'
-D:\VisualStudio\SDL2\SDL2-GameDevCMake\SDL2-Minesweeper\SDL2-Minesweeper\headers\Event.h(10,3): error C2976: 'std::vector': too few template arguments
-C:\Program Files\Microsoft Visual Studio\2022\Enterprise\VC\Tools\MSVC\14.32.31326\include\vector(480): message : see declaration of 'std::vector'
-D:\VisualStudio\SDL2\SDL2-GameDevCMake\SDL2-Minesweeper\SDL2-Minesweeper\headers\Event.h(10,23): error C2955: 'std::vector': use of class template requires template argument list
-C:\Program Files\Microsoft Visual Studio\2022\Enterprise\VC\Tools\MSVC\14.32.31326\include\vector(480): message : see declaration of 'std::vector'
-D:\VisualStudio\SDL2\SDL2-GameDevCMake\SDL2-Minesweeper\SDL2-Minesweeper\headers\Event.h(15,1): error C2535: 'Toolset::Event<T>::Event(void)': member function already defined or declared
-D:\VisualStudio\SDL2\SDL2-GameDevCMake\SDL2-Minesweeper\SDL2-Minesweeper\headers\Event.h(13): message : see declaration of 'Toolset::Event<T>::Event'
-D:\VisualStudio\SDL2\SDL2-GameDevCMake\SDL2-Minesweeper\SDL2-Minesweeper\headers\Event.h(26,12): error C2995: 'Toolset::Event<T>::Event(void)': function template has already been defined
-D:\VisualStudio\SDL2\SDL2-GameDevCMake\SDL2-Minesweeper\SDL2-Minesweeper\headers\Event.h(13): message : see declaration of 'Toolset::Event<T>::Event'
-D:\VisualStudio\SDL2\SDL2-GameDevCMake\SDL2-Minesweeper\SDL2-Minesweeper\src\InputHandler.cpp(15,56): error C2664: 'void Toolset::EventHandler::invoke<bool>(std::string,T &)': cannot convert argument 2 from 'bool' to 'T &'
+D:\VisualStudio\SDL2\SDL2-GameDevCMake\SDL2-Minesweeper\SDL2-Minesweeper\headers\Event.h(36,1): warning C4267: 'initializing': conversion from 'size_t' to 'int', possible loss of data
+D:\VisualStudio\SDL2\SDL2-GameDevCMake\SDL2-Minesweeper\SDL2-Minesweeper\headers\Event.h(35): message : while compiling class template member function 'Toolset::Event<T>::~Event(void)'
           with
           [
               T=bool
           ]
-D:\VisualStudio\SDL2\SDL2-GameDevCMake\SDL2-Minesweeper\SDL2-Minesweeper\src\../headers/EventHandler.h(71,21): message : see declaration of 'Toolset::EventHandler::invoke'
+D:\VisualStudio\SDL2\SDL2-GameDevCMake\SDL2-Minesweeper\SDL2-Minesweeper\src\../headers/EventHandler.h(46): message : see reference to class template instantiation 'Toolset::Event<T>' being compiled
+          with
+          [
+              T=bool
+          ]
+D:\VisualStudio\SDL2\SDL2-GameDevCMake\SDL2-Minesweeper\SDL2-Minesweeper\src\InputHandler.cpp(19): message : see reference to function template instantiation 'void Toolset::EventHandler::invoke<bool>(std::string,const T &)' being compiled
+          with
+          [
+              T=bool
+          ]
+D:\VisualStudio\SDL2\SDL2-GameDevCMake\SDL2-Minesweeper\SDL2-Minesweeper\headers\Event.h(73,1): warning C4267: 'initializing': conversion from 'size_t' to 'int', possible loss of data
+D:\VisualStudio\SDL2\SDL2-GameDevCMake\SDL2-Minesweeper\SDL2-Minesweeper\headers\Event.h(72): message : while compiling class template member function 'void Toolset::Event<T>::invoke(const T &)'
+          with
+          [
+              T=bool
+          ]
+D:\VisualStudio\SDL2\SDL2-GameDevCMake\SDL2-Minesweeper\SDL2-Minesweeper\src\../headers/EventHandler.h(46): message : see reference to function template instantiation 'void Toolset::Event<T>::invoke(const T &)' being compiled
+          with
+          [
+              T=bool
+          ]
   Generating Code...
+  SDL2-Minesweeper.vcxproj -> D:\VisualStudio\SDL2\SDL2-GameDevCMake\SDL2-Minesweeper\out\build\Debug\SDL2-Minesweeper.exe

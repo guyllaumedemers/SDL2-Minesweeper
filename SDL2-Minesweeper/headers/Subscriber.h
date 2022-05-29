@@ -1,24 +1,29 @@
 #pragma once
+#include "ISubscriber.h"
+#include <iostream>
 
+using namespace std;
 namespace Toolset {
 	template<class T>
-	class Subscriber {
-		void(*)(T&) event_callback;
+	class Subscriber : virtual public ISubscriber {
+		typedef void(*FunctionPtr)(const T&);
+		FunctionPtr func_ptr = nullptr;
 		Subscriber(const Subscriber&) = delete;
 		Subscriber(Subscriber&&) = delete;
+		Subscriber() = delete;
 	public:
-		Subscriber(void(*)(T&));
+		Subscriber(void(*)(const T&));
 		~Subscriber();
-		void invoke(T& data);
+		void invoke(const T& data);
 	};
 
 	/// <summary>
 	/// Constructor
 	/// </summary>
 	template<class T>
-	Subscriber<T>::Subscriber(void(*event_callback)(T&))
+	Subscriber<T>::Subscriber(void(*event_callback)(const T&))
 	{
-		this->event_callback = event_callback;
+		func_ptr = event_callback;
 	}
 
 	/// <summary>
@@ -27,15 +32,15 @@ namespace Toolset {
 	template<class T>
 	Subscriber<T>::~Subscriber()
 	{
-		event_callback = nullptr;
+		func_ptr = nullptr;
 	}
 
 	/// <summary>
 	/// invoke event
 	/// </summary>
 	template<class T>
-	void Subscriber<T>::invoke(T& data)
+	void Subscriber<T>::invoke(const T& data)
 	{
-		event_callback(data);
+		func_ptr(data);
 	}
 }

@@ -1,22 +1,22 @@
 #pragma once
+#include "IEvent.h"
 #include "Subscriber.h"
 #include <vector>
 
 using namespace std;
 namespace Toolset {
 	template<class T>
-	class Event {
+	class Event : virtual public IEvent {
 	private:
-		vector<Subscriber<T>*> subscribers;
+		vector<ISubscriber*> subscribers;
 		Event(const Event&) = delete;
 		Event(Event&&) = delete;
-		Event() = delete;
 	public:
 		Event();
 		~Event();
-		void add(Subscriber<T>*);
-		void remove(Subscriber<T>*);
-		void invoke(T& data);
+		void add(ISubscriber*);
+		void remove(ISubscriber*);
+		void invoke(const T& data);
 	};
 
 	/// <summary>
@@ -44,7 +44,7 @@ namespace Toolset {
 	/// register subscriber
 	/// </summary>
 	template<class T>
-	void Event<T>::add(Subscriber<T>* subscriber)
+	void Event<T>::add(ISubscriber* subscriber)
 	{
 		subscribers.push_back(subscriber);
 	}
@@ -53,11 +53,14 @@ namespace Toolset {
 	/// unregister subscriber
 	/// </summary>
 	template<class T>
-	void Event<T>::remove(Subscriber<T>* subscriber)
+	void Event<T>::remove(ISubscriber* subscriber)
 	{
-		if (auto it = subscribers.find(subscriber) != subscribers.end()) {
-			delete it;
-			it = nullptr;
+		for (int i = subscribers.end(); i >= subscribers.begin(); --i) {
+			if (subscribers[i] == subscriber) {
+				delete subscribers[i];
+				subscribers[i] = nullptr;
+				break;
+			}
 		}
 	}
 
@@ -65,8 +68,8 @@ namespace Toolset {
 	/// invoke event
 	/// </summary>
 	template<class T>
-	void Event<T>::invoke(T& data)
+	void Event<T>::invoke(const T& data)
 	{
-		for (int i = subscribers.size() - 1; i >= 0; --i) subscribers[i].invoke(data);
+		for (int i = subscribers.size() - 1; i >= 0; --i) dynamic_cast<Subscriber<T>&>(*subscribers[i]).invoke(data);
 	}
 }
