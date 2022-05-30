@@ -14,7 +14,7 @@ namespace Toolset {
 	public:
 		LevelHandler(const Mode & = Mode::Easy);
 		~LevelHandler();
-		void update(const int&, const int&);
+		void update(const int&, const int&, const int&);
 		void refresh(SDL_Renderer*, const int&, const int&);
 		void draw(SDL_Renderer*);
 		Level* getLevel();

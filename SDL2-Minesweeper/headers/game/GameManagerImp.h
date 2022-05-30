@@ -15,7 +15,7 @@ namespace Toolset {
 	public:
 		GameManagerImp(const Mode&, void(*)(const int&, const int&));
 		~GameManagerImp();
-		void processInputs();
+		void processInputs(const int&);
 		void refresh(SDL_Renderer*, const int&, const int&);
 		void draw(SDL_Renderer*);
 	};

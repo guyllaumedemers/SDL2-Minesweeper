@@ -19,6 +19,15 @@ namespace Toolset {
 			EventHandler::invoke<bool>("onApplicationQuit", true);
 			break;
 		case SDL_MOUSEBUTTONDOWN:
+			switch (e.button.button)
+			{
+			case SDL_BUTTON_LEFT:
+				EventHandler::invoke<int>("onMouseDown", 0);
+				break;
+			case SDL_BUTTON_RIGHT:
+				EventHandler::invoke<int>("onMouseDown", 1);
+				break;
+			}
 			break;
 		default:
 			break;

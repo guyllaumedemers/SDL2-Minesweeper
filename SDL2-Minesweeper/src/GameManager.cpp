@@ -20,7 +20,8 @@ namespace Toolset {
 	bool GameManager::isRunning = false;
 
 	static const string event_keys[] = {
-		"onApplicationQuit"
+		"onApplicationQuit",
+		"onMouseDown"
 	};
 
 	void GameManager::init()
@@ -31,11 +32,15 @@ namespace Toolset {
 		imgui_context = DBG_NEW ImGuiHandler<SDL_Renderer, SDL_Event>(Screen::w, Screen::h);
 		EventHandler::create(event_keys[0], DBG_NEW Event<bool>());
 		EventHandler::add<bool>(event_keys[0], DBG_NEW Subscriber<bool>([](const bool& val) { isRunning = !val; }));
+		EventHandler::create(event_keys[1], DBG_NEW Event<int>());
+		EventHandler::add<int>(event_keys[1], DBG_NEW Subscriber<int>([](const int& val) { imp->processInputs(val); }));
 #else		
 		imp = new GameManagerImp(Mode::Hard, [](const int& w, const int& h) { Screen::setScreenSize(w, h); });
 		imgui_context = new ImGuiHandler<SDL_Renderer, SDL_Event>(Screen::w, Screen::h);
 		EventHandler::create(event_keys[0], new Event<bool>());
-		EventHandler::add<bool>(event_keys[0], DBG_NEW Subscriber<bool>([](const bool& val) { isRunning = !val; }));
+		EventHandler::add<bool>(event_keys[0], new Subscriber<bool>([](const bool& val) { isRunning = !val; }));
+		EventHandler::create(event_keys[1], new Event<int>());
+		EventHandler::add<int>(event_keys[1], new Subscriber<int>([](const int& val) { imp->processInputs(val); }));
 #endif
 		isRunning = true;
 	}

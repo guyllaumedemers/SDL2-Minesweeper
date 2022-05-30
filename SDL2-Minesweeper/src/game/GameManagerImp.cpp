@@ -28,13 +28,13 @@ namespace Toolset {
 		level_context = nullptr;
 	}
 
-	void GameManagerImp::processInputs()
+	void GameManagerImp::processInputs(const int& lrm)
 	{
 		int mousePosX = 0;
 		int mousePosY = 0;
 		InputHandler::getMouseState(mousePosX, mousePosY);
 		if (mousePosY - Tile::size < 0) return;
-		else level_context->update((mousePosY - Tile::size) / Tile::size, mousePosX / Tile::size);
+		else level_context->update((mousePosY - Tile::size) / Tile::size, mousePosX / Tile::size, lrm);
 	}
 
 	void GameManagerImp::refresh(SDL_Renderer* renderer, const int& w, const int& h)

@@ -30,7 +30,7 @@ namespace Minesweeper {
 	public:
 		Level(const int&, const int&, const int&, const int&);
 		~Level();
-		void update(const int&, const int&);
+		void update(const int&, const int&, const int&);
 		void refresh(SDL_Renderer*, const int&, const int&);
 		void draw(SDL_Renderer*);
 		int getRows();

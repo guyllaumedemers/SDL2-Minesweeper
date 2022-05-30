@@ -47,8 +47,15 @@ namespace Minesweeper {
 		map = nullptr;
 	}
 
-	void Level::update(const int& row, const int& col)
+	void Level::update(const int& row, const int& col, const int& lrm)
 	{
+		/// <summary>
+		/// Process input for right click
+		/// </summary>
+		if (lrm) {
+
+			return;
+		}
 		Tile& target = getTile(row * getCols() + col);
 		int invalidTileClicked =
 			(int)(target.getmask() & Tilebitmask::Uncovered) +

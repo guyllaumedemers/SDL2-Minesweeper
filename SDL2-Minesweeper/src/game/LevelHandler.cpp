@@ -50,9 +50,9 @@ namespace Toolset {
 		level = nullptr;
 	}
 
-	void LevelHandler::update(const int& row, const int& col)
+	void LevelHandler::update(const int& row, const int& col, const int& lrm)
 	{
-		level->update(row, col);
+		level->update(row, col, lrm);
 	}
 
 	void LevelHandler::refresh(SDL_Renderer* renderer, const int& w, const int& h)
