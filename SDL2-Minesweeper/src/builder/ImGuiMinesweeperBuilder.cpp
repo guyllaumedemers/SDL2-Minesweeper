@@ -34,10 +34,5 @@ namespace Minesweeper {
 	void ImGuiMinesweeperBuilder::reset()
 	{
 		delete builder_parts;
-#ifdef _DEBUG
-		builder_parts = DBG_NEW ImGuiComplexComponent();
-#else
-		builder_parts = new ImGuiComplexComponent();
-#endif
 	}
 }

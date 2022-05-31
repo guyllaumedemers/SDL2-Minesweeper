@@ -6,9 +6,15 @@ namespace Toolset {
 	private:
 		ImGuiSimpleComponent(const ImGuiSimpleComponent&) = delete;
 		ImGuiSimpleComponent(ImGuiSimpleComponent&&) = delete;
+	protected:
+		ImGuiSimpleComponent() {};
 	public:
-		ImGuiSimpleComponent();
-		~ImGuiSimpleComponent();
+		virtual ~ImGuiSimpleComponent() = 0 {};
 		int getcomponentHeight() override;
 	};
+
+	int ImGuiSimpleComponent::getcomponentHeight()
+	{
+		return component_height;
+	}
 }
