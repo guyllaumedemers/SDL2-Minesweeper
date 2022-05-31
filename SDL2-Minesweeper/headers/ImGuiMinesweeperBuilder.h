@@ -1,6 +1,6 @@
 #pragma once
 #include "builder/ImGuiBuilder.h"
-#include "composite/ImGuiComponent.h"
+#include "composite/ImGuiComplexComponent.h"
 #include <vector>
 
 using namespace Toolset;
@@ -10,7 +10,7 @@ namespace Minesweeper {
 	/// </summary>
 	class ImGuiMinesweeperBuilder : virtual public ImGuiBuilder {
 	private:
-		vector<ImGuiComponent*> builder_parts;
+		ImGuiComplexComponent* builder_parts;
 		ImGuiMinesweeperBuilder(const ImGuiMinesweeperBuilder&) = delete;
 		ImGuiMinesweeperBuilder(ImGuiMinesweeperBuilder&&) = delete;
 	public:

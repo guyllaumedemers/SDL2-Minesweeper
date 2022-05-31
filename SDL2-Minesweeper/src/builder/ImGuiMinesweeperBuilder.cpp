@@ -1,6 +1,10 @@
 #pragma once
 #include "../../headers/ImGuiMinesweeperBuilder.h"
 
+#ifdef _DEBUG
+#include "../../headers/CRTMemoryLeak.h"
+#endif
+
 namespace Minesweeper {
 	ImGuiMinesweeperBuilder::ImGuiMinesweeperBuilder()
 	{
@@ -8,10 +12,8 @@ namespace Minesweeper {
 
 	ImGuiMinesweeperBuilder::~ImGuiMinesweeperBuilder()
 	{
-		for (auto& it : builder_parts) {
-			delete it;
-			it = nullptr;
-		}
+		delete builder_parts;
+		builder_parts = nullptr;
 	}
 
 	void ImGuiMinesweeperBuilder::buildApplicationMenu()
@@ -31,10 +33,11 @@ namespace Minesweeper {
 
 	void ImGuiMinesweeperBuilder::reset()
 	{
-		for (auto& it : builder_parts) {
-			delete it;
-			it = nullptr;
-		}
-		builder_parts.clear();
+		delete builder_parts;
+#ifdef _DEBUG
+		builder_parts = DBG_NEW ImGuiComplexComponent();
+#else
+		builder_parts = new ImGuiComplexComponent();
+#endif
 	}
 }
