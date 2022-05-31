@@ -12,8 +12,6 @@ namespace Toolset {
 		Button() = delete;
 	public:
 		Rect rect;
-		Text text;
-		Image image;
 		Button(const Rect&);
 		Button(const Rect&, const Text&, const Image&);
 		~Button();
@@ -33,8 +31,8 @@ namespace Toolset {
 	Button::Button(const Rect& rect, const Text& text, const Image& image)
 	{
 		this->rect = rect;
-		this->text = text;
-		this->image = image;
+                this->components.push_back(&text);
+                this->components.push_back(&image);
 	}
 
 	/// <summary>
