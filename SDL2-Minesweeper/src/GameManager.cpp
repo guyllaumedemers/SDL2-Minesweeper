@@ -59,6 +59,7 @@ namespace Toolset {
 
 	void GameManager::destroy()
 	{
+		EventHandler::flush();
 		delete imp;
 		imp = nullptr;
 		delete imgui_context;

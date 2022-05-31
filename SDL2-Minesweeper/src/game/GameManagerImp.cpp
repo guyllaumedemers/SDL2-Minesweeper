@@ -7,10 +7,7 @@
 #endif
 
 namespace Toolset {
-	GameManagerImp::GameManagerImp(const Mode& mode, void(*screen_callback)(const int&, const int&)) { create(mode, screen_callback); }
-	GameManagerImp::~GameManagerImp() { destroy(); }
-
-	void GameManagerImp::create(const Mode& mode, void(*screen_callback)(const int&, const int&))
+	GameManagerImp::GameManagerImp(const Mode& mode, void(*screen_callback)(const int&, const int&))
 	{
 #ifdef _DEBUG
 		level_context = DBG_NEW LevelHandler(mode);
@@ -22,7 +19,7 @@ namespace Toolset {
 		screen_callback(w, h);
 	}
 
-	void GameManagerImp::destroy()
+	GameManagerImp::~GameManagerImp()
 	{
 		delete level_context;
 		level_context = nullptr;

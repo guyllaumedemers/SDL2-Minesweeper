@@ -55,13 +55,8 @@ namespace Toolset {
 	template<class T>
 	void Event<T>::remove(ISubscriber* subscriber)
 	{
-		for (int i = subscribers.end(); i >= subscribers.begin(); --i) {
-			if (subscribers[i] == subscriber) {
-				delete subscribers[i];
-				subscribers[i] = nullptr;
-				break;
-			}
-		}
+		vector<ISubscriber*>::iterator it = find(subscribers.begin(), subscribers.end(), subscriber);
+		if (it != subscribers.end()) subscribers.erase(it);
 	}
 
 	/// <summary>

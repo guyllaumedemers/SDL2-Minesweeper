@@ -14,6 +14,7 @@ namespace Toolset {
 	public:
 		static void create(string key, IEvent*);
 		static void destroy(string key);
+		static void flush();
 		template<class T> static void add(string key, ISubscriber*);
 		template<class T> static void remove(string key, ISubscriber*);
 		template<class T> static void invoke(string key, const T&);

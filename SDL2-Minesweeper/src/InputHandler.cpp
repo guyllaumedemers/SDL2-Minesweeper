@@ -13,19 +13,21 @@ using namespace std;
 namespace Toolset {
 	void InputHandler::getInput(SDL_Event& e)
 	{
+		static const string event_keys[] = { "onApplicationQuit", "onMouseDown" };
+
 		switch (e.type)
 		{
 		case SDL_QUIT:
-			EventHandler::invoke<bool>("onApplicationQuit", true);
+			EventHandler::invoke<bool>(event_keys[0], true);
 			break;
 		case SDL_MOUSEBUTTONDOWN:
 			switch (e.button.button)
 			{
 			case SDL_BUTTON_LEFT:
-				EventHandler::invoke<int>("onMouseDown", 0);
+				EventHandler::invoke<int>(event_keys[1], 0);
 				break;
 			case SDL_BUTTON_RIGHT:
-				EventHandler::invoke<int>("onMouseDown", 1);
+				EventHandler::invoke<int>(event_keys[1], 1);
 				break;
 			}
 			break;

@@ -26,4 +26,16 @@ namespace Toolset {
 			pool_event.erase(key);
 		}
 	}
+
+	/// <summary>
+	/// Flush memory
+	/// </summary>
+	void EventHandler::flush()
+	{
+		for (auto& it : pool_event) {
+			delete it.second;
+			it.second = nullptr;
+		}
+		pool_event.clear();
+	}
 }

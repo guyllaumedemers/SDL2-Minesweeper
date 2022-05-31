@@ -28,7 +28,6 @@ namespace Toolset {
 	template<class GraphicAPIsRendering, class GraphicAPIsEvent>
 	ImGuiHandlerImp<GraphicAPIsRendering, GraphicAPIsEvent>::ImGuiHandlerImp()
 	{
-		cout << "Base Constructor" << endl;
 	}
 
 	/// <summary>
@@ -37,6 +36,5 @@ namespace Toolset {
 	template<class GraphicAPIsRendering, class GraphicAPIsEvent>
 	ImGuiHandlerImp<GraphicAPIsRendering, GraphicAPIsEvent>::~ImGuiHandlerImp()
 	{
-		cout << "Base Destructor" << endl;
 	}
 }

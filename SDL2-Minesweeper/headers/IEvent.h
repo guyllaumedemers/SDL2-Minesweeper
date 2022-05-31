@@ -1,5 +1,4 @@
 #pragma once
-#include "ISubscriber.h"
 
 namespace Toolset {
 	class IEvent {
