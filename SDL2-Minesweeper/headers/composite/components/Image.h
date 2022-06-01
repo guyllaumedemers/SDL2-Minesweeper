@@ -1,6 +1,5 @@
 #pragma once
 #include "../ImGuiSimpleComponent.h"
-#include "../Rect.h"
 
 namespace Toolset {
 	/// <summary>
@@ -8,24 +7,23 @@ namespace Toolset {
 	/// </summary>
 	struct Image : virtual public ImGuiSimpleComponent {
 	private:
-		Image(const& Image) = delete;
+		Image(const Image&) = delete;
 		Image(Image&&) = delete;
 		Image() = delete;
 	public:
-		Rect rect;
-		Image(const Rect&);
+		Image(Rect&);
 		~Image();
 	};
 
 	/// <summary>
 	/// Constructor
 	/// </summary>
-	Image::Image(const Rect& rect)
+	Image::Image(Rect& rect) : ImGuiSimpleComponent(rect), ImGuiComponent(rect)
 	{
+
 		/// <summary>
-		/// Missing texture assignment which needs to be generic so any graphic library can load them
+		/// Missing Color, or Texture
 		/// </summary>
-		this->rect = rect;
 	}
 
 	/// <summary>

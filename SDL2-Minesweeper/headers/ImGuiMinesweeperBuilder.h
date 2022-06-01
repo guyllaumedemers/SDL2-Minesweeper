@@ -10,7 +10,7 @@ namespace Minesweeper {
 	/// </summary>
 	class ImGuiMinesweeperBuilder : virtual public ImGuiBuilder {
 	private:
-		ImGuiComplexComponent* builder_parts;
+		ImGuiComplexComponent* builder_parts = nullptr;
 		ImGuiMinesweeperBuilder(const ImGuiMinesweeperBuilder&) = delete;
 		ImGuiMinesweeperBuilder(ImGuiMinesweeperBuilder&&) = delete;
 	public:

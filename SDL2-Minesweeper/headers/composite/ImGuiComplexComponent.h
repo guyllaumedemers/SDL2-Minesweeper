@@ -9,8 +9,9 @@ namespace Toolset {
 		vector<ImGuiComponent*> components;
 		ImGuiComplexComponent(const ImGuiComplexComponent&) = delete;
 		ImGuiComplexComponent(ImGuiComplexComponent&&) = delete;
+		ImGuiComplexComponent() = delete;
 	protected:
-		ImGuiComplexComponent() {};
+		ImGuiComplexComponent(Rect& rect) : ImGuiComponent(rect) { };
 	public:
 		virtual ~ImGuiComplexComponent() = 0
 		{
@@ -38,7 +39,7 @@ namespace Toolset {
 	int ImGuiComplexComponent::getcomponentHeight()
 	{
 		int result = 0;
-		for (const auto& it : components) result += it->component_height;
+		for (const auto& it : components) result += it->rect.h;
 		return result;
 	}
 }

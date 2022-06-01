@@ -1,6 +1,5 @@
 #pragma once
 #include "../ImGuiComplexComponent.h"
-#include "../Rect.h"
 
 namespace Toolset {
 	/// <summary>
@@ -8,24 +7,19 @@ namespace Toolset {
 	/// </summary>
 	struct Frame : virtual public ImGuiComplexComponent {
 	private:
-		Frame(const& Frame) = delete;
+		Frame(const Frame&) = delete;
 		Frame(Frame&&) = delete;
 		Frame() = delete;
 	public:
-		Rect rect;
-		Frame(const Rect&);
+		Frame(Rect&);
 		~Frame();
 	};
 
 	/// <summary>
 	/// Constructor
 	/// </summary>
-	Frame::Frame(const Rect& rect)
+	Frame::Frame(Rect& rect) : ImGuiComplexComponent(rect), ImGuiComponent(rect)
 	{
-		/// <summary>
-		/// A frame should by default have an Image or a Color assigned to it
-		/// </summary>
-		this->rect = rect;
 	}
 
 	/// <summary>

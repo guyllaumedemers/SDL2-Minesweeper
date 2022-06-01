@@ -6,7 +6,7 @@ namespace Toolset {
 	/// </summary>
 	struct Rect {
 	private:
-		Rect(const& Rect) = delete;
+		Rect(const Rect&) = delete;
 		Rect(Rect&&) = delete;
 		Rect() = delete;
 	public:

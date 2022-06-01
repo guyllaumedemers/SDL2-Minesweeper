@@ -1,5 +1,5 @@
 #pragma once
-#include <vector>
+#include "Rect.h"
 
 using namespace std;
 namespace Toolset {
@@ -10,13 +10,14 @@ namespace Toolset {
 	private:
 		ImGuiComponent(const ImGuiComponent&) = delete;
 		ImGuiComponent(ImGuiComponent&&) = delete;
+		ImGuiComponent() = delete;
 	protected:
-		ImGuiComponent() {};
+		ImGuiComponent(Rect& rect) : rect(rect) {};
 	public:
 		/// <summary>
-		/// unsafe but cannot access via pointer in protected
+		/// Alias
 		/// </summary>
-		int component_height = 0;
+		Rect& rect;
 		virtual ~ImGuiComponent() = 0 {};
 		virtual int getcomponentHeight() = 0;
 	};
