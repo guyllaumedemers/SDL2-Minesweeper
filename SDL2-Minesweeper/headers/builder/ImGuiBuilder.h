@@ -1,4 +1,5 @@
 #pragma once
+#include "../composite/Rect.h"
 
 namespace Toolset {
 	/// <summary>

@@ -35,8 +35,9 @@ namespace Minesweeper {
 	void ImGuiMinesweeperBuilder::reset()
 	{
 		delete builder_parts;
+		builder_parts = nullptr;
 #ifdef _DEBUG
-		builder_parts = DBG_NEW Frame(Rect(0, 0, 0, 0));
+		builder_parts = DBG_NEW Frame(Rect(0,0,0,0));
 #else
 		builder_parts = new Frame(Rect(0, 0, 0, 0));
 #endif

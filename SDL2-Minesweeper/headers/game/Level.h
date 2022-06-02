@@ -20,9 +20,9 @@ namespace Minesweeper {
 		int flags = 0;
 		int bombs = 0;
 		Tile* map = nullptr;
-		Level() = delete;
 		Level(const Level&) = delete;
 		Level(Level&&) = delete;
+		Level() = delete;
 		void run(Tile&);
 		void discard(Tile&);
 		void showAll();

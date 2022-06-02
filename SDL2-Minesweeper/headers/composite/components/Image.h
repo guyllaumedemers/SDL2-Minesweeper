@@ -11,16 +11,15 @@ namespace Toolset {
 		Image(Image&&) = delete;
 		Image() = delete;
 	public:
-		Image(Rect&);
+		Image(const Rect&);
 		~Image();
 	};
 
 	/// <summary>
 	/// Constructor
 	/// </summary>
-	Image::Image(Rect& rect) : ImGuiSimpleComponent(rect), ImGuiComponent(rect)
+	Image::Image(const Rect& rect) : ImGuiSimpleComponent(rect), ImGuiComponent(rect)
 	{
-
 		/// <summary>
 		/// Missing Color, or Texture
 		/// </summary>

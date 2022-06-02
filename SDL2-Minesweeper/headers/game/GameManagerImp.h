@@ -10,6 +10,7 @@ namespace Toolset {
 		LevelHandler* level_context = nullptr;
 		GameManagerImp(const GameManagerImp&) = delete;
 		GameManagerImp(GameManagerImp&&) = delete;
+		GameManagerImp() = delete;
 	public:
 		GameManagerImp(const Mode&, void(*)(const int&, const int&));
 		~GameManagerImp();

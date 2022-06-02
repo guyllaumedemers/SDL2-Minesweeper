@@ -7,15 +7,31 @@ namespace Toolset {
 		ImGuiSimpleComponent(const ImGuiSimpleComponent&) = delete;
 		ImGuiSimpleComponent(ImGuiSimpleComponent&&) = delete;
 		ImGuiSimpleComponent() = delete;
-	protected:
-		ImGuiSimpleComponent(Rect& rect) : ImGuiComponent(rect) {};
 	public:
-		virtual ~ImGuiSimpleComponent() = 0 {};
-		int getcomponentHeight() override;
+		ImGuiSimpleComponent(const Rect&);
+		~ImGuiSimpleComponent();
+		int getComponentHeight() override;
 	};
 
-	int ImGuiSimpleComponent::getcomponentHeight()
+	/// <summary>
+	/// Constructor
+	/// </summary>
+	ImGuiSimpleComponent::ImGuiSimpleComponent(const Rect& rect) : ImGuiComponent(rect)
 	{
-		return rect.h;
+	}
+
+	/// <summary>
+	/// Destructor
+	/// </summary>
+	ImGuiSimpleComponent::~ImGuiSimpleComponent()
+	{
+	}
+
+	/// <summary>
+	/// Get component height
+	/// </summary>
+	int ImGuiSimpleComponent::getComponentHeight()
+	{
+		return rect->h;
 	}
 }

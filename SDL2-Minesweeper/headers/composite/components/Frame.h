@@ -11,14 +11,14 @@ namespace Toolset {
 		Frame(Frame&&) = delete;
 		Frame() = delete;
 	public:
-		Frame(Rect&);
+		Frame(const Rect&);
 		~Frame();
 	};
 
 	/// <summary>
 	/// Constructor
 	/// </summary>
-	Frame::Frame(Rect& rect) : ImGuiComplexComponent(rect), ImGuiComponent(rect)
+	Frame::Frame(const Rect& rect) : ImGuiComplexComponent(rect), ImGuiComponent(rect)
 	{
 	}
 
