@@ -11,11 +11,12 @@ namespace Toolset {
 		ImGuiBuilder(ImGuiBuilder&&) = delete;
 	protected:
 		ImGuiBuilder() {};
-	public:
-		virtual ~ImGuiBuilder() = 0 {};
 		virtual void buildApplicationMenu() = 0;
 		virtual void buildGameplayMenu() = 0;
 		virtual void buildGameplayUi() = 0;
+	public:
+		virtual ~ImGuiBuilder() = 0 {};
+		virtual void build() = 0;
 		virtual void reset() = 0;
 	};
 }

@@ -15,7 +15,7 @@ namespace Toolset {
 		ImGuiComplexComponent() = delete;
 	public:
 		ImGuiComplexComponent(const Rect&);
-		~ImGuiComplexComponent() = 0;
+		~ImGuiComplexComponent();
 		void add(ImGuiComponent*);
 		void remove(ImGuiComponent*);
 		virtual void refresh() override;

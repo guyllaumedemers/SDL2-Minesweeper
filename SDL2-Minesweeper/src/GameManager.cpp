@@ -1,6 +1,7 @@
 #pragma once
 #include "../headers/GameManager.h"
 #include "../headers/game/Screen.h"
+#include "../headers/ImGuiMinesweeperBuilder.h"
 #include "../headers/EventHandler.h"
 #include "../headers/InputHandler.h"
 
@@ -29,14 +30,14 @@ namespace Toolset {
 #ifdef _DEBUG
 		CRTMemoryLeak::init();
 		imp = DBG_NEW GameManagerImp(Mode::Hard, [](const int& w, const int& h) { Screen::setScreenSize(w, h); });
-		imgui_context = DBG_NEW ImGuiHandler<SDL_Renderer, SDL_Event>(Screen::w, Screen::h);
+		imgui_context = DBG_NEW ImGuiHandler<SDL_Renderer, SDL_Event>(DBG_NEW ImGuiMinesweeperBuilder(), Screen::w, Screen::h);
 		EventHandler::create(event_keys[0], DBG_NEW Event<bool>());
 		EventHandler::add<bool>(event_keys[0], DBG_NEW Subscriber<bool>([](const bool& val) { isRunning = !val; }));
 		EventHandler::create(event_keys[1], DBG_NEW Event<int>());
 		EventHandler::add<int>(event_keys[1], DBG_NEW Subscriber<int>([](const int& val) { imp->processInputs(val); }));
 #else		
 		imp = new GameManagerImp(Mode::Hard, [](const int& w, const int& h) { Screen::setScreenSize(w, h); });
-		imgui_context = new ImGuiHandler<SDL_Renderer, SDL_Event>(Screen::w, Screen::h);
+		imgui_context = new ImGuiHandler<SDL_Renderer, SDL_Event>(new ImGuiMinesweeperBuilder(), Screen::w, Screen::h);
 		EventHandler::create(event_keys[0], new Event<bool>());
 		EventHandler::add<bool>(event_keys[0], new Subscriber<bool>([](const bool& val) { isRunning = !val; }));
 		EventHandler::create(event_keys[1], new Event<int>());

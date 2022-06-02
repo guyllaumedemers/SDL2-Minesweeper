@@ -1,6 +1,7 @@
 #pragma once
-#include "ImGuiHandlerImp.h"
-#include "ImGuiHandlerImpSDL.h"
+#include "bridge/ImGuiHandlerImp.h"
+#include "bridge/ImGuiHandlerImpSDL.h"
+#include "builder/ImGuiBuilder.h"
 
 #include <SDL.h>
 #include <type_traits>
@@ -15,10 +16,11 @@ namespace Toolset {
 	class ImGuiHandler {
 	private:
 		ImGuiHandlerImp<GraphicAPIsRendering, GraphicAPIsEvent>* imp = nullptr;
+		ImGuiBuilder* builder = nullptr;
 		ImGuiHandler(const ImGuiHandler&) = delete;
 		ImGuiHandler(ImGuiHandler&&) = delete;
 	public:
-		ImGuiHandler(const int&, const int&);
+		ImGuiHandler(ImGuiBuilder*, const int&, const int&);
 		~ImGuiHandler();
 		void processInputs(GraphicAPIsEvent&, void(*)(GraphicAPIsEvent&));
 		void refresh(void (*)(GraphicAPIsRendering*), const int&, const int&);
@@ -29,13 +31,14 @@ namespace Toolset {
 	/// Constructor
 	/// </summary>
 	template<class GraphicAPIsRendering, class GraphicAPIsEvent>
-	ImGuiHandler<GraphicAPIsRendering, GraphicAPIsEvent>::ImGuiHandler(const int& w, const int& h)
+	ImGuiHandler<GraphicAPIsRendering, GraphicAPIsEvent>::ImGuiHandler(ImGuiBuilder* builder, const int& w, const int& h)
 	{
 #ifdef _DEBUG
 		if (is_same<GraphicAPIsRendering, SDL_Renderer>::value) imp = DBG_NEW ImGuiHandlerImpSDL<GraphicAPIsRendering, GraphicAPIsEvent>(w, h);
 #else
 		if (is_same<GraphicAPIsRendering, SDL_Renderer>::value) imp = new ImGuiHandlerImpSDL<GraphicAPIsRendering, GraphicAPIsEvent>(w, h);
 #endif
+		this->builder = builder;
 	}
 
 	/// <summary>

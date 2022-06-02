@@ -1,1 +1,14 @@
-﻿  SDL2-Minesweeper.vcxproj -> D:\VisualStudio\SDL2\SDL2-GameDevCMake\SDL2-Minesweeper\out\build\Debug\SDL2-Minesweeper.exe
+﻿  GameManager.cpp
+D:\VisualStudio\SDL2\SDL2-GameDevCMake\SDL2-Minesweeper\SDL2-Minesweeper\headers\Event.h(36,1): warning C4267: 'initializing': conversion from 'size_t' to 'int', possible loss of data
+D:\VisualStudio\SDL2\SDL2-GameDevCMake\SDL2-Minesweeper\SDL2-Minesweeper\headers\Event.h(35): message : while compiling class template member function 'Toolset::Event<bool>::~Event(void)'
+D:\VisualStudio\SDL2\SDL2-GameDevCMake\SDL2-Minesweeper\SDL2-Minesweeper\src\GameManager.cpp(29): message : see reference to class template instantiation 'Toolset::Event<bool>' being compiled
+ImGuiMinesweeperBuilder.obj : error LNK2005: "public: __cdecl Toolset::ImGuiComponent::ImGuiComponent(struct Toolset::Rect const &)" (??0ImGuiComponent@Toolset@@QEAA@AEBURect@1@@Z) already defined in GameManager.obj
+ImGuiMinesweeperBuilder.obj : error LNK2005: "public: virtual __cdecl Toolset::ImGuiComponent::~ImGuiComponent(void)" (??1ImGuiComponent@Toolset@@UEAA@XZ) already defined in GameManager.obj
+ImGuiMinesweeperBuilder.obj : error LNK2005: "public: struct Toolset::Rect const & __cdecl Toolset::ImGuiComponent::getRect(void)const " (?getRect@ImGuiComponent@Toolset@@QEBAAEBURect@2@XZ) already defined in GameManager.obj
+ImGuiMinesweeperBuilder.obj : error LNK2005: "public: __cdecl Toolset::ImGuiComplexComponent::ImGuiComplexComponent(struct Toolset::Rect const &)" (??0ImGuiComplexComponent@Toolset@@QEAA@AEBURect@1@@Z) already defined in GameManager.obj
+ImGuiMinesweeperBuilder.obj : error LNK2005: "public: virtual __cdecl Toolset::ImGuiComplexComponent::~ImGuiComplexComponent(void)" (??1ImGuiComplexComponent@Toolset@@UEAA@XZ) already defined in GameManager.obj
+ImGuiMinesweeperBuilder.obj : error LNK2005: "public: void __cdecl Toolset::ImGuiComplexComponent::add(class Toolset::ImGuiComponent *)" (?add@ImGuiComplexComponent@Toolset@@QEAAXPEAVImGuiComponent@2@@Z) already defined in GameManager.obj
+ImGuiMinesweeperBuilder.obj : error LNK2005: "public: void __cdecl Toolset::ImGuiComplexComponent::remove(class Toolset::ImGuiComponent *)" (?remove@ImGuiComplexComponent@Toolset@@QEAAXPEAVImGuiComponent@2@@Z) already defined in GameManager.obj
+ImGuiMinesweeperBuilder.obj : error LNK2005: "public: virtual void __cdecl Toolset::ImGuiComplexComponent::refresh(void)" (?refresh@ImGuiComplexComponent@Toolset@@UEAAXXZ) already defined in GameManager.obj
+ImGuiMinesweeperBuilder.obj : error LNK2005: "public: virtual int __cdecl Toolset::ImGuiComplexComponent::getComponentHeight(void)" (?getComponentHeight@ImGuiComplexComponent@Toolset@@UEAAHXZ) already defined in GameManager.obj
+D:\VisualStudio\SDL2\SDL2-GameDevCMake\SDL2-Minesweeper\out\build\Debug\SDL2-Minesweeper.exe : fatal error LNK1169: one or more multiply defined symbols found

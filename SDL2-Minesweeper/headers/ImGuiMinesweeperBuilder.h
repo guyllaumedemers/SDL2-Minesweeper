@@ -1,7 +1,6 @@
 #pragma once
-#include "builder/ImGuiBuilder.h"
 #include "composite/ImGuiComplexComponent.h"
-#include <vector>
+#include "builder/ImGuiBuilder.h"
 
 using namespace Toolset;
 namespace Minesweeper {
@@ -13,12 +12,14 @@ namespace Minesweeper {
 		ImGuiComplexComponent* builder_parts = nullptr;
 		ImGuiMinesweeperBuilder(const ImGuiMinesweeperBuilder&) = delete;
 		ImGuiMinesweeperBuilder(ImGuiMinesweeperBuilder&&) = delete;
-	public:
-		ImGuiMinesweeperBuilder();
-		~ImGuiMinesweeperBuilder();
+	protected:
 		void buildApplicationMenu() override;
 		void buildGameplayMenu() override;
 		void buildGameplayUi() override;
+	public:
+		ImGuiMinesweeperBuilder();
+		~ImGuiMinesweeperBuilder();
+		void build() override;
 		void reset() override;
 	};
 }

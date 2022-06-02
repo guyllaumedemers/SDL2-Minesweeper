@@ -81,12 +81,6 @@
     <ClInclude Include="D:\VisualStudio\SDL2\SDL2-GameDevCMake\SDL2-Minesweeper\SDL2-Minesweeper\headers\ImGuiHandler.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="D:\VisualStudio\SDL2\SDL2-GameDevCMake\SDL2-Minesweeper\SDL2-Minesweeper\headers\ImGuiHandlerImp.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="D:\VisualStudio\SDL2\SDL2-GameDevCMake\SDL2-Minesweeper\SDL2-Minesweeper\headers\ImGuiHandlerImpSDL.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="D:\VisualStudio\SDL2\SDL2-GameDevCMake\SDL2-Minesweeper\SDL2-Minesweeper\headers\ImGuiMinesweeperBuilder.h">
       <Filter>Header Files</Filter>
     </ClInclude>
@@ -103,6 +97,12 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="D:\VisualStudio\SDL2\SDL2-GameDevCMake\SDL2-Minesweeper\SDL2-Minesweeper\headers\TextureHandler.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\VisualStudio\SDL2\SDL2-GameDevCMake\SDL2-Minesweeper\SDL2-Minesweeper\headers\bridge\ImGuiHandlerImp.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\VisualStudio\SDL2\SDL2-GameDevCMake\SDL2-Minesweeper\SDL2-Minesweeper\headers\bridge\ImGuiHandlerImpSDL.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="D:\VisualStudio\SDL2\SDL2-GameDevCMake\SDL2-Minesweeper\SDL2-Minesweeper\headers\builder\ImGuiBuilder.h">

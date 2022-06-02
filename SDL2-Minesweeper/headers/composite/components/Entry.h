@@ -57,6 +57,6 @@ namespace Toolset {
 	template<class T>
 	void Entry<T>::refresh()
 	{
-		if (ImGui::MenuItem(name)) { EventHandler::invoke(event_key, *data) }
+		if (ImGui::MenuItem(name)) { EventHandler::invoke(event_key, *data); }
 	}
 }
