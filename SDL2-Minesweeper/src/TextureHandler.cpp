@@ -26,9 +26,9 @@ namespace Toolset {
 		}
 	}
 
-	SDL_Texture* TextureHandler::loadtexture(SDL_Renderer* renderer, const char* path)
+	SDL_Texture* TextureHandler::loadtexture(SDL_Renderer* renderer, string path)
 	{
-		SDL_Texture* texture = IMG_LoadTexture(renderer, path);
+		SDL_Texture* texture = IMG_LoadTexture(renderer, path.c_str());
 		if (texture == nullptr) {
 			SDL_Log("ERROR::IMG_LOADTEXTURE FAILED : %s", SDL_GetError());
 			exit(EXIT_FAILURE);
@@ -51,12 +51,12 @@ namespace Toolset {
 		IMG_Quit();
 	}
 
-	void TextureHandler::add(const char* key, SDL_Texture* texture)
+	void TextureHandler::add(string key, SDL_Texture* texture)
 	{
 		textures.insert(make_pair(key, texture));
 	}
 
-	void TextureHandler::remove(const char* key)
+	void TextureHandler::remove(string key)
 	{
 		if (textures.find(key) != textures.end()) {
 			SDL_DestroyTexture(textures.at(key));
@@ -64,7 +64,7 @@ namespace Toolset {
 		}
 	}
 
-	SDL_Texture* TextureHandler::get(const char* key)
+	SDL_Texture* TextureHandler::get(string key)
 	{
 		if (textures.find(key) != textures.end()) return textures[key];
 		else return nullptr;

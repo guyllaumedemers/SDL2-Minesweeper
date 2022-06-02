@@ -1,11 +1,10 @@
 #pragma once
 #include "ImGuiHandlerImp.h"
 #include "../SDLHandler.h"
-
 #include <imgui.h>
+#include <imgui_internal.h>
 #include <imgui_impl_sdl.h>
 #include <imgui_impl_sdlrenderer.h>
-#include <imgui_internal.h>
 
 #ifdef _DEBUG
 #include "../CRTMemoryLeak.h"
@@ -18,10 +17,11 @@ namespace Toolset {
 		SDLHandler* sdl_context = nullptr;
 		ImGuiHandlerImpSDL(const ImGuiHandlerImpSDL&) = delete;
 		ImGuiHandlerImpSDL(ImGuiHandlerImpSDL&&) = delete;
+		ImGuiHandlerImpSDL() = delete;
 	public:
-		ImGuiHandlerImpSDL(const int&, const int&);
+		ImGuiHandlerImpSDL(ImGuiBuilder*, const int&, const int&);
 		~ImGuiHandlerImpSDL();
-		void processInputs(GraphicAPIsEvent&, void(*)(GraphicAPIsEvent&)) override;
+		void pollEvents(GraphicAPIsEvent&, void(*)(GraphicAPIsEvent&)) override;
 		void refresh(void (*)(GraphicAPIsRendering*), const int&, const int&) override;
 		void draw(void (*)(GraphicAPIsRendering*)) override;
 	};
@@ -30,7 +30,7 @@ namespace Toolset {
 	/// Constructor
 	/// </summary>
 	template<class GraphicAPIsRendering, class GraphicAPIsEvent>
-	ImGuiHandlerImpSDL<GraphicAPIsRendering, GraphicAPIsEvent>::ImGuiHandlerImpSDL(const int& w, const int& h)
+	ImGuiHandlerImpSDL<GraphicAPIsRendering, GraphicAPIsEvent>::ImGuiHandlerImpSDL(ImGuiBuilder* builder_context, const int& w, const int& h) : ImGuiHandlerImp<GraphicAPIsRendering, GraphicAPIsEvent>(builder_context)
 	{
 #ifdef _DEBUG
 		sdl_context = DBG_NEW SDLHandler(w, h);
@@ -62,7 +62,7 @@ namespace Toolset {
 	/// Game logic for input processing
 	/// </summary>
 	template<class GraphicAPIsRendering, class GraphicAPIsEvent>
-	void ImGuiHandlerImpSDL<GraphicAPIsRendering, GraphicAPIsEvent>::processInputs(GraphicAPIsEvent& e, void(*inputs_callback)(GraphicAPIsEvent&))
+	void ImGuiHandlerImpSDL<GraphicAPIsRendering, GraphicAPIsEvent>::pollEvents(GraphicAPIsEvent& e, void(*inputs_callback)(GraphicAPIsEvent&))
 	{
 		ImGui_ImplSDL2_ProcessEvent((SDL_Event*)&e);
 		if (ImGui::IsAnyItemHovered()) return;
@@ -80,7 +80,7 @@ namespace Toolset {
 		ImGui_ImplSDL2_NewFrame();
 		ImGui::NewFrame();
 
-
+		//this->builder_context->build();
 
 		ImGui::Render();
 		sdl_context->refresh(refresh_callback);

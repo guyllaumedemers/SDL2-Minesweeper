@@ -13,6 +13,7 @@ namespace Toolset {
 	public:
 		Frame(const Rect&);
 		~Frame();
+		void refresh() override;
 	};
 
 	/// <summary>
@@ -27,5 +28,13 @@ namespace Toolset {
 	/// </summary>
 	Frame::~Frame()
 	{
+	}
+
+	/// <summary>
+	/// Refresh ImGui
+	/// </summary>
+	void Frame::refresh()
+	{
+		//Do Something
 	}
 }

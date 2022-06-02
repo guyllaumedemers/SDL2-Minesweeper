@@ -1,10 +1,10 @@
 #pragma once
 #include "bridge/ImGuiHandlerImp.h"
 #include "bridge/ImGuiHandlerImpSDL.h"
-#include "builder/ImGuiBuilder.h"
-
-#include <SDL.h>
 #include <type_traits>
+//#ifdef SDL
+#include <SDL.h>
+//#endif
 
 #ifdef _DEBUG
 #include "CRTMemoryLeak.h"
@@ -16,13 +16,12 @@ namespace Toolset {
 	class ImGuiHandler {
 	private:
 		ImGuiHandlerImp<GraphicAPIsRendering, GraphicAPIsEvent>* imp = nullptr;
-		ImGuiBuilder* builder = nullptr;
 		ImGuiHandler(const ImGuiHandler&) = delete;
 		ImGuiHandler(ImGuiHandler&&) = delete;
 	public:
 		ImGuiHandler(ImGuiBuilder*, const int&, const int&);
 		~ImGuiHandler();
-		void processInputs(GraphicAPIsEvent&, void(*)(GraphicAPIsEvent&));
+		void pollEvents(GraphicAPIsEvent&, void(*)(GraphicAPIsEvent&));
 		void refresh(void (*)(GraphicAPIsRendering*), const int&, const int&);
 		void draw(void (*)(GraphicAPIsRendering*));
 	};
@@ -34,11 +33,16 @@ namespace Toolset {
 	ImGuiHandler<GraphicAPIsRendering, GraphicAPIsEvent>::ImGuiHandler(ImGuiBuilder* builder, const int& w, const int& h)
 	{
 #ifdef _DEBUG
-		if (is_same<GraphicAPIsRendering, SDL_Renderer>::value) imp = DBG_NEW ImGuiHandlerImpSDL<GraphicAPIsRendering, GraphicAPIsEvent>(w, h);
+		//#ifdef SDL
+		if (is_same<GraphicAPIsRendering, SDL_Renderer>::value)
+			imp = DBG_NEW ImGuiHandlerImpSDL<GraphicAPIsRendering, GraphicAPIsEvent>(builder, w, h);
+		//#endif
 #else
-		if (is_same<GraphicAPIsRendering, SDL_Renderer>::value) imp = new ImGuiHandlerImpSDL<GraphicAPIsRendering, GraphicAPIsEvent>(w, h);
+		//#ifdef SDL
+		if (is_same<GraphicAPIsRendering, SDL_Renderer>::value)
+			imp = new ImGuiHandlerImpSDL<GraphicAPIsRendering, GraphicAPIsEvent>(builder, w, h);
+		//#endif
 #endif
-		this->builder = builder;
 	}
 
 	/// <summary>
@@ -55,9 +59,9 @@ namespace Toolset {
 	/// Game logic for input processing
 	/// </summary>
 	template<class GraphicAPIsRendering, class GraphicAPIsEvent>
-	void ImGuiHandler<GraphicAPIsRendering, GraphicAPIsEvent>::processInputs(GraphicAPIsEvent& e, void(*input_callback)(GraphicAPIsEvent&))
+	void ImGuiHandler<GraphicAPIsRendering, GraphicAPIsEvent>::pollEvents(GraphicAPIsEvent& e, void(*input_callback)(GraphicAPIsEvent&))
 	{
-		imp->processInputs(e, input_callback);
+		imp->pollEvents(e, input_callback);
 	}
 
 	/// <summary>

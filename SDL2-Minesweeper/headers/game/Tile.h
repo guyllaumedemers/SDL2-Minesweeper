@@ -7,8 +7,8 @@
 using namespace std;
 namespace Minesweeper {
 	struct Tile {
-		const static int size;
-		const static string textures[];
+		static const int size;
+		static const string textures[5];
 	private:
 		Tilebitmask bitmask = Tilebitmask::None;
 		int index = -1;

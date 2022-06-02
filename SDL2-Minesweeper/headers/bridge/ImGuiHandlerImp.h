@@ -1,22 +1,23 @@
 #pragma once
+#include "../builder/ImGuiBuilder.h"
 
 using namespace std;
 namespace Toolset {
 	/// <summary>
 	/// Generic Type class using bridge pattern to pass args data to grahic APIs lib
 	/// </summary>
-	/// <typeparam name="GraphicAPIsRendering"></typeparam>
-	/// <typeparam name="GraphicAPIsEvent"></typeparam>
 	template<class GraphicAPIsRendering, class GraphicAPIsEvent>
 	class ImGuiHandlerImp {
 	private:
 		ImGuiHandlerImp(const ImGuiHandlerImp&) = delete;
 		ImGuiHandlerImp(ImGuiHandlerImp&&) = delete;
+		ImGuiHandlerImp() = delete;
 	protected:
-		ImGuiHandlerImp();
+		ImGuiBuilder* builder_context = nullptr;
+		ImGuiHandlerImp(ImGuiBuilder*);
 	public:
 		virtual ~ImGuiHandlerImp() = 0;
-		virtual void processInputs(GraphicAPIsEvent&, void(*)(GraphicAPIsEvent&)) = 0;
+		virtual void pollEvents(GraphicAPIsEvent&, void(*)(GraphicAPIsEvent&)) = 0;
 		virtual void refresh(void (*)(GraphicAPIsRendering*), const int&, const int&) = 0;
 		virtual void draw(void (*)(GraphicAPIsRendering*)) = 0;
 	};
@@ -25,7 +26,7 @@ namespace Toolset {
 	/// Constructor
 	/// </summary>
 	template<class GraphicAPIsRendering, class GraphicAPIsEvent>
-	ImGuiHandlerImp<GraphicAPIsRendering, GraphicAPIsEvent>::ImGuiHandlerImp()
+	ImGuiHandlerImp<GraphicAPIsRendering, GraphicAPIsEvent>::ImGuiHandlerImp(ImGuiBuilder* builder_context) : builder_context(builder_context)
 	{
 	}
 
@@ -35,5 +36,7 @@ namespace Toolset {
 	template<class GraphicAPIsRendering, class GraphicAPIsEvent>
 	ImGuiHandlerImp<GraphicAPIsRendering, GraphicAPIsEvent>::~ImGuiHandlerImp()
 	{
+		delete builder_context;
+		builder_context = nullptr;
 	}
 }

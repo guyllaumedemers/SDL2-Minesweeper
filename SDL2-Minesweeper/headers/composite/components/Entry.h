@@ -2,8 +2,6 @@
 #include "../ImGuiSimpleComponent.h"
 #include "../../EventHandler.h"
 
-#include <string>
-
 #ifdef _DEBUG
 #include "../../CRTMemoryLeak.h"
 #endif
@@ -18,6 +16,7 @@ namespace Toolset {
 		const char* event_key = nullptr;
 		Entry(const Entry&) = delete;
 		Entry(Entry&&) = delete;
+		Entry() = delete;
 	public:
 		Entry(const Rect& rect, const char* name, const char* event_key, const T& data);
 		~Entry();

@@ -13,6 +13,7 @@ namespace Toolset {
 	public:
 		Image(const Rect&);
 		~Image();
+		void refresh() override;
 	};
 
 	/// <summary>
@@ -30,5 +31,13 @@ namespace Toolset {
 	/// </summary>
 	Image::~Image()
 	{
+	}
+
+	/// <summary>
+	/// Refresh ImGui
+	/// </summary>
+	void Image::refresh()
+	{
+		//Do Something
 	}
 }

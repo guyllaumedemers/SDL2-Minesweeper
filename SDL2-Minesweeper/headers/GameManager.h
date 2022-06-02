@@ -1,14 +1,20 @@
 #pragma once
+#include "bridge/GameManagerImp.h"
 #include "ImGuiHandler.h"
-#include "game/GameManagerImp.h"
-
+#include "EventHandler.h"
+#include "game/Screen.h"
+#include "builder/ImGuiMinesweeperBuilder.h"
+//#ifdef SDL
 #include <SDL.h>
+//#endif
 
+using namespace Minesweeper;
 namespace Toolset {
+	template<class GraphicAPIsRendering, class GraphicAPIsEvent>
 	class GameManager {
 	private:
-		static ImGuiHandler<SDL_Renderer, SDL_Event>* imgui_context;
-		static GameManagerImp* imp;
+		static ImGuiHandler<GraphicAPIsRendering, GraphicAPIsEvent>* imgui_context;
+		static GameManagerImp<GraphicAPIsRendering, GraphicAPIsEvent>* imp;
 		static bool isRunning;
 		static void init();
 		static void run();
@@ -17,4 +23,96 @@ namespace Toolset {
 		static int execute();
 		static void exit();
 	};
+
+	/// <summary>
+	/// static fields
+	/// </summary>
+	template<class GraphicAPIsRendering, class GraphicAPIsEvent>
+	ImGuiHandler<GraphicAPIsRendering, GraphicAPIsEvent>* GameManager<GraphicAPIsRendering, GraphicAPIsEvent>::imgui_context = nullptr;
+
+	template<class GraphicAPIsRendering, class GraphicAPIsEvent>
+	GameManagerImp<GraphicAPIsRendering, GraphicAPIsEvent>* GameManager<GraphicAPIsRendering, GraphicAPIsEvent>::imp = nullptr;
+
+	template<class GraphicAPIsRendering, class GraphicAPIsEvent>
+	bool GameManager<GraphicAPIsRendering, GraphicAPIsEvent>::isRunning = false;
+
+	static const string event_keys[] = {
+		"onApplicationQuit",
+		"onMouseDown"
+	};
+
+	/// <summary>
+	/// init
+	/// </summary>
+	template<class GraphicAPIsRendering, class GraphicAPIsEvent>
+	void GameManager<GraphicAPIsRendering, GraphicAPIsEvent>::init()
+	{
+#ifdef _DEBUG
+		CRTMemoryLeak::init();
+		imp = DBG_NEW GameManagerImp<GraphicAPIsRendering, GraphicAPIsEvent>(Mode::Hard, [](const int& w, const int& h) { Screen::setScreenSize(w, h); });
+		imgui_context = DBG_NEW ImGuiHandler<GraphicAPIsRendering, GraphicAPIsEvent>(DBG_NEW ImGuiMinesweeperBuilder(), Screen::w, Screen::h);
+		EventHandler::create(event_keys[0], DBG_NEW Event<bool>());
+		EventHandler::add<bool>(event_keys[0], DBG_NEW Subscriber<bool>([](const bool& val) { isRunning = !val; }));
+		EventHandler::create(event_keys[1], DBG_NEW Event<int>());
+		EventHandler::add<int>(event_keys[1], DBG_NEW Subscriber<int>([](const int& val) { imp->processInputs(val); }));
+#else		
+		imp = new GameManagerImp<GraphicAPIsRendering, GraphicAPIsEvent>(Mode::Hard, [](const int& w, const int& h) { Screen::setScreenSize(w, h); });
+		imgui_context = new ImGuiHandler<GraphicAPIsRendering, GraphicAPIsEvent>(new ImGuiMinesweeperBuilder(), Screen::w, Screen::h);
+		EventHandler::create(event_keys[0], new Event<bool>());
+		EventHandler::add<bool>(event_keys[0], new Subscriber<bool>([](const bool& val) { isRunning = !val; }));
+		EventHandler::create(event_keys[1], new Event<int>());
+		EventHandler::add<int>(event_keys[1], new Subscriber<int>([](const int& val) { imp->processInputs(val); }));
+#endif
+		isRunning = true;
+	}
+
+	/// <summary>
+	/// run
+	/// </summary>
+	template<class GraphicAPIsRendering, class GraphicAPIsEvent>
+	void GameManager<GraphicAPIsRendering, GraphicAPIsEvent>::run()
+	{
+		while (isRunning) {
+			SDL_Event _e;
+			if (SDL_WaitEvent(&_e)) {
+				imgui_context->pollEvents(_e, [](GraphicAPIsEvent& e) { imp->pollEvents(e); });
+				imgui_context->refresh([](GraphicAPIsRendering* renderer) { imp->refresh(renderer, Screen::w, Screen::h); }, Screen::w, Screen::h);
+				imgui_context->draw([](GraphicAPIsRendering* renderer) { imp->draw(renderer); });
+			}
+		}
+	}
+
+	/// <summary>
+	/// destroy
+	/// </summary>
+	template<class GraphicAPIsRendering, class GraphicAPIsEvent>
+	void GameManager<GraphicAPIsRendering, GraphicAPIsEvent>::destroy()
+	{
+		EventHandler::flush();
+		delete imp;
+		imp = nullptr;
+		delete imgui_context;
+		imgui_context = nullptr;
+	}
+
+	/// <summary>
+	/// execute
+	/// </summary>
+	template<class GraphicAPIsRendering, class GraphicAPIsEvent>
+	int GameManager<GraphicAPIsRendering, GraphicAPIsEvent>::execute()
+	{
+		init();
+		run();
+		destroy();
+		return EXIT_SUCCESS;
+	}
+
+	/// <summary>
+	/// exit
+	/// </summary>
+	template<class GraphicAPIsRendering, class GraphicAPIsEvent>
+	void GameManager<GraphicAPIsRendering, GraphicAPIsEvent>::exit()
+	{
+		isRunning = false;
+	}
 }

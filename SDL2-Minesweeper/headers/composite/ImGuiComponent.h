@@ -1,10 +1,9 @@
 #pragma once
 #include "Rect.h"
-
 #include <imgui.h>
+#include <imgui_internal.h>
 #include <imgui_impl_sdl.h>
 #include <imgui_impl_sdlrenderer.h>
-#include <imgui_internal.h>
 
 #ifdef _DEBUG
 #include "../CRTMemoryLeak.h"

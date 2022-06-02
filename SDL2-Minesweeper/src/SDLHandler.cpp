@@ -1,7 +1,6 @@
 #pragma once
 #include "../headers/SDLHandler.h"
 #include "../headers/TextureHandler.h"
-
 #include <iostream>
 
 namespace Toolset {

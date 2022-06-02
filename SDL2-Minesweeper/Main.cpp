@@ -6,5 +6,5 @@
 using namespace Toolset;
 int main(int argc, char* argv[])
 {
-	return Toolset::GameManager::execute();
+	return GameManager<SDL_Renderer, SDL_Event>::execute();
 }

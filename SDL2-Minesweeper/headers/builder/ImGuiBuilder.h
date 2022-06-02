@@ -10,7 +10,7 @@ namespace Toolset {
 		ImGuiBuilder(const ImGuiBuilder&) = delete;
 		ImGuiBuilder(ImGuiBuilder&&) = delete;
 	protected:
-		ImGuiBuilder() {};
+		ImGuiBuilder() = default;
 		virtual void buildApplicationMenu() = 0;
 		virtual void buildGameplayMenu() = 0;
 		virtual void buildGameplayUi() = 0;

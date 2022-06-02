@@ -1,9 +1,8 @@
 #pragma once
-#include "../../headers/ImGuiMinesweeperBuilder.h"
-#include "../../headers/composite/Rect.h"
+#include "../../headers/builder/ImGuiMinesweeperBuilder.h"
+#include "../../headers/composite/components/Tab.h"
 #include "../../headers/composite/components/Entry.h"
 #include "../../headers/composite/components/Frame.h"
-#include "../../headers/composite/components/Tab.h"
 
 #include <vector>
 #include <string>
@@ -13,6 +12,7 @@
 #endif
 
 using namespace std;
+using namespace Toolset;
 namespace Minesweeper {
 	/// <summary>
 	/// static fields
@@ -143,4 +143,4 @@ namespace Minesweeper {
 		builder_parts = new Frame(Rect(0, 0, 0, 0));
 #endif
 	}
-	}
+}
