@@ -1,8 +1,13 @@
 #pragma once
 #include "Rect.h"
 
+#include <imgui.h>
+#include <imgui_impl_sdl.h>
+#include <imgui_impl_sdlrenderer.h>
+#include <imgui_internal.h>
+
 #ifdef _DEBUG
-#include "../../headers/CRTMemoryLeak.h"
+#include "../CRTMemoryLeak.h"
 #endif
 
 using namespace std;
@@ -20,6 +25,7 @@ namespace Toolset {
 	public:
 		ImGuiComponent(const Rect&);
 		virtual ~ImGuiComponent() = 0;
+		virtual void refresh() = 0;
 		virtual int getComponentHeight() = 0;
 		const Rect& getRect() const;
 	};

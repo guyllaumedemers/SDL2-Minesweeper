@@ -18,6 +18,7 @@ namespace Toolset {
 		~ImGuiComplexComponent() = 0;
 		void add(ImGuiComponent*);
 		void remove(ImGuiComponent*);
+		virtual void refresh() override;
 		int getComponentHeight() override;
 	};
 
@@ -55,6 +56,14 @@ namespace Toolset {
 	{
 		vector<ImGuiComponent*>::iterator it = find(components.begin(), components.end(), component);
 		if (it != components.end()) components.erase(it);
+	}
+
+	/// <summary>
+	/// Refresh ImGui
+	/// </summary>
+	void ImGuiComplexComponent::refresh()
+	{
+		for (const auto& it : components) it->refresh();
 	}
 
 	/// <summary>

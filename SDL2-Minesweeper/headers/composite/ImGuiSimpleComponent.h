@@ -10,6 +10,7 @@ namespace Toolset {
 	public:
 		ImGuiSimpleComponent(const Rect&);
 		~ImGuiSimpleComponent();
+		virtual void refresh() = 0;
 		int getComponentHeight() override;
 	};
 
