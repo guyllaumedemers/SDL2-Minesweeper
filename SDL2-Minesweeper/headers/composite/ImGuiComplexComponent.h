@@ -4,7 +4,7 @@
 
 using namespace std;
 namespace Toolset {
-	struct ImGuiComplexComponent : virtual public ImGuiComponent {
+	class ImGuiComplexComponent : virtual public ImGuiComponent {
 	private:
 		/// <summary>
 		/// pointers are required because of the Rect composition dependency during constructor initialization stage

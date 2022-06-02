@@ -8,7 +8,7 @@ namespace Toolset {
 	/// The initializers where class-or-identifier names a virtual base class are ignored during construction of any class that is not the most derived class
 	/// of the object that's being constructed. https://en.cppreference.com/w/cpp/language/constructor
 	/// </summary>
-	struct Button : virtual public ImGuiComplexComponent {
+	class Button : virtual public ImGuiComplexComponent {
 	private:
 		Button(const Button&) = delete;
 		Button(Button&&) = delete;

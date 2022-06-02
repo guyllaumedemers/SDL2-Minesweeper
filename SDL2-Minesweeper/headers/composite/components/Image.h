@@ -5,7 +5,7 @@ namespace Toolset {
 	/// <summary>
 	/// an image is self-explanatory
 	/// </summary>
-	struct Image : virtual public ImGuiSimpleComponent {
+	class Image : virtual public ImGuiSimpleComponent {
 	private:
 		Image(const Image&) = delete;
 		Image(Image&&) = delete;

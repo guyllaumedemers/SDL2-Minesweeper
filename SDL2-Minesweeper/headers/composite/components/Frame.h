@@ -5,7 +5,7 @@ namespace Toolset {
 	/// <summary>
 	/// A frame represent the content area used by ImGui ui components, it can either be screen size or localized
 	/// </summary>
-	struct Frame : virtual public ImGuiComplexComponent {
+	class Frame : virtual public ImGuiComplexComponent {
 	private:
 		Frame(const Frame&) = delete;
 		Frame(Frame&&) = delete;

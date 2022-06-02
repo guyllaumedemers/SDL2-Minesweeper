@@ -3,7 +3,7 @@
 
 using namespace std;
 namespace Toolset {
-	struct Text : virtual public ImGuiSimpleComponent {
+	class Text : virtual public ImGuiSimpleComponent {
 	private:
 		Text(const Text&) = delete;
 		Text(Text&&) = delete;

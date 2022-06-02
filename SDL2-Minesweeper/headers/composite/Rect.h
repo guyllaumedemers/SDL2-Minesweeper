@@ -13,7 +13,6 @@ namespace Toolset {
 		/// deleting constructor in this specific case kinda makes it imposible to organize memory cluster in sequence since ImGuiComponents use pointers,
 		/// this decrease the code efficiency by requiring non-successive memory address access but add flexibility during initialization stage
 		/// </summary>
-		/// <param name=""></param>
 		Rect(const Rect&) = delete;
 		Rect(Rect&&) = delete;
 		Rect() = delete;
