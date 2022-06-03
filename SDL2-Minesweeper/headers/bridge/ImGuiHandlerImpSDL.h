@@ -79,9 +79,7 @@ namespace Toolset {
 		ImGui_ImplSDLRenderer_NewFrame();
 		ImGui_ImplSDL2_NewFrame();
 		ImGui::NewFrame();
-
-		//this->builder_context->build();
-
+		builder_context->build();
 		ImGui::Render();
 		sdl_context->refresh(refresh_callback);
 	}

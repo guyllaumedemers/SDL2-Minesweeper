@@ -1,5 +1,5 @@
 #pragma once
-#include "../game/Mode.h"
+#include "../Mode.h"
 #include "../LevelHandler.h"
 #include "../InputHandler.h"
 

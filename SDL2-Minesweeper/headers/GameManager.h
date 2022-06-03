@@ -2,11 +2,9 @@
 #include "bridge/GameManagerImp.h"
 #include "ImGuiHandler.h"
 #include "EventHandler.h"
-#include "game/Screen.h"
+#include "Screen.h"
+#include "Mode.h"
 #include "builder/ImGuiMinesweeperBuilder.h"
-//#ifdef SDL
-#include <SDL.h>
-//#endif
 
 using namespace Minesweeper;
 namespace Toolset {
@@ -36,17 +34,17 @@ namespace Toolset {
 	template<class GraphicAPIsRendering, class GraphicAPIsEvent>
 	bool GameManager<GraphicAPIsRendering, GraphicAPIsEvent>::isRunning = false;
 
-	static const string event_keys[] = {
-		"onApplicationQuit",
-		"onMouseDown"
-	};
-
 	/// <summary>
 	/// init
 	/// </summary>
 	template<class GraphicAPIsRendering, class GraphicAPIsEvent>
 	void GameManager<GraphicAPIsRendering, GraphicAPIsEvent>::init()
 	{
+		static const string event_keys[] = {
+			"onApplicationQuit",
+			"onMouseDown"
+		};
+
 #ifdef _DEBUG
 		CRTMemoryLeak::init();
 		imp = DBG_NEW GameManagerImp<GraphicAPIsRendering, GraphicAPIsEvent>(Mode::Hard, [](const int& w, const int& h) { Screen::setScreenSize(w, h); });

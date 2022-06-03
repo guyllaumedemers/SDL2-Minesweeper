@@ -52,28 +52,29 @@ namespace Minesweeper {
 
 	void ImGuiMinesweeperBuilder::buildApplicationMenu()
 	{
+		int placeholder = 0;
 #ifdef _DEBUG
 		Tab* game_tab = DBG_NEW Tab(Rect(0, 0, 0, 0), menu_infos[1].c_str());
-		vector<Entry<void*>*> entries =
+		vector<Entry<int>*> entries =
 		{
-			DBG_NEW Entry<void*>(Rect(0,0,0,0), menu_infos[2].c_str(), menu_callbacks[0].c_str(), nullptr),
-			DBG_NEW Entry<void*>(Rect(0,0,0,0), menu_infos[3].c_str(), menu_callbacks[1].c_str(), nullptr),
-			DBG_NEW Entry<void*>(Rect(0,0,0,0), menu_infos[7].c_str(), menu_callbacks[2].c_str(), nullptr)
+			DBG_NEW Entry<int>(Rect(0,0,0,0), menu_infos[2].c_str(), menu_callbacks[0].c_str(), placeholder),
+			DBG_NEW Entry<int>(Rect(0,0,0,0), menu_infos[3].c_str(), menu_callbacks[1].c_str(), placeholder),
+			DBG_NEW Entry<int>(Rect(0,0,0,0), menu_infos[7].c_str(), menu_callbacks[2].c_str(), placeholder)
 		};
 		for (const auto& it : entries) game_tab->add(it);
 		builder_parts->add(game_tab);
-		builder_parts->add(DBG_NEW Entry<void*>(Rect(0, 0, 0, 0), menu_infos[8].c_str(), menu_callbacks[3].c_str(), nullptr));
+		builder_parts->add(DBG_NEW Entry<int>(Rect(0, 0, 0, 0), menu_infos[8].c_str(), menu_callbacks[3].c_str(), placeholder));
 #else	
 		Tab* game_tab = new Tab(Rect(0, 0, 0, 0), menu_infos[1].c_str());
-		vector<Entry<void*>*> entries =
+		vector<Entry<int>*> entries =
 		{
-			new Entry<void*>(Rect(0,0,0,0), menu_infos[2].c_str(), menu_callbacks[0].c_str(), nullptr),
-			new Entry<void*>(Rect(0,0,0,0), menu_infos[3].c_str(), menu_callbacks[1].c_str(), nullptr),
-			new Entry<void*>(Rect(0,0,0,0), menu_infos[7].c_str(), menu_callbacks[2].c_str(), nullptr)
+			new Entry<int>(Rect(0,0,0,0), menu_infos[2].c_str(), menu_callbacks[0].c_str(), placeholder),
+			new Entry<int>(Rect(0,0,0,0), menu_infos[3].c_str(), menu_callbacks[1].c_str(), placeholder),
+			new Entry<int>(Rect(0,0,0,0), menu_infos[7].c_str(), menu_callbacks[2].c_str(), placeholder)
 		};
 		for (const auto& it : entries) game_tab->add(it);
 		builder_parts->add(game_tab);
-		builder_parts->add(new Entry<void*>(Rect(0, 0, 0, 0), menu_infos[8].c_str(), menu_callbacks[3].c_str(), nullptr));
+		builder_parts->add(new Entry<int>(Rect(0, 0, 0, 0), menu_infos[8].c_str(), menu_callbacks[3].c_str(), placeholder));
 #endif
 	}
 
@@ -117,9 +118,6 @@ namespace Minesweeper {
 
 		if (!opt_padding) ImGui::PushStyleVar(ImGuiStyleVar_WindowPadding, ImVec2(0.0f, 0.0f));
 
-		/// <summary>
-		/// imgui window begin
-		/// </summary>
 		ImGui::Begin(menu_infos[0].c_str(), &p_open, window_flags);
 
 		if (!opt_padding)
@@ -129,7 +127,6 @@ namespace Minesweeper {
 			ImGui::PopStyleVar(2);
 
 		builder_parts->refresh();
-
 		ImGui::End();
 	}
 

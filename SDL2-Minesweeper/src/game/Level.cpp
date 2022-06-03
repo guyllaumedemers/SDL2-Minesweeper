@@ -1,6 +1,5 @@
 #pragma once
 #include "../../headers/game/Level.h"
-
 #include <string>
 #include <queue>
 

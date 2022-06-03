@@ -13,32 +13,4 @@ namespace Toolset {
 		~Tab();
 		void refresh() override;
 	};
-
-	/// <summary>
-	/// Constructor overload
-	/// </summary>
-	Tab::Tab(const Rect& rect, const char* name) : ImGuiComplexComponent(rect), ImGuiComponent(rect)
-	{
-		this->name = name;
-	}
-
-	/// <summary>
-	/// Destructor
-	/// </summary>
-	Tab::~Tab()
-	{
-		delete name;
-		name = nullptr;
-	}
-
-	/// <summary>
-	/// Refresh ImGui
-	/// </summary>
-	void Tab::refresh()
-	{
-		if (ImGui::BeginMenu(name)) {
-			ImGuiComplexComponent::refresh();
-			ImGui::EndMenu();
-		}
-	}
 }

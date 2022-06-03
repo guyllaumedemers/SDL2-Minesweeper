@@ -1,9 +1,8 @@
 #pragma once
 #include "Tile.h"
-
-#include <unordered_map>
-#include <vector>
 #include <SDL.h>
+#include <vector>
+#include <unordered_map>
 
 /// <summary>
 /// Using array sequence of tiles to improve efficiency by accessing sequential memory blocks

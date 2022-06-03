@@ -1,19 +1,13 @@
 #pragma once
 #include "../../headers/game/Tile.h"
 #include "../../headers/TextureHandler.h"
+#include <string>
 
 using namespace Toolset;
 namespace Minesweeper {
 	/// <summary>
 	/// Static fields
 	/// </summary>
-	const string Tile::textures[5] = {
-		"Covered",
-		"Uncovered",
-		"Flag",
-		"Bomb",
-		"Hit"
-	};
 	const int Tile::size = 20;
 
 	Tile::Tile() : bitmask(Tilebitmask::Covered), value(0), index(-1)
@@ -36,6 +30,14 @@ namespace Minesweeper {
 
 	void Tile::refresh(SDL_Renderer* renderer)
 	{
+		static const string textures[5] = {
+			"Covered",
+			"Uncovered",
+			"Flag",
+			"Bomb",
+			"Hit"
+		};
+
 		SDL_Texture* temp = nullptr;
 		SDL_SetTextureBlendMode(temp, SDL_BLENDMODE_BLEND);
 
@@ -45,12 +47,12 @@ namespace Minesweeper {
 			/// </summary>
 			/// <param name="renderer"></param>
 			SDL_RenderCopy(renderer,
-				TextureHandler::get(textures[0].c_str()),
+				TextureHandler<SDL_Renderer, SDL_Texture>::get(textures[0].c_str()),
 				NULL,
 				NULL
 			);
 			if ((int)(bitmask & Tilebitmask::Flag)) SDL_RenderCopy(renderer,
-				temp = TextureHandler::get(textures[2].c_str()),
+				temp = TextureHandler<SDL_Renderer, SDL_Texture>::get(textures[2].c_str()),
 				NULL,
 				NULL
 			);
@@ -61,12 +63,12 @@ namespace Minesweeper {
 			/// </summary>
 			/// <param name="renderer"></param>
 			SDL_RenderCopy(renderer,
-				TextureHandler::get(textures[1].c_str()),
+				TextureHandler<SDL_Renderer, SDL_Texture>::get(textures[1].c_str()),
 				NULL,
 				NULL
 			);
 			if ((int)(bitmask & Tilebitmask::Numbered)) SDL_RenderCopy(renderer,
-				temp = TextureHandler::get(to_string(getValue()).c_str()),
+				temp = TextureHandler<SDL_Renderer, SDL_Texture>::get(to_string(getValue()).c_str()),
 				NULL,
 				NULL
 			);
@@ -77,12 +79,12 @@ namespace Minesweeper {
 			/// </summary>
 			/// <param name="renderer"></param>
 			if ((int)(bitmask & Tilebitmask::Hit)) SDL_RenderCopy(renderer,
-				TextureHandler::get(textures[4].c_str()),
+				TextureHandler<SDL_Renderer, SDL_Texture>::get(textures[4].c_str()),
 				NULL,
 				NULL
 			);
 			SDL_RenderCopy(renderer,
-				temp = TextureHandler::get(textures[3].c_str()),
+				temp = TextureHandler<SDL_Renderer, SDL_Texture>::get(textures[3].c_str()),
 				NULL,
 				NULL
 			);

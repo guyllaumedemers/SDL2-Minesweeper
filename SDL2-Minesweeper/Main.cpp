@@ -2,6 +2,9 @@
 //
 #pragma once
 #include "headers/GameManager.h"
+//#ifdef SDL
+#include <SDL.h>
+//#endif
 
 using namespace Toolset;
 int main(int argc, char* argv[])

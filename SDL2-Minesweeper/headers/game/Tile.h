@@ -1,14 +1,11 @@
 #pragma once
 #include "Tilebitmask.h"
-
 #include <SDL.h>
-#include <string>
 
 using namespace std;
 namespace Minesweeper {
 	struct Tile {
 		static const int size;
-		static const string textures[5];
 	private:
 		Tilebitmask bitmask = Tilebitmask::None;
 		int index = -1;

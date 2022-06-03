@@ -15,26 +15,4 @@ namespace Toolset {
 		~Frame();
 		void refresh() override;
 	};
-
-	/// <summary>
-	/// Constructor
-	/// </summary>
-	Frame::Frame(const Rect& rect) : ImGuiComplexComponent(rect), ImGuiComponent(rect)
-	{
-	}
-
-	/// <summary>
-	/// Destructor
-	/// </summary>
-	Frame::~Frame()
-	{
-	}
-
-	/// <summary>
-	/// Refresh ImGui
-	/// </summary>
-	void Frame::refresh()
-	{
-		//Do Something
-	}
 }

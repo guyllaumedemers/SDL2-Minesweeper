@@ -1,6 +1,6 @@
 #pragma once
+#include "Mode.h"
 #include "game/Level.h"
-#include "game/Mode.h"
 //#ifdef SDL
 #include <SDL.h>
 //#endif

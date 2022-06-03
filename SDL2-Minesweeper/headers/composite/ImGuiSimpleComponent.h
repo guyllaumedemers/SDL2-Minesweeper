@@ -13,26 +13,4 @@ namespace Toolset {
 		virtual void refresh() = 0;
 		int getComponentHeight() override;
 	};
-
-	/// <summary>
-	/// Constructor
-	/// </summary>
-	ImGuiSimpleComponent::ImGuiSimpleComponent(const Rect& rect) : ImGuiComponent(rect)
-	{
-	}
-
-	/// <summary>
-	/// Destructor
-	/// </summary>
-	ImGuiSimpleComponent::~ImGuiSimpleComponent()
-	{
-	}
-
-	/// <summary>
-	/// Get component height
-	/// </summary>
-	int ImGuiSimpleComponent::getComponentHeight()
-	{
-		return rect->h;
-	}
 }
