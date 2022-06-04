@@ -52,9 +52,17 @@ namespace Toolset {
 	/// <summary>
 	/// push style variable
 	/// </summary>
-	void Style::push(const ImGuiStyleVar& imgui_style_var, void* val)
+	void Style::push(const ImGuiStyleVar& imgui_style_var, const float& val)
 	{
-		ImGui::PushStyleVar(imgui_style_var, *(float*)val);
+		ImGui::PushStyleVar(imgui_style_var, val);
+	}
+
+	/// <summary>
+	/// push style variable overload
+	/// </summary>
+	void Style::push(const ImGuiStyleVar& imgui_style_var, const ImVec2& val)
+	{
+		ImGui::PushStyleVar(imgui_style_var, val);
 	}
 
 	/// <summary>
