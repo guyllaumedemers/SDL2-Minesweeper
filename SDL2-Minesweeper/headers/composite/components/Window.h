@@ -1,7 +1,9 @@
 #pragma once
 #include "../ImGuiComplexComponent.h"
-#include "Style.h"
 #include "Viewport.h"
+#include "Style.h"
+#include <imgui.h>
+#include <imgui_internal.h>
 
 namespace Toolset {
 	class Window : virtual public ImGuiComplexComponent {
@@ -16,7 +18,7 @@ namespace Toolset {
 	public:
 		Window(const Rect& rect, const char* name, Style*);
 		~Window();
-		void createviewport(const ImVec2&, const ImVec2&, const ImGuiID&);
+		Viewport* getviewport() const;
 		void refresh() override;
 	};
 }

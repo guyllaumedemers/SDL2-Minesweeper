@@ -1,4 +1,6 @@
 #pragma once
+#include "../Rect.h"
+#include "Image.h"
 #include <imgui.h>
 #include <imgui_internal.h>
 
@@ -8,14 +10,16 @@
 namespace Toolset {
 	class Viewport {
 	private:
-		ImGuiID work_id;
 		ImVec2 work_pos;
 		ImVec2 work_size;
+		Image* texture_viewport = nullptr;
 		Viewport(const Viewport&) = delete;
 		Viewport(Viewport&&) = delete;
-		Viewport();
+		Viewport() = delete;
 	public:
-		Viewport(const ImVec2&, const ImVec2&, const ImGuiID&);
+		Viewport(const Rect&);
 		~Viewport();
+		void setviewport(const ImTextureID&, const ImGuiID&);
+		void refresh();
 	};
 }

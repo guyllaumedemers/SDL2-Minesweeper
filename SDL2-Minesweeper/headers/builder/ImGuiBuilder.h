@@ -1,6 +1,5 @@
 #pragma once
 #include "IBuilder.h"
-#include "../composite/Rect.h"
 
 namespace Toolset {
 	/// <summary>

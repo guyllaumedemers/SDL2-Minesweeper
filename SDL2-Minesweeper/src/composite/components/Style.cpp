@@ -1,6 +1,5 @@
 #pragma once
 #include "../../../headers/composite/components/Style.h"
-#include <typeinfo>
 
 namespace Toolset {
 	/// <summary>

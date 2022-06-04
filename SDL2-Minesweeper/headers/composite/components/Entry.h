@@ -1,6 +1,8 @@
 #pragma once
 #include "../ImGuiSimpleComponent.h"
 #include "../../EventHandler.h"
+#include <imgui.h>
+#include <imgui_internal.h>
 
 #ifdef _DEBUG
 #include "../../CRTMemoryLeak.h"

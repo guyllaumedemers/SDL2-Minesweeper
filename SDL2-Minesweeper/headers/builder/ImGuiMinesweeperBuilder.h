@@ -5,11 +5,16 @@
 #include "../../headers/composite/components/Entry.h"
 #include "../../headers/composite/components/Window.h"
 #include "../../headers/Mode.h"
+#include "../SDLHandler.h"
 #include "../Screen.h"
+
+#include <imgui.h>
+#include <imgui_internal.h>
+#include <imgui_impl_sdl.h>
+#include <imgui_impl_sdlrenderer.h>
 
 #include <vector>
 #include <string>
-#include <SDL.h>
 
 #ifdef _DEBUG
 #include "../../headers/CRTMemoryLeak.h"
@@ -128,18 +133,20 @@ namespace Minesweeper {
 	void ImGuiMinesweeperBuilder<GraphicAPIsContext>::buildGameplayUi(GraphicAPIsContext* sdl_context)
 	{
 		const ImGuiViewport* viewport = ImGui::GetMainViewport();
-		ImGui::SetNextWindowPos(ImVec2(viewport->WorkPos.x, viewport->WorkPos.y + ImGui::GetFrameHeightWithSpacing()));
-		SDL_Texture* rendererTexture = SDL_CreateTexture(dynamic_cast<SDLHandler*>(sdl_context)->renderer, SDL_PIXELFORMAT_RGBA8888, SDL_TEXTUREACCESS_TARGET, Screen::w, Screen::h);
-		ImGui::Image((ImTextureID)rendererTexture, ImVec2(Screen::w, Screen::h));
-		rendererTexture = nullptr;
+		SDLHandler* handler_ctx = static_cast<SDLHandler*>(sdl_context);
+		int w = Screen::w;
+		int h = Screen::h;
+		SDL_Texture* texture_id = SDL_CreateTexture(handler_ctx->renderer, SDL_PIXELFORMAT_RGBA8888, SDL_TEXTUREACCESS_TARGET, w, h);
+		dynamic_cast<Window*>(builder_parts)->getviewport()->setviewport((ImTextureID)texture_id, viewport->ID);
+		texture_id = nullptr;
 	}
 
 	template<class GraphicAPIsContext>
 	void ImGuiMinesweeperBuilder<GraphicAPIsContext>::build(GraphicAPIsContext* sdl_context)
 	{
-		builder_parts->refresh();
 		buildGameplayMenu(sdl_context);
 		buildGameplayUi(sdl_context);
+		builder_parts->refresh();
 	}
 
 	template<class GraphicAPIsContext>
@@ -151,16 +158,18 @@ namespace Minesweeper {
 		bool opt_fullscreen = true;
 		bool opt_padding = false;
 		ImGuiWindowFlags window_flags = ImGuiWindowFlags_None;
+		int w = Screen::w;
+		int h = Screen::h;
 
 #ifdef _DEBUG
 		builder_parts = DBG_NEW Window(
-			Rect(0, 0, 0, 0),
+			Rect(0, 0, w, h),
 			menu_infos[0].c_str(),
 			DBG_NEW Style(window_flags, opt_fullscreen, opt_padding)
 		);
 #else
 		builder_parts = new Window(
-			Rect(0, 0, 0, 0),
+			Rect(0, 0, w, h),
 			menu_infos[0].c_str(),
 			new Style(window_flags, opt_fullscreen, opt_padding)
 		);

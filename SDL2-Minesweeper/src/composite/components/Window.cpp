@@ -1,5 +1,7 @@
 #pragma once
 #include "../../../headers/composite/components/Window.h"
+#include <imgui.h>
+#include <imgui_internal.h>
 
 #ifdef _DEBUG
 #include "../../../headers/CRTMemoryLeak.h"
@@ -12,6 +14,11 @@ namespace Toolset {
 	Window::Window(const Rect& rect, const char* name, Style* window_style) : ImGuiComplexComponent(rect), ImGuiComponent(rect), name(name), window_style(window_style)
 	{
 		this->p_open = true;
+#ifdef _DEBUG
+		this->window_viewport = DBG_NEW Viewport(rect);
+#else
+		this->window_viewport = new Viewport(rect);
+#endif
 	}
 
 	/// <summary>
@@ -24,18 +31,11 @@ namespace Toolset {
 	}
 
 	/// <summary>
-	/// set viewport
+	/// return the viewport instance
 	/// </summary>
-	void Window::createviewport(const ImVec2& work_pos, const ImVec2& work_size, const ImGuiID& work_id)
+	Viewport* Window::getviewport() const
 	{
-		delete window_viewport;
-		window_viewport = nullptr;
-
-#ifdef _DEBUG
-		window_viewport = DBG_NEW Viewport(work_pos, work_size, work_id);
-#else	
-		window_viewport = new Viewport(work_pos, work_size, work_id);
-#endif
+		return window_viewport;
 	}
 
 	/// <summary>
@@ -43,11 +43,9 @@ namespace Toolset {
 	/// </summary>
 	void Window::refresh()
 	{
-		window_style->add(ImGuiWindowFlags_MenuBar | ImGuiWindowFlags_NoDocking);
+		window_style->add(ImGuiWindowFlags_MenuBar | ImGuiWindowFlags_NoDocking | ImGuiWindowFlags_NoDecoration);
 		if (window_style->getfullscreen()) {
 
-			const ImGuiViewport* viewport = ImGui::GetMainViewport();
-			createviewport(viewport->WorkPos, viewport->WorkSize, viewport->ID);
 			window_style->push(ImGuiStyleVar_WindowRounding, 0.0f);
 			window_style->push(ImGuiStyleVar_WindowBorderSize, 0.0f);
 			window_style->add(ImGuiWindowFlags_NoTitleBar | ImGuiWindowFlags_NoCollapse | ImGuiWindowFlags_NoResize | ImGuiWindowFlags_NoMove);
@@ -63,6 +61,7 @@ namespace Toolset {
 				ImGuiComplexComponent::refresh();
 				ImGui::EndMenuBar();
 			}
+			window_viewport->refresh();
 			ImGui::End();
 		}
 	}

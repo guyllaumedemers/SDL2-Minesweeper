@@ -1,5 +1,7 @@
 #pragma once
 #include "../../../headers/composite/components/Tab.h"
+#include <imgui.h>
+#include <imgui_internal.h>
 
 namespace Toolset {
 	/// <summary>
