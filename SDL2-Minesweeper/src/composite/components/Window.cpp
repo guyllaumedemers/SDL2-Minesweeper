@@ -24,6 +24,8 @@ namespace Toolset {
 	/// </summary>
 	void Window::refresh()
 	{
+		static float rounding_val = 0.0f;
+		static float border_val = 0.0f;
 		window_style->add(ImGuiWindowFlags_MenuBar | ImGuiWindowFlags_NoDocking);
 		if (window_style->getfullscreen()) {
 
@@ -31,8 +33,8 @@ namespace Toolset {
 			ImGui::SetNextWindowPos(viewport->WorkPos);
 			ImGui::SetNextWindowSize(viewport->WorkSize);
 			ImGui::SetNextWindowViewport(viewport->ID);
-			ImGui::PushStyleVar(ImGuiStyleVar_WindowRounding, 0.0f);
-			ImGui::PushStyleVar(ImGuiStyleVar_WindowBorderSize, 0.0f);
+			window_style->push(ImGuiStyleVar_WindowRounding, (void*)&rounding_val);
+			window_style->push(ImGuiStyleVar_WindowBorderSize, (void*)&border_val);
 			window_style->add(ImGuiWindowFlags_NoTitleBar | ImGuiWindowFlags_NoCollapse | ImGuiWindowFlags_NoResize | ImGuiWindowFlags_NoMove);
 			window_style->add(ImGuiWindowFlags_NoBringToFrontOnFocus | ImGuiWindowFlags_NoNavFocus | ImGuiWindowFlags_NoScrollbar);
 		}
@@ -40,8 +42,8 @@ namespace Toolset {
 		if (!window_style->getpadding()) ImGui::PushStyleVar(ImGuiStyleVar_WindowPadding, ImVec2(0.0f, 0.0f));
 
 		if (ImGui::Begin(name, &p_open, window_style->getwindowFlags())) {
-			if (!window_style->getpadding()) ImGui::PopStyleVar();
-			if (window_style->getfullscreen()) ImGui::PopStyleVar(2);
+			if (!window_style->getpadding()) window_style->pop();
+			if (window_style->getfullscreen()) window_style->pop(2);
 			if (ImGui::BeginMenuBar()) {
 				ImGuiComplexComponent::refresh();
 				ImGui::EndMenuBar();

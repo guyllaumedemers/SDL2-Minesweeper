@@ -19,6 +19,8 @@ namespace Toolset {
 		void remove(const ImGuiWindowFlags&);
 		bool getfullscreen();
 		bool getpadding();
+		void push(const ImGuiStyleVar&, void*);
+		void pop(const int& = 1);
 		const ImGuiWindowFlags& getwindowFlags() const;
 	};
 }

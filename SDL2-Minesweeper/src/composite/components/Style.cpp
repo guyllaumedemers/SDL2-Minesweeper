@@ -1,5 +1,6 @@
 #pragma once
 #include "../../../headers/composite/components/Style.h"
+#include <typeinfo>
 
 namespace Toolset {
 	/// <summary>
@@ -46,6 +47,22 @@ namespace Toolset {
 	bool Style::getpadding()
 	{
 		return opt_padding;
+	}
+
+	/// <summary>
+	/// push style variable
+	/// </summary>
+	void Style::push(const ImGuiStyleVar& imgui_style_var, void* val)
+	{
+		ImGui::PushStyleVar(imgui_style_var, *(float*)val);
+	}
+
+	/// <summary>
+	/// pop style variable
+	/// </summary>
+	void Style::pop(const int& val)
+	{
+		ImGui::PopStyleVar(val);
 	}
 
 	/// <summary>
