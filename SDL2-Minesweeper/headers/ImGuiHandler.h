@@ -1,7 +1,7 @@
 #pragma once
 #include "bridge/ImGuiHandlerImp.h"
 #include "bridge/ImGuiHandlerImpSDL.h"
-#include "builder/ImGuiBuilder.h"
+#include "builder/IBuilder.h"
 #include <type_traits>
 //#ifdef SDL
 #include <SDL.h>
@@ -20,7 +20,7 @@ namespace Toolset {
 		ImGuiHandler(const ImGuiHandler&) = delete;
 		ImGuiHandler(ImGuiHandler&&) = delete;
 	public:
-		ImGuiHandler(ImGuiBuilder*, const int&, const int&);
+		ImGuiHandler(IBuilder*, const int&, const int&);
 		~ImGuiHandler();
 		void pollEvents(GraphicAPIsEvent&, void(*)(GraphicAPIsEvent&));
 		void refresh(void (*)(GraphicAPIsRendering*), const int&, const int&);
@@ -31,7 +31,7 @@ namespace Toolset {
 	/// Constructor
 	/// </summary>
 	template<class GraphicAPIsRendering, class GraphicAPIsEvent>
-	ImGuiHandler<GraphicAPIsRendering, GraphicAPIsEvent>::ImGuiHandler(ImGuiBuilder* builder, const int& w, const int& h)
+	ImGuiHandler<GraphicAPIsRendering, GraphicAPIsEvent>::ImGuiHandler(IBuilder* builder, const int& w, const int& h)
 	{
 #ifdef _DEBUG
 		//#ifdef SDL

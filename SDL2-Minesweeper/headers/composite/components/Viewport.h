@@ -8,9 +8,9 @@
 namespace Toolset {
 	class Viewport {
 	private:
+		ImGuiID work_id;
 		ImVec2 work_pos;
 		ImVec2 work_size;
-		ImGuiID work_id;
 		Viewport(const Viewport&) = delete;
 		Viewport(Viewport&&) = delete;
 		Viewport();

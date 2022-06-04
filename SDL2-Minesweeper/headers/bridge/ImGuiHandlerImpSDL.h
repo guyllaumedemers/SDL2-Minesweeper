@@ -19,7 +19,7 @@ namespace Toolset {
 		ImGuiHandlerImpSDL(ImGuiHandlerImpSDL&&) = delete;
 		ImGuiHandlerImpSDL() = delete;
 	public:
-		ImGuiHandlerImpSDL(ImGuiBuilder*, const int&, const int&);
+		ImGuiHandlerImpSDL(IBuilder*, const int&, const int&);
 		~ImGuiHandlerImpSDL();
 		void pollEvents(GraphicAPIsEvent&, void(*)(GraphicAPIsEvent&)) override;
 		void refresh(void (*)(GraphicAPIsRendering*), const int&, const int&) override;
@@ -30,7 +30,7 @@ namespace Toolset {
 	/// Constructor
 	/// </summary>
 	template<class GraphicAPIsRendering, class GraphicAPIsEvent>
-	ImGuiHandlerImpSDL<GraphicAPIsRendering, GraphicAPIsEvent>::ImGuiHandlerImpSDL(ImGuiBuilder* builder_context, const int& w, const int& h) : ImGuiHandlerImp<GraphicAPIsRendering, GraphicAPIsEvent>(builder_context)
+	ImGuiHandlerImpSDL<GraphicAPIsRendering, GraphicAPIsEvent>::ImGuiHandlerImpSDL(IBuilder* builder_context, const int& w, const int& h) : ImGuiHandlerImp<GraphicAPIsRendering, GraphicAPIsEvent>(builder_context)
 	{
 #ifdef _DEBUG
 		sdl_context = DBG_NEW SDLHandler(w, h);
@@ -79,7 +79,7 @@ namespace Toolset {
 		ImGui_ImplSDLRenderer_NewFrame();
 		ImGui_ImplSDL2_NewFrame();
 		ImGui::NewFrame();
-		builder_context->build();
+		dynamic_cast<ImGuiBuilder<SDLHandler>*>(builder_context)->build(sdl_context);
 		ImGui::Render();
 		sdl_context->refresh(refresh_callback);
 	}

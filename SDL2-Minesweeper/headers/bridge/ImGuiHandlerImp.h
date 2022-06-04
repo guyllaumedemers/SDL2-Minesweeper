@@ -1,5 +1,5 @@
 #pragma once
-#include "../builder/ImGuiBuilder.h"
+#include "../builder/IBuilder.h"
 
 using namespace std;
 namespace Toolset {
@@ -13,8 +13,8 @@ namespace Toolset {
 		ImGuiHandlerImp(ImGuiHandlerImp&&) = delete;
 		ImGuiHandlerImp() = delete;
 	protected:
-		ImGuiBuilder* builder_context = nullptr;
-		ImGuiHandlerImp(ImGuiBuilder*);
+		IBuilder* builder_context = nullptr;
+		ImGuiHandlerImp(IBuilder*);
 	public:
 		virtual ~ImGuiHandlerImp() = 0;
 		virtual void pollEvents(GraphicAPIsEvent&, void(*)(GraphicAPIsEvent&)) = 0;
@@ -26,7 +26,7 @@ namespace Toolset {
 	/// Constructor
 	/// </summary>
 	template<class GraphicAPIsRendering, class GraphicAPIsEvent>
-	ImGuiHandlerImp<GraphicAPIsRendering, GraphicAPIsEvent>::ImGuiHandlerImp(ImGuiBuilder* builder_context) : builder_context(builder_context)
+	ImGuiHandlerImp<GraphicAPIsRendering, GraphicAPIsEvent>::ImGuiHandlerImp(IBuilder* builder_context) : builder_context(builder_context)
 	{
 	}
 

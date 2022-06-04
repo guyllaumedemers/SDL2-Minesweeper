@@ -52,14 +52,14 @@ namespace Toolset {
 #ifdef _DEBUG
 		CRTMemoryLeak::init();
 		imp = DBG_NEW GameManagerImp<GraphicAPIsRendering, GraphicAPIsEvent>(Mode::Hard, [](const int& w, const int& h) { Screen::setScreenSize(w, h); });
-		imgui_context = DBG_NEW ImGuiHandler<GraphicAPIsRendering, GraphicAPIsEvent>(DBG_NEW ImGuiMinesweeperBuilder(), Screen::w, Screen::h);
+		imgui_context = DBG_NEW ImGuiHandler<GraphicAPIsRendering, GraphicAPIsEvent>(DBG_NEW ImGuiMinesweeperBuilder<SDLHandler>(), Screen::w, Screen::h);
 		EventHandler::create(event_keys[0], DBG_NEW Event<bool>());
 		EventHandler::add<bool>(event_keys[0], DBG_NEW Subscriber<bool>([](const bool& val) { isRunning = !val; }));
 		EventHandler::create(event_keys[1], DBG_NEW Event<int>());
 		EventHandler::add<int>(event_keys[1], DBG_NEW Subscriber<int>([](const int& val) { imp->processInputs(val); }));
 #else		
 		imp = new GameManagerImp<GraphicAPIsRendering, GraphicAPIsEvent>(Mode::Hard, [](const int& w, const int& h) { Screen::setScreenSize(w, h); });
-		imgui_context = new ImGuiHandler<GraphicAPIsRendering, GraphicAPIsEvent>(new ImGuiMinesweeperBuilder(), Screen::w, Screen::h);
+		imgui_context = new ImGuiHandler<GraphicAPIsRendering, GraphicAPIsEvent>(new ImGuiMinesweeperBuilder<SDLHandler>(), Screen::w, Screen::h);
 		EventHandler::create(event_keys[0], new Event<bool>());
 		EventHandler::add<bool>(event_keys[0], new Subscriber<bool>([](const bool& val) { isRunning = !val; }));
 		EventHandler::create(event_keys[1], new Event<int>());
