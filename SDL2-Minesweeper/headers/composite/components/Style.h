@@ -15,6 +15,8 @@ namespace Toolset {
 	public:
 		Style(const ImGuiWindowFlags&, const bool&, const bool&);
 		~Style();
+		void add(const ImGuiWindowFlags&);
+		void remove(const ImGuiWindowFlags&);
 		bool getfullscreen();
 		bool getpadding();
 		const ImGuiWindowFlags& getwindowFlags() const;

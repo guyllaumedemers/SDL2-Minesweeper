@@ -107,7 +107,7 @@ namespace Minesweeper {
 
 		bool opt_fullscreen = true;
 		bool opt_padding = false;
-		ImGuiWindowFlags window_flags = ImGuiWindowFlags_MenuBar | ImGuiWindowFlags_NoDocking;
+		ImGuiWindowFlags window_flags = ImGuiWindowFlags_None;
 
 #ifdef _DEBUG
 		builder_parts = DBG_NEW Window(

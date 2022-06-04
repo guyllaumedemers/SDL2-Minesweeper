@@ -17,6 +17,22 @@ namespace Toolset {
 	}
 
 	/// <summary>
+	/// add style to bitmask
+	/// </summary>
+	void Style::add(const ImGuiWindowFlags& imgui_window_flag)
+	{
+		window_flags |= imgui_window_flag;
+	}
+
+	/// <summary>
+	/// remove style from bitmask
+	/// </summary>
+	void Style::remove(const ImGuiWindowFlags& imgui_window_flag)
+	{
+		window_flags &= ~imgui_window_flag;
+	}
+
+	/// <summary>
 	/// get window fullscreen opt
 	/// </summary>
 	bool Style::getfullscreen()
