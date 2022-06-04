@@ -15,8 +15,6 @@ namespace Toolset {
 	/// </summary>
 	Tab::~Tab()
 	{
-		delete name;
-		name = nullptr;
 	}
 
 	/// <summary>

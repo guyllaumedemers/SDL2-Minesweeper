@@ -3,7 +3,6 @@
 #include "../EventHandler.h"
 #include <string>
 #include <SDL.h>
-#include <iostream>
 
 using namespace std;
 namespace Toolset {
@@ -49,7 +48,6 @@ namespace Toolset {
 		switch (e.type)
 		{
 		case SDL_QUIT:
-			cout << "process input " << endl;
 			EventHandler::invoke<bool>(keys[0], true);
 			break;
 		case SDL_MOUSEBUTTONDOWN:

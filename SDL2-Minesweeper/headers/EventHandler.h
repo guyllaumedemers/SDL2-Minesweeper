@@ -27,7 +27,7 @@ namespace Toolset {
 	template<class T>
 	void EventHandler::add(string key, ISubscriber* subscriber)
 	{
-		if (pool_event.find(key) != pool_event.end()) dynamic_cast<Event<T>&>(*pool_event[key]).add(subscriber);
+		if (pool_event.find(key) != pool_event.end()) dynamic_cast<Event<T>*>(pool_event[key])->add(subscriber);
 	}
 
 	/// <summary>
@@ -36,7 +36,7 @@ namespace Toolset {
 	template<class T>
 	void EventHandler::remove(string key, ISubscriber* subscriber)
 	{
-		if (pool_event.find(key) != pool_event.end()) dynamic_cast<Event<T>&>(*pool_event[key]).remove(subscriber);
+		if (pool_event.find(key) != pool_event.end()) dynamic_cast<Event<T>*>(pool_event[key])->remove(subscriber);
 	}
 
 	/// <summary>
@@ -45,6 +45,6 @@ namespace Toolset {
 	template<class T>
 	void EventHandler::invoke(string key, const T& data)
 	{
-		if (pool_event.find(key) != pool_event.end()) dynamic_cast<Event<T>&>(*pool_event[key]).invoke(data);
+		if (pool_event.find(key) != pool_event.end()) dynamic_cast<Event<T>*>(pool_event[key])->invoke(data);
 	}
 }

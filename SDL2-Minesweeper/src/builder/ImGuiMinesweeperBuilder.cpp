@@ -52,35 +52,33 @@ namespace Minesweeper {
 
 	void ImGuiMinesweeperBuilder::buildApplicationMenu()
 	{
-		int placeholder = 0;
-#ifdef _DEBUG
-		Tab* game_tab = DBG_NEW Tab(Rect(0, 0, 0, 0), menu_infos[1].c_str());
-		vector<Entry<int>*> entries =
-		{
-			DBG_NEW Entry<int>(Rect(0,0,0,0), menu_infos[2].c_str(), menu_callbacks[0].c_str(), placeholder),
-			DBG_NEW Entry<int>(Rect(0,0,0,0), menu_infos[3].c_str(), menu_callbacks[1].c_str(), placeholder),
-			DBG_NEW Entry<int>(Rect(0,0,0,0), menu_infos[7].c_str(), menu_callbacks[2].c_str(), placeholder)
-		};
-		for (const auto& it : entries) game_tab->add(it);
-		builder_parts->add(game_tab);
-		builder_parts->add(DBG_NEW Entry<int>(Rect(0, 0, 0, 0), menu_infos[8].c_str(), menu_callbacks[3].c_str(), placeholder));
-#else	
-		Tab* game_tab = new Tab(Rect(0, 0, 0, 0), menu_infos[1].c_str());
-		vector<Entry<int>*> entries =
-		{
-			new Entry<int>(Rect(0,0,0,0), menu_infos[2].c_str(), menu_callbacks[0].c_str(), placeholder),
-			new Entry<int>(Rect(0,0,0,0), menu_infos[3].c_str(), menu_callbacks[1].c_str(), placeholder),
-			new Entry<int>(Rect(0,0,0,0), menu_infos[7].c_str(), menu_callbacks[2].c_str(), placeholder)
-		};
-		for (const auto& it : entries) game_tab->add(it);
-		builder_parts->add(game_tab);
-		builder_parts->add(new Entry<int>(Rect(0, 0, 0, 0), menu_infos[8].c_str(), menu_callbacks[3].c_str(), placeholder));
-#endif
 	}
 
 	void ImGuiMinesweeperBuilder::buildGameplayMenu()
 	{
-		//Display Timer and Game Reset Button
+#ifdef _DEBUG
+		Tab* game_tab = DBG_NEW Tab(Rect(0, 0, 0, 0), menu_infos[1].c_str());
+		vector<Entry<void*>*> entries =
+		{
+			DBG_NEW Entry<void*>(Rect(0,0,0,0), menu_infos[2].c_str(), menu_callbacks[0].c_str(), nullptr),
+			DBG_NEW Entry<void*>(Rect(0,0,0,0), menu_infos[3].c_str(), menu_callbacks[1].c_str(), nullptr),
+			DBG_NEW Entry<void*>(Rect(0,0,0,0), menu_infos[7].c_str(), menu_callbacks[2].c_str(), nullptr)
+		};
+		for (const auto& it : entries) game_tab->add(it);
+		builder_parts->add(game_tab);
+		builder_parts->add(DBG_NEW Entry<void*>(Rect(0, 0, 0, 0), menu_infos[8].c_str(), menu_callbacks[3].c_str(), nullptr));
+#else	
+		Tab* game_tab = new Tab(Rect(0, 0, 0, 0), menu_infos[1].c_str());
+		vector<Entry<void*>*> entries =
+		{
+			new Entryvoid* > (Rect(0,0,0,0), menu_infos[2].c_str(), menu_callbacks[0].c_str(), nullptr),
+			new Entryvoid* > (Rect(0,0,0,0), menu_infos[3].c_str(), menu_callbacks[1].c_str(), nullptr),
+			new Entryvoid* > (Rect(0,0,0,0), menu_infos[7].c_str(), menu_callbacks[2].c_str(), nullptr)
+		};
+		for (const auto& it : entries) game_tab->add(it);
+		builder_parts->add(game_tab);
+		builder_parts->add(new Entry<void*>(Rect(0, 0, 0, 0), menu_infos[8].c_str(), menu_callbacks[3].c_str(), nullptr));
+#endif
 	}
 
 	void ImGuiMinesweeperBuilder::buildGameplayUi()

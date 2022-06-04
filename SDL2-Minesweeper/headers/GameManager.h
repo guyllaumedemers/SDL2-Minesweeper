@@ -6,6 +6,10 @@
 #include "Mode.h"
 #include "builder/ImGuiMinesweeperBuilder.h"
 
+#ifdef _DEBUG
+#include "CRTMemoryLeak.h"
+#endif
+
 using namespace Minesweeper;
 namespace Toolset {
 	template<class GraphicAPIsRendering, class GraphicAPIsEvent>
@@ -113,4 +117,4 @@ namespace Toolset {
 	{
 		isRunning = false;
 	}
-}
+	}

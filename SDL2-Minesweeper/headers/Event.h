@@ -33,10 +33,10 @@ namespace Toolset {
 	template<class T>
 	Event<T>::~Event()
 	{
-		for (auto i = subscribers.size() - 1; i >= 0; --i) {
+		/*for (auto i = subscribers.size() - 1; i >= 0; --i) {
 			delete subscribers[i];
 			subscribers[i] = nullptr;
-		}
+		}*/
 		subscribers.clear();
 	}
 
@@ -65,6 +65,6 @@ namespace Toolset {
 	template<class T>
 	void Event<T>::invoke(const T& data)
 	{
-		for (auto i = subscribers.size() - 1; i >= 0; --i) dynamic_cast<Subscriber<T>&>(*subscribers[i]).invoke(data);
+		for (int i = subscribers.size() - 1; i >= 0; --i) dynamic_cast<Subscriber<T>*>(subscribers[i])->invoke(data);
 	}
 }

@@ -51,6 +51,8 @@ namespace Toolset {
 	{
 		delete level_context;
 		level_context = nullptr;
+		delete input_context;
+		input_context = nullptr;
 	}
 
 	/// <summary>

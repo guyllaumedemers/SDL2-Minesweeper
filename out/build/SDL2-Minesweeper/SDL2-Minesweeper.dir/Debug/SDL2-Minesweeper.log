@@ -1,2 +1,66 @@
 ﻿  Main.cpp
+D:\VisualStudio\SDL2\SDL2-GameDevCMake\SDL2-Minesweeper\SDL2-Minesweeper\headers\Event.h(68,1): warning C4267: 'initializing': conversion from 'size_t' to 'int', possible loss of data
+D:\VisualStudio\SDL2\SDL2-GameDevCMake\SDL2-Minesweeper\SDL2-Minesweeper\headers\Event.h(67): message : while compiling class template member function 'void Toolset::Event<bool>::invoke(const T &)'
+          with
+          [
+              T=bool
+          ]
+D:\VisualStudio\SDL2\SDL2-GameDevCMake\SDL2-Minesweeper\SDL2-Minesweeper\headers\bridge\../EventHandler.h(48): message : see reference to function template instantiation 'void Toolset::Event<bool>::invoke(const T &)' being compiled
+          with
+          [
+              T=bool
+          ]
+D:\VisualStudio\SDL2\SDL2-GameDevCMake\SDL2-Minesweeper\SDL2-Minesweeper\headers\bridge/InputHandlerImpSDL.h(51): message : see reference to function template instantiation 'void Toolset::EventHandler::invoke<bool>(std::string,const T &)' being compiled
+          with
+          [
+              T=bool
+          ]
+D:\VisualStudio\SDL2\SDL2-GameDevCMake\SDL2-Minesweeper\SDL2-Minesweeper\headers\bridge/InputHandlerImpSDL.h(42): message : while compiling class template member function 'void Toolset::InputHandlerImpSDL<GraphicAPIsEvent>::pollEvents(GraphicAPIsEvent &)'
+          with
+          [
+              GraphicAPIsEvent=SDL_Event
+          ]
+D:\VisualStudio\SDL2\SDL2-GameDevCMake\SDL2-Minesweeper\SDL2-Minesweeper\headers\bridge\../InputHandler.h(36): message : see reference to class template instantiation 'Toolset::InputHandlerImpSDL<GraphicAPIsEvent>' being compiled
+          with
+          [
+              GraphicAPIsEvent=SDL_Event
+          ]
+D:\VisualStudio\SDL2\SDL2-GameDevCMake\SDL2-Minesweeper\SDL2-Minesweeper\headers\bridge\../InputHandler.h(32): message : while compiling class template member function 'Toolset::InputHandler<GraphicAPIsEvent>::InputHandler(void)'
+          with
+          [
+              GraphicAPIsEvent=SDL_Event
+          ]
+D:\VisualStudio\SDL2\SDL2-GameDevCMake\SDL2-Minesweeper\SDL2-Minesweeper\headers\bridge/GameManagerImp.h(36): message : see reference to function template instantiation 'Toolset::InputHandler<GraphicAPIsEvent>::InputHandler(void)' being compiled
+          with
+          [
+              GraphicAPIsEvent=SDL_Event
+          ]
+D:\VisualStudio\SDL2\SDL2-GameDevCMake\SDL2-Minesweeper\SDL2-Minesweeper\headers\bridge/GameManagerImp.h(36): message : see reference to class template instantiation 'Toolset::InputHandler<GraphicAPIsEvent>' being compiled
+          with
+          [
+              GraphicAPIsEvent=SDL_Event
+          ]
+D:\VisualStudio\SDL2\SDL2-GameDevCMake\SDL2-Minesweeper\SDL2-Minesweeper\headers\bridge/GameManagerImp.h(33): message : while compiling class template member function 'Toolset::GameManagerImp<GraphicAPIsRendering,GraphicAPIsEvent>::GameManagerImp(const Toolset::Mode &,void (__cdecl *)(const int &,const int &))'
+          with
+          [
+              GraphicAPIsRendering=SDL_Renderer,
+              GraphicAPIsEvent=SDL_Event
+          ]
+D:\VisualStudio\SDL2\SDL2-GameDevCMake\SDL2-Minesweeper\SDL2-Minesweeper\headers/GameManager.h(54): message : see reference to function template instantiation 'Toolset::GameManagerImp<GraphicAPIsRendering,GraphicAPIsEvent>::GameManagerImp(const Toolset::Mode &,void (__cdecl *)(const int &,const int &))' being compiled
+          with
+          [
+              GraphicAPIsRendering=SDL_Renderer,
+              GraphicAPIsEvent=SDL_Event
+          ]
+D:\VisualStudio\SDL2\SDL2-GameDevCMake\SDL2-Minesweeper\SDL2-Minesweeper\headers/GameManager.h(54): message : see reference to class template instantiation 'Toolset::GameManagerImp<GraphicAPIsRendering,GraphicAPIsEvent>' being compiled
+          with
+          [
+              GraphicAPIsRendering=SDL_Renderer,
+              GraphicAPIsEvent=SDL_Event
+          ]
+D:\VisualStudio\SDL2\SDL2-GameDevCMake\SDL2-Minesweeper\SDL2-Minesweeper\headers/GameManager.h(46): message : while compiling class template member function 'void Toolset::GameManager<SDL_Renderer,SDL_Event>::init(void)'
+D:\VisualStudio\SDL2\SDL2-GameDevCMake\SDL2-Minesweeper\SDL2-Minesweeper\headers/GameManager.h(106): message : see reference to function template instantiation 'void Toolset::GameManager<SDL_Renderer,SDL_Event>::init(void)' being compiled
+D:\VisualStudio\SDL2\SDL2-GameDevCMake\SDL2-Minesweeper\SDL2-Minesweeper\headers/GameManager.h(105): message : while compiling class template member function 'int Toolset::GameManager<SDL_Renderer,SDL_Event>::execute(void)'
+D:\VisualStudio\SDL2\SDL2-GameDevCMake\SDL2-Minesweeper\SDL2-Minesweeper\Main.cpp(12): message : see reference to function template instantiation 'int Toolset::GameManager<SDL_Renderer,SDL_Event>::execute(void)' being compiled
+D:\VisualStudio\SDL2\SDL2-GameDevCMake\SDL2-Minesweeper\SDL2-Minesweeper\Main.cpp(12): message : see reference to class template instantiation 'Toolset::GameManager<SDL_Renderer,SDL_Event>' being compiled
   SDL2-Minesweeper.vcxproj -> D:\VisualStudio\SDL2\SDL2-GameDevCMake\SDL2-Minesweeper\out\build\Debug\SDL2-Minesweeper.exe

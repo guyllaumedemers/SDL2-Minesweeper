@@ -20,11 +20,10 @@ namespace Toolset {
 	/// </summary>
 	void EventHandler::destroy(string key)
 	{
-		if (pool_event.find(key) != pool_event.end()) {
-			delete pool_event[key];
-			pool_event[key] = nullptr;
-			pool_event.erase(key);
-		}
+		/// <summary>
+		/// erase call the destructor of each entry between first, last https://www.cplusplus.com/reference/unordered_map/unordered_map/erase/
+		/// </summary>
+		if (pool_event.find(key) != pool_event.end()) pool_event.erase(key);
 	}
 
 	/// <summary>
@@ -32,10 +31,9 @@ namespace Toolset {
 	/// </summary>
 	void EventHandler::flush()
 	{
-		for (auto& it : pool_event) {
-			delete it.second;
-			it.second = nullptr;
-		}
+		/// <summary>
+		/// clear call the destructor of each entry  https://www.cplusplus.com/reference/unordered_map/unordered_map/clear/
+		/// </summary>
 		pool_event.clear();
 	}
 }

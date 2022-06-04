@@ -2,6 +2,10 @@
 #include "../ImGuiSimpleComponent.h"
 #include "../../EventHandler.h"
 
+#ifdef _DEBUG
+#include "../../CRTMemoryLeak.h"
+#endif
+
 using namespace std;
 namespace Toolset {
 	template<class T>
@@ -42,8 +46,6 @@ namespace Toolset {
 	{
 		delete data;
 		data = nullptr;
-		delete name;
-		name = nullptr;
 	}
 
 	/// <summary>

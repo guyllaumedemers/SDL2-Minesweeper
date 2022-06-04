@@ -1,6 +1,7 @@
 #pragma once
 #include "bridge/ImGuiHandlerImp.h"
 #include "bridge/ImGuiHandlerImpSDL.h"
+#include "builder/ImGuiBuilder.h"
 #include <type_traits>
 //#ifdef SDL
 #include <SDL.h>
