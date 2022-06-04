@@ -1,6 +1,10 @@
 #pragma once
 #include "../../../headers/composite/components/Window.h"
 
+#ifdef _DEBUG
+#include "../../../headers/CRTMemoryLeak.h"
+#endif
+
 namespace Toolset {
 	/// <summary>
 	/// Constructor
@@ -22,8 +26,16 @@ namespace Toolset {
 	/// <summary>
 	/// set viewport
 	/// </summary>
-	void Window::createviewport(const ImVec2&, const ImVec2&, const ImGuiID&)
+	void Window::createviewport(const ImVec2& work_pos, const ImVec2& work_size, const ImGuiID& work_id)
 	{
+		delete window_viewport;
+		window_viewport = nullptr;
+
+#ifdef _DEBUG
+		window_viewport = DBG_NEW Viewport(work_pos, work_size, work_id);
+#else	
+		window_viewport = new Viewport(work_pos, work_size, work_id);
+#endif
 	}
 
 	/// <summary>
