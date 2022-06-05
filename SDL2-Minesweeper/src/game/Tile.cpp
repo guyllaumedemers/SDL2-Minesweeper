@@ -72,6 +72,11 @@ namespace Minesweeper {
 				NULL,
 				NULL
 			);
+			else if ((int)(bitmask & Tilebitmask::Bomb)) SDL_RenderCopy(renderer,
+				temp = TextureHandler<SDL_Renderer, SDL_Texture>::get(textures[3].c_str()),
+				NULL,
+				NULL
+			);
 		}
 		else {
 			/// <summary>

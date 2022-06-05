@@ -68,8 +68,6 @@ namespace Minesweeper {
 	{
 		SDL_Texture* target = SDL_CreateTexture(renderer, SDL_PIXELFORMAT_RGBA8888, SDL_TEXTUREACCESS_TARGET, w, h);
 		SDL_SetRenderTarget(renderer, target);
-		int rows = getRows();
-		int cols = getCols();
 		int size = Tile::size;
 		for (int i = 0; i < rows * cols; ++i) {
 			SDL_Texture* sub_target = SDL_CreateTexture(renderer, SDL_PIXELFORMAT_RGBA8888, SDL_TEXTUREACCESS_TARGET, size, size);
@@ -158,9 +156,50 @@ namespace Minesweeper {
 
 	void Level::showAll()
 	{
-		for (int i = 0; i < getRows() * getCols(); ++i)
-		{
-			//TODO Uncover all tiles with proper values
+		/// <summary>
+		/// is there a more efficient way of doing this?
+		/// </summary>
+		for (int i = 0; i < rows * cols; ++i) {
+			Tile& current = getTile(i);
+			int isUncovered =
+				(int)(current.getmask() & Tilebitmask::Uncovered) +
+				(int)(current.getmask() & Tilebitmask::Hit);
+			if (isUncovered) continue;
+			int indices[8] = {
+				i + 1,
+				i - 1,
+				i + cols,
+				i - cols,
+				i + cols + 1,
+				i + cols - 1,
+				i - cols + 1,
+				i - cols - 1
+			};
+			int nbBombs = 0;
+			for (const auto& it : indices) {
+				/// <summary>
+				/// edge processing
+				/// </summary>
+				if (it % cols == 0 && i % cols == cols - 1 || it % cols == cols - 1 && i % cols == 0) continue;
+				/// <summary>
+				/// check neighbors bitmask
+				/// </summary>
+				Tile& target = getTile(it);
+				int hasBomb =
+					(int)(target.getmask() & Tilebitmask::Bomb);
+				if (hasBomb) {
+					++nbBombs;
+				}
+			}
+			current.add(Tilebitmask::Uncovered);
+			current.remove(Tilebitmask::Covered);
+			current.remove(Tilebitmask::Flag);
+			int isBomb =
+				(int)(current.getmask() & Tilebitmask::Bomb);
+			if (!isBomb && nbBombs > 0) {
+				current.setValue(nbBombs);
+				current.add(Tilebitmask::Numbered);
+			}
 		}
 	}
 
