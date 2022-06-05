@@ -51,11 +51,11 @@ namespace Minesweeper {
 		/// <summary>
 		/// Process input for right click
 		/// </summary>
+		Tile& target = getTile(row * getCols() + col);
 		if (lrm) {
-
+			setFlag(target);
 			return;
 		}
-		Tile& target = getTile(row * getCols() + col);
 		int invalidTileClicked =
 			(int)(target.getmask() & Tilebitmask::Uncovered) +
 			(int)(target.getmask() & Tilebitmask::Bomb) +
@@ -136,12 +136,30 @@ namespace Minesweeper {
 		showAll();
 	}
 
+	void Level::setFlag(Tile& target)
+	{
+		int invalidMove =
+			(int)(target.getmask() & Tilebitmask::Uncovered);
+		if (invalidMove) return;
+
+		int hasFlag =
+			(int)(target.getmask() & Tilebitmask::Flag);
+		if (hasFlag) {
+			flags += 1;
+			target.remove(Tilebitmask::Flag);
+		}
+		else {
+			if (flags > 0) {
+				flags -= 1;
+				target.add(Tilebitmask::Flag);
+			}
+		}
+	}
+
 	void Level::showAll()
 	{
 		for (int i = 0; i < getRows() * getCols(); ++i)
 		{
-			Tile& temp = getTile(i);
-			if ((int)(temp.getmask() & Tilebitmask::Bomb)) continue;
 			//TODO Uncover all tiles with proper values
 		}
 	}

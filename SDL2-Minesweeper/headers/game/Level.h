@@ -24,6 +24,7 @@ namespace Minesweeper {
 		Level() = delete;
 		void run(Tile&);
 		void discard(Tile&);
+		void setFlag(Tile&);
 		void showAll();
 		vector<Tile*> getNeighbors(unordered_map<int, Tile*>&, const int&);
 	public:
