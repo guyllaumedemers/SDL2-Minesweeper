@@ -19,7 +19,7 @@ namespace Toolset {
 	public:
 		Viewport(const Rect&);
 		~Viewport();
-		void setviewport(const ImTextureID&, const ImGuiID&);
+		void setTextureViewport(const ImTextureID&, const ImGuiID&);
 		void refresh();
 	};
 }

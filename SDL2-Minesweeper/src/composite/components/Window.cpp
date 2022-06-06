@@ -28,12 +28,14 @@ namespace Toolset {
 	{
 		delete window_style;
 		window_style = nullptr;
+		delete window_viewport;
+		window_viewport = nullptr;
 	}
 
 	/// <summary>
 	/// return the viewport instance
 	/// </summary>
-	Viewport* Window::getviewport() const
+	Viewport* Window::getWindowViewport() const
 	{
 		return window_viewport;
 	}

@@ -1,2 +1,32 @@
-﻿  Level.cpp
+﻿  Main.cpp
+D:\VisualStudio\SDL2\SDL2-GameDevCMake\SDL2-Minesweeper\SDL2-Minesweeper\headers\Event.h(71,1): warning C4267: 'initializing': conversion from 'size_t' to 'int', possible loss of data
+D:\VisualStudio\SDL2\SDL2-GameDevCMake\SDL2-Minesweeper\SDL2-Minesweeper\headers\Event.h(67): message : while compiling class template member function 'void Toolset::Event<Toolset::Mode>::invoke(const T &)'
+          with
+          [
+              T=Toolset::Mode
+          ]
+D:\VisualStudio\SDL2\SDL2-GameDevCMake\SDL2-Minesweeper\SDL2-Minesweeper\headers\bridge\../EventHandler.h(49): message : see reference to function template instantiation 'void Toolset::Event<Toolset::Mode>::invoke(const T &)' being compiled
+          with
+          [
+              T=Toolset::Mode
+          ]
+D:\VisualStudio\SDL2\SDL2-GameDevCMake\SDL2-Minesweeper\SDL2-Minesweeper\headers\builder\../../headers/composite/components/Entry.h(59): message : see reference to function template instantiation 'void Toolset::EventHandler::invoke<T>(std::string,const T &)' being compiled
+          with
+          [
+              T=Toolset::Mode
+          ]
+D:\VisualStudio\SDL2\SDL2-GameDevCMake\SDL2-Minesweeper\SDL2-Minesweeper\headers\builder\../../headers/composite/components/Entry.h(58): message : while compiling class template member function 'void Toolset::Entry<Toolset::Mode>::refresh(void)'
+D:\VisualStudio\SDL2\SDL2-GameDevCMake\SDL2-Minesweeper\SDL2-Minesweeper\headers\builder/ImGuiMinesweeperBuilder.h(95): message : see reference to class template instantiation 'Toolset::Entry<Toolset::Mode>' being compiled
+D:\VisualStudio\SDL2\SDL2-GameDevCMake\SDL2-Minesweeper\SDL2-Minesweeper\headers\builder/ImGuiMinesweeperBuilder.h(77): message : while compiling class template member function 'void Minesweeper::ImGuiMinesweeperBuilder<Toolset::SDLHandler>::buildApplicationMenu(void)'
+D:\VisualStudio\SDL2\SDL2-GameDevCMake\SDL2-Minesweeper\SDL2-Minesweeper\headers\builder/ImGuiMinesweeperBuilder.h(65): message : see reference to function template instantiation 'void Minesweeper::ImGuiMinesweeperBuilder<Toolset::SDLHandler>::buildApplicationMenu(void)' being compiled
+D:\VisualStudio\SDL2\SDL2-GameDevCMake\SDL2-Minesweeper\SDL2-Minesweeper\headers/GameManager.h(97): message : see reference to class template instantiation 'Minesweeper::ImGuiMinesweeperBuilder<Toolset::SDLHandler>' being compiled
+D:\VisualStudio\SDL2\SDL2-GameDevCMake\SDL2-Minesweeper\SDL2-Minesweeper\headers/GameManager.h(85): message : while compiling class template member function 'void Toolset::GameManager<SDL_Renderer,SDL_Event>::reset(const Toolset::Mode &)'
+D:\VisualStudio\SDL2\SDL2-GameDevCMake\SDL2-Minesweeper\SDL2-Minesweeper\headers/GameManager.h(47): message : see reference to function template instantiation 'void Toolset::GameManager<SDL_Renderer,SDL_Event>::reset(const Toolset::Mode &)' being compiled
+D:\VisualStudio\SDL2\SDL2-GameDevCMake\SDL2-Minesweeper\SDL2-Minesweeper\headers/GameManager.h(46): message : while compiling class template member function 'void Toolset::GameManager<SDL_Renderer,SDL_Event>::init(void)'
+D:\VisualStudio\SDL2\SDL2-GameDevCMake\SDL2-Minesweeper\SDL2-Minesweeper\headers/GameManager.h(122): message : see reference to function template instantiation 'void Toolset::GameManager<SDL_Renderer,SDL_Event>::init(void)' being compiled
+D:\VisualStudio\SDL2\SDL2-GameDevCMake\SDL2-Minesweeper\SDL2-Minesweeper\headers/GameManager.h(121): message : while compiling class template member function 'int Toolset::GameManager<SDL_Renderer,SDL_Event>::execute(void)'
+D:\VisualStudio\SDL2\SDL2-GameDevCMake\SDL2-Minesweeper\SDL2-Minesweeper\Main.cpp(12): message : see reference to function template instantiation 'int Toolset::GameManager<SDL_Renderer,SDL_Event>::execute(void)' being compiled
+D:\VisualStudio\SDL2\SDL2-GameDevCMake\SDL2-Minesweeper\SDL2-Minesweeper\Main.cpp(12): message : see reference to class template instantiation 'Toolset::GameManager<SDL_Renderer,SDL_Event>' being compiled
+  EventHandler.cpp
+  Generating Code...
   SDL2-Minesweeper.vcxproj -> D:\VisualStudio\SDL2\SDL2-GameDevCMake\SDL2-Minesweeper\out\build\Debug\SDL2-Minesweeper.exe

@@ -32,8 +32,12 @@ namespace Toolset {
 	void EventHandler::flush()
 	{
 		/// <summary>
-		/// clear call the destructor of each entry  https://www.cplusplus.com/reference/unordered_map/unordered_map/clear/
+		/// clear call the destructor of each entry  https://www.cplusplus.com/reference/unordered_map/unordered_map/clear/ , still have to delete manually pointer at key entry... weird.
 		/// </summary>
+		for (auto& it : pool_event) {
+			delete it.second;
+			it.second = nullptr;
+		}
 		pool_event.clear();
 	}
 }

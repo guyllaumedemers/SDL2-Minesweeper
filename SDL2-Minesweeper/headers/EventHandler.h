@@ -3,6 +3,7 @@
 #include "Subscriber.h"
 #include <unordered_map>
 #include <string>
+#include <iostream>
 
 using namespace std;
 namespace Toolset {

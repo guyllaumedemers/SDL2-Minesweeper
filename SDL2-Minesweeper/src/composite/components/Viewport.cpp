@@ -27,7 +27,7 @@ namespace Toolset {
 		texture_viewport = nullptr;
 	}
 
-	void Viewport::setviewport(const ImTextureID& texture_id, const ImGuiID& viewport_id)
+	void Viewport::setTextureViewport(const ImTextureID& texture_id, const ImGuiID& viewport_id)
 	{
 		ImGui::SetNextWindowPos(work_pos);
 		ImGui::SetNextWindowSize(work_size);

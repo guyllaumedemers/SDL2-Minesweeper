@@ -18,7 +18,7 @@ namespace Toolset {
 	public:
 		Window(const Rect& rect, const char* name, Style*);
 		~Window();
-		Viewport* getviewport() const;
+		Viewport* getWindowViewport() const;
 		void refresh() override;
 	};
 }
