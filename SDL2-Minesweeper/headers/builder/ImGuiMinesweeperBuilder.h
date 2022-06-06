@@ -88,7 +88,7 @@ namespace Minesweeper {
 		{
 			DBG_NEW Entry<void*>(Rect(0,0,0,0), menu_infos[2].c_str(), menu_callbacks[0].c_str(), nullptr),
 			mode_tab,
-			DBG_NEW Entry<void*>(Rect(0,0,0,0), menu_infos[7].c_str(), menu_callbacks[1].c_str(), nullptr)
+			DBG_NEW Entry<bool>(Rect(0,0,0,0), menu_infos[7].c_str(), menu_callbacks[1].c_str(), true)
 		};
 		vector<ImGuiComponent*> mode_tab_entries =
 		{
@@ -107,7 +107,7 @@ namespace Minesweeper {
 		{
 			new Entry<void*>(Rect(0,0,0,0), menu_infos[2].c_str(), menu_callbacks[0].c_str(), nullptr),
 			mode_tab,
-			new Entry<void*>(Rect(0,0,0,0), menu_infos[7].c_str(), menu_callbacks[1].c_str(), nullptr)
+			new Entry<bool>(Rect(0,0,0,0), menu_infos[7].c_str(), menu_callbacks[1].c_str(), true)
 		};
 		vector<ImGuiComponent*> mode_tab_entries =
 		{
