@@ -7,7 +7,7 @@ namespace Toolset {
 	class ImGuiComplexComponent : virtual public ImGuiComponent {
 	private:
 		/// <summary>
-		/// pointers are required because of the Rect composition dependency during constructor initialization stage
+		/// pointers are required because of the Rect composition dependency during constructor initialization stage, and the fact that all class are deleting their copy constructor, default, move
 		/// </summary>
 		vector<ImGuiComponent*> components;
 		ImGuiComplexComponent(const ImGuiComplexComponent&) = delete;

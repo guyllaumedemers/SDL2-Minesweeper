@@ -86,7 +86,7 @@ namespace Minesweeper {
 		Tab* mode_tab = DBG_NEW Tab(Rect(0, 0, 0, 0), menu_infos[3].c_str());
 		vector<ImGuiComponent*> game_tab_entries =
 		{
-			DBG_NEW Entry<void*>(Rect(0,0,0,0), menu_infos[2].c_str(), menu_callbacks[0].c_str(), nullptr),
+			DBG_NEW Entry<Mode>(Rect(0,0,0,0), menu_infos[2].c_str(), menu_callbacks[0].c_str(), Mode::Easy),		// need the current mode
 			mode_tab,
 			DBG_NEW Entry<bool>(Rect(0,0,0,0), menu_infos[7].c_str(), menu_callbacks[1].c_str(), true)
 		};
@@ -105,7 +105,7 @@ namespace Minesweeper {
 		Tab* mode_tab = new Tab(Rect(0, 0, 0, 0), menu_infos[3].c_str());
 		vector<ImGuiComponent*> game_tab_entries =
 		{
-			new Entry<void*>(Rect(0,0,0,0), menu_infos[2].c_str(), menu_callbacks[0].c_str(), nullptr),
+			new Entry<Mode>(Rect(0,0,0,0), menu_infos[2].c_str(), menu_callbacks[0].c_str(), Mode::Easy),			// need the current mode
 			mode_tab,
 			new Entry<bool>(Rect(0,0,0,0), menu_infos[7].c_str(), menu_callbacks[1].c_str(), true)
 		};
