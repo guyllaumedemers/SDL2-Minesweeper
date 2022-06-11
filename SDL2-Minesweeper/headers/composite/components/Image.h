@@ -9,8 +9,8 @@ namespace Toolset {
 	/// </summary>
 	class Image : virtual public ImGuiSimpleComponent {
 	private:
-		ImTextureID texture_id;
-		ImVec2 size;
+		ImTextureID texture_id = 0;
+		ImVec2 size = ImVec2();
 		Image(const Image&) = delete;
 		Image(Image&&) = delete;
 		Image() = delete;

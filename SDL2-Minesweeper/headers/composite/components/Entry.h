@@ -1,6 +1,7 @@
 #pragma once
 #include "../ImGuiSimpleComponent.h"
 #include "../../EventHandler.h"
+
 #include <imgui.h>
 #include <imgui_internal.h>
 
@@ -8,7 +9,6 @@
 #include "../../CRTMemoryLeak.h"
 #endif
 
-using namespace std;
 namespace Toolset {
 	template<class T>
 	class Entry : virtual public ImGuiSimpleComponent {

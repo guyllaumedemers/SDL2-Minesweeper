@@ -1,6 +1,7 @@
 #pragma once
 #pragma once
 #include "../../../headers/composite/components/Image.h"
+
 #include <imgui.h>
 #include <imgui_internal.h>
 
@@ -8,7 +9,7 @@ namespace Toolset {
 	/// <summary>
 	/// Constructor
 	/// </summary>
-	Image::Image(const Rect& rect) : ImGuiSimpleComponent(rect), ImGuiComponent(rect)
+	Image::Image(const Rect& rect) : ImGuiSimpleComponent(rect), ImGuiComponent(rect), texture_id(0), size(ImVec2(0, 0))
 	{
 	}
 

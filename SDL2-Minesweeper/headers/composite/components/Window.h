@@ -2,8 +2,6 @@
 #include "../ImGuiComplexComponent.h"
 #include "Viewport.h"
 #include "Style.h"
-#include <imgui.h>
-#include <imgui_internal.h>
 
 namespace Toolset {
 	class Window : virtual public ImGuiComplexComponent {

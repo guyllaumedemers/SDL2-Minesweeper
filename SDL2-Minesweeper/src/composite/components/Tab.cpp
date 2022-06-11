@@ -1,5 +1,6 @@
 #pragma once
 #include "../../../headers/composite/components/Tab.h"
+
 #include <imgui.h>
 #include <imgui_internal.h>
 
@@ -7,9 +8,8 @@ namespace Toolset {
 	/// <summary>
 	/// Constructor overload
 	/// </summary>
-	Tab::Tab(const Rect& rect, const char* name) : ImGuiComplexComponent(rect), ImGuiComponent(rect)
+	Tab::Tab(const Rect& rect, const char* name) : ImGuiComplexComponent(rect), ImGuiComponent(rect), name(name)
 	{
-		this->name = name;
 	}
 
 	/// <summary>

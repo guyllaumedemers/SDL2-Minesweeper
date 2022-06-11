@@ -58,6 +58,9 @@ namespace Toolset {
 	void GameManager<GraphicAPIsRendering, GraphicAPIsEvent>::run()
 	{
 		while (isRunning) {
+			/// <summary>
+			/// This should be adapted to not reference SDL directly
+			/// </summary>
 			SDL_Event _e;
 			if (SDL_WaitEvent(&_e)) {
 				imgui_context->pollEvents(_e, [](GraphicAPIsEvent& e) { imp->pollEvents(e); });

@@ -80,8 +80,8 @@ namespace Toolset {
 		ImGui_ImplSDL2_NewFrame();
 		ImGui::NewFrame();
 		dynamic_cast<ImGuiBuilder<SDLHandler>*>(builder_context)->build(sdl_context);
-		ImGui::Render();
 		sdl_context->refresh(refresh_callback);
+		ImGui::Render();
 	}
 
 	/// <summary>

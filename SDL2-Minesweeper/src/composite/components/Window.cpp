@@ -1,5 +1,6 @@
 #pragma once
 #include "../../../headers/composite/components/Window.h"
+
 #include <imgui.h>
 #include <imgui_internal.h>
 
@@ -11,9 +12,8 @@ namespace Toolset {
 	/// <summary>
 	/// Constructor
 	/// </summary>
-	Window::Window(const Rect& rect, const char* name, Style* window_style) : ImGuiComplexComponent(rect), ImGuiComponent(rect), name(name), window_style(window_style)
+	Window::Window(const Rect& rect, const char* name, Style* window_style) : ImGuiComplexComponent(rect), ImGuiComponent(rect), name(name), window_style(window_style), p_open(true)
 	{
-		this->p_open = true;
 #ifdef _DEBUG
 		this->window_viewport = DBG_NEW Viewport(rect);
 #else
