@@ -4,6 +4,7 @@
 #include "../../headers/composite/components/Window.h"
 #include "../../headers/composite/components/Canvas.h"
 #include "../../headers/composite/components/Button.h"
+#include "../../headers/composite/components/ButtonImage.h"
 #include "../../headers/composite/components/Tab.h"
 #include "../../headers/composite/components/Entry.h"
 #include "../../headers/Mode.h"
@@ -77,7 +78,7 @@ namespace Minesweeper {
 	template<class GraphicAPIsContext>
 	void ImGuiMinesweeperBuilder<GraphicAPIsContext>::buildApplicationMenu()
 	{
-		static const string menu_callbacks[4] = {
+		const string menu_callbacks[4] = {
 			"onNewGame",
 			"onApplicationQuit",
 			"onHelpDocumentRequested"
@@ -162,6 +163,10 @@ namespace Minesweeper {
 		}
 
 		{
+			const string button_callbacks[1] = {
+				"onNewGame"
+			};
+
 			int start_pos_w = (w / 2) - tile;
 			int start_pos_h = tile;
 			int button_texture_height = tile;
@@ -169,7 +174,7 @@ namespace Minesweeper {
 			/// <summary>
 			/// Game Reset setup
 			/// </summary>
-			Button* smiley_face_button = new Button(Rect(start_pos_w, start_pos_h, button_texture_width, button_texture_height));
+			Button* smiley_face_button = new ButtonImage(Rect(start_pos_w, start_pos_h, button_texture_width, button_texture_height), "", button_callbacks->c_str());
 
 
 			window_info_canvas->add(smiley_face_button);
@@ -240,5 +245,5 @@ namespace Minesweeper {
 			new Style(window_flags, opt_fullscreen, opt_padding)
 		);
 #endif
-}
+	}
 }

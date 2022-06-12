@@ -1,6 +1,5 @@
 #pragma once
 #include "../ImGuiSimpleComponent.h"
-#include "Image.h"
 
 namespace Toolset {
 	class Button : virtual public ImGuiSimpleComponent {
@@ -8,10 +7,12 @@ namespace Toolset {
 		Button(const Button&) = delete;
 		Button(Button&&) = delete;
 		Button() = delete;
-		Image* button_texture = nullptr;
+	protected:
+		const char* name = nullptr;
+		const char* event_key = nullptr;
 	public:
-		Button(const Rect&);
+		Button(const Rect&, const char*, const char*);
 		~Button();
-		void refresh() override;
+		virtual void refresh() override;
 	};
 }
