@@ -176,7 +176,6 @@ namespace Minesweeper {
 			/// </summary>
 			Button* smiley_face_button = new ButtonImage(Rect(start_pos_w, start_pos_h, button_texture_width, button_texture_height), "", button_callbacks->c_str());
 
-
 			window_info_canvas->add(smiley_face_button);
 		}
 
@@ -199,6 +198,8 @@ namespace Minesweeper {
 
 			window_info_canvas->add(flag_canvas);
 		}
+
+		window_canvas->add(window_info_canvas);
 	}
 
 	template<class GraphicAPIsContext>
