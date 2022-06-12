@@ -1,7 +1,5 @@
 #pragma once
 #include "../../../headers/composite/components/Canvas.h"
-#include <imgui.h>
-#include <imgui_internal.h>
 
 namespace Toolset {
 	/// <summary>

@@ -162,7 +162,17 @@ namespace Minesweeper {
 		}
 
 		{
-			Button* smiley_face_button = new Button(Rect(0, 0, 0, 0));
+			int start_pos_w = (w / 2) - tile;
+			int start_pos_h = tile;
+			int button_texture_height = tile;
+			int button_texture_width = tile;
+			/// <summary>
+			/// Game Reset setup
+			/// </summary>
+			Button* smiley_face_button = new Button(Rect(start_pos_w, start_pos_h, button_texture_width, button_texture_height));
+
+
+			window_info_canvas->add(smiley_face_button);
 		}
 
 		{
@@ -230,5 +240,5 @@ namespace Minesweeper {
 			new Style(window_flags, opt_fullscreen, opt_padding)
 		);
 #endif
-	}
+}
 }

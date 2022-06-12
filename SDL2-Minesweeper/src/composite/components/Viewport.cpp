@@ -9,12 +9,12 @@ namespace Toolset {
 	/// <summary>
 	/// Constructor
 	/// </summary>
-	Viewport::Viewport(const Rect& rect) : work_pos(ImVec2(rect.x, rect.y)), work_size(ImVec2(rect.w, rect.h)), texture_viewport(nullptr)
+	Viewport::Viewport(const Rect& rect) : work_pos(ImVec2(rect.x, rect.y)), work_size(ImVec2(rect.w, rect.h)), viewport_texture(nullptr)
 	{
 #ifdef _DEBUG
-		this->texture_viewport = DBG_NEW Image(rect);
+		this->viewport_texture = DBG_NEW Image(rect);
 #else
-		this->texture_viewport = new Image(rect);
+		this->viewport_texture = new Image(rect);
 #endif
 	}
 
@@ -23,8 +23,8 @@ namespace Toolset {
 	/// </summary>
 	Viewport::~Viewport()
 	{
-		delete texture_viewport;
-		texture_viewport = nullptr;
+		delete viewport_texture;
+		viewport_texture = nullptr;
 	}
 
 	void Viewport::setTextureViewport(const ImTextureID& texture_id, const ImGuiID& viewport_id)
@@ -32,14 +32,14 @@ namespace Toolset {
 		ImGui::SetNextWindowPos(work_pos);
 		ImGui::SetNextWindowSize(work_size);
 		ImGui::SetNextWindowViewport(viewport_id);
-		texture_viewport->setimage(texture_id, work_size);
+		viewport_texture->setimage(texture_id, work_size);
 	}
 
 	/// <summary>
-	/// refresh image from the renderer context
+	/// Refresh image from the renderer context
 	/// </summary>
 	void Viewport::refresh()
 	{
-		texture_viewport->refresh();
+		viewport_texture->refresh();
 	}
 }

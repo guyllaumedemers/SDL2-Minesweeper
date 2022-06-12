@@ -1,5 +1,4 @@
 #pragma once
-#pragma once
 #include "../../../headers/composite/components/Image.h"
 
 namespace Toolset {
@@ -24,6 +23,22 @@ namespace Toolset {
 	{
 		this->texture_id = texture_id;
 		this->size = size;
+	}
+
+	/// <summary>
+	/// get texture id
+	/// </summary>
+	const ImTextureID& Image::getTextureId() const
+	{
+		return texture_id;
+	}
+
+	/// <summary>
+	/// get texture size
+	/// </summary>
+	const ImVec2& Image::getTextureSize() const
+	{
+		return size;
 	}
 
 	/// <summary>

@@ -1,5 +1,6 @@
 #pragma once
 #include "../ImGuiSimpleComponent.h"
+
 #include <imgui.h>
 #include <imgui_internal.h>
 
@@ -18,6 +19,8 @@ namespace Toolset {
 		Image(const Rect&);
 		~Image();
 		void setimage(const ImTextureID&, const ImVec2&);
+		const ImTextureID& getTextureId() const;
+		const ImVec2& getTextureSize() const;
 		void refresh() override;
 	};
 }
