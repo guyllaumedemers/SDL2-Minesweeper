@@ -9,8 +9,9 @@ namespace Toolset {
 		ImGuiSimpleComponent() = delete;
 	public:
 		ImGuiSimpleComponent(const Rect&);
-		~ImGuiSimpleComponent();
+		virtual ~ImGuiSimpleComponent() override;
 		virtual void refresh() = 0;
+		int getComponentWidth() override;
 		int getComponentHeight() override;
 	};
 }

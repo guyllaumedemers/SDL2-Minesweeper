@@ -13,8 +13,8 @@ namespace Toolset {
 	protected:
 		ImGuiBuilder() = default;
 		virtual void buildApplicationMenu() = 0;
-		virtual void buildGameplayMenu(GraphicAPIsContext*) = 0;
-		virtual void buildGameplayUi(GraphicAPIsContext*) = 0;
+		virtual void buildCanvas() = 0;
+		virtual void buildViewport(GraphicAPIsContext*) = 0;
 	public:
 		virtual ~ImGuiBuilder() override {};
 		virtual void build(GraphicAPIsContext*) = 0;

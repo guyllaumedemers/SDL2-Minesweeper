@@ -18,6 +18,14 @@ namespace Toolset {
 	}
 
 	/// <summary>
+	/// Get component width
+	/// </summary>
+	int ImGuiSimpleComponent::getComponentWidth()
+	{
+		return rect->w;
+	}
+
+	/// <summary>
 	/// Get component height
 	/// </summary>
 	int ImGuiSimpleComponent::getComponentHeight()

@@ -1,9 +1,11 @@
 #pragma once
 #include "ImGuiBuilder.h"
 #include "../composite/ImGuiComplexComponent.h"
+#include "../../headers/composite/components/Window.h"
+#include "../../headers/composite/components/Canvas.h"
+#include "../../headers/composite/components/Button.h"
 #include "../../headers/composite/components/Tab.h"
 #include "../../headers/composite/components/Entry.h"
-#include "../../headers/composite/components/Window.h"
 #include "../../headers/Mode.h"
 #include "../SDLHandler.h"
 #include "../Screen.h"
@@ -33,15 +35,14 @@ namespace Minesweeper {
 		ImGuiMinesweeperBuilder(ImGuiMinesweeperBuilder&&) = delete;
 	protected:
 		void buildApplicationMenu() override;
-		void buildGameplayMenu(GraphicAPIsContext*) override;
-		void buildGameplayUi(GraphicAPIsContext*) override;
+		void buildCanvas() override;
+		void buildViewport(GraphicAPIsContext*) override;
 	public:
 		ImGuiMinesweeperBuilder();
 		~ImGuiMinesweeperBuilder();
 		void build(GraphicAPIsContext*) override;
 		void reset() override;
 	};
-
 
 	/// <summary>
 	/// static fields
@@ -63,6 +64,7 @@ namespace Minesweeper {
 	{
 		reset();
 		buildApplicationMenu();
+		buildCanvas();
 	}
 
 	template<class GraphicAPIsContext>
@@ -123,28 +125,83 @@ namespace Minesweeper {
 	}
 
 	template<class GraphicAPIsContext>
-	void ImGuiMinesweeperBuilder<GraphicAPIsContext>::buildGameplayMenu(GraphicAPIsContext* sdl_context)
+	void ImGuiMinesweeperBuilder<GraphicAPIsContext>::buildCanvas()
 	{
+		/// <summary>
+		/// Main Window Canvas, holds the info_canvas & holds the Viewport for rendering the game
+		/// </summary>
+		Canvas* window_canvas = dynamic_cast<Window*>(builder_parts)->getWindowCanvas();
+		int w = Screen::w;
+		int h = Screen::h;
+		int tile = Tile::size;
+		int h_mult = 4;
 
+		/// <summary>
+		/// Window info Canvas, holds the Timer, Flag Count, Reset Button
+		/// </summary>
+		Canvas* window_info_canvas = new Canvas(Rect(0, 0, w, h_mult * tile));
+
+		{
+			int timer_w_mult = 3;
+			int timer_h_mult = 2;
+			int start_pos_w = tile;
+			int start_pos_h = tile;
+			int max_w = tile * timer_w_mult;
+			int max_h = tile * timer_h_mult;
+			Canvas* timer_canvas = new Canvas(Rect(start_pos_w, start_pos_h, max_w, max_h));
+			/// <summary>
+			/// Timer texture setup
+			/// </summary>
+			int timer_texture_height = tile * timer_h_mult;
+			int timer_texture_width = tile;
+			timer_canvas->add(new Image(Rect(timer_canvas->getComponentWidth(), 0, timer_texture_width, timer_texture_height)));
+			timer_canvas->add(new Image(Rect(timer_canvas->getComponentWidth(), 0, timer_texture_width, timer_texture_height)));
+			timer_canvas->add(new Image(Rect(timer_canvas->getComponentWidth(), 0, timer_texture_width, timer_texture_height)));
+
+			window_info_canvas->add(timer_canvas);
+		}
+
+		{
+			Button* smiley_face_button = new Button(Rect(0, 0, 0, 0));
+		}
+
+		{
+			int flag_w_mult = 3;
+			int flag_h_mult = 2;
+			int start_pos_w = w - tile - (flag_w_mult * tile);
+			int start_pos_h = tile;
+			int max_w = tile * flag_w_mult;
+			int max_h = tile * flag_h_mult;
+			Canvas* flag_canvas = new Canvas(Rect(start_pos_w, tile, max_w, max_h));
+			/// <summary>
+			/// Flag texture setup
+			/// </summary>
+			int flag_texture_height = tile * flag_h_mult;
+			int flag_texture_width = tile;
+			flag_canvas->add(new Image(Rect(flag_canvas->getComponentWidth(), 0, flag_texture_width, flag_texture_height)));
+			flag_canvas->add(new Image(Rect(flag_canvas->getComponentWidth(), 0, flag_texture_width, flag_texture_height)));
+			flag_canvas->add(new Image(Rect(flag_canvas->getComponentWidth(), 0, flag_texture_width, flag_texture_height)));
+
+			window_info_canvas->add(flag_canvas);
+		}
 	}
 
 	template<class GraphicAPIsContext>
-	void ImGuiMinesweeperBuilder<GraphicAPIsContext>::buildGameplayUi(GraphicAPIsContext* sdl_context)
+	void ImGuiMinesweeperBuilder<GraphicAPIsContext>::buildViewport(GraphicAPIsContext* sdl_context)
 	{
 		const ImGuiViewport* viewport = ImGui::GetMainViewport();
 		SDLHandler* handler_ctx = static_cast<SDLHandler*>(sdl_context);
 		int w = Screen::w;
 		int h = Screen::h;
 		SDL_Texture* texture_id = SDL_CreateTexture(handler_ctx->renderer, SDL_PIXELFORMAT_RGBA8888, SDL_TEXTUREACCESS_TARGET, w, h);
-		dynamic_cast<Window*>(builder_parts)->getWindowViewport()->setTextureViewport((ImTextureID)texture_id, viewport->ID);
+		dynamic_cast<Window*>(builder_parts)->getWindowCanvas()->getCanvasViewport()->setTextureViewport((ImTextureID)texture_id, viewport->ID);
 		texture_id = nullptr;
 	}
 
 	template<class GraphicAPIsContext>
 	void ImGuiMinesweeperBuilder<GraphicAPIsContext>::build(GraphicAPIsContext* sdl_context)
 	{
-		buildGameplayMenu(sdl_context);
-		buildGameplayUi(sdl_context);
+		buildViewport(sdl_context);
 		builder_parts->refresh();
 	}
 

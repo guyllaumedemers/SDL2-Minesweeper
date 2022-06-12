@@ -21,6 +21,7 @@ namespace Toolset {
 	public:
 		virtual ~ImGuiComponent() = 0;
 		virtual void refresh() = 0;
+		virtual int getComponentWidth() = 0;
 		virtual int getComponentHeight() = 0;
 		const Rect& getRect() const;
 	};

@@ -29,10 +29,8 @@ namespace Toolset {
 	/// Constructor
 	/// </summary>
 	template<class T>
-	Entry<T>::Entry(const Rect& rect, const char* name, const char* event_key, const T& data) : ImGuiSimpleComponent(rect), ImGuiComponent(rect)
+	Entry<T>::Entry(const Rect& rect, const char* name, const char* event_key, const T& data) : ImGuiSimpleComponent(rect), ImGuiComponent(rect), name(name), event_key(event_key)
 	{
-		this->name = name;
-		this->event_key = event_key;
 #ifdef _DEBUG
 		this->data = DBG_NEW T(data);
 #else

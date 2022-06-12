@@ -15,10 +15,11 @@ namespace Toolset {
 		ImGuiComplexComponent() = delete;
 	public:
 		ImGuiComplexComponent(const Rect&);
-		~ImGuiComplexComponent();
+		virtual ~ImGuiComplexComponent() override;
 		void add(ImGuiComponent*);
 		void remove(ImGuiComponent*);
 		virtual void refresh() override;
+		int getComponentWidth() override;
 		int getComponentHeight() override;
 	};
 }

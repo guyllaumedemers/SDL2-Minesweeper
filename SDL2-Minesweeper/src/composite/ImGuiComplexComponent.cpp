@@ -48,6 +48,16 @@ namespace Toolset {
 	}
 
 	/// <summary>
+	/// Get total components width
+	/// </summary>
+	int ImGuiComplexComponent::getComponentWidth()
+	{
+		int result = 0;
+		for (const auto& it : components) result += it->getRect().w;
+		return result;
+	}
+
+	/// <summary>
 	/// Get total components height
 	/// </summary>
 	int ImGuiComplexComponent::getComponentHeight()

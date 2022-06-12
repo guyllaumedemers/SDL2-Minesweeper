@@ -15,9 +15,9 @@ namespace Toolset {
 	Window::Window(const Rect& rect, const char* name, Style* window_style) : ImGuiComplexComponent(rect), ImGuiComponent(rect), name(name), window_style(window_style), p_open(true)
 	{
 #ifdef _DEBUG
-		this->window_viewport = DBG_NEW Viewport(rect);
+		this->window_canvas = DBG_NEW Canvas(rect);
 #else
-		this->window_viewport = new Viewport(rect);
+		this->window_canvas = new Canvas(rect);
 #endif
 	}
 
@@ -28,16 +28,16 @@ namespace Toolset {
 	{
 		delete window_style;
 		window_style = nullptr;
-		delete window_viewport;
-		window_viewport = nullptr;
+		delete window_canvas;
+		window_canvas = nullptr;
 	}
 
 	/// <summary>
-	/// return the viewport instance
+	/// return the frame instance
 	/// </summary>
-	Viewport* Window::getWindowViewport() const
+	Canvas* Window::getWindowCanvas() const
 	{
-		return window_viewport;
+		return window_canvas;
 	}
 
 	/// <summary>
@@ -63,7 +63,7 @@ namespace Toolset {
 				ImGuiComplexComponent::refresh();
 				ImGui::EndMenuBar();
 			}
-			window_viewport->refresh();
+			window_canvas->refresh();
 			ImGui::End();
 		}
 	}

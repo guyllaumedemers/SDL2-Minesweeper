@@ -2,6 +2,7 @@
 #include "../ImGuiComplexComponent.h"
 #include "Viewport.h"
 #include "Style.h"
+#include "Canvas.h"
 
 namespace Toolset {
 	class Window : virtual public ImGuiComplexComponent {
@@ -9,14 +10,14 @@ namespace Toolset {
 		const char* name = nullptr;
 		bool p_open = false;
 		Style* window_style = nullptr;
-		Viewport* window_viewport = nullptr;
+		Canvas* window_canvas = nullptr;
 		Window(const Window&) = delete;
 		Window(Window&&) = delete;
 		Window() = delete;
 	public:
 		Window(const Rect& rect, const char* name, Style*);
 		~Window();
-		Viewport* getWindowViewport() const;
+		Canvas* getWindowCanvas() const;
 		void refresh() override;
 	};
 }
