@@ -8,9 +8,9 @@ namespace Toolset {
 	ImGuiComponent::ImGuiComponent(const Rect& rect)
 	{
 #ifdef _DEBUG
-		this->rect = DBG_NEW Rect(0, 0, 0, 0);
+		this->rect = DBG_NEW Rect(rect.x, rect.y, rect.w, rect.h);
 #else
-		this->rect = new Rect(0, 0, 0, 0);
+		this->rect = new Rect(rect.x, rect.y, rect.w, rect.h);
 #endif
 	}
 

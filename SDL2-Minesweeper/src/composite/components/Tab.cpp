@@ -24,7 +24,7 @@ namespace Toolset {
 	/// </summary>
 	void Tab::refresh()
 	{
-		if (ImGui::BeginMenu(name)) {
+		if (name != nullptr && ImGui::BeginMenu(name)) {
 			ImGuiComplexComponent::refresh();
 			ImGui::EndMenu();
 		}

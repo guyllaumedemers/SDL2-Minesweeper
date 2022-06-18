@@ -9,8 +9,6 @@
 #include "CRTMemoryLeak.h"
 #endif
 
-#include <iostream>
-
 using namespace Minesweeper;
 namespace Toolset {
 	/// <summary>

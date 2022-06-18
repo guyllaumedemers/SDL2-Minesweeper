@@ -33,7 +33,7 @@ namespace Toolset {
 	}
 
 	/// <summary>
-	/// return the frame instance
+	/// Get Canvas instance
 	/// </summary>
 	Canvas* Window::getWindowCanvas() const
 	{
@@ -56,7 +56,7 @@ namespace Toolset {
 
 		if (!window_style->getpadding()) window_style->push(ImGuiStyleVar_WindowPadding, ImVec2(0.0f, 0.0f));
 
-		if (ImGui::Begin(name, &p_open, window_style->getwindowFlags())) {
+		if (name != nullptr && ImGui::Begin(name, &p_open, window_style->getwindowFlags())) {
 			if (!window_style->getpadding()) window_style->pop();
 			if (window_style->getfullscreen()) window_style->pop(2);
 			if (ImGui::BeginMenuBar()) {

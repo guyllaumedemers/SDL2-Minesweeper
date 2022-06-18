@@ -9,7 +9,7 @@ namespace Toolset {
 	/// <summary>
 	/// Constructor
 	/// </summary>
-	Viewport::Viewport(const Rect& rect) : work_pos(ImVec2(rect.x, rect.y)), work_size(ImVec2(rect.w, rect.h)), viewport_texture(nullptr)
+	Viewport::Viewport(const Rect& rect) : work_pos(ImVec2(rect.x, rect.y)), work_size(ImVec2(rect.w, rect.h))
 	{
 #ifdef _DEBUG
 		this->viewport_texture = DBG_NEW Image(rect);
@@ -32,7 +32,7 @@ namespace Toolset {
 		ImGui::SetNextWindowPos(work_pos);
 		ImGui::SetNextWindowSize(work_size);
 		ImGui::SetNextWindowViewport(viewport_id);
-		viewport_texture->setimage(texture_id, work_size);
+		if (viewport_texture) viewport_texture->setimage(texture_id, work_size);
 	}
 
 	/// <summary>
@@ -40,6 +40,6 @@ namespace Toolset {
 	/// </summary>
 	void Viewport::refresh()
 	{
-		viewport_texture->refresh();
+		if (viewport_texture) viewport_texture->refresh();
 	}
 }

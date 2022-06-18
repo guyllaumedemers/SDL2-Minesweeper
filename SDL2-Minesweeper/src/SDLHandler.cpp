@@ -29,12 +29,12 @@ namespace Toolset {
 
 	SDLHandler::~SDLHandler()
 	{
-		TextureHandler<SDL_Renderer, SDL_Texture>::destroy();
 		SDL_DestroyWindow(window);
 		window = nullptr;
 		SDL_DestroyRenderer(renderer);
 		renderer = nullptr;
 		SDL_Quit();
+		TextureHandler<SDL_Renderer, SDL_Texture>::destroy();
 	}
 
 	void SDLHandler::refresh(void (*refresh_callback)(SDL_Renderer*))

@@ -6,7 +6,7 @@ namespace Toolset {
 	/// <summary>
 	/// Constructor
 	/// </summary>
-	ImGuiComplexComponent::ImGuiComplexComponent(const Rect& rect) : ImGuiComponent(rect)
+	ImGuiComplexComponent::ImGuiComplexComponent(const Rect& rect) : ImGuiComponent(rect), components(vector<ImGuiComponent*>())
 	{
 	}
 
@@ -27,7 +27,7 @@ namespace Toolset {
 	/// </summary>
 	void ImGuiComplexComponent::add(ImGuiComponent* component)
 	{
-		this->components.push_back(component);
+		components.push_back(component);
 	}
 
 	/// <summary>

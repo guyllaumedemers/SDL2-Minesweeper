@@ -25,6 +25,6 @@ namespace Toolset {
 	/// </summary>
 	void Button::refresh()
 	{
-		if (ImGui::Button(name, ImVec2(rect->x, rect->y))) { EventHandler::invoke(event_key, nullptr); }
+		if (name != nullptr && ImGui::Button(name, ImVec2(rect->x, rect->y))) { EventHandler::invoke(event_key, nullptr); }
 	}
 }

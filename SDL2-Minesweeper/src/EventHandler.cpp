@@ -5,7 +5,7 @@ namespace Toolset {
 	/// <summary>
 	/// Generic Event map
 	/// </summary>
-	unordered_map<string, IEvent*> EventHandler::pool_event;
+	unordered_map<string, IEvent*> EventHandler::pool_event = unordered_map<string, IEvent*>();
 
 	/// <summary>
 	/// Create a new Event<T>

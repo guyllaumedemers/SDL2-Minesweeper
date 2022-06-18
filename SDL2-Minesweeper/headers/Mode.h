@@ -1,7 +1,7 @@
 #pragma once
 
 namespace Toolset {
-	enum class Mode {
+	enum Mode {
 		Easy,
 		Medium,
 		Hard

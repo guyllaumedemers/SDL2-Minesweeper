@@ -16,7 +16,7 @@ namespace Toolset {
 		ImGuiComponent(ImGuiComponent&&) = delete;
 		ImGuiComponent() = delete;
 	protected:
-		Rect* rect;
+		Rect* rect = nullptr;
 		ImGuiComponent(const Rect&);
 	public:
 		virtual ~ImGuiComponent() = 0;

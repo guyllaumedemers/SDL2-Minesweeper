@@ -65,7 +65,7 @@ namespace Minesweeper {
 	{
 		reset();
 		buildApplicationMenu();
-		buildCanvas();
+		//buildCanvas();
 	}
 
 	template<class GraphicAPIsContext>
@@ -78,7 +78,7 @@ namespace Minesweeper {
 	template<class GraphicAPIsContext>
 	void ImGuiMinesweeperBuilder<GraphicAPIsContext>::buildApplicationMenu()
 	{
-		const string menu_callbacks[4] = {
+		static const string menu_callbacks[4] = {
 			"onNewGame",
 			"onApplicationQuit",
 			"onHelpDocumentRequested"
@@ -128,6 +128,80 @@ namespace Minesweeper {
 	template<class GraphicAPIsContext>
 	void ImGuiMinesweeperBuilder<GraphicAPIsContext>::buildCanvas()
 	{
+#ifdef _DEBUG
+		/// <summary>
+		/// Main Window Canvas, holds the info_canvas & holds the Viewport for rendering the game
+		/// </summary>
+		Canvas* window_canvas = dynamic_cast<Window*>(builder_parts)->getWindowCanvas();
+		int w = Screen::w;
+		int h = Screen::h;
+		int tile = Tile::size;
+		int h_mult = 4;
+
+		/// <summary>
+		/// Window info Canvas, holds the Timer, Flag Count, Reset Button
+		/// </summary>
+		Canvas* window_info_canvas = DBG_NEW Canvas(Rect(0, 0, w, h_mult * tile));
+
+		{
+			int timer_w_mult = 3;
+			int timer_h_mult = 2;
+			int start_pos_w = tile;
+			int start_pos_h = tile;
+			int max_w = tile * timer_w_mult;
+			int max_h = tile * timer_h_mult;
+			Canvas* timer_canvas = DBG_NEW Canvas(Rect(start_pos_w, start_pos_h, max_w, max_h));
+			/// <summary>
+			/// Timer texture setup
+			/// </summary>
+			int timer_texture_height = tile * timer_h_mult;
+			int timer_texture_width = tile;
+			timer_canvas->add(DBG_NEW Image(Rect(timer_canvas->getComponentWidth(), 0, timer_texture_width, timer_texture_height)));
+			timer_canvas->add(DBG_NEW Image(Rect(timer_canvas->getComponentWidth(), 0, timer_texture_width, timer_texture_height)));
+			timer_canvas->add(DBG_NEW Image(Rect(timer_canvas->getComponentWidth(), 0, timer_texture_width, timer_texture_height)));
+
+			window_info_canvas->add(timer_canvas);
+		}
+
+		{
+			const string button_callbacks[1] = {
+				"onNewGame"
+			};
+
+			int start_pos_w = (w / 2) - tile;
+			int start_pos_h = tile;
+			int button_texture_height = tile;
+			int button_texture_width = tile;
+			/// <summary>
+			/// Game Reset setup
+			/// </summary>
+			ButtonImage* smiley_face_button = DBG_NEW ButtonImage(Rect(start_pos_w, start_pos_h, button_texture_width, button_texture_height), nullptr, button_callbacks->c_str());
+
+			window_info_canvas->add(smiley_face_button);
+		}
+
+		{
+			int flag_w_mult = 3;
+			int flag_h_mult = 2;
+			int start_pos_w = w - tile - (flag_w_mult * tile);
+			int start_pos_h = tile;
+			int max_w = tile * flag_w_mult;
+			int max_h = tile * flag_h_mult;
+			Canvas* flag_canvas = DBG_NEW Canvas(Rect(start_pos_w, tile, max_w, max_h));
+			/// <summary>
+			/// Flag texture setup
+			/// </summary>
+			int flag_texture_height = tile * flag_h_mult;
+			int flag_texture_width = tile;
+			flag_canvas->add(DBG_NEW Image(Rect(flag_canvas->getComponentWidth(), 0, flag_texture_width, flag_texture_height)));
+			flag_canvas->add(DBG_NEW Image(Rect(flag_canvas->getComponentWidth(), 0, flag_texture_width, flag_texture_height)));
+			flag_canvas->add(DBG_NEW Image(Rect(flag_canvas->getComponentWidth(), 0, flag_texture_width, flag_texture_height)));
+
+			window_info_canvas->add(flag_canvas);
+		}
+
+		window_canvas->add(window_info_canvas);
+#else
 		/// <summary>
 		/// Main Window Canvas, holds the info_canvas & holds the Viewport for rendering the game
 		/// </summary>
@@ -174,7 +248,7 @@ namespace Minesweeper {
 			/// <summary>
 			/// Game Reset setup
 			/// </summary>
-			Button* smiley_face_button = new ButtonImage(Rect(start_pos_w, start_pos_h, button_texture_width, button_texture_height), "", button_callbacks->c_str());
+			ButtonImage* smiley_face_button = new ButtonImage(Rect(start_pos_w, start_pos_h, button_texture_width, button_texture_height), nullptr, button_callbacks->c_str());
 
 			window_info_canvas->add(smiley_face_button);
 		}
@@ -200,6 +274,7 @@ namespace Minesweeper {
 		}
 
 		window_canvas->add(window_info_canvas);
+#endif
 	}
 
 	template<class GraphicAPIsContext>

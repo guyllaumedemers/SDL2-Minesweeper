@@ -8,8 +8,8 @@
 namespace Toolset {
 	class Viewport {
 	private:
-		ImVec2 work_pos;
-		ImVec2 work_size;
+		ImVec2 work_pos = ImVec2();
+		ImVec2 work_size = ImVec2();
 		Image* viewport_texture = nullptr;
 		Viewport(const Viewport&) = delete;
 		Viewport(Viewport&&) = delete;

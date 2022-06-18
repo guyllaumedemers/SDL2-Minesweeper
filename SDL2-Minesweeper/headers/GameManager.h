@@ -77,10 +77,10 @@ namespace Toolset {
 	void GameManager<GraphicAPIsRendering, GraphicAPIsEvent>::destroy()
 	{
 		EventHandler::flush();
-		delete imp;
-		imp = nullptr;
 		delete imgui_context;
 		imgui_context = nullptr;
+		delete imp;
+		imp = nullptr;
 	}
 
 	/// <summary>
