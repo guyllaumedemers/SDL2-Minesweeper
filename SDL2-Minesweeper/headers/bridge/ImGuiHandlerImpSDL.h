@@ -21,7 +21,7 @@ namespace Toolset {
 	public:
 		ImGuiHandlerImpSDL(IBuilder*, const int&, const int&);
 		~ImGuiHandlerImpSDL();
-		void pollEvents(GraphicAPIsEvent&, void(*)(GraphicAPIsEvent&)) override;
+		int pollEvents(void(*)(GraphicAPIsEvent&)) override;
 		void refresh(void (*)(GraphicAPIsRendering*), const int&, const int&) override;
 		void draw(void (*)(GraphicAPIsRendering*)) override;
 	};
@@ -62,12 +62,16 @@ namespace Toolset {
 	/// Game logic for input processing
 	/// </summary>
 	template<class GraphicAPIsRendering, class GraphicAPIsEvent>
-	void ImGuiHandlerImpSDL<GraphicAPIsRendering, GraphicAPIsEvent>::pollEvents(GraphicAPIsEvent& e, void(*inputs_callback)(GraphicAPIsEvent&))
+	int ImGuiHandlerImpSDL<GraphicAPIsRendering, GraphicAPIsEvent>::pollEvents(void(*inputs_callback)(GraphicAPIsEvent&))
 	{
-		ImGui_ImplSDL2_ProcessEvent((SDL_Event*)&e);
-		if (ImGui::IsAnyItemHovered()) return;
-		SDL_assert(inputs_callback);
-		inputs_callback(e);
+		SDL_Event e;
+		if (SDL_WaitEvent(&e) > 0)
+		{
+			if (ImGui_ImplSDL2_ProcessEvent(&e) && ImGui::IsAnyItemHovered()) return 1;
+			inputs_callback(e);
+			return 1;
+		}
+		return 0;
 	}
 
 	/// <summary>

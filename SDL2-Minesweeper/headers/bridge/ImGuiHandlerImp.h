@@ -17,7 +17,7 @@ namespace Toolset {
 		ImGuiHandlerImp(IBuilder*);
 	public:
 		virtual ~ImGuiHandlerImp() = 0;
-		virtual void pollEvents(GraphicAPIsEvent&, void(*)(GraphicAPIsEvent&)) = 0;
+		virtual int pollEvents(void(*)(GraphicAPIsEvent&)) = 0;
 		virtual void refresh(void (*)(GraphicAPIsRendering*), const int&, const int&) = 0;
 		virtual void draw(void (*)(GraphicAPIsRendering*)) = 0;
 	};

@@ -22,7 +22,7 @@ namespace Toolset {
 	public:
 		ImGuiHandler(IBuilder*, const int&, const int&);
 		~ImGuiHandler();
-		void pollEvents(GraphicAPIsEvent&, void(*)(GraphicAPIsEvent&));
+		int pollEvents(void(*)(GraphicAPIsEvent&));
 		void refresh(void (*)(GraphicAPIsRendering*), const int&, const int&);
 		void draw(void (*)(GraphicAPIsRendering*));
 	};
@@ -60,9 +60,9 @@ namespace Toolset {
 	/// Game logic for input processing
 	/// </summary>
 	template<class GraphicAPIsRendering, class GraphicAPIsEvent>
-	void ImGuiHandler<GraphicAPIsRendering, GraphicAPIsEvent>::pollEvents(GraphicAPIsEvent& e, void(*input_callback)(GraphicAPIsEvent&))
+	int ImGuiHandler<GraphicAPIsRendering, GraphicAPIsEvent>::pollEvents(void(*input_callback)(GraphicAPIsEvent&))
 	{
-		imp->pollEvents(e, input_callback);
+		return imp->pollEvents(input_callback);
 	}
 
 	/// <summary>

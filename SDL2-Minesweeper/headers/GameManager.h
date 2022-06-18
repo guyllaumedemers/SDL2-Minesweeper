@@ -59,13 +59,17 @@ namespace Toolset {
 	{
 		while (isRunning) {
 			/// <summary>
-			/// This should be adapted to not reference SDL directly
+			/// Poll generic Events from inputs
 			/// </summary>
-			SDL_Event _e;
-			if (SDL_WaitEvent(&_e)) {
-				imgui_context->pollEvents(_e, [](GraphicAPIsEvent& e) { imp->pollEvents(e); });
-				imgui_context->refresh([](GraphicAPIsRendering* renderer) { imp->refresh(renderer, Screen::w, Screen::h); }, Screen::w, Screen::h);
-				imgui_context->draw([](GraphicAPIsRendering* renderer) { imp->draw(renderer); });
+			if (imgui_context->pollEvents([](GraphicAPIsEvent& e) -> void { imp->pollEvents(e); }) > 0) {
+				/// <summary>
+				/// refresh game logic to renderer on event callbacks
+				/// </summary>
+				imgui_context->refresh([](GraphicAPIsRendering* renderer) -> void { imp->refresh(renderer, Screen::w, Screen::h); }, Screen::w, Screen::h);
+				/// <summary>
+				/// update renderer context
+				/// </summary>
+				imgui_context->draw([](GraphicAPIsRendering* renderer) -> void { imp->draw(renderer); });
 			}
 		}
 	}
