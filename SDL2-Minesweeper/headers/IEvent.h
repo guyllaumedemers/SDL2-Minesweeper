@@ -1,7 +1,5 @@
 #pragma once
-#include <iostream>
 
-using namespace std;
 namespace Toolset {
 	/// <summary>
 	/// base class for observer pattern, use to work around generic implementation in its derived child
@@ -10,8 +8,8 @@ namespace Toolset {
 		IEvent(const IEvent&) = delete;
 		IEvent(IEvent&&) = delete;
 	protected:
-		IEvent() = default;
+		IEvent() {};
 	public:
-		virtual ~IEvent() = 0 { cout << "IEvent Desctructor" << endl; };
+		virtual ~IEvent() = 0 {};
 	};
 }

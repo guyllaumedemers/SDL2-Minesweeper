@@ -6,10 +6,6 @@
 #include <SDL.h>
 //#endif
 
-#ifdef _DEBUG
-#include "CRTMemoryLeak.h"
-#endif
-
 namespace Toolset {
 	template<class GraphicAPIsEvent>
 	class InputHandler {
@@ -30,17 +26,9 @@ namespace Toolset {
 	template<class GraphicAPIsEvent>
 	InputHandler<GraphicAPIsEvent>::InputHandler()
 	{
-#ifdef _DEBUG
 		//#ifdef SDL
-		if (is_same<GraphicAPIsEvent, SDL_Event>::value)
-			imp = DBG_NEW InputHandlerImpSDL<GraphicAPIsEvent>();
+		if (is_same<GraphicAPIsEvent, SDL_Event>::value) imp = new InputHandlerImpSDL<GraphicAPIsEvent>();
 		//#endif
-#else
-		//#ifdef SDL
-		if (is_same<GraphicAPIsEvent, SDL_Event>::value)
-			imp = new InputHandlerImpSDL<GraphicAPIsEvent>();
-		//#endif
-#endif
 	}
 
 	/// <summary>

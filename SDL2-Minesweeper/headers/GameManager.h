@@ -6,10 +6,6 @@
 #include "Mode.h"
 #include "builder/ImGuiMinesweeperBuilder.h"
 
-#ifdef _DEBUG
-#include "CRTMemoryLeak.h"
-#endif
-
 using namespace Minesweeper;
 namespace Toolset {
 	template<class GraphicAPIsRendering, class GraphicAPIsEvent>
@@ -44,9 +40,6 @@ namespace Toolset {
 	template<class GraphicAPIsRendering, class GraphicAPIsEvent>
 	void GameManager<GraphicAPIsRendering, GraphicAPIsEvent>::init()
 	{
-#ifdef _DEBUG
-		CRTMemoryLeak::init();
-#endif
 		reset(Mode::Hard);
 		isRunning = true;
 	}
@@ -105,25 +98,18 @@ namespace Toolset {
 			"onNewGame"
 		};
 
-#ifdef _DEBUG
-		imp = DBG_NEW GameManagerImp<GraphicAPIsRendering, GraphicAPIsEvent>(mode_backup, [](const int& w, const int& h) -> void { Screen::setScreenSize(w, h); });
-		imgui_context = DBG_NEW ImGuiHandler<GraphicAPIsRendering, GraphicAPIsEvent>(DBG_NEW ImGuiMinesweeperBuilder<SDLHandler>(), Screen::w, Screen::h);
-		EventHandler::create(event_keys[0], DBG_NEW Event<bool>());
-		EventHandler::add<bool>(event_keys[0], DBG_NEW Subscriber<bool>([](const bool& val) -> void { isRunning = !val; }));
-		EventHandler::create(event_keys[1], DBG_NEW Event<int>());
-		EventHandler::add<int>(event_keys[1], DBG_NEW Subscriber<int>([](const int& val) -> void { imp->processInputs(val); }));
-		EventHandler::create(event_keys[2], DBG_NEW Event<Mode>());
-		EventHandler::add<Mode>(event_keys[2], DBG_NEW Subscriber<Mode>([](const Mode& val) -> void { reset(val); }));
-#else		
 		imp = new GameManagerImp<GraphicAPIsRendering, GraphicAPIsEvent>(mode_backup, [](const int& w, const int& h) -> void { Screen::setScreenSize(w, h); });
 		imgui_context = new ImGuiHandler<GraphicAPIsRendering, GraphicAPIsEvent>(new ImGuiMinesweeperBuilder<SDLHandler>(), Screen::w, Screen::h);
+
+		/// <summary>
+		/// Events
+		/// </summary>
 		EventHandler::create(event_keys[0], new Event<bool>());
 		EventHandler::add<bool>(event_keys[0], new Subscriber<bool>([](const bool& val) -> void { isRunning = !val; }));
 		EventHandler::create(event_keys[1], new Event<int>());
 		EventHandler::add<int>(event_keys[1], new Subscriber<int>([](const int& val) -> void { imp->processInputs(val); }));
 		EventHandler::create(event_keys[2], new Event<Mode>());
 		EventHandler::add<Mode>(event_keys[2], new Subscriber<Mode>([](const Mode& val) -> void { reset(val); }));
-#endif
 	}
 
 	/// <summary>

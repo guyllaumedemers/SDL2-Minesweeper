@@ -3,10 +3,6 @@
 #include <string>
 #include <queue>
 
-#ifdef _DEBUG
-#include "../../headers/CRTMemoryLeak.h"
-#endif
-
 using namespace std;
 namespace Minesweeper {
 	/// <summary>
@@ -16,11 +12,8 @@ namespace Minesweeper {
 
 	Level::Level(const int& rows, const int& cols, const int& bombs, const int& flags)
 	{
-#ifdef _DEBUG
-		map = DBG_NEW Tile[rows * cols];
-#else
 		map = new Tile[rows * cols];
-#endif
+
 		this->rows = rows;
 		this->cols = cols;
 		this->bombs = bombs;

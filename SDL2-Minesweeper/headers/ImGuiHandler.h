@@ -7,10 +7,6 @@
 #include <SDL.h>
 //#endif
 
-#ifdef _DEBUG
-#include "CRTMemoryLeak.h"
-#endif
-
 using namespace std;
 namespace Toolset {
 	template<class GraphicAPIsRendering, class GraphicAPIsEvent>
@@ -33,17 +29,10 @@ namespace Toolset {
 	template<class GraphicAPIsRendering, class GraphicAPIsEvent>
 	ImGuiHandler<GraphicAPIsRendering, GraphicAPIsEvent>::ImGuiHandler(IBuilder* builder, const int& w, const int& h)
 	{
-#ifdef _DEBUG
 		//#ifdef SDL
 		if (is_same<GraphicAPIsRendering, SDL_Renderer>::value)
-			imp = DBG_NEW ImGuiHandlerImpSDL<GraphicAPIsRendering, GraphicAPIsEvent>(builder, w, h);
+			imp = new ImGuiHandlerImpSDL<GraphicAPIsRendering, GraphicAPIsEvent>(builder, new SDLHandler(w, h));
 		//#endif
-#else
-		//#ifdef SDL
-		if (is_same<GraphicAPIsRendering, SDL_Renderer>::value)
-			imp = new ImGuiHandlerImpSDL<GraphicAPIsRendering, GraphicAPIsEvent>(builder, w, h);
-		//#endif
-#endif
 	}
 
 	/// <summary>

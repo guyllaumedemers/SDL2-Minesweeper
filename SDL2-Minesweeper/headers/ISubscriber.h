@@ -1,5 +1,4 @@
 #pragma once
-#include <iostream>
 
 using namespace std;
 namespace Toolset {
@@ -12,6 +11,6 @@ namespace Toolset {
 	protected:
 		ISubscriber() {};
 	public:
-		virtual ~ISubscriber() = 0 { cout << "ISubscriber Desctructor" << endl; };
+		virtual ~ISubscriber() = 0 {};
 	};
 }

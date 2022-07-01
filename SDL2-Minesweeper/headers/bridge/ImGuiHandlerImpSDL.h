@@ -7,10 +7,6 @@
 #include <imgui_impl_sdl.h>
 #include <imgui_impl_sdlrenderer.h>
 
-#ifdef _DEBUG
-#include "../CRTMemoryLeak.h"
-#endif
-
 namespace Toolset {
 	template<class GraphicAPIsRendering, class GraphicAPIsEvent>
 	class ImGuiHandlerImpSDL : virtual public ImGuiHandlerImp<GraphicAPIsRendering, GraphicAPIsEvent> {
@@ -21,7 +17,7 @@ namespace Toolset {
 		ImGuiHandlerImpSDL(ImGuiHandlerImpSDL&&) = delete;
 		ImGuiHandlerImpSDL() = delete;
 	public:
-		ImGuiHandlerImpSDL(IBuilder*, const int&, const int&);
+		ImGuiHandlerImpSDL(IBuilder*, SDLHandler* sdl_context);
 		~ImGuiHandlerImpSDL();
 		int pollEvents(void(*)(GraphicAPIsEvent&)) override;
 		void refresh(void (*)(GraphicAPIsRendering*)) override;
@@ -32,13 +28,8 @@ namespace Toolset {
 	/// Constructor
 	/// </summary>
 	template<class GraphicAPIsRendering, class GraphicAPIsEvent>
-	ImGuiHandlerImpSDL<GraphicAPIsRendering, GraphicAPIsEvent>::ImGuiHandlerImpSDL(IBuilder* builder_context, const int& w, const int& h) : builder_context(builder_context), ImGuiHandlerImp<GraphicAPIsRendering, GraphicAPIsEvent>()
+	ImGuiHandlerImpSDL<GraphicAPIsRendering, GraphicAPIsEvent>::ImGuiHandlerImpSDL(IBuilder* builder_context, SDLHandler* sdl_context) : builder_context(builder_context), sdl_context(sdl_context), ImGuiHandlerImp<GraphicAPIsRendering, GraphicAPIsEvent>()
 	{
-#ifdef _DEBUG
-		sdl_context = DBG_NEW SDLHandler(w, h);
-#else
-		sdl_context = new SDLHandler(w, h);
-#endif
 		IMGUI_CHECKVERSION();
 		ImGui::CreateContext();
 		ImGuiIO& io = ImGui::GetIO(); (void)io;

@@ -5,10 +5,6 @@
 #include <SDL.h>
 //#endif
 
-#ifdef _DEBUG
-#include "CRTMemoryLeak.h"
-#endif
-
 using namespace Minesweeper;
 namespace Toolset {
 	/// <summary>
@@ -36,22 +32,6 @@ namespace Toolset {
 	template<class GraphicAPIsRendering>
 	LevelHandler<GraphicAPIsRendering>::LevelHandler(const Mode& mode)
 	{
-#ifdef _DEBUG
-		switch (mode)
-		{
-		case Mode::Easy:
-			level = DBG_NEW Level(8, 8, 10, 10);
-			break;
-		case Mode::Medium:
-			level = DBG_NEW Level(16, 16, 40, 40);
-			break;
-		case Mode::Hard:
-			level = DBG_NEW Level(16, 30, 99, 99);
-			break;
-		default:
-			throw "ERROR::LEVEL_CREATION::FAILED";
-		}
-#else 
 		switch (mode)
 		{
 		case Mode::Easy:
@@ -66,7 +46,6 @@ namespace Toolset {
 		default:
 			throw "ERROR::LEVEL_CREATION::FAILED";
 		}
-#endif
 	}
 
 	/// <summary>

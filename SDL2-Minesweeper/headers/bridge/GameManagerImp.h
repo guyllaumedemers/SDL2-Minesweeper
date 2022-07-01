@@ -31,13 +31,9 @@ namespace Toolset {
 	template<class GraphicAPIsRendering, class GraphicAPIsEvent>
 	GameManagerImp<GraphicAPIsRendering, GraphicAPIsEvent>::GameManagerImp(const Mode& mode, void(*screen_callback)(const int&, const int&))
 	{
-#ifdef _DEBUG
-		level_context = DBG_NEW LevelHandler<GraphicAPIsRendering>(mode);
-		input_context = DBG_NEW InputHandler<GraphicAPIsEvent>();
-#else
 		level_context = new LevelHandler<GraphicAPIsRendering>(mode);
 		input_context = new InputHandler<GraphicAPIsEvent>();
-#endif
+
 		int w = level_context->getLevel()->getCols() * Tile::size;
 		int h = level_context->getLevel()->getRows() * Tile::size;
 		screen_callback(w, h);
