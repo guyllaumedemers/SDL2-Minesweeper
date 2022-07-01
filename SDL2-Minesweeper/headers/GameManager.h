@@ -61,11 +61,11 @@ namespace Toolset {
 			/// <summary>
 			/// Poll generic Events from inputs
 			/// </summary>
-			if (imgui_context->pollEvents([](GraphicAPIsEvent& e) -> void { imp->pollEvents(e); }) > 0) {
+			if (imgui_context != nullptr && imp != nullptr && imgui_context->pollEvents([](GraphicAPIsEvent& e) -> void { imp->pollEvents(e); }) > 0) {
 				/// <summary>
 				/// refresh game logic to renderer on event callbacks
 				/// </summary>
-				imgui_context->refresh([](GraphicAPIsRendering* renderer) -> void { imp->refresh(renderer, Screen::w, Screen::h); }, Screen::w, Screen::h);
+				imgui_context->refresh([](GraphicAPIsRendering* renderer) -> void { imp->refresh(renderer, Screen::w, Screen::h); });
 				/// <summary>
 				/// update renderer context
 				/// </summary>
@@ -106,23 +106,23 @@ namespace Toolset {
 		};
 
 #ifdef _DEBUG
-		imp = DBG_NEW GameManagerImp<GraphicAPIsRendering, GraphicAPIsEvent>(mode_backup, [](const int& w, const int& h) { Screen::setScreenSize(w, h); });
+		imp = DBG_NEW GameManagerImp<GraphicAPIsRendering, GraphicAPIsEvent>(mode_backup, [](const int& w, const int& h) -> void { Screen::setScreenSize(w, h); });
 		imgui_context = DBG_NEW ImGuiHandler<GraphicAPIsRendering, GraphicAPIsEvent>(DBG_NEW ImGuiMinesweeperBuilder<SDLHandler>(), Screen::w, Screen::h);
 		EventHandler::create(event_keys[0], DBG_NEW Event<bool>());
-		EventHandler::add<bool>(event_keys[0], DBG_NEW Subscriber<bool>([](const bool& val) { isRunning = !val; }));
+		EventHandler::add<bool>(event_keys[0], DBG_NEW Subscriber<bool>([](const bool& val) -> void { isRunning = !val; }));
 		EventHandler::create(event_keys[1], DBG_NEW Event<int>());
-		EventHandler::add<int>(event_keys[1], DBG_NEW Subscriber<int>([](const int& val) { imp->processInputs(val); }));
+		EventHandler::add<int>(event_keys[1], DBG_NEW Subscriber<int>([](const int& val) -> void { imp->processInputs(val); }));
 		EventHandler::create(event_keys[2], DBG_NEW Event<Mode>());
-		EventHandler::add<Mode>(event_keys[2], DBG_NEW Subscriber<Mode>([](const Mode& val) { reset(val); }));
+		EventHandler::add<Mode>(event_keys[2], DBG_NEW Subscriber<Mode>([](const Mode& val) -> void { reset(val); }));
 #else		
-		imp = new GameManagerImp<GraphicAPIsRendering, GraphicAPIsEvent>(mode_backup, [](const int& w, const int& h) { Screen::setScreenSize(w, h); });
+		imp = new GameManagerImp<GraphicAPIsRendering, GraphicAPIsEvent>(mode_backup, [](const int& w, const int& h) -> void { Screen::setScreenSize(w, h); });
 		imgui_context = new ImGuiHandler<GraphicAPIsRendering, GraphicAPIsEvent>(new ImGuiMinesweeperBuilder<SDLHandler>(), Screen::w, Screen::h);
 		EventHandler::create(event_keys[0], new Event<bool>());
-		EventHandler::add<bool>(event_keys[0], new Subscriber<bool>([](const bool& val) { isRunning = !val; }));
+		EventHandler::add<bool>(event_keys[0], new Subscriber<bool>([](const bool& val) -> void { isRunning = !val; }));
 		EventHandler::create(event_keys[1], new Event<int>());
-		EventHandler::add<int>(event_keys[1], new Subscriber<int>([](const int& val) { imp->processInputs(val); }));
+		EventHandler::add<int>(event_keys[1], new Subscriber<int>([](const int& val) -> void { imp->processInputs(val); }));
 		EventHandler::create(event_keys[2], new Event<Mode>());
-		EventHandler::add<Mode>(event_keys[2], new Subscriber<Mode>([](const Mode& val) { reset(val); }));
+		EventHandler::add<Mode>(event_keys[2], new Subscriber<Mode>([](const Mode& val) -> void { reset(val); }));
 #endif
 	}
 

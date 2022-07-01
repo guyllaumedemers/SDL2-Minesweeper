@@ -1,15 +1,8 @@
 #pragma once
 #include "ImGuiBuilder.h"
-#include "../composite/ImGuiComplexComponent.h"
-#include "../../headers/composite/components/Window.h"
-#include "../../headers/composite/components/Canvas.h"
-#include "../../headers/composite/components/Button.h"
-#include "../../headers/composite/components/ButtonImage.h"
-#include "../../headers/composite/components/Tab.h"
-#include "../../headers/composite/components/Entry.h"
-#include "../../headers/Mode.h"
 #include "../SDLHandler.h"
 #include "../Screen.h"
+#include "../Mode.h"
 
 #include <imgui.h>
 #include <imgui_internal.h>
@@ -20,7 +13,7 @@
 #include <string>
 
 #ifdef _DEBUG
-#include "../../headers/CRTMemoryLeak.h"
+#include "../CRTMemoryLeak.h"
 #endif
 
 using namespace Toolset;
@@ -31,10 +24,10 @@ namespace Minesweeper {
 	template<class GraphicAPIsContext>
 	class ImGuiMinesweeperBuilder : virtual public ImGuiBuilder<GraphicAPIsContext> {
 	private:
-		ImGuiComplexComponent* builder_parts = nullptr;
 		ImGuiMinesweeperBuilder(const ImGuiMinesweeperBuilder&) = delete;
 		ImGuiMinesweeperBuilder(ImGuiMinesweeperBuilder&&) = delete;
 	protected:
+		ImGuiComplexComponent* builder_parts = nullptr;
 		void buildApplicationMenu() override;
 		void buildCanvas() override;
 		void buildViewport(GraphicAPIsContext*) override;
@@ -43,6 +36,8 @@ namespace Minesweeper {
 		~ImGuiMinesweeperBuilder();
 		void build(GraphicAPIsContext*) override;
 		void reset() override;
+		int getMaxWidth() override;
+		int getMaxHeight() override;
 	};
 
 	/// <summary>
@@ -61,11 +56,11 @@ namespace Minesweeper {
 	};
 
 	template<class GraphicAPIsContext>
-	ImGuiMinesweeperBuilder<GraphicAPIsContext>::ImGuiMinesweeperBuilder() : builder_parts(nullptr)
+	ImGuiMinesweeperBuilder<GraphicAPIsContext>::ImGuiMinesweeperBuilder() : ImGuiBuilder<GraphicAPIsContext>(), IBuilder()
 	{
 		reset();
 		buildApplicationMenu();
-		//buildCanvas();
+		buildCanvas();
 	}
 
 	template<class GraphicAPIsContext>
@@ -133,13 +128,14 @@ namespace Minesweeper {
 		/// Main Window Canvas, holds the info_canvas & holds the Viewport for rendering the game
 		/// </summary>
 		Canvas* window_canvas = dynamic_cast<Window*>(builder_parts)->getWindowCanvas();
+
 		int w = Screen::w;
 		int h = Screen::h;
 		int tile = Tile::size;
 		int h_mult = 4;
 
 		/// <summary>
-		/// Window info Canvas, holds the Timer, Flag Count, Reset Button
+		/// Window info Canvas, holds the Timer, Flag Count, Reset Button -> Rect Total Size : 80px, BUT ImGuiComponents Total Size : 100px //TODO Fix Height Calculation
 		/// </summary>
 		Canvas* window_info_canvas = DBG_NEW Canvas(Rect(0, 0, w, h_mult * tile));
 
@@ -321,5 +317,17 @@ namespace Minesweeper {
 			new Style(window_flags, opt_fullscreen, opt_padding)
 		);
 #endif
+	}
+
+	template<class GraphicAPIsContext>
+	int ImGuiMinesweeperBuilder<GraphicAPIsContext>::getMaxWidth()
+	{
+		return dynamic_cast<Window*>(builder_parts)->getWindowCanvas()->getComponentWidth();
+	}
+
+	template<class GraphicAPIsContext>
+	int ImGuiMinesweeperBuilder<GraphicAPIsContext>::getMaxHeight()
+	{
+		return dynamic_cast<Window*>(builder_parts)->getWindowCanvas()->getComponentHeight();
 	}
 }

@@ -1,7 +1,7 @@
 #pragma once
-#include "../Mode.h"
 #include "../LevelHandler.h"
 #include "../InputHandler.h"
+#include "../Mode.h"
 
 #ifdef _DEBUG
 #include "../CRTMemoryLeak.h"

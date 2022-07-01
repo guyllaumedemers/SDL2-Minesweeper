@@ -14,8 +14,8 @@ namespace Toolset {
 	public:
 		InputHandlerImpSDL();
 		~InputHandlerImpSDL();
-		void pollEvents(GraphicAPIsEvent&);
-		void getMouseState(int&, int&);
+		void pollEvents(GraphicAPIsEvent&) override;
+		void getMouseState(int&, int&) override;
 	};
 
 	/// <summary>

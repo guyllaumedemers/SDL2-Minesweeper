@@ -24,7 +24,7 @@ namespace Toolset {
 
 		SDL_SetWindowTitle(window, window_name.c_str());
 		TextureHandler<SDL_Renderer, SDL_Texture>::init();
-		TextureHandler<SDL_Renderer, SDL_Texture>::load(renderer, [](SDL_Renderer* ren, string s) { return IMG_LoadTexture(ren, s.c_str()); });
+		TextureHandler<SDL_Renderer, SDL_Texture>::load(renderer, [](SDL_Renderer* ren, string s) -> SDL_Texture* { return IMG_LoadTexture(ren, s.c_str()); });
 	}
 
 	SDLHandler::~SDLHandler()

@@ -11,14 +11,12 @@ namespace Toolset {
 	private:
 		ImGuiHandlerImp(const ImGuiHandlerImp&) = delete;
 		ImGuiHandlerImp(ImGuiHandlerImp&&) = delete;
-		ImGuiHandlerImp() = delete;
 	protected:
-		IBuilder* builder_context = nullptr;
-		ImGuiHandlerImp(IBuilder*);
+		ImGuiHandlerImp();
 	public:
 		virtual ~ImGuiHandlerImp() = 0;
 		virtual int pollEvents(void(*)(GraphicAPIsEvent&)) = 0;
-		virtual void refresh(void (*)(GraphicAPIsRendering*), const int&, const int&) = 0;
+		virtual void refresh(void (*)(GraphicAPIsRendering*)) = 0;
 		virtual void draw(void (*)(GraphicAPIsRendering*)) = 0;
 	};
 
@@ -26,7 +24,7 @@ namespace Toolset {
 	/// Constructor
 	/// </summary>
 	template<class GraphicAPIsRendering, class GraphicAPIsEvent>
-	ImGuiHandlerImp<GraphicAPIsRendering, GraphicAPIsEvent>::ImGuiHandlerImp(IBuilder* builder_context) : builder_context(builder_context)
+	ImGuiHandlerImp<GraphicAPIsRendering, GraphicAPIsEvent>::ImGuiHandlerImp()
 	{
 	}
 
@@ -36,7 +34,5 @@ namespace Toolset {
 	template<class GraphicAPIsRendering, class GraphicAPIsEvent>
 	ImGuiHandlerImp<GraphicAPIsRendering, GraphicAPIsEvent>::~ImGuiHandlerImp()
 	{
-		delete builder_context;
-		builder_context = nullptr;
 	}
 }

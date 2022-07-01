@@ -23,7 +23,6 @@ namespace Toolset {
 		TextureHandler(const TextureHandler&) = delete;
 		TextureHandler(TextureHandler&&) = delete;
 		TextureHandler() = delete;
-		static GraphicAPIsTexture* loadtexture(GraphicAPIsRendering*, string);
 		static void add(string key, GraphicAPIsTexture*);
 		static void remove(string key);
 	public:
@@ -57,22 +56,9 @@ namespace Toolset {
 		}
 	}
 
-	/// <summary>
-	/// loading of single texture
-	/// </summary>
-	template<class GraphicAPIsRendering, class GraphicAPIsTexture>
-	GraphicAPIsTexture* TextureHandler<GraphicAPIsRendering, GraphicAPIsTexture>::loadtexture(GraphicAPIsRendering* renderer, string path)
-	{
-		/// <summary>
-		/// Shouldnt be specific but at this point this is becoming stupid
-		/// </summary>
-		SDL_Texture* texture = IMG_LoadTexture((SDL_Renderer*)renderer, path.c_str());
-		if (texture == nullptr) {
-			SDL_Log("ERROR::IMG_LOADTEXTURE FAILED : %s", SDL_GetError());
-			exit(EXIT_FAILURE);
-		}
-		return texture;
-	}
+	/*
+	 * Should be a generic implementation that initialize according to the APIs use
+	 */
 
 	/// <summary>
 	/// initialization of the lib for texture loading, should be more modular for different GraphicAPIs lib
@@ -80,9 +66,6 @@ namespace Toolset {
 	template<class GraphicAPIsRendering, class GraphicAPIsTexture>
 	void TextureHandler<GraphicAPIsRendering, GraphicAPIsTexture>::init()
 	{
-		/// <summary>
-		/// same here
-		/// </summary>
 		if (!IMG_Init(IMG_INIT_PNG | IMG_INIT_JPG)) {
 			SDL_Log("ERROR::IMG_INIT::FAILED : %s", SDL_GetError());
 			exit(EXIT_FAILURE);

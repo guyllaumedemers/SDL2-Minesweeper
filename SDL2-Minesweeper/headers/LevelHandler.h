@@ -94,7 +94,7 @@ namespace Toolset {
 	template<class GraphicAPIsRendering>
 	void LevelHandler<GraphicAPIsRendering>::refresh(GraphicAPIsRendering* renderer, const int& w, const int& h)
 	{
-		level->refresh((SDL_Renderer*)renderer, w, h);
+		level->refresh(renderer, w, h);
 	}
 
 
@@ -104,7 +104,7 @@ namespace Toolset {
 	template<class GraphicAPIsRendering>
 	void LevelHandler<GraphicAPIsRendering>::draw(GraphicAPIsRendering* renderer)
 	{
-		level->draw((SDL_Renderer*)renderer);
+		level->draw(renderer);
 	}
 
 	/// <summary>

@@ -1,6 +1,7 @@
 #pragma once
 #include "ImGuiHandlerImp.h"
 #include "../SDLHandler.h"
+
 #include <imgui.h>
 #include <imgui_internal.h>
 #include <imgui_impl_sdl.h>
@@ -14,6 +15,7 @@ namespace Toolset {
 	template<class GraphicAPIsRendering, class GraphicAPIsEvent>
 	class ImGuiHandlerImpSDL : virtual public ImGuiHandlerImp<GraphicAPIsRendering, GraphicAPIsEvent> {
 	private:
+		IBuilder* builder_context = nullptr;
 		SDLHandler* sdl_context = nullptr;
 		ImGuiHandlerImpSDL(const ImGuiHandlerImpSDL&) = delete;
 		ImGuiHandlerImpSDL(ImGuiHandlerImpSDL&&) = delete;
@@ -22,7 +24,7 @@ namespace Toolset {
 		ImGuiHandlerImpSDL(IBuilder*, const int&, const int&);
 		~ImGuiHandlerImpSDL();
 		int pollEvents(void(*)(GraphicAPIsEvent&)) override;
-		void refresh(void (*)(GraphicAPIsRendering*), const int&, const int&) override;
+		void refresh(void (*)(GraphicAPIsRendering*)) override;
 		void draw(void (*)(GraphicAPIsRendering*)) override;
 	};
 
@@ -30,7 +32,7 @@ namespace Toolset {
 	/// Constructor
 	/// </summary>
 	template<class GraphicAPIsRendering, class GraphicAPIsEvent>
-	ImGuiHandlerImpSDL<GraphicAPIsRendering, GraphicAPIsEvent>::ImGuiHandlerImpSDL(IBuilder* builder_context, const int& w, const int& h) : ImGuiHandlerImp<GraphicAPIsRendering, GraphicAPIsEvent>(builder_context)
+	ImGuiHandlerImpSDL<GraphicAPIsRendering, GraphicAPIsEvent>::ImGuiHandlerImpSDL(IBuilder* builder_context, const int& w, const int& h) : builder_context(builder_context), ImGuiHandlerImp<GraphicAPIsRendering, GraphicAPIsEvent>()
 	{
 #ifdef _DEBUG
 		sdl_context = DBG_NEW SDLHandler(w, h);
@@ -78,7 +80,7 @@ namespace Toolset {
 	/// Game logic for refreshing
 	/// </summary>
 	template<class GraphicAPIsRendering, class GraphicAPIsEvent>
-	void ImGuiHandlerImpSDL<GraphicAPIsRendering, GraphicAPIsEvent>::refresh(void(*refresh_callback)(GraphicAPIsRendering*), const int& w, const int& h)
+	void ImGuiHandlerImpSDL<GraphicAPIsRendering, GraphicAPIsEvent>::refresh(void(*refresh_callback)(GraphicAPIsRendering*))
 	{
 		ImGui_ImplSDLRenderer_NewFrame();
 		ImGui_ImplSDL2_NewFrame();

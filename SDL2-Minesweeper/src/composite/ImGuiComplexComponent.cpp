@@ -1,5 +1,4 @@
 #pragma once
-#include "../../headers/composite/ImGuiComponent.h"
 #include "../../headers/composite/ImGuiComplexComponent.h"
 
 namespace Toolset {
@@ -35,7 +34,7 @@ namespace Toolset {
 	/// </summary>
 	void ImGuiComplexComponent::remove(ImGuiComponent* component)
 	{
-		vector<ImGuiComponent*>::iterator it = find(components.begin(), components.end(), component);
+		auto it = find(components.begin(), components.end(), component);
 		if (it != components.end()) components.erase(it);
 	}
 

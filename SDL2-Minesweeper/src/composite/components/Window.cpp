@@ -45,7 +45,7 @@ namespace Toolset {
 	/// </summary>
 	void Window::refresh()
 	{
-		window_style->add(ImGuiWindowFlags_MenuBar | ImGuiWindowFlags_NoDocking | ImGuiWindowFlags_NoDecoration);
+		window_style->add(ImGuiWindowFlags_MenuBar | ImGuiWindowFlags_NoDocking | ImGuiWindowFlags_NoDecoration | ImGuiWindowFlags_NoScrollWithMouse);
 		if (window_style->getfullscreen()) {
 
 			window_style->push(ImGuiStyleVar_WindowRounding, 0.0f);

@@ -1,5 +1,4 @@
 #pragma once
-#include "../../headers/composite/ImGuiComponent.h"
 #include "../../headers/composite/ImGuiSimpleComponent.h"
 
 namespace Toolset {

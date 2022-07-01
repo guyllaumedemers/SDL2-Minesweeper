@@ -23,7 +23,7 @@ namespace Toolset {
 		ImGuiHandler(IBuilder*, const int&, const int&);
 		~ImGuiHandler();
 		int pollEvents(void(*)(GraphicAPIsEvent&));
-		void refresh(void (*)(GraphicAPIsRendering*), const int&, const int&);
+		void refresh(void (*)(GraphicAPIsRendering*));
 		void draw(void (*)(GraphicAPIsRendering*));
 	};
 
@@ -69,9 +69,9 @@ namespace Toolset {
 	/// Game logic for refreshing
 	/// </summary>
 	template<class GraphicAPIsRendering, class GraphicAPIsEvent>
-	void ImGuiHandler<GraphicAPIsRendering, GraphicAPIsEvent>::refresh(void(*refresh_callback)(GraphicAPIsRendering*), const int& w, const int& h)
+	void ImGuiHandler<GraphicAPIsRendering, GraphicAPIsEvent>::refresh(void(*refresh_callback)(GraphicAPIsRendering*))
 	{
-		imp->refresh(refresh_callback, w, h);
+		imp->refresh(refresh_callback);
 	}
 
 	/// <summary>
