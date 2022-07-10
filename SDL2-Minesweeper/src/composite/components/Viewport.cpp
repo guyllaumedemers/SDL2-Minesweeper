@@ -1,21 +1,13 @@
 #pragma once
 #include "../../../headers/composite/components/Viewport.h"
 
-#ifdef _DEBUG
-#include "../../../headers/CRTMemoryLeak.h"
-#endif
-
 namespace Toolset {
 	/// <summary>
 	/// Constructor
 	/// </summary>
 	Viewport::Viewport(const Rect& rect) : work_pos(ImVec2(rect.x, rect.y)), work_size(ImVec2(rect.w, rect.h))
 	{
-#ifdef _DEBUG
-		this->viewport_texture = DBG_NEW Image(rect);
-#else
 		this->viewport_texture = new Image(rect);
-#endif
 	}
 
 	/// <summary>

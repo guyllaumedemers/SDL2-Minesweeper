@@ -6,6 +6,13 @@
 #include "Mode.h"
 #include "builder/ImGuiMinesweeperBuilder.h"
 
+/*
+ *	Currently reading this bad boy, https://www.amazon.ca/Large-Scale-Software-Design-John-Lakos/dp/0201633620 and thinking
+ *	about ways to optimize physical design to reduce compile time coupling so C++ preprocessor aren't referred in multiple times
+ *	as well as generating a more concise Translation unit to reduce linking time.
+ *
+ */
+
 using namespace Minesweeper;
 namespace Toolset {
 	template<class GraphicAPIsRendering, class GraphicAPIsEvent>
@@ -45,7 +52,7 @@ namespace Toolset {
 	}
 
 	/// <summary>
-	/// run
+	/// run [&](){} https://docs.microsoft.com/en-us/cpp/cpp/lambda-expressions-in-cpp?view=msvc-170, Capture Clause
 	/// </summary>
 	template<class GraphicAPIsRendering, class GraphicAPIsEvent>
 	void GameManager<GraphicAPIsRendering, GraphicAPIsEvent>::run()
@@ -86,10 +93,6 @@ namespace Toolset {
 	template<class GraphicAPIsRendering, class GraphicAPIsEvent>
 	void GameManager<GraphicAPIsRendering, GraphicAPIsEvent>::reset(const Mode& mode)
 	{
-		/// <summary>
-		/// Args mode is being cleared from memory in the subsequent destroy() giving back an invalid value, require local caching
-		/// </summary>
-		Mode mode_backup = mode;
 		destroy();
 
 		static const string event_keys[] = {
@@ -98,7 +101,7 @@ namespace Toolset {
 			"onNewGame"
 		};
 
-		imp = new GameManagerImp<GraphicAPIsRendering, GraphicAPIsEvent>(mode_backup, [](const int& w, const int& h) -> void { Screen::setScreenSize(w, h); });
+		imp = new GameManagerImp<GraphicAPIsRendering, GraphicAPIsEvent>(mode, [](const int& w, const int& h) -> void { Screen::setScreenSize(w, h); });
 		imgui_context = new ImGuiHandler<GraphicAPIsRendering, GraphicAPIsEvent>(new ImGuiMinesweeperBuilder<SDLHandler>(), Screen::w, Screen::h);
 
 		/// <summary>

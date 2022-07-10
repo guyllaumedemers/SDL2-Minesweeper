@@ -15,7 +15,7 @@ namespace Toolset {
 		}
 		else if (SDL_CreateWindowAndRenderer(w, h, 0, &window, &renderer) != 0)
 		{
-			SDL_Log("CONTEXT INTIALIZATION FAILED: %s", SDL_GetError());
+			SDL_Log("CONTEXT INITIALIZATION FAILED: %s", SDL_GetError());
 			exit(EXIT_FAILURE);
 		}
 

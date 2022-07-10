@@ -3,6 +3,7 @@
 #include "bridge/ImGuiHandlerImpSDL.h"
 #include "builder/IBuilder.h"
 #include <type_traits>
+#include <functional>
 //#ifdef SDL
 #include <SDL.h>
 //#endif
@@ -19,8 +20,8 @@ namespace Toolset {
 		ImGuiHandler(IBuilder*, const int&, const int&);
 		~ImGuiHandler();
 		int pollEvents(void(*)(GraphicAPIsEvent&));
-		void refresh(void (*)(GraphicAPIsRendering*));
-		void draw(void (*)(GraphicAPIsRendering*));
+		void refresh(void(*)(GraphicAPIsRendering*));
+		void draw(void(*)(GraphicAPIsRendering*));
 	};
 
 	/// <summary>

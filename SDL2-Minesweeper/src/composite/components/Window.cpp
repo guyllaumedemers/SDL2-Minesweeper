@@ -4,21 +4,13 @@
 #include <imgui.h>
 #include <imgui_internal.h>
 
-#ifdef _DEBUG
-#include "../../../headers/CRTMemoryLeak.h"
-#endif
-
 namespace Toolset {
 	/// <summary>
 	/// Constructor
 	/// </summary>
 	Window::Window(const Rect& rect, const char* name, Style* window_style) : ImGuiComplexComponent(rect), ImGuiComponent(rect), name(name), window_style(window_style), p_open(true)
 	{
-#ifdef _DEBUG
-		this->window_canvas = DBG_NEW Canvas(rect);
-#else
 		this->window_canvas = new Canvas(rect);
-#endif
 	}
 
 	/// <summary>

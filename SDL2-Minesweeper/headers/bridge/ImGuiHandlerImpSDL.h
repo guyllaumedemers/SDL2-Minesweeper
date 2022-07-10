@@ -20,8 +20,8 @@ namespace Toolset {
 		ImGuiHandlerImpSDL(IBuilder*, SDLHandler* sdl_context);
 		~ImGuiHandlerImpSDL();
 		int pollEvents(void(*)(GraphicAPIsEvent&)) override;
-		void refresh(void (*)(GraphicAPIsRendering*)) override;
-		void draw(void (*)(GraphicAPIsRendering*)) override;
+		void refresh(void(*)(GraphicAPIsRendering*)) override;
+		void draw(void(*)(GraphicAPIsRendering*)) override;
 	};
 
 	/// <summary>
