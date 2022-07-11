@@ -112,6 +112,10 @@ namespace Toolset {
 
 		/// <summary>
 		/// Events
+		///
+		///	Here, we don't set the capture clause to take body variable by Reference but rather by copy. A thing to point out is that the variable in
+		///	questions are static, meaning global hereby opposing the "default" behaviour of the Capture clause of the lamda expression
+		///
 		/// </summary>
 		EventHandler::create(event_keys[0], new Event<bool>());
 		EventHandler::add<bool>(event_keys[0], new Subscriber<bool>([](const bool& val) -> void { isRunning = !val; }));
