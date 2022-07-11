@@ -1,2 +1,30 @@
-﻿  Window.cpp
+﻿  Main.cpp
+D:\VisualStudio\SDL2\SDL2-GameDevCMake\SDL2-Minesweeper\SDL2-Minesweeper\Main.cpp(13,12): warning C4244: 'argument': conversion from 'time_t' to 'unsigned int', possible loss of data
+D:\VisualStudio\SDL2\SDL2-GameDevCMake\SDL2-Minesweeper\SDL2-Minesweeper\headers\Event.h(65,1): warning C4267: 'initializing': conversion from 'size_t' to 'int', possible loss of data
+D:\VisualStudio\SDL2\SDL2-GameDevCMake\SDL2-Minesweeper\SDL2-Minesweeper\headers\Event.h(61): message : while compiling class template member function 'void Toolset::Event<bool>::invoke(const T &)'
+          with
+          [
+              T=bool
+          ]
+D:\VisualStudio\SDL2\SDL2-GameDevCMake\SDL2-Minesweeper\SDL2-Minesweeper\headers\bridge\../EventHandler.h(50): message : see reference to function template instantiation 'void Toolset::Event<bool>::invoke(const T &)' being compiled
+          with
+          [
+              T=bool
+          ]
+D:\VisualStudio\SDL2\SDL2-GameDevCMake\SDL2-Minesweeper\SDL2-Minesweeper\headers\builder\../composite/components/Entry.h(51): message : see reference to function template instantiation 'void Toolset::EventHandler::invoke<T>(std::string,const T &)' being compiled
+          with
+          [
+              T=bool
+          ]
+D:\VisualStudio\SDL2\SDL2-GameDevCMake\SDL2-Minesweeper\SDL2-Minesweeper\headers\builder\../composite/components/Entry.h(50): message : while compiling class template member function 'void Toolset::Entry<bool>::refresh(void)'
+D:\VisualStudio\SDL2\SDL2-GameDevCMake\SDL2-Minesweeper\SDL2-Minesweeper\headers\builder/ImGuiMinesweeperBuilder.h(86): message : see reference to class template instantiation 'Toolset::Entry<bool>' being compiled
+D:\VisualStudio\SDL2\SDL2-GameDevCMake\SDL2-Minesweeper\SDL2-Minesweeper\headers\builder/ImGuiMinesweeperBuilder.h(72): message : while compiling class template member function 'void Minesweeper::ImGuiMinesweeperBuilder<Toolset::SDLHandler>::buildApplicationMenu(void)'
+D:\VisualStudio\SDL2\SDL2-GameDevCMake\SDL2-Minesweeper\SDL2-Minesweeper\headers/GameManager.h(111): message : see reference to class template instantiation 'Minesweeper::ImGuiMinesweeperBuilder<Toolset::SDLHandler>' being compiled
+D:\VisualStudio\SDL2\SDL2-GameDevCMake\SDL2-Minesweeper\SDL2-Minesweeper\headers/GameManager.h(101): message : while compiling class template member function 'void Toolset::GameManager<SDL_Renderer,SDL_Event>::reset(const Toolset::Mode &)'
+D:\VisualStudio\SDL2\SDL2-GameDevCMake\SDL2-Minesweeper\SDL2-Minesweeper\headers/GameManager.h(56): message : see reference to function template instantiation 'void Toolset::GameManager<SDL_Renderer,SDL_Event>::reset(const Toolset::Mode &)' being compiled
+D:\VisualStudio\SDL2\SDL2-GameDevCMake\SDL2-Minesweeper\SDL2-Minesweeper\headers/GameManager.h(55): message : while compiling class template member function 'void Toolset::GameManager<SDL_Renderer,SDL_Event>::init(void)'
+D:\VisualStudio\SDL2\SDL2-GameDevCMake\SDL2-Minesweeper\SDL2-Minesweeper\headers/GameManager.h(130): message : see reference to function template instantiation 'void Toolset::GameManager<SDL_Renderer,SDL_Event>::init(void)' being compiled
+D:\VisualStudio\SDL2\SDL2-GameDevCMake\SDL2-Minesweeper\SDL2-Minesweeper\headers/GameManager.h(129): message : while compiling class template member function 'int Toolset::GameManager<SDL_Renderer,SDL_Event>::execute(void)'
+D:\VisualStudio\SDL2\SDL2-GameDevCMake\SDL2-Minesweeper\SDL2-Minesweeper\Main.cpp(14): message : see reference to function template instantiation 'int Toolset::GameManager<SDL_Renderer,SDL_Event>::execute(void)' being compiled
+D:\VisualStudio\SDL2\SDL2-GameDevCMake\SDL2-Minesweeper\SDL2-Minesweeper\Main.cpp(14): message : see reference to class template instantiation 'Toolset::GameManager<SDL_Renderer,SDL_Event>' being compiled
   SDL2-Minesweeper.vcxproj -> D:\VisualStudio\SDL2\SDL2-GameDevCMake\SDL2-Minesweeper\out\build\Debug\SDL2-Minesweeper.exe

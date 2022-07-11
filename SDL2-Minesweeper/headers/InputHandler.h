@@ -15,7 +15,7 @@ namespace Toolset {
 		InputHandler(const InputHandler&) = delete;
 		InputHandler(InputHandler&&) = delete;
 		InputHandler();
-		virtual ~InputHandler() = 0;
+		~InputHandler();
 		InputHandler& operator=(const InputHandler&) = delete;
 		InputHandler& operator=(InputHandler&&) = delete;
 		void pollEvents(GraphicAPIsEvent&);

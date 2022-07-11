@@ -19,7 +19,7 @@ namespace Toolset {
 		ImGuiHandler(ImGuiHandler&&) = delete;
 		ImGuiHandler() = delete;
 		ImGuiHandler(IBuilder*, const int&, const int&);
-		virtual ~ImGuiHandler() = 0;
+		~ImGuiHandler();
 		ImGuiHandler& operator=(const ImGuiHandler&) = delete;
 		ImGuiHandler& operator=(ImGuiHandler&&) = delete;
 		int pollEvents(void(*)(GraphicAPIsEvent&));
