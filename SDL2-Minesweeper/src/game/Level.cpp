@@ -8,7 +8,7 @@ namespace Minesweeper {
 	/// <summary>
 	/// unsafe
 	/// </summary>
-	static Tile& optional = Tile();
+	Tile& Level::optional = Tile();
 
 	Level::Level(const int& rows, const int& cols, const int& bombs, const int& flags)
 	{

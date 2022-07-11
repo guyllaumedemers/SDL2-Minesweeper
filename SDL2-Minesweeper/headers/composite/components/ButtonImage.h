@@ -3,15 +3,17 @@
 #include "Image.h"
 
 namespace Toolset {
-	class ButtonImage : virtual public Button {
+	class ButtonImage final : virtual public Button {
 	private:
+		Image* button_texture = nullptr;
+	public:
 		ButtonImage(const Button&) = delete;
 		ButtonImage(Button&&) = delete;
 		ButtonImage() = delete;
-		Image* button_texture = nullptr;
-	public:
 		ButtonImage(const Rect&, const char*, const char*);
-		~ButtonImage();
+		~ButtonImage() override;
+		ButtonImage& operator=(const ButtonImage&) = delete;
+		ButtonImage& operator=(ButtonImage&&) = delete;
 		void refresh() override;
 	};
 }

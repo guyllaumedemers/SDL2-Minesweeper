@@ -10,11 +10,13 @@ namespace Minesweeper {
 		Tilebitmask bitmask = Tilebitmask::None;
 		int index = -1;
 		int value = 0;
+	public:
 		Tile(const Tile&) = delete;
 		Tile(Tile&&) = delete;
-	public:
 		Tile();
 		~Tile();
+		Tile& operator=(const Tile&) = delete;
+		Tile& operator=(Tile&&) = delete;
 		void add(const Tilebitmask&);
 		void remove(const Tilebitmask&);
 		void refresh(SDL_Renderer*);

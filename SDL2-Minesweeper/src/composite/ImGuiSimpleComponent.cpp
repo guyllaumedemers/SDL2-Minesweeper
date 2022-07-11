@@ -17,6 +17,13 @@ namespace Toolset {
 	}
 
 	/// <summary>
+	/// Refresh ImGui
+	/// </summary>
+	void ImGuiSimpleComponent::refresh()
+	{
+	}
+
+	/// <summary>
 	/// Get component width
 	/// </summary>
 	int ImGuiSimpleComponent::getComponentWidth()

@@ -24,7 +24,7 @@ namespace Toolset {
 		ImGui::SetNextWindowPos(work_pos);
 		ImGui::SetNextWindowSize(work_size);
 		ImGui::SetNextWindowViewport(viewport_id);
-		if (viewport_texture) viewport_texture->setimage(texture_id, work_size);
+		if (viewport_texture) viewport_texture->setImage(texture_id, work_size);
 	}
 
 	/// <summary>

@@ -20,12 +20,15 @@ namespace Toolset {
 	private:
 		typedef GraphicAPIsTexture* (*FuncPtr)(GraphicAPIsRendering*, string);
 		static unordered_map<string, GraphicAPIsTexture*> textures;
-		TextureHandler(const TextureHandler&) = delete;
-		TextureHandler(TextureHandler&&) = delete;
-		TextureHandler() = delete;
 		static void add(string key, GraphicAPIsTexture*);
 		static void remove(string key);
 	public:
+		TextureHandler(const TextureHandler&) = delete;
+		TextureHandler(TextureHandler&&) = delete;
+		TextureHandler() = delete;
+		~TextureHandler() {};
+		TextureHandler& operator=(const TextureHandler&) = delete;
+		TextureHandler& operator=(TextureHandler&&) = delete;
 		static void init();
 		static void load(GraphicAPIsRendering*, FuncPtr);
 		static void destroy();
@@ -60,9 +63,9 @@ namespace Toolset {
 	 * Should be a generic implementation that initialize according to the APIs use
 	 */
 
-	/// <summary>
-	/// initialization of the lib for texture loading, should be more modular for different GraphicAPIs lib
-	/// </summary>
+	 /// <summary>
+	 /// initialization of the lib for texture loading, should be more modular for different GraphicAPIs lib
+	 /// </summary>
 	template<class GraphicAPIsRendering, class GraphicAPIsTexture>
 	void TextureHandler<GraphicAPIsRendering, GraphicAPIsTexture>::init()
 	{

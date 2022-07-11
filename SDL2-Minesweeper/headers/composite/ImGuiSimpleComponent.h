@@ -3,14 +3,15 @@
 
 namespace Toolset {
 	class ImGuiSimpleComponent : virtual public ImGuiComponent {
-	private:
+	public:
 		ImGuiSimpleComponent(const ImGuiSimpleComponent&) = delete;
 		ImGuiSimpleComponent(ImGuiSimpleComponent&&) = delete;
 		ImGuiSimpleComponent() = delete;
-	public:
 		ImGuiSimpleComponent(const Rect&);
-		virtual ~ImGuiSimpleComponent() override;
-		virtual void refresh() = 0;
+		~ImGuiSimpleComponent() override;
+		ImGuiSimpleComponent& operator=(const ImGuiSimpleComponent&) = delete;
+		ImGuiSimpleComponent& operator=(ImGuiSimpleComponent&&) = delete;
+		void refresh() override;
 		int getComponentWidth() override;
 		int getComponentHeight() override;
 	};

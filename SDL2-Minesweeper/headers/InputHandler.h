@@ -11,11 +11,13 @@ namespace Toolset {
 	class InputHandler {
 	private:
 		InputHandlerImp<GraphicAPIsEvent>* imp = nullptr;
+	public:
 		InputHandler(const InputHandler&) = delete;
 		InputHandler(InputHandler&&) = delete;
-	public:
 		InputHandler();
-		~InputHandler();
+		virtual ~InputHandler() = 0;
+		InputHandler& operator=(const InputHandler&) = delete;
+		InputHandler& operator=(InputHandler&&) = delete;
 		void pollEvents(GraphicAPIsEvent&);
 		void getMouseState(int&, int&);
 	};

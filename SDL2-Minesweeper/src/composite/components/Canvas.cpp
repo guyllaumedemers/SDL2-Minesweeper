@@ -7,11 +7,7 @@ namespace Toolset {
 	/// </summary>
 	Canvas::Canvas(const Rect& rect) : ImGuiComplexComponent(rect), ImGuiComponent(rect)
 	{
-#ifdef _DEBUG
-		this->canvas_viewport = DBG_NEW Viewport(rect);
-#else
 		this->canvas_viewport = new Viewport(rect);
-#endif
 	}
 
 	/// <summary>

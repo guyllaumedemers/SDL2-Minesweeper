@@ -5,7 +5,7 @@ namespace Toolset {
 	/// <summary>
 	/// Constructor
 	/// </summary>
-	Image::Image(const Rect& rect) : ImGuiSimpleComponent(rect), ImGuiComponent(rect), texture_id(0), size(ImVec2(0, 0))
+	Image::Image(const Rect& rect) : ImGuiSimpleComponent(rect), ImGuiComponent(rect), texture_id(ImTextureID()), size(ImVec2(0, 0))
 	{
 	}
 
@@ -19,7 +19,7 @@ namespace Toolset {
 	/// <summary>
 	/// set image info
 	/// </summary>
-	void Image::setimage(const ImTextureID& texture_id, const ImVec2& size)
+	void Image::setImage(const ImTextureID& texture_id, const ImVec2& size)
 	{
 		this->texture_id = texture_id;
 		this->size = size;

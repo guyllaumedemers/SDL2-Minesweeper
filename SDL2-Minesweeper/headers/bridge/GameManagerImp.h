@@ -3,22 +3,20 @@
 #include "../InputHandler.h"
 #include "../Mode.h"
 
-#ifdef _DEBUG
-#include "../CRTMemoryLeak.h"
-#endif
-
 namespace Toolset {
 	template<class GraphicAPIsRendering, class GraphicAPIsEvent>
-	class GameManagerImp {
+	class GameManagerImp final {
 	private:
 		LevelHandler<GraphicAPIsRendering>* level_context = nullptr;
 		InputHandler<GraphicAPIsEvent>* input_context = nullptr;
+	public:
 		GameManagerImp(const GameManagerImp&) = delete;
 		GameManagerImp(GameManagerImp&&) = delete;
 		GameManagerImp() = delete;
-	public:
 		GameManagerImp(const Mode&, void(*)(const int&, const int&));
 		~GameManagerImp();
+		GameManagerImp& operator=(const GameManagerImp&) = delete;
+		GameManagerImp& operator=(GameManagerImp&&) = delete;
 		void pollEvents(GraphicAPIsEvent&);
 		void processInputs(const int&);
 		void refresh(GraphicAPIsRendering*, const int&, const int&);
@@ -72,7 +70,7 @@ namespace Toolset {
 		int mousePosX = 0;
 		int mousePosY = 0;
 		input_context->getMouseState(mousePosX, mousePosY);
-		if (mousePosY - Tile::size < 0) return;																	// These offset should be equals to the
+		if (mousePosY - Tile::size < 0) return;																			// These offset should be equals to the
 		else level_context->update((mousePosY - Tile::size) / Tile::size, mousePosX / Tile::size, lrm);			// ImGuiComponents total Heights, Replace Tile::size by getComponentHeight instead of subtracting
 	}
 

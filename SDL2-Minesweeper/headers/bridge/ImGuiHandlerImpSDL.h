@@ -7,18 +7,25 @@
 #include <imgui_impl_sdl.h>
 #include <imgui_impl_sdlrenderer.h>
 
+/*
+ *	Why use final? https://en.cppreference.com/w/cpp/language/final
+ *
+ */
+
 namespace Toolset {
 	template<class GraphicAPIsRendering, class GraphicAPIsEvent>
-	class ImGuiHandlerImpSDL : virtual public ImGuiHandlerImp<GraphicAPIsRendering, GraphicAPIsEvent> {
+	class ImGuiHandlerImpSDL final : virtual public ImGuiHandlerImp<GraphicAPIsRendering, GraphicAPIsEvent> {
 	private:
 		IBuilder* builder_context = nullptr;
 		SDLHandler* sdl_context = nullptr;
+	public:
 		ImGuiHandlerImpSDL(const ImGuiHandlerImpSDL&) = delete;
 		ImGuiHandlerImpSDL(ImGuiHandlerImpSDL&&) = delete;
 		ImGuiHandlerImpSDL() = delete;
-	public:
 		ImGuiHandlerImpSDL(IBuilder*, SDLHandler* sdl_context);
-		~ImGuiHandlerImpSDL();
+		~ImGuiHandlerImpSDL() override;
+		ImGuiHandlerImpSDL& operator=(const ImGuiHandlerImpSDL&) = delete;
+		ImGuiHandlerImpSDL& operator=(ImGuiHandlerImpSDL&&) = delete;
 		int pollEvents(void(*)(GraphicAPIsEvent&)) override;
 		void refresh(void(*)(GraphicAPIsRendering*)) override;
 		void draw(void(*)(GraphicAPIsRendering*)) override;
@@ -28,7 +35,7 @@ namespace Toolset {
 	/// Constructor
 	/// </summary>
 	template<class GraphicAPIsRendering, class GraphicAPIsEvent>
-	ImGuiHandlerImpSDL<GraphicAPIsRendering, GraphicAPIsEvent>::ImGuiHandlerImpSDL(IBuilder* builder_context, SDLHandler* sdl_context) : builder_context(builder_context), sdl_context(sdl_context), ImGuiHandlerImp<GraphicAPIsRendering, GraphicAPIsEvent>()
+	ImGuiHandlerImpSDL<GraphicAPIsRendering, GraphicAPIsEvent>::ImGuiHandlerImpSDL(IBuilder* builder_context, SDLHandler* sdl_context) : ImGuiHandlerImp<GraphicAPIsRendering, GraphicAPIsEvent>(), builder_context(builder_context), sdl_context(sdl_context)
 	{
 		IMGUI_CHECKVERSION();
 		ImGui::CreateContext();

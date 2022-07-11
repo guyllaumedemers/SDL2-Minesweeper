@@ -9,10 +9,12 @@ namespace Toolset {
 	class EventHandler {
 	private:
 		static unordered_map<string, IEvent*> pool_event;
+	public:
 		EventHandler(const EventHandler&) = delete;
 		EventHandler(EventHandler&&) = delete;
 		EventHandler() = delete;
-	public:
+		EventHandler& operator=(const EventHandler&) = delete;
+		EventHandler& operator=(EventHandler&&) = delete;
 		static void create(string key, IEvent*);
 		static void destroy(string key);
 		static void flush();

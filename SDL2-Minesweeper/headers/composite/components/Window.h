@@ -10,12 +10,14 @@ namespace Toolset {
 		bool p_open = false;
 		Canvas* window_canvas = nullptr;
 		Style* window_style = nullptr;
+	public:
 		Window(const Window&) = delete;
 		Window(Window&&) = delete;
 		Window() = delete;
-	public:
 		Window(const Rect& rect, const char* name, Style*);
-		~Window();
+		~Window() override;
+		Window& operator=(const Window&) = delete;
+		Window& operator=(Window&&) = delete;
 		Canvas* getWindowCanvas() const;
 		void refresh() override;
 	};

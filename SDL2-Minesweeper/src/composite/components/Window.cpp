@@ -8,7 +8,7 @@ namespace Toolset {
 	/// <summary>
 	/// Constructor
 	/// </summary>
-	Window::Window(const Rect& rect, const char* name, Style* window_style) : ImGuiComplexComponent(rect), ImGuiComponent(rect), name(name), window_style(window_style), p_open(true)
+	Window::Window(const Rect& rect, const char* name, Style* window_style) : ImGuiComplexComponent(rect), ImGuiComponent(rect), name(name), p_open(true), window_style(window_style)
 	{
 		this->window_canvas = new Canvas(rect);
 	}

@@ -10,15 +10,17 @@ namespace Toolset {
 		/// pointers are required because of the Rect composition dependency during constructor initialization stage, and the fact that all class are deleting their copy constructor, default, move
 		/// </summary>
 		vector<ImGuiComponent*> components = vector<ImGuiComponent*>();
+	public:
 		ImGuiComplexComponent(const ImGuiComplexComponent&) = delete;
 		ImGuiComplexComponent(ImGuiComplexComponent&&) = delete;
 		ImGuiComplexComponent() = delete;
-	public:
 		ImGuiComplexComponent(const Rect&);
-		virtual ~ImGuiComplexComponent() override;
+		~ImGuiComplexComponent() override;
+		ImGuiComplexComponent& operator=(const ImGuiComplexComponent&) = delete;
+		ImGuiComplexComponent& operator=(ImGuiComplexComponent&&) = delete;
 		void add(ImGuiComponent*);
 		void remove(ImGuiComponent*);
-		virtual void refresh() override;
+		void refresh() override;
 		int getComponentWidth() override;
 		int getComponentHeight() override;
 	};

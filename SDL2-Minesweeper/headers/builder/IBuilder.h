@@ -8,24 +8,22 @@
 #include "../composite/components/ButtonImage.h"
 #include "../composite/components/Tab.h"
 #include "../composite/components/Entry.h"
-#include <iostream>
 
 using namespace std;
-
 namespace Toolset
 {
 	/// <summary>
 	/// base class for builder pattern, use to work around generic implementation in its derived child
 	/// </summary>
-	class IBuilder
-	{
-	private:
+	class IBuilder {
+	protected:
+		IBuilder() = default;
+	public:
 		IBuilder(const IBuilder&) = delete;
 		IBuilder(IBuilder&&) = delete;
-	protected:
-		IBuilder() {};
-	public:
-		virtual ~IBuilder() = 0 { cout << "IBuilder Destructor" << endl; };
+		virtual ~IBuilder() = 0 { };
+		IBuilder& operator=(const IBuilder&) = delete;
+		IBuilder& operator=(IBuilder&&) = delete;
 		virtual int getMaxWidth() = 0;
 		virtual int getMaxHeight() = 0;
 	};

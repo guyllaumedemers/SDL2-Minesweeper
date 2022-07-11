@@ -8,11 +8,7 @@ namespace Toolset {
 	/// </summary>
 	ButtonImage::ButtonImage(const Rect& rect, const char* name, const char* event_key) : Button(rect, name, event_key), ImGuiSimpleComponent(rect), ImGuiComponent(rect)
 	{
-#ifdef _DEBUG
-		this->button_texture = DBG_NEW Image(rect);
-#else
 		this->button_texture = new Image(rect);
-#endif
 	}
 
 	/// <summary>

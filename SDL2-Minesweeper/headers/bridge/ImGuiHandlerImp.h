@@ -8,31 +8,16 @@ namespace Toolset {
 	/// </summary>
 	template<class GraphicAPIsRendering, class GraphicAPIsEvent>
 	class ImGuiHandlerImp {
-	private:
+	protected:
+		ImGuiHandlerImp() = default;
+	public:
 		ImGuiHandlerImp(const ImGuiHandlerImp&) = delete;
 		ImGuiHandlerImp(ImGuiHandlerImp&&) = delete;
-	protected:
-		ImGuiHandlerImp();
-	public:
-		virtual ~ImGuiHandlerImp() = 0;
+		virtual ~ImGuiHandlerImp() = 0 {};
+		ImGuiHandlerImp& operator=(const ImGuiHandlerImp&) = delete;
+		ImGuiHandlerImp& operator=(ImGuiHandlerImp&&) = delete;
 		virtual int pollEvents(void(*)(GraphicAPIsEvent&)) = 0;
 		virtual void refresh(void(*)(GraphicAPIsRendering*)) = 0;
 		virtual void draw(void(*)(GraphicAPIsRendering*)) = 0;
 	};
-
-	/// <summary>
-	/// Constructor
-	/// </summary>
-	template<class GraphicAPIsRendering, class GraphicAPIsEvent>
-	ImGuiHandlerImp<GraphicAPIsRendering, GraphicAPIsEvent>::ImGuiHandlerImp()
-	{
-	}
-
-	/// <summary>
-	/// Destructor
-	/// </summary>
-	template<class GraphicAPIsRendering, class GraphicAPIsEvent>
-	ImGuiHandlerImp<GraphicAPIsRendering, GraphicAPIsEvent>::~ImGuiHandlerImp()
-	{
-	}
 }

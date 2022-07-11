@@ -14,11 +14,14 @@ namespace Toolset {
 	class ImGuiHandler {
 	private:
 		ImGuiHandlerImp<GraphicAPIsRendering, GraphicAPIsEvent>* imp = nullptr;
+	public:
 		ImGuiHandler(const ImGuiHandler&) = delete;
 		ImGuiHandler(ImGuiHandler&&) = delete;
-	public:
+		ImGuiHandler() = delete;
 		ImGuiHandler(IBuilder*, const int&, const int&);
-		~ImGuiHandler();
+		virtual ~ImGuiHandler() = 0;
+		ImGuiHandler& operator=(const ImGuiHandler&) = delete;
+		ImGuiHandler& operator=(ImGuiHandler&&) = delete;
 		int pollEvents(void(*)(GraphicAPIsEvent&));
 		void refresh(void(*)(GraphicAPIsRendering*));
 		void draw(void(*)(GraphicAPIsRendering*));

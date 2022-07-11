@@ -26,6 +26,12 @@ namespace Toolset {
 		static void destroy();
 		static void reset(const Mode&);
 	public:
+		GameManager(const GameManager&) = delete;
+		GameManager(GameManager&&) = delete;
+		GameManager() = delete;
+		~GameManager() {};
+		GameManager& operator=(const GameManager&) = delete;
+		GameManager& operator=(GameManager&&) = delete;
 		static int execute();
 	};
 

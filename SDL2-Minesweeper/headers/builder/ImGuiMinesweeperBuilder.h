@@ -18,18 +18,19 @@ namespace Minesweeper {
 	/// concrete builder
 	/// </summary>
 	template<class GraphicAPIsContext>
-	class ImGuiMinesweeperBuilder : virtual public ImGuiBuilder<GraphicAPIsContext> {
-	private:
-		ImGuiMinesweeperBuilder(const ImGuiMinesweeperBuilder&) = delete;
-		ImGuiMinesweeperBuilder(ImGuiMinesweeperBuilder&&) = delete;
+	class ImGuiMinesweeperBuilder final : virtual public ImGuiBuilder<GraphicAPIsContext> {
 	protected:
 		ImGuiComplexComponent* builder_parts = nullptr;
 		void buildApplicationMenu() override;
 		void buildCanvas() override;
 		void buildViewport(GraphicAPIsContext*) override;
 	public:
+		ImGuiMinesweeperBuilder(const ImGuiMinesweeperBuilder&) = delete;
+		ImGuiMinesweeperBuilder(ImGuiMinesweeperBuilder&&) = delete;
 		ImGuiMinesweeperBuilder();
-		~ImGuiMinesweeperBuilder();
+		~ImGuiMinesweeperBuilder() override;
+		ImGuiMinesweeperBuilder& operator=(const ImGuiMinesweeperBuilder&) = delete;
+		ImGuiMinesweeperBuilder& operator=(ImGuiMinesweeperBuilder&&) = delete;
 		void build(GraphicAPIsContext*) override;
 		void reset() override;
 		int getMaxWidth() override;

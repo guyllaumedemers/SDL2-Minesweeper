@@ -7,17 +7,19 @@
 
 namespace Toolset {
 	template<class T>
-	class Entry : virtual public ImGuiSimpleComponent {
+	class Entry final : virtual public ImGuiSimpleComponent {
 	private:
 		T* data = nullptr;
 		const char* name = nullptr;
 		const char* event_key = nullptr;
+	public:
 		Entry(const Entry&) = delete;
 		Entry(Entry&&) = delete;
 		Entry() = delete;
-	public:
 		Entry(const Rect& rect, const char* name, const char* event_key, const T& data);
-		~Entry();
+		~Entry() override;
+		Entry& operator=(const Entry&) = delete;
+		Entry& operator=(Entry&&) = delete;
 		void refresh() override;
 	};
 

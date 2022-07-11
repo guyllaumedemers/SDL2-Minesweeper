@@ -18,18 +18,21 @@ namespace Minesweeper {
 		int cols = 0;
 		int flags = 0;
 		int bombs = 0;
+		static Tile& optional;
 		Tile* map = nullptr;
-		Level(const Level&) = delete;
-		Level(Level&&) = delete;
-		Level() = delete;
 		void run(Tile&);
 		void discard(Tile&);
 		void setFlag(Tile&);
 		void showAll();
 		vector<Tile*> getNeighbors(unordered_map<int, Tile*>&, const int&);
 	public:
+		Level(const Level&) = delete;
+		Level(Level&&) = delete;
+		Level() = delete;
 		Level(const int&, const int&, const int&, const int&);
 		~Level();
+		Level& operator=(const Level&) = delete;
+		Level& operator=(Level&&) = delete;
 		void update(const int&, const int&, const int&);
 		void refresh(SDL_Renderer*, const int&, const int&);
 		void draw(SDL_Renderer*);

@@ -6,26 +6,20 @@
 using namespace std;
 namespace Toolset {
 	template<class T>
-	class Event : virtual public IEvent {
+	class Event final : virtual public IEvent {
 	private:
-		vector<ISubscriber*> subscribers;
+		vector<ISubscriber*> subscribers = vector<ISubscriber*>();
+	public:
 		Event(const Event&) = delete;
 		Event(Event&&) = delete;
-	public:
-		Event();
-		~Event();
+		Event() = default;
+		~Event() override;
+		Event& operator=(const Event&) = delete;
+		Event& operator=(Event&&) = delete;
 		void add(ISubscriber*);
 		void remove(ISubscriber*);
 		void invoke(const T& data);
 	};
-
-	/// <summary>
-	/// Constructor
-	/// </summary>
-	template<class T>
-	Event<T>::Event()
-	{
-	}
 
 	/// <summary>
 	/// Destructor

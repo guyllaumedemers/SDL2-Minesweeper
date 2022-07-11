@@ -14,12 +14,14 @@ namespace Toolset {
 	class LevelHandler {
 	private:
 		Level* level = nullptr;
+	public:
 		LevelHandler(const LevelHandler&) = delete;
 		LevelHandler(LevelHandler&&) = delete;
 		LevelHandler() = delete;
-	public:
 		LevelHandler(const Mode & = Mode::Easy);
 		~LevelHandler();
+		LevelHandler& operator=(const LevelHandler&) = delete;
+		LevelHandler& operator=(LevelHandler&&) = delete;
 		void update(const int&, const int&, const int&);
 		void refresh(GraphicAPIsRendering*, const int&, const int&);
 		void draw(GraphicAPIsRendering*);
@@ -44,7 +46,7 @@ namespace Toolset {
 			level = new Level(16, 30, 99, 99);
 			break;
 		default:
-			throw "ERROR::LEVEL_CREATION::FAILED";
+			throw;
 		}
 	}
 

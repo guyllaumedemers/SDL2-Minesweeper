@@ -8,17 +8,19 @@ namespace Toolset {
 	/// <summary>
 	/// an image is self-explanatory
 	/// </summary>
-	class Image : virtual public ImGuiSimpleComponent {
+	class Image final : virtual public ImGuiSimpleComponent {
 	private:
-		ImTextureID texture_id = 0;
+		ImTextureID texture_id = ImTextureID();
 		ImVec2 size = ImVec2();
+	public:
 		Image(const Image&) = delete;
 		Image(Image&&) = delete;
 		Image() = delete;
-	public:
 		Image(const Rect&);
-		~Image();
-		void setimage(const ImTextureID&, const ImVec2&);
+		~Image() override;
+		Image& operator=(const Image&) = delete;
+		Image& operator=(Image&&) = delete;
+		void setImage(const ImTextureID&, const ImVec2&);
 		const ImTextureID& getTextureId() const;
 		const ImVec2& getTextureSize() const;
 		void refresh() override;

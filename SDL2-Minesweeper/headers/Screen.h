@@ -7,6 +7,12 @@ namespace Toolset {
 	struct Screen {
 		static int w;
 		static int h;
+		Screen(const Screen&) = delete;
+		Screen(Screen&&) = delete;
+		Screen() = delete;
+		~Screen() {};
+		Screen& operator=(const Screen&) = delete;
+		Screen& operator=(Screen&&) = delete;
 		static void setScreenSize(const int&, const int&);
 	};
 

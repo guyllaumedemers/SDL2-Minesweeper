@@ -4,15 +4,17 @@
 using namespace std;
 namespace Toolset {
 	template<class T>
-	class Subscriber : virtual public ISubscriber {
+	class Subscriber final : virtual public ISubscriber {
 		typedef void(*FunctionPtr)(const T&);
 		FunctionPtr func_ptr = nullptr;
+	public:
 		Subscriber(const Subscriber&) = delete;
 		Subscriber(Subscriber&&) = delete;
 		Subscriber() = delete;
-	public:
 		Subscriber(void(*)(const T&));
-		~Subscriber();
+		~Subscriber() override;
+		Subscriber& operator=(const Subscriber&) = delete;
+		Subscriber& operator=(Subscriber&&) = delete;
 		void invoke(const T& data);
 	};
 
