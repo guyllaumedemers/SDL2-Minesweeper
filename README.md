@@ -19,4 +19,4 @@ Learning sdl2 and CMake, Out-of-Source Build
 > Imgui BeginMainMenuBar eats up a part of sdl2 renderer viewport and display 1 tile less than expected.</br>
 > *TODO*, retrieve sdl2_context window renderer SDL_Surface* for use in dockable space inside imgui::image() // Otherwise sdl2 context will render on screen and use the whole window context space.
 
-💬 References for patterns are given from : [Large-Scale-Software-Design-John-Lakos](https://www.amazon.ca/Large-Scale-Software-Design-John-Lakos/dp/0201633620)
+💬 References for patterns and physical desing are given from : [Design Patterns: Elements of Reusable Object‑Oriented Software](https://www.amazon.ca/-/fr/Gamma-Erich-ebook/dp/B000SEIBB8), [Large-Scale-Software-Design-John-Lakos](https://www.amazon.ca/Large-Scale-Software-Design-John-Lakos/dp/0201633620)
