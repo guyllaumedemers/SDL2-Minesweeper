@@ -1,15 +1,16 @@
-#pragma once
-#include "InputHandlerImp.h"
-#include "../EventHandler.h"
-#include <string>
-#include <SDL.h>
-
 /*
  *	Why use final? https://en.cppreference.com/w/cpp/language/final
  *
  */
 
-using namespace std;
+#ifndef INCLUDED_INPUTHANDLERIMPSDL
+#define INCLUDED_INPUTHANDLERIMPSDL
+
+#include "InputHandlerImp.h"
+#include "../EventHandler.h"
+#include <SDL.h>
+#include <string>
+
 namespace Toolset {
 	template<class GraphicAPIsEvent>
 	class InputHandlerImpSDL final : virtual public InputHandlerImp<GraphicAPIsEvent> {
@@ -24,21 +25,14 @@ namespace Toolset {
 		void getMouseState(int&, int&) override;
 	};
 
-	/// <summary>
-	/// Destructor
-	/// </summary>
 	template<class GraphicAPIsEvent>
-	InputHandlerImpSDL<GraphicAPIsEvent>::~InputHandlerImpSDL()
-	{
-	}
+	inline InputHandlerImpSDL<GraphicAPIsEvent>::~InputHandlerImpSDL()
+	{}
 
-	/// <summary>
-	/// Polling input events
-	/// </summary>
 	template<class GraphicAPIsEvent>
-	void InputHandlerImpSDL<GraphicAPIsEvent>::pollEvents(GraphicAPIsEvent& e)
+	inline void InputHandlerImpSDL<GraphicAPIsEvent>::pollEvents(GraphicAPIsEvent& e)
 	{
-		static const string keys[] = {
+		static const std::string keys[] = {
 			"onApplicationQuit",
 			"onMouseDown"
 		};
@@ -57,6 +51,8 @@ namespace Toolset {
 			case SDL_BUTTON_RIGHT:
 				EventHandler::invoke<int>(keys[1], 1);
 				break;
+			default:
+				break;
 			}
 			break;
 		default:
@@ -64,12 +60,10 @@ namespace Toolset {
 		}
 	}
 
-	/// <summary>
-	/// Polling input events
-	/// </summary>
 	template<class GraphicAPIsEvent>
-	void InputHandlerImpSDL<GraphicAPIsEvent>::getMouseState(int& x, int& y)
+	inline void InputHandlerImpSDL<GraphicAPIsEvent>::getMouseState(int& x, int& y)
 	{
 		SDL_GetMouseState(&x, &y);
 	}
 }
+#endif

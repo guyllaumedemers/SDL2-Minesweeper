@@ -1,19 +1,16 @@
-#pragma once
+
+#ifndef INCLUDED_IMGUIHANDLER
+#define INCLUDED_IMGUIHANDLER
+
 #include "bridge/ImGuiHandlerImp.h"
 #include "bridge/ImGuiHandlerImpSDL.h"
 #include "builder/IBuilder.h"
-#include <type_traits>
-#include <functional>
-//#ifdef SDL
-#include <SDL.h>
-//#endif
+#include "SDLHandler.h"
 
-using namespace std;
 namespace Toolset {
 	template<class GraphicAPIsRendering, class GraphicAPIsEvent>
 	class ImGuiHandler {
-	private:
-		ImGuiHandlerImp<GraphicAPIsRendering, GraphicAPIsEvent>* imp = nullptr;
+		ImGuiHandlerImp<GraphicAPIsRendering, GraphicAPIsEvent>* imgui_imp = nullptr;
 	public:
 		ImGuiHandler(const ImGuiHandler&) = delete;
 		ImGuiHandler(ImGuiHandler&&) = delete;
@@ -27,52 +24,36 @@ namespace Toolset {
 		void draw(void(*)(GraphicAPIsRendering*));
 	};
 
-	/// <summary>
-	/// Constructor
-	/// </summary>
 	template<class GraphicAPIsRendering, class GraphicAPIsEvent>
-	ImGuiHandler<GraphicAPIsRendering, GraphicAPIsEvent>::ImGuiHandler(IBuilder* builder, const int& w, const int& h)
+	inline ImGuiHandler<GraphicAPIsRendering, GraphicAPIsEvent>::ImGuiHandler(IBuilder* builder, const int& w, const int& h)
 	{
-		//#ifdef SDL
-		if (is_same<GraphicAPIsRendering, SDL_Renderer>::value)
-			imp = new ImGuiHandlerImpSDL<GraphicAPIsRendering, GraphicAPIsEvent>(builder, new SDLHandler(w, h));
-		//#endif
+		if (std::is_same_v<GraphicAPIsRendering, SDL_Renderer>)
+			imgui_imp = new ImGuiHandlerImpSDL<GraphicAPIsRendering, GraphicAPIsEvent>(builder, new SDLHandler(w, h));
 	}
 
-	/// <summary>
-	/// Destructor
-	/// </summary>
 	template<class GraphicAPIsRendering, class GraphicAPIsEvent>
-	ImGuiHandler<GraphicAPIsRendering, GraphicAPIsEvent>::~ImGuiHandler()
+	inline ImGuiHandler<GraphicAPIsRendering, GraphicAPIsEvent>::~ImGuiHandler()
 	{
-		delete imp;
-		imp = nullptr;
+		delete imgui_imp;
+		imgui_imp = nullptr;
 	}
 
-	/// <summary>
-	/// Game logic for input processing
-	/// </summary>
 	template<class GraphicAPIsRendering, class GraphicAPIsEvent>
-	int ImGuiHandler<GraphicAPIsRendering, GraphicAPIsEvent>::pollEvents(void(*input_callback)(GraphicAPIsEvent&))
+	inline int ImGuiHandler<GraphicAPIsRendering, GraphicAPIsEvent>::pollEvents(void(*input_callback)(GraphicAPIsEvent&))
 	{
-		return imp->pollEvents(input_callback);
+		return imgui_imp->pollEvents(input_callback);
 	}
 
-	/// <summary>
-	/// Game logic for refreshing
-	/// </summary>
 	template<class GraphicAPIsRendering, class GraphicAPIsEvent>
-	void ImGuiHandler<GraphicAPIsRendering, GraphicAPIsEvent>::refresh(void(*refresh_callback)(GraphicAPIsRendering*))
+	inline void ImGuiHandler<GraphicAPIsRendering, GraphicAPIsEvent>::refresh(void(*refresh_callback)(GraphicAPIsRendering*))
 	{
-		imp->refresh(refresh_callback);
+		imgui_imp->refresh(refresh_callback);
 	}
 
-	/// <summary>
-	/// Game logic for drawing 
-	/// </summary>
 	template<class GraphicAPIsRendering, class GraphicAPIsEvent>
-	void ImGuiHandler<GraphicAPIsRendering, GraphicAPIsEvent>::draw(void(*draw_callback)(GraphicAPIsRendering*))
+	inline void ImGuiHandler<GraphicAPIsRendering, GraphicAPIsEvent>::draw(void(*draw_callback)(GraphicAPIsRendering*))
 	{
-		imp->draw(draw_callback);
+		imgui_imp->draw(draw_callback);
 	}
 }
+#endif

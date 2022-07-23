@@ -1,99 +1,58 @@
-#pragma once
-#include "Mode.h"
-#include "game/Level.h"
-//#ifdef SDL
-#include <SDL.h>
-//#endif
 
-using namespace Minesweeper;
+#ifndef INCLUDED_LEVELHANDLER
+#define INCLUDED_LEVELHANDLER
+
+#include "bridge/LevelHandlerImp.h"
+#include "bridge/LevelHandlerImpSDL.h"
+
 namespace Toolset {
-	/// <summary>
-	/// im going to stop this madness of generic cascading effect here and just generate new levels according to the graphic APIs lib currently used
-	/// </summary>
 	template<class GraphicAPIsRendering>
 	class LevelHandler {
-	private:
-		Level* level = nullptr;
+		LevelHandlerImp<GraphicAPIsRendering>* level_imp = nullptr;
 	public:
 		LevelHandler(const LevelHandler&) = delete;
 		LevelHandler(LevelHandler&&) = delete;
 		LevelHandler() = delete;
-		LevelHandler(const Mode & = Mode::Easy);
+		LevelHandler(IBuilder*);
 		~LevelHandler();
 		LevelHandler& operator=(const LevelHandler&) = delete;
 		LevelHandler& operator=(LevelHandler&&) = delete;
+		const LevelHandlerImp<GraphicAPIsRendering>& getLevel() const { return *level_imp; }
 		void update(const int&, const int&, const int&);
 		void refresh(GraphicAPIsRendering*, const int&, const int&);
 		void draw(GraphicAPIsRendering*);
-		Level* getLevel();
 	};
 
-	/// <summary>
-	/// Constructor
-	/// </summary>
 	template<class GraphicAPIsRendering>
-	LevelHandler<GraphicAPIsRendering>::LevelHandler(const Mode& mode)
+	inline LevelHandler<GraphicAPIsRendering>::LevelHandler(IBuilder* builder_context)
 	{
-		switch (mode)
-		{
-		case Mode::Easy:
-			level = new Level(8, 8, 10, 10);
-			break;
-		case Mode::Medium:
-			level = new Level(16, 16, 40, 40);
-			break;
-		case Mode::Hard:
-			level = new Level(16, 30, 99, 99);
-			break;
-		default:
-			throw;
-		}
+		if (std::is_same_v<GraphicAPIsRendering, SDL_Event>)
+			level_imp = new LevelHandlerImpSDL<GraphicAPIsRendering>(builder_context);
 	}
 
-	/// <summary>
-	/// Destructor
-	/// </summary>
 	template<class GraphicAPIsRendering>
-	LevelHandler<GraphicAPIsRendering>::~LevelHandler()
+	inline LevelHandler<GraphicAPIsRendering>::~LevelHandler()
 	{
-		delete level;
-		level = nullptr;
+		delete level_imp;
+		level_imp = nullptr;
 	}
 
-	/// <summary>
-	/// Update Level logic
-	/// </summary>
 	template<class GraphicAPIsRendering>
-	void LevelHandler<GraphicAPIsRendering>::update(const int& row, const int& col, const int& lrm)
+	inline void LevelHandler<GraphicAPIsRendering>::update(const int& mpx, const int& mpy, const int& lrm)
 	{
-		level->update(row, col, lrm);
+		level_imp->update(mpx, mpy, lrm);
 	}
 
-	/// <summary>
-	/// Refresh renderer context
-	/// </summary>
 	template<class GraphicAPIsRendering>
-	void LevelHandler<GraphicAPIsRendering>::refresh(GraphicAPIsRendering* renderer, const int& w, const int& h)
+	inline void LevelHandler<GraphicAPIsRendering>::refresh(GraphicAPIsRendering* renderer, const int& w, const int& h)
 	{
-		level->refresh(renderer, w, h);
+		level_imp->refresh(renderer, w, h);
 	}
 
-
-	/// <summary>
-	/// Swap Buffers
-	/// </summary>
 	template<class GraphicAPIsRendering>
-	void LevelHandler<GraphicAPIsRendering>::draw(GraphicAPIsRendering* renderer)
+	inline void LevelHandler<GraphicAPIsRendering>::draw(GraphicAPIsRendering* renderer)
 	{
-		level->draw(renderer);
-	}
-
-	/// <summary>
-	/// Level accessor
-	/// </summary>
-	template<class GraphicAPIsRendering>
-	Level* LevelHandler<GraphicAPIsRendering>::getLevel()
-	{
-		return level;
+		level_imp->draw(renderer);
 	}
 }
+#endif

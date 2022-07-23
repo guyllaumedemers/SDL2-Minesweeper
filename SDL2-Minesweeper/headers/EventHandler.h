@@ -1,52 +1,46 @@
-#pragma once
+
+#ifndef INCLUDED_EVENTHANDLER
+#define INCLUDED_EVENTHANDLER
+
+#include "IEvent.h"
 #include "Event.h"
-#include "Subscriber.h"
+#include "ISubscriber.h"
 #include <unordered_map>
 #include <string>
 
-using namespace std;
 namespace Toolset {
 	class EventHandler {
-	private:
-		static unordered_map<string, IEvent*> pool_event;
+		static inline std::unordered_map<std::string, IEvent*> pool_event;
 	public:
 		EventHandler(const EventHandler&) = delete;
 		EventHandler(EventHandler&&) = delete;
 		EventHandler() = delete;
 		EventHandler& operator=(const EventHandler&) = delete;
 		EventHandler& operator=(EventHandler&&) = delete;
-		static void create(string key, IEvent*);
-		static void destroy(string key);
+		static void create(std::string key, IEvent*);
+		static void destroy(std::string key);
 		static void flush();
-		template<class T> static void add(string key, ISubscriber*);
-		template<class T> static void remove(string key, ISubscriber*);
-		template<class T> static void invoke(string key, const T&);
+		template<class T> static void add(std::string key, ISubscriber*);
+		template<class T> static void remove(std::string key, ISubscriber*);
+		template<class T> static void invoke(std::string key, const T&);
 	};
 
-	/// <summary>
-	/// Add new Subscriber to the Event at key
-	/// </summary>
 	template<class T>
-	void EventHandler::add(string key, ISubscriber* subscriber)
+	void EventHandler::add(std::string key, ISubscriber* subscriber)
 	{
 		if (pool_event.find(key) != pool_event.end()) dynamic_cast<Event<T>*>(pool_event[key])->add(subscriber);
 	}
 
-	/// <summary>
-	/// Remove Subscriber to the Event at key
-	/// </summary>
 	template<class T>
-	void EventHandler::remove(string key, ISubscriber* subscriber)
+	void EventHandler::remove(std::string key, ISubscriber* subscriber)
 	{
 		if (pool_event.find(key) != pool_event.end()) dynamic_cast<Event<T>*>(pool_event[key])->remove(subscriber);
 	}
 
-	/// <summary>
-	/// Invoke event passing args data
-	/// </summary>
 	template<class T>
-	void EventHandler::invoke(string key, const T& data)
+	void EventHandler::invoke(std::string key, const T& data)
 	{
 		if (pool_event.find(key) != pool_event.end()) dynamic_cast<Event<T>*>(pool_event[key])->invoke(data);
 	}
 }
+#endif

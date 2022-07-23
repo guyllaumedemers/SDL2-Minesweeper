@@ -1,7 +1,11 @@
-#pragma once
+
+#ifndef INCLUDED_TILEBITMASK
+#define INCLUDED_TILEBITMASK
+
+#include <cstdint>
 
 namespace Minesweeper {
-	enum class Tilebitmask {
+	enum Tilebitmask : uint8_t {
 		None = 0,
 		Flag = 1,
 		Bomb = 2,
@@ -31,3 +35,4 @@ namespace Minesweeper {
 		return (Tilebitmask&)((int&)lhs |= (int)rhs);
 	}
 }
+#endif

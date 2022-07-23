@@ -1,15 +1,14 @@
-#pragma once
-#include "../Rect.h"
-#include "Image.h"
 
+#ifndef INCLUDED_VIEWPORT
+#define INCLUDED_VIEWPORT
+
+#include "Image.h"
 #include <imgui.h>
-#include <imgui_internal.h>
 
 namespace Toolset {
 	class Viewport {
-	private:
-		ImVec2 work_pos = ImVec2();
-		ImVec2 work_size = ImVec2();
+		ImVec2 work_pos;
+		ImVec2 work_size;
 		Image* viewport_texture = nullptr;
 	public:
 		Viewport(const Viewport&) = delete;
@@ -22,4 +21,16 @@ namespace Toolset {
 		void setTextureViewport(const ImTextureID&, const ImGuiID&);
 		void refresh();
 	};
+	
+	inline Viewport::Viewport(const Rect& rect) : work_pos(ImVec2(rect.x, rect.y)), work_size(ImVec2(rect.w, rect.h)),
+		viewport_texture(new Image(rect))
+	{}
+
+	inline Viewport::~Viewport()
+	{
+		delete viewport_texture;
+		viewport_texture = nullptr;
+	}
+	
 }
+#endif

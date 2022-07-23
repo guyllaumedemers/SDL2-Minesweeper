@@ -1,17 +1,20 @@
-#pragma once
+
+#ifndef INCLUDED_IEVENT
+#define INCLUDED_IEVENT
 
 namespace Toolset {
-	/// <summary>
-	/// base class for observer pattern, use to work around generic implementation in its derived child
-	/// </summary>
 	class IEvent {
 	protected:
 		IEvent() = default;
 	public:
 		IEvent(const IEvent&) = delete;
 		IEvent(IEvent&&) = delete;
-		virtual ~IEvent() = 0 {};
+		virtual ~IEvent() = 0;
 		IEvent& operator=(const IEvent&) = delete;
 		IEvent& operator=(IEvent&&) = delete;
 	};
+
+	inline IEvent::~IEvent()
+	{}
 }
+#endif

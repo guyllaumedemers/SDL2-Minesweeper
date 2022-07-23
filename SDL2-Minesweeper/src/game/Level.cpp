@@ -1,67 +1,12 @@
-#pragma once
 #include "../../headers/game/Level.h"
-#include <string>
 #include <queue>
 
-using namespace std;
 namespace Minesweeper {
-	/// <summary>
-	/// unsafe
-	/// </summary>
-	Tile& Level::optional = Tile();
-
-	Level::Level(const int& rows, const int& cols, const int& bombs, const int& flags)
-	{
-		map = new Tile[rows * cols];
-
-		this->rows = rows;
-		this->cols = cols;
-		this->bombs = bombs;
-		this->flags = flags;
-
-		for (int i = 0; i < rows * cols; ++i) map[i].setIndex(i);
-		int nbBombs = bombs;
-		while (nbBombs > 0) {
-			int index = rand() % (rows * cols);
-
-			while ((int)(map[index].getmask() & Tilebitmask::Bomb)) {
-				index = rand() % (rows * cols);
-			}
-
-			map[index].add(Tilebitmask::Bomb);
-			--nbBombs;
-		}
-	}
-
-	Level::~Level()
-	{
-		delete[] map;
-		map = nullptr;
-	}
-
-	void Level::update(const int& row, const int& col, const int& lrm)
-	{
-		/// <summary>
-		/// Process input for right click
-		/// </summary>
-		Tile& target = getTile(row * getCols() + col);
-		if (lrm) {
-			setFlag(target);
-			return;
-		}
-		int invalidTileClicked =
-			(int)(target.getmask() & Tilebitmask::Uncovered) +
-			(int)(target.getmask() & Tilebitmask::Bomb) +
-			(int)(target.getmask() & Tilebitmask::Flag);
-		if (invalidTileClicked > 0) discard(target);
-		else run(target);
-	}
-
 	void Level::refresh(SDL_Renderer* renderer, const int& w, const int& h)
 	{
 		SDL_Texture* target = SDL_CreateTexture(renderer, SDL_PIXELFORMAT_RGBA8888, SDL_TEXTUREACCESS_TARGET, w, h);
 		SDL_SetRenderTarget(renderer, target);
-		int size = Tile::size;
+		int size = Tile::getTileSize();
 		for (int i = 0; i < rows * cols; ++i) {
 			SDL_Texture* sub_target = SDL_CreateTexture(renderer, SDL_PIXELFORMAT_RGBA8888, SDL_TEXTUREACCESS_TARGET, size, size);
 			SDL_SetRenderTarget(renderer, sub_target);
@@ -91,21 +36,20 @@ namespace Minesweeper {
 	{
 		//Do nothing
 	}
-
-	int Level::getRows()
+	
+	void Level::update(const int& row, const int& col, const int& lrm)
 	{
-		return rows;
-	}
-
-	int Level::getCols()
-	{
-		return cols;
-	}
-
-	Tile& Level::getTile(const int& index) const
-	{
-		if (index < 0 || index >= rows * cols) return optional;
-		else return map[index];
+		Tile& target = getTile(row * getCols() + col);
+		if (lrm) {
+			setFlag(target);
+			return;
+		}
+		int invalidTileClicked =
+			(int)(target.getmask() & Tilebitmask::Uncovered) +
+			(int)(target.getmask() & Tilebitmask::Bomb) +
+			(int)(target.getmask() & Tilebitmask::Flag);
+		if (invalidTileClicked > 0) discard(target);
+		else run(target);
 	}
 
 	void Level::discard(Tile& target)
@@ -198,13 +142,12 @@ namespace Minesweeper {
 
 	void Level::run(Tile& target)
 	{
-		unordered_map<int, Tile*> memoization_map;
-		queue<Tile*> pool;
+		std::unordered_map<int, Tile*> memoization_map;
+		std::queue<Tile*> pool;
 
 		pool.push(&target);
 
 		while (!pool.empty()) {
-
 			Tile& current = *(pool.front());
 			/// <summary>
 			/// edge case handling for when a tile is added twice in the queue array
@@ -214,7 +157,7 @@ namespace Minesweeper {
 				pool.pop();
 				continue;
 			}
-			vector<Tile*> neighbors = getNeighbors(memoization_map, current.getIndex());
+			std::vector<Tile*> neighbors = getNeighbors(memoization_map, current.getIndex());
 			{
 				/// <summary>
 				/// set the current entry value so we can display numbers showing the number of adjacent bombs
@@ -246,7 +189,7 @@ namespace Minesweeper {
 						(int)(it->getmask() & Tilebitmask::Flag) +
 						(int)(it->getmask() & Tilebitmask::Uncovered);
 					if (invalidMove > 0) continue;
-					else pool.push(it);
+					pool.push(it);
 				}
 			}
 			{
@@ -270,9 +213,9 @@ namespace Minesweeper {
 		memoization_map.clear();
 	}
 
-	vector<Tile*> Level::getNeighbors(unordered_map<int, Tile*>& memoization_map, const int& index)
+	std::vector<Tile*> Level::getNeighbors(std::unordered_map<int, Tile*>& memoization_map, const int& index)
 	{
-		vector<Tile*> collection;
+		std::vector<Tile*> collection;
 		int indices[8] = {
 			index + 1,
 			index - 1,
@@ -300,7 +243,7 @@ namespace Minesweeper {
 			Tile& temp = getTile(it);
 
 			if (temp.getIndex() == -1 || memoization_map.find(temp.getIndex()) != memoization_map.end()) continue;
-			else collection.push_back(&temp);
+			collection.push_back(&temp);
 		}
 		return collection;
 	}

@@ -1,29 +1,33 @@
-#pragma once
-#include <iostream>
+
+#ifndef INCLUDED_STRINGEXTENSION
+#define INCLUDED_STRINGEXTENSION
+
 #include <sstream>
 #include <string>
 #include <vector>
 
-using namespace std;
 namespace Toolset {
 	class StringExtension {
 	public:
 		StringExtension(const StringExtension&) = delete;
 		StringExtension(StringExtension&&) = delete;
 		StringExtension() = delete;
-		~StringExtension() {};
+		~StringExtension();
 		StringExtension& operator=(const StringExtension&) = delete;
 		StringExtension& operator=(StringExtension&&) = delete;
-		static vector<string> Split(string input, const char& delim);
+		static std::vector<std::string> Split(std::string input, const char& delim);
 	};
 
-	inline vector<string> StringExtension::Split(string input, const char& delim) {
-		stringstream ss(input);
-		string line;
-		vector<string> tokens;
+	inline StringExtension::~StringExtension()
+	{}
+
+	inline std::vector<std::string> StringExtension::Split(std::string input, const char& delim) {
+		std::stringstream ss(input);
+		std::string line;
+		std::vector<std::string> tokens;
 		while (getline(ss, line)) {
 			size_t pos, prev = 0;
-			while ((pos = line.find_first_of(delim, prev)) != string::npos) {
+			while ((pos = line.find_first_of(delim, prev)) != std::string::npos) {
 				tokens.push_back(line.substr(prev, pos - prev));
 				prev = pos + 1;
 			}
@@ -34,3 +38,4 @@ namespace Toolset {
 		return tokens;
 	}
 }
+#endif

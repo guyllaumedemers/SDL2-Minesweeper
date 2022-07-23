@@ -1,9 +1,7 @@
-#pragma once
 #include "../headers/SDLHandler.h"
 #include "../headers/TextureHandler.h"
 #include <SDL_image.h>
 #include <iostream>
-#include <string>
 
 namespace Toolset {
 	SDLHandler::SDLHandler(const int& w, const int& h)
@@ -19,20 +17,20 @@ namespace Toolset {
 			exit(EXIT_FAILURE);
 		}
 
-		static const string window_name =
+		static const std::string window_name =
 			"Minesweeper";
 
 		SDL_SetWindowTitle(window, window_name.c_str());
 		TextureHandler<SDL_Renderer, SDL_Texture>::init();
-		TextureHandler<SDL_Renderer, SDL_Texture>::load(renderer, [](SDL_Renderer* ren, string s) -> SDL_Texture* { return IMG_LoadTexture(ren, s.c_str()); });
+		TextureHandler<SDL_Renderer, SDL_Texture>::load(renderer, [](SDL_Renderer* ren, std::string s) -> SDL_Texture* { return IMG_LoadTexture(ren, s.c_str()); });
 	}
 
 	SDLHandler::~SDLHandler()
 	{
-		SDL_DestroyWindow(window);
-		window = nullptr;
 		SDL_DestroyRenderer(renderer);
 		renderer = nullptr;
+		SDL_DestroyWindow(window);
+		window = nullptr;
 		SDL_Quit();
 		TextureHandler<SDL_Renderer, SDL_Texture>::destroy();
 	}

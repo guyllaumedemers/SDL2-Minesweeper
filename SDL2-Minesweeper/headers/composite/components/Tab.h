@@ -1,9 +1,11 @@
-#pragma once
+
+#ifndef INCLUDED_TAB
+#define INCLUDED_TAB
+
 #include "../ImGuiComplexComponent.h"
 
 namespace Toolset {
 	class Tab final : virtual public ImGuiComplexComponent {
-	private:
 		const char* name = nullptr;
 	public:
 		Tab(const Tab&) = delete;
@@ -15,4 +17,12 @@ namespace Toolset {
 		Tab& operator=(Tab&&) = delete;
 		void refresh() override;
 	};
+
+	inline Tab::Tab(const Rect& rect, const char* name) : ImGuiComplexComponent(rect), ImGuiComponent(rect),
+		name(name)
+	{}
+
+	inline Tab::~Tab()
+	{}
 }
+#endif

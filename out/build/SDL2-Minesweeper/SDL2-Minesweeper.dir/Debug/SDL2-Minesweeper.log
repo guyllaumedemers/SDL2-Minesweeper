@@ -1,5 +1,4 @@
 ﻿  Main.cpp
-D:\VisualStudio\SDL2\SDL2-GameDevCMake\SDL2-Minesweeper\SDL2-Minesweeper\headers\Subscriber.h(48,3): warning C4002: too many arguments for function-like macro invocation 'assert'
 D:\VisualStudio\SDL2\SDL2-GameDevCMake\SDL2-Minesweeper\SDL2-Minesweeper\Main.cpp(13,12): warning C4244: 'argument': conversion from 'time_t' to 'unsigned int', possible loss of data
 D:\VisualStudio\SDL2\SDL2-GameDevCMake\SDL2-Minesweeper\SDL2-Minesweeper\headers\Event.h(65,1): warning C4267: 'initializing': conversion from 'size_t' to 'int', possible loss of data
 D:\VisualStudio\SDL2\SDL2-GameDevCMake\SDL2-Minesweeper\SDL2-Minesweeper\headers\Event.h(61): message : while compiling class template member function 'void Toolset::Event<bool>::invoke(const T &)'
@@ -24,59 +23,10 @@ D:\VisualStudio\SDL2\SDL2-GameDevCMake\SDL2-Minesweeper\SDL2-Minesweeper\headers
 D:\VisualStudio\SDL2\SDL2-GameDevCMake\SDL2-Minesweeper\SDL2-Minesweeper\headers/GameManager.h(101): message : while compiling class template member function 'void Toolset::GameManager<SDL_Renderer,SDL_Event>::reset(const Toolset::Mode &)'
 D:\VisualStudio\SDL2\SDL2-GameDevCMake\SDL2-Minesweeper\SDL2-Minesweeper\headers/GameManager.h(56): message : see reference to function template instantiation 'void Toolset::GameManager<SDL_Renderer,SDL_Event>::reset(const Toolset::Mode &)' being compiled
 D:\VisualStudio\SDL2\SDL2-GameDevCMake\SDL2-Minesweeper\SDL2-Minesweeper\headers/GameManager.h(55): message : while compiling class template member function 'void Toolset::GameManager<SDL_Renderer,SDL_Event>::init(void)'
-D:\VisualStudio\SDL2\SDL2-GameDevCMake\SDL2-Minesweeper\SDL2-Minesweeper\headers/GameManager.h(130): message : see reference to function template instantiation 'void Toolset::GameManager<SDL_Renderer,SDL_Event>::init(void)' being compiled
-D:\VisualStudio\SDL2\SDL2-GameDevCMake\SDL2-Minesweeper\SDL2-Minesweeper\headers/GameManager.h(129): message : while compiling class template member function 'int Toolset::GameManager<SDL_Renderer,SDL_Event>::execute(void)'
+D:\VisualStudio\SDL2\SDL2-GameDevCMake\SDL2-Minesweeper\SDL2-Minesweeper\headers/GameManager.h(134): message : see reference to function template instantiation 'void Toolset::GameManager<SDL_Renderer,SDL_Event>::init(void)' being compiled
+D:\VisualStudio\SDL2\SDL2-GameDevCMake\SDL2-Minesweeper\SDL2-Minesweeper\headers/GameManager.h(133): message : while compiling class template member function 'int Toolset::GameManager<SDL_Renderer,SDL_Event>::execute(void)'
 D:\VisualStudio\SDL2\SDL2-GameDevCMake\SDL2-Minesweeper\SDL2-Minesweeper\Main.cpp(14): message : see reference to function template instantiation 'int Toolset::GameManager<SDL_Renderer,SDL_Event>::execute(void)' being compiled
 D:\VisualStudio\SDL2\SDL2-GameDevCMake\SDL2-Minesweeper\SDL2-Minesweeper\Main.cpp(14): message : see reference to class template instantiation 'Toolset::GameManager<SDL_Renderer,SDL_Event>' being compiled
-  EventHandler.cpp
-D:\VisualStudio\SDL2\SDL2-GameDevCMake\SDL2-Minesweeper\SDL2-Minesweeper\headers\Subscriber.h(48,3): warning C4002: too many arguments for function-like macro invocation 'assert'
-  Button.cpp
-D:\VisualStudio\SDL2\SDL2-GameDevCMake\SDL2-Minesweeper\SDL2-Minesweeper\headers\Subscriber.h(48,3): warning C4002: too many arguments for function-like macro invocation 'assert'
-D:\VisualStudio\SDL2\SDL2-GameDevCMake\SDL2-Minesweeper\SDL2-Minesweeper\src\composite\components\Button.cpp(28,66): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
-D:\VisualStudio\SDL2\SDL2-GameDevCMake\SDL2-Minesweeper\SDL2-Minesweeper\src\composite\components\Button.cpp(28,57): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
-D:\VisualStudio\SDL2\SDL2-GameDevCMake\SDL2-Minesweeper\SDL2-Minesweeper\headers\Event.h(65,1): warning C4267: 'initializing': conversion from 'size_t' to 'int', possible loss of data
-D:\VisualStudio\SDL2\SDL2-GameDevCMake\SDL2-Minesweeper\SDL2-Minesweeper\headers\Event.h(61): message : while compiling class template member function 'void Toolset::Event<T>::invoke(const T &)'
-          with
-          [
-              T=nullptr
-          ]
-D:\VisualStudio\SDL2\SDL2-GameDevCMake\SDL2-Minesweeper\SDL2-Minesweeper\src\composite\components\../../../headers/EventHandler.h(50): message : see reference to function template instantiation 'void Toolset::Event<T>::invoke(const T &)' being compiled
-          with
-          [
-              T=nullptr
-          ]
-D:\VisualStudio\SDL2\SDL2-GameDevCMake\SDL2-Minesweeper\SDL2-Minesweeper\src\composite\components\../../../headers/EventHandler.h(50): message : see reference to class template instantiation 'Toolset::Event<T>' being compiled
-          with
-          [
-              T=nullptr
-          ]
-D:\VisualStudio\SDL2\SDL2-GameDevCMake\SDL2-Minesweeper\SDL2-Minesweeper\src\composite\components\Button.cpp(28): message : see reference to function template instantiation 'void Toolset::EventHandler::invoke<nullptr>(std::string,const T &)' being compiled
-          with
-          [
-              T=nullptr
-          ]
-  ButtonImage.cpp
-D:\VisualStudio\SDL2\SDL2-GameDevCMake\SDL2-Minesweeper\SDL2-Minesweeper\headers\Subscriber.h(48,3): warning C4002: too many arguments for function-like macro invocation 'assert'
-D:\VisualStudio\SDL2\SDL2-GameDevCMake\SDL2-Minesweeper\SDL2-Minesweeper\headers\Event.h(65,1): warning C4267: 'initializing': conversion from 'size_t' to 'int', possible loss of data
-D:\VisualStudio\SDL2\SDL2-GameDevCMake\SDL2-Minesweeper\SDL2-Minesweeper\headers\Event.h(61): message : while compiling class template member function 'void Toolset::Event<T>::invoke(const T &)'
-          with
-          [
-              T=nullptr
-          ]
-D:\VisualStudio\SDL2\SDL2-GameDevCMake\SDL2-Minesweeper\SDL2-Minesweeper\src\composite\components\../../../headers/EventHandler.h(50): message : see reference to function template instantiation 'void Toolset::Event<T>::invoke(const T &)' being compiled
-          with
-          [
-              T=nullptr
-          ]
-D:\VisualStudio\SDL2\SDL2-GameDevCMake\SDL2-Minesweeper\SDL2-Minesweeper\src\composite\components\../../../headers/EventHandler.h(50): message : see reference to class template instantiation 'Toolset::Event<T>' being compiled
-          with
-          [
-              T=nullptr
-          ]
-D:\VisualStudio\SDL2\SDL2-GameDevCMake\SDL2-Minesweeper\SDL2-Minesweeper\src\composite\components\ButtonImage.cpp(28): message : see reference to function template instantiation 'void Toolset::EventHandler::invoke<nullptr>(std::string,const T &)' being compiled
-          with
-          [
-              T=nullptr
-          ]
+  Tab.cpp
   Generating Code...
   SDL2-Minesweeper.vcxproj -> D:\VisualStudio\SDL2\SDL2-GameDevCMake\SDL2-Minesweeper\out\build\Debug\SDL2-Minesweeper.exe

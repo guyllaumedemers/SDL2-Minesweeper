@@ -1,16 +1,14 @@
-#pragma once
+
+#ifndef INCLUDED_INPUTHANDLER
+#define INCLUDED_INPUTHANDLER
+
 #include "bridge/InputHandlerImp.h"
 #include "bridge/InputHandlerImpSDL.h"
-#include <type_traits>
-//#ifdef SDL
-#include <SDL.h>
-//#endif
 
 namespace Toolset {
 	template<class GraphicAPIsEvent>
 	class InputHandler {
-	private:
-		InputHandlerImp<GraphicAPIsEvent>* imp = nullptr;
+		InputHandlerImp<GraphicAPIsEvent>* input_imp = nullptr;
 	public:
 		InputHandler(const InputHandler&) = delete;
 		InputHandler(InputHandler&&) = delete;
@@ -22,42 +20,29 @@ namespace Toolset {
 		void getMouseState(int&, int&);
 	};
 
-	/// <summary>
-	/// Constructor
-	/// </summary>
 	template<class GraphicAPIsEvent>
-	InputHandler<GraphicAPIsEvent>::InputHandler()
+	inline InputHandler<GraphicAPIsEvent>::InputHandler()
 	{
-		//#ifdef SDL
-		if (is_same<GraphicAPIsEvent, SDL_Event>::value) imp = new InputHandlerImpSDL<GraphicAPIsEvent>();
-		//#endif
+		if (std::is_same_v<GraphicAPIsEvent, SDL_Event>) input_imp = new InputHandlerImpSDL<GraphicAPIsEvent>();
 	}
 
-	/// <summary>
-	/// Destructor
-	/// </summary>
 	template<class GraphicAPIsEvent>
-	InputHandler<GraphicAPIsEvent>::~InputHandler()
+	inline InputHandler<GraphicAPIsEvent>::~InputHandler()
 	{
-		delete imp;
-		imp = nullptr;
+		delete input_imp;
+		input_imp = nullptr;
 	}
 
-	/// <summary>
-	/// Polling input events
-	/// </summary>
 	template<class GraphicAPIsEvent>
-	void InputHandler<GraphicAPIsEvent>::pollEvents(GraphicAPIsEvent& e)
+	inline void InputHandler<GraphicAPIsEvent>::pollEvents(GraphicAPIsEvent& e)
 	{
-		imp->pollEvents(e);
+		input_imp->pollEvents(e);
 	}
 
-	/// <summary>
-	/// Polling input events
-	/// </summary>
 	template<class GraphicAPIsEvent>
-	void InputHandler<GraphicAPIsEvent>::getMouseState(int& x, int& y)
+	inline void InputHandler<GraphicAPIsEvent>::getMouseState(int& x, int& y)
 	{
-		imp->getMouseState(x, y);
+		input_imp->getMouseState(x, y);
 	}
 }
+#endif

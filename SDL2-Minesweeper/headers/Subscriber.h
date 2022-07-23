@@ -1,7 +1,9 @@
-#pragma once
+
+#ifndef INCLUDED_SUBSCRIBER
+#define INCLUDED_SUBSCRIBER
+
 #include "ISubscriber.h"
 
-using namespace std;
 namespace Toolset {
 	template<class T>
 	class Subscriber final : virtual public ISubscriber {
@@ -18,30 +20,22 @@ namespace Toolset {
 		void invoke(const T& data);
 	};
 
-	/// <summary>
-	/// Constructor
-	/// </summary>
 	template<class T>
-	Subscriber<T>::Subscriber(void(*event_callback)(const T&))
+	inline Subscriber<T>::Subscriber(void(*event_callback)(const T&))
 	{
 		func_ptr = event_callback;
 	}
 
-	/// <summary>
-	/// Destructor
-	/// </summary>
 	template<class T>
-	Subscriber<T>::~Subscriber()
+	inline Subscriber<T>::~Subscriber()
 	{
 		func_ptr = nullptr;
 	}
 
-	/// <summary>
-	/// invoke event
-	/// </summary>
 	template<class T>
-	void Subscriber<T>::invoke(const T& data)
+	inline void Subscriber<T>::invoke(const T& data)
 	{
 		func_ptr(data);
 	}
 }
+#endif

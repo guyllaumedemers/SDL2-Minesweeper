@@ -1,26 +1,28 @@
-#pragma once
+
+#ifndef INCLUDED_IMGUIMINESWEEPERBUILDER
+#define INCLUDED_IMGUIMINESWEEPERBUILDER
+
+#include "IBuilder.h"
 #include "ImGuiBuilder.h"
 #include "../SDLHandler.h"
-#include "../Screen.h"
-#include "../Mode.h"
-
-#include <imgui.h>
-#include <imgui_internal.h>
-#include <imgui_impl_sdl.h>
-#include <imgui_impl_sdlrenderer.h>
-
+#include "../composite/ImGuiComplexComponent.h"
+#include "../composite/components/Tab.h"
+#include "../composite/components/Entry.h"
+#include "../composite/components/Window.h"
+#include "../composite/components/Canvas.h"
+#include "../composite/components/ButtonImage.h"
+#include "../Mode.h"		//Shouldn't be here -> bad idea
+#include "../Screen.h"		//Shouldn't be here -> bad idea
+#include "../game/Tile.h"	//Shouldn't be here -> bad idea
 #include <vector>
 #include <string>
 
 using namespace Toolset;
 namespace Minesweeper {
-	/// <summary>
-	/// concrete builder
-	/// </summary>
 	template<class GraphicAPIsContext>
 	class ImGuiMinesweeperBuilder final : virtual public ImGuiBuilder<GraphicAPIsContext> {
 	protected:
-		ImGuiComplexComponent* builder_parts = nullptr;
+		ImGuiComplexComponent* builder_parts = nullptr;			//Shouldn't be here -> bad idea
 		void buildApplicationMenu() override;
 		void buildCanvas() override;
 		void buildViewport(GraphicAPIsContext*) override;
@@ -37,10 +39,7 @@ namespace Minesweeper {
 		int getMaxHeight() override;
 	};
 
-	/// <summary>
-	/// static fields
-	/// </summary>
-	static const string menu_infos[9] = {
+	inline static const std::string menu_infos[9] = {
 		"Minesweeper",
 		"Game",
 		"New Game",
@@ -70,7 +69,7 @@ namespace Minesweeper {
 	template<class GraphicAPIsContext>
 	void ImGuiMinesweeperBuilder<GraphicAPIsContext>::buildApplicationMenu()
 	{
-		static const string menu_callbacks[4] = {
+		static const std::string menu_callbacks[4] = {
 			"onNewGame",
 			"onApplicationQuit",
 			"onHelpDocumentRequested"
@@ -79,14 +78,14 @@ namespace Minesweeper {
 		Tab* game_tab = new Tab(Rect(0, 0, 0, 0), menu_infos[1].c_str());
 		Tab* mode_tab = new Tab(Rect(0, 0, 0, 0), menu_infos[3].c_str());
 
-		vector<ImGuiComponent*> game_tab_entries =
+		std::vector<ImGuiComponent*> game_tab_entries =
 		{
 			new Entry<Mode>(Rect(0,0,0,0), menu_infos[2].c_str(), menu_callbacks[0].c_str(), Mode::Easy),			// need the current mode
 			mode_tab,
 			new Entry<bool>(Rect(0,0,0,0), menu_infos[7].c_str(), menu_callbacks[1].c_str(), true)
 		};
 
-		vector<ImGuiComponent*> mode_tab_entries =
+		std::vector<ImGuiComponent*> mode_tab_entries =
 		{
 			new Entry<Mode>(Rect(0,0,0,0), menu_infos[4].c_str(), menu_callbacks[0].c_str(), Mode::Easy),
 			new Entry<Mode>(Rect(0,0,0,0), menu_infos[5].c_str(), menu_callbacks[0].c_str(), Mode::Medium),
@@ -106,10 +105,10 @@ namespace Minesweeper {
 		/// <summary>
 		/// Main Window Canvas, holds the info_canvas & holds the Viewport for rendering the game
 		/// </summary>
-		Canvas* window_canvas = dynamic_cast<Window*>(builder_parts)->getWindowCanvas();
+		Canvas& window_canvas = dynamic_cast<Window*>(builder_parts)->getWindowCanvas();
 		int w = Screen::w;
 		int h = Screen::h;
-		int tile = Tile::size;
+		int tile = Tile::getTileSize();
 		int h_mult = 4;
 
 		/// <summary>
@@ -138,7 +137,7 @@ namespace Minesweeper {
 		}
 
 		{
-			const string button_callbacks[1] = {
+			const std::string button_callbacks[1] = {
 				"onNewGame"
 			};
 
@@ -149,7 +148,11 @@ namespace Minesweeper {
 			/// <summary>
 			/// Game Reset setup
 			/// </summary>
-			ButtonImage* smiley_face_button = new ButtonImage(Rect(start_pos_w, start_pos_h, button_texture_width, button_texture_height), nullptr, button_callbacks->c_str());
+			ButtonImage* smiley_face_button = new ButtonImage(
+				Rect(start_pos_w, start_pos_h, button_texture_width, button_texture_height),
+				nullptr,
+				button_callbacks->c_str()
+				);
 
 			window_info_canvas->add(smiley_face_button);
 		}
@@ -174,7 +177,7 @@ namespace Minesweeper {
 			window_info_canvas->add(flag_canvas);
 		}
 
-		window_canvas->add(window_info_canvas);
+		window_canvas.add(window_info_canvas);
 	}
 
 	template<class GraphicAPIsContext>
@@ -184,8 +187,8 @@ namespace Minesweeper {
 		SDLHandler* handler_ctx = static_cast<SDLHandler*>(sdl_context);
 		int w = Screen::w;
 		int h = Screen::h;
-		SDL_Texture* texture_id = SDL_CreateTexture(handler_ctx->renderer, SDL_PIXELFORMAT_RGBA8888, SDL_TEXTUREACCESS_TARGET, w, h);
-		dynamic_cast<Window*>(builder_parts)->getWindowCanvas()->getCanvasViewport()->setTextureViewport((ImTextureID)texture_id, viewport->ID);
+		SDL_Texture* texture_id = SDL_CreateTexture(handler_ctx->getRenderer(), SDL_PIXELFORMAT_RGBA8888, SDL_TEXTUREACCESS_TARGET, w, h);
+		dynamic_cast<Window*>(builder_parts)->getWindowCanvas().getCanvasViewport().setTextureViewport((ImTextureID)texture_id, viewport->ID);
 		texture_id = nullptr;
 	}
 
@@ -219,12 +222,13 @@ namespace Minesweeper {
 	template<class GraphicAPIsContext>
 	int ImGuiMinesweeperBuilder<GraphicAPIsContext>::getMaxWidth()
 	{
-		return dynamic_cast<Window*>(builder_parts)->getWindowCanvas()->getComponentWidth();
+		return dynamic_cast<Window*>(builder_parts)->getWindowCanvas().getComponentWidth();
 	}
 
 	template<class GraphicAPIsContext>
 	int ImGuiMinesweeperBuilder<GraphicAPIsContext>::getMaxHeight()
 	{
-		return dynamic_cast<Window*>(builder_parts)->getWindowCanvas()->getComponentHeight();
+		return dynamic_cast<Window*>(builder_parts)->getWindowCanvas().getComponentHeight();
 	}
 }
+#endif
