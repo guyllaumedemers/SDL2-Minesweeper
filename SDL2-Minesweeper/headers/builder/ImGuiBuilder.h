@@ -2,10 +2,12 @@
 #define INCLUDED_IMGUIBUILDER
 
 #include "IBuilder.h"
+#include "../composite/ImGuiComplexComponent.h"
 
 namespace Toolset {
     template <class GraphicAPIsContext>
     class ImGuiBuilder : virtual public IBuilder {
+		ImGuiComplexComponent* builder_parts = nullptr;
     protected:
         ImGuiBuilder() = default;
         virtual void buildApplicationMenu() = 0;
@@ -18,13 +20,18 @@ namespace Toolset {
         ImGuiBuilder& operator=(const ImGuiBuilder&) = delete;
         ImGuiBuilder& operator=(ImGuiBuilder&&) = delete;
         virtual void build(GraphicAPIsContext*) = 0;
-        inline virtual int getMaxWidth()    { return 0; }
-        inline virtual int getMaxHeight()   { return 0; }
-        inline virtual void reset() {}
+        ImGuiComplexComponent* getBuilderParts() const                  { return builder_parts; }
+        void setBuilderParts(ImGuiComplexComponent* builder_parts)      { this->builder_parts = builder_parts; }
+        virtual int getMaxWidth()                                       { return 0; }
+        virtual int getMaxHeight()                                      { return 0; }
+        virtual void reset() {}
     };
 
     template <class GraphicAPIsContext>
     ImGuiBuilder<GraphicAPIsContext>::~ImGuiBuilder()
-    {}
+    {
+        delete builder_parts;
+        builder_parts = nullptr;
+    }
 }
 #endif

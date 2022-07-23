@@ -11,7 +11,7 @@
 namespace Minesweeper {
 	class Level {
 		int rows = 0, cols = 0, flags = 0, bombs = 0;
-		inline static std::optional<Tile> optional = std::optional<Tile>();
+		inline static std::optional<Tile> optional = std::make_optional<Tile>();
 		Tile* map = nullptr;
 		std::vector<Tile*> getNeighbors(std::unordered_map<int, Tile*>&, const int&);
 		void run(Tile&);

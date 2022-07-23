@@ -5,7 +5,6 @@
 #include "IBuilder.h"
 #include "ImGuiBuilder.h"
 #include "../SDLHandler.h"
-#include "../composite/ImGuiComplexComponent.h"
 #include "../composite/components/Tab.h"
 #include "../composite/components/Entry.h"
 #include "../composite/components/Window.h"
@@ -22,7 +21,6 @@ namespace Minesweeper {
 	template<class GraphicAPIsContext>
 	class ImGuiMinesweeperBuilder final : virtual public ImGuiBuilder<GraphicAPIsContext> {
 	protected:
-		ImGuiComplexComponent* builder_parts = nullptr;			//Shouldn't be here -> bad idea
 		void buildApplicationMenu() override;
 		void buildCanvas() override;
 		void buildViewport(GraphicAPIsContext*) override;
@@ -30,7 +28,7 @@ namespace Minesweeper {
 		ImGuiMinesweeperBuilder(const ImGuiMinesweeperBuilder&) = delete;
 		ImGuiMinesweeperBuilder(ImGuiMinesweeperBuilder&&) = delete;
 		ImGuiMinesweeperBuilder();
-		~ImGuiMinesweeperBuilder() override;
+		~ImGuiMinesweeperBuilder() override = default;
 		ImGuiMinesweeperBuilder& operator=(const ImGuiMinesweeperBuilder&) = delete;
 		ImGuiMinesweeperBuilder& operator=(ImGuiMinesweeperBuilder&&) = delete;
 		void build(GraphicAPIsContext*) override;
@@ -57,13 +55,6 @@ namespace Minesweeper {
 		reset();
 		buildApplicationMenu();
 		buildCanvas();
-	}
-
-	template<class GraphicAPIsContext>
-	ImGuiMinesweeperBuilder<GraphicAPIsContext>::~ImGuiMinesweeperBuilder()
-	{
-		delete builder_parts;
-		builder_parts = nullptr;
 	}
 
 	template<class GraphicAPIsContext>
@@ -95,8 +86,8 @@ namespace Minesweeper {
 		for (const auto& it : mode_tab_entries) mode_tab->add(it);
 		for (const auto& it : game_tab_entries) game_tab->add(it);
 
-		builder_parts->add(game_tab);
-		builder_parts->add(new Entry<void*>(Rect(0, 0, 0, 0), menu_infos[8].c_str(), menu_callbacks[2].c_str(), nullptr));
+		this->getBuilderParts()->add(game_tab);
+		this->getBuilderParts()->add(new Entry<void*>(Rect(0, 0, 0, 0), menu_infos[8].c_str(), menu_callbacks[2].c_str(), nullptr));
 	}
 
 	template<class GraphicAPIsContext>
@@ -105,7 +96,7 @@ namespace Minesweeper {
 		/// <summary>
 		/// Main Window Canvas, holds the info_canvas & holds the Viewport for rendering the game
 		/// </summary>
-		Canvas& window_canvas = dynamic_cast<Window*>(builder_parts)->getWindowCanvas();
+		Canvas& window_canvas = dynamic_cast<Window*>(this->getBuilderParts())->getWindowCanvas();
 		int w = Screen::w;
 		int h = Screen::h;
 		int tile = Tile::getTileSize();
@@ -150,7 +141,7 @@ namespace Minesweeper {
 			/// </summary>
 			ButtonImage* smiley_face_button = new ButtonImage(
 				Rect(start_pos_w, start_pos_h, button_texture_width, button_texture_height),
-				nullptr,
+				"",
 				button_callbacks->c_str()
 				);
 
@@ -188,7 +179,7 @@ namespace Minesweeper {
 		int w = Screen::w;
 		int h = Screen::h;
 		SDL_Texture* texture_id = SDL_CreateTexture(handler_ctx->getRenderer(), SDL_PIXELFORMAT_RGBA8888, SDL_TEXTUREACCESS_TARGET, w, h);
-		dynamic_cast<Window*>(builder_parts)->getWindowCanvas().getCanvasViewport().setTextureViewport((ImTextureID)texture_id, viewport->ID);
+		dynamic_cast<Window*>(this->getBuilderParts())->getWindowCanvas().getCanvasViewport().setTextureViewport((ImTextureID)texture_id, viewport->ID);
 		texture_id = nullptr;
 	}
 
@@ -196,14 +187,14 @@ namespace Minesweeper {
 	void ImGuiMinesweeperBuilder<GraphicAPIsContext>::build(GraphicAPIsContext* sdl_context)
 	{
 		buildViewport(sdl_context);
-		builder_parts->refresh();
+		this->getBuilderParts()->refresh();
 	}
 
 	template<class GraphicAPIsContext>
 	void ImGuiMinesweeperBuilder<GraphicAPIsContext>::reset()
 	{
-		delete builder_parts;
-		builder_parts = nullptr;
+		delete this->getBuilderParts();
+		this->setBuilderParts(nullptr);
 
 		bool opt_fullscreen = true;
 		bool opt_padding = false;
@@ -212,23 +203,23 @@ namespace Minesweeper {
 		int w = Screen::w;
 		int h = Screen::h;
 
-		builder_parts = new Window(
+		this->setBuilderParts(new Window(
 			Rect(0, 0, w, h),
 			menu_infos[0].c_str(),
 			new Style(window_flags, opt_fullscreen, opt_padding)
-		);
+		));
 	}
 
 	template<class GraphicAPIsContext>
 	int ImGuiMinesweeperBuilder<GraphicAPIsContext>::getMaxWidth()
 	{
-		return dynamic_cast<Window*>(builder_parts)->getWindowCanvas().getComponentWidth();
+		return dynamic_cast<Window*>(this->getBuilderParts())->getWindowCanvas().getComponentWidth();
 	}
 
 	template<class GraphicAPIsContext>
 	int ImGuiMinesweeperBuilder<GraphicAPIsContext>::getMaxHeight()
 	{
-		return dynamic_cast<Window*>(builder_parts)->getWindowCanvas().getComponentHeight();
+		return dynamic_cast<Window*>(this->getBuilderParts())->getWindowCanvas().getComponentHeight();
 	}
 }
 #endif

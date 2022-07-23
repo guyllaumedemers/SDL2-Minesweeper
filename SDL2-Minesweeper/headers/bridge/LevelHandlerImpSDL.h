@@ -13,7 +13,7 @@ namespace Toolset {
 		LevelHandlerImpSDL(const LevelHandlerImpSDL&) = delete;
 		LevelHandlerImpSDL(LevelHandlerImpSDL&&) = delete;
 		LevelHandlerImpSDL() = delete;
-		explicit LevelHandlerImpSDL(IBuilder*);
+		LevelHandlerImpSDL(IBuilder*);
 		~LevelHandlerImpSDL() override;
 		LevelHandlerImpSDL& operator=(const LevelHandlerImpSDL&) = delete;
 		LevelHandlerImpSDL& operator=(LevelHandlerImpSDL&&) = delete;

@@ -9,7 +9,7 @@ namespace Toolset {
 	class ImGuiComplexComponent : virtual public ImGuiComponent {
 		std::vector<ImGuiComponent*> components;
 	protected:
-		explicit ImGuiComplexComponent(const Rect&);
+		ImGuiComplexComponent(const Rect&);
 	public:
 		ImGuiComplexComponent(const ImGuiComplexComponent&) = delete;
 		ImGuiComplexComponent(ImGuiComplexComponent&&) = delete;
@@ -30,7 +30,7 @@ namespace Toolset {
 
 	inline ImGuiComplexComponent::~ImGuiComplexComponent()
 	{
-		for (auto& it : components) {
+		for (auto it : components) {
 			delete it;
 			it = nullptr;
 		}

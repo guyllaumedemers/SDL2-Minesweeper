@@ -53,13 +53,9 @@ namespace Toolset {
 	template<class GraphicAPIsRendering, class GraphicAPIsEvent>
 	inline void GameManagerImp<GraphicAPIsRendering, GraphicAPIsEvent>::processInputs(const int& lrm)
 	{
-		/// <summary>
-		/// Mouse Y axis direction would be inverted depending on the graphical lib used 
-		/// </summary>
 		int mousePosX = 0;
 		int mousePosY = 0;
-		input_context->getMouseState(mousePosX, mousePosY);																// These offset should be equals to the
-		// level_context->update((mousePosY - Tile::size) / Tile::size, mousePosX / Tile::size, lrm);			// ImGuiComponents total Heights, Replace Tile::size by getComponentHeight instead of subtracting
+		input_context->getMouseState(mousePosX, mousePosY);
 		level_context->update(mousePosX, mousePosY, lrm);
 	}
 

@@ -15,7 +15,6 @@ namespace Toolset {
     };
 
     inline Rect::Rect(const int& x, const int& y, const int& w, const int& h) : x(x), y(y), w(w), h(h)
-    {
-    }
+    {}
 }
 #endif

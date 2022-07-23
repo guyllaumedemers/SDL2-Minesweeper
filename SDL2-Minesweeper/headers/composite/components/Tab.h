@@ -12,7 +12,7 @@ namespace Toolset {
 		Tab(Tab&&) = delete;
 		Tab() = delete;
 		Tab(const Rect&, const char*);
-		~Tab() override;
+		~Tab() override = default;
 		Tab& operator=(const Tab&) = delete;
 		Tab& operator=(Tab&&) = delete;
 		void refresh() override;
@@ -20,9 +20,6 @@ namespace Toolset {
 
 	inline Tab::Tab(const Rect& rect, const char* name) : ImGuiComplexComponent(rect), ImGuiComponent(rect),
 		name(name)
-	{}
-
-	inline Tab::~Tab()
 	{}
 }
 #endif

@@ -25,7 +25,7 @@ namespace Toolset {
 	template<class T>
 	inline Event<T>::~Event()
 	{
-		for (auto& it : subscribers) {
+		for (auto it : subscribers) {
 			delete it;
 			it = nullptr;
 		}
@@ -41,7 +41,7 @@ namespace Toolset {
 	template<class T>
 	inline void Event<T>::remove(ISubscriber* subscriber)
 	{
-		auto it = find(subscribers.begin(), subscribers.end(), subscriber);
+		const auto it = find(subscribers.begin(), subscribers.end(), subscriber);
 		if (it != subscribers.end()) subscribers.erase(it);
 	}
 

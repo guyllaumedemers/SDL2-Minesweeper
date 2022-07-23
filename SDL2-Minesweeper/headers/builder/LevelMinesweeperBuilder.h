@@ -55,7 +55,9 @@ namespace Minesweeper {
 	template <class GraphicAPIsRendering>
 	inline void LevelMinesweeperBuilder<GraphicAPIsRendering>::update(const int& mpx, const int& mpy, const int& lrm)
 	{
-		level->update(mpx, mpy, lrm);
+		//TODO Fix offset calculation when gui is fully integrated
+		const int tile_size = Tile::getTileSize();
+		level->update((mpy - tile_size) / tile_size, mpx / tile_size, lrm);
 	}
 
 	template <class GraphicAPIsRendering>

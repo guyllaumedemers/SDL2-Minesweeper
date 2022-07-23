@@ -16,12 +16,12 @@ namespace Toolset {
 	class ImGuiComponent {
 		Rect* rect = nullptr;
 	protected:
-		explicit ImGuiComponent(const Rect&);	// not sure I fully understand this one, Rider suggested it but the documentation explanation is very thin.
+		ImGuiComponent(const Rect&);
 	public:
 		ImGuiComponent(const ImGuiComponent&) = delete;
 		ImGuiComponent(ImGuiComponent&&) = delete;
 		ImGuiComponent() = delete;
-		virtual ~ImGuiComponent() = 0;
+		virtual ~ImGuiComponent();
 		ImGuiComponent& operator=(const ImGuiComponent&) = delete;
 		ImGuiComponent& operator=(ImGuiComponent&&) = delete;
 		const Rect& getRect() const				{ return *rect; }
@@ -30,10 +30,8 @@ namespace Toolset {
 		virtual void refresh() {}
 	};
 
-	inline ImGuiComponent::ImGuiComponent(const Rect& rect)
-	{
-		this->rect = new Rect(rect.x, rect.y, rect.w, rect.h);
-	}
+	inline ImGuiComponent::ImGuiComponent(const Rect& _rect) : rect(new Rect(_rect.x, _rect.y, _rect.w, _rect.h))
+	{}
 
 	inline ImGuiComponent::~ImGuiComponent()
 	{

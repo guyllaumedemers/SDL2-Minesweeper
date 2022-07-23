@@ -1,4 +1,3 @@
-#pragma once
 #include "../headers/EventHandler.h"
 
 namespace Toolset {

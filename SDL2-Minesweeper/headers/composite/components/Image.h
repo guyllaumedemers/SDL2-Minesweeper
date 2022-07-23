@@ -13,7 +13,7 @@ namespace Toolset {
 		Image(const Image&) = delete;
 		Image(Image&&) = delete;
 		Image() = delete;
-		explicit Image(const Rect&);
+		Image(const Rect&);
 		~Image() override;
 		Image& operator=(const Image&) = delete;
 		Image& operator=(Image&&) = delete;
