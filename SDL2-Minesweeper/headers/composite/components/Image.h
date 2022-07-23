@@ -17,9 +17,9 @@ namespace Toolset {
 		~Image() override;
 		Image& operator=(const Image&) = delete;
 		Image& operator=(Image&&) = delete;
-		void setImage(const ImTextureID&, const ImVec2&);
 		const ImTextureID& getTextureId() const	{ return texture_id; }
 		const ImVec2& getTextureSize() const	{ return texture_size; }
+		void setImage(const ImTextureID& id, const ImVec2& size) { this->texture_id = id; this->texture_size = size; }
 		void refresh() override;
 	};
 

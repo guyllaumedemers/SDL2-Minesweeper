@@ -11,7 +11,7 @@
 
 int main(int argc, char* argv[])
 {
-    std::srand(std::time(NULL));
+    srand(time(NULL));
     return Minesweeper::GameManager<SDL_Renderer, SDL_Event>::execute();
 }
 #endif

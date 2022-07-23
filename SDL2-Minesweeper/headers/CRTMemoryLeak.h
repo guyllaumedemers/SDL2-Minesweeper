@@ -1,4 +1,7 @@
-#pragma once
+
+#ifndef INCLUDED_CRTMEMORYLEAK
+#define INCLUDED_CRTMEMORYLEAK
+
 // debug_new.cpp
 // compile by using: cl /EHsc /W4 /D_DEBUG /MDd debug_new.cpp
 #define _CRTDBG_MAP_ALLOC
@@ -22,3 +25,4 @@ namespace Toolset {
 		}
 	};
 }
+#endif
