@@ -4,6 +4,8 @@
 
 #include "bridge/LevelHandlerImp.h"
 #include "bridge/LevelHandlerImpSDL.h"
+#include <type_traits>
+#include <SDL.h>
 
 namespace Toolset {
 	template<class GraphicAPIsRendering>
@@ -26,7 +28,7 @@ namespace Toolset {
 	template<class GraphicAPIsRendering>
 	inline LevelHandler<GraphicAPIsRendering>::LevelHandler(IBuilder* builder_context)
 	{
-		if (std::is_same_v<GraphicAPIsRendering, SDL_Event>)
+		if (std::is_same<GraphicAPIsRendering, SDL_Renderer>::value)
 			level_imp = new LevelHandlerImpSDL<GraphicAPIsRendering>(builder_context);
 	}
 

@@ -33,19 +33,19 @@ namespace Toolset {
 	template <class GraphicAPIsRendering>
 	inline void LevelHandlerImpSDL<GraphicAPIsRendering>::update(const int& mpx, const int& mpy, const int& lrm)
 	{
-		dynamic_cast<LevelBuilder*>(this->getLevelBuilder())->update(mpx, mpy, lrm);
+		dynamic_cast<LevelBuilder<GraphicAPIsRendering>*>(this->getLevelBuilder())->update(mpx, mpy, lrm);
 	}
 
 	template <class GraphicAPIsRendering>
 	inline void LevelHandlerImpSDL<GraphicAPIsRendering>::refresh(GraphicAPIsRendering* renderer, const int& w, const int& h)
 	{
-		dynamic_cast<LevelBuilder*>(this->getLevelBuilder())->refresh(renderer, w, h);
+		dynamic_cast<LevelBuilder<GraphicAPIsRendering>*>(this->getLevelBuilder())->refresh(renderer, w, h);
 	}
 
 	template <class GraphicAPIsRendering>
 	inline void LevelHandlerImpSDL<GraphicAPIsRendering>::draw(GraphicAPIsRendering* renderer)
 	{
-		dynamic_cast<LevelBuilder*>(this->getLevelBuilder())->draw(renderer);
+		dynamic_cast<LevelBuilder<GraphicAPIsRendering>*>(this->getLevelBuilder())->draw(renderer);
 	}
 }
 #endif

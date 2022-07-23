@@ -25,8 +25,8 @@ namespace Toolset {
 		ImGuiComponent& operator=(const ImGuiComponent&) = delete;
 		ImGuiComponent& operator=(ImGuiComponent&&) = delete;
 		const Rect& getRect() const				{ return *rect; }
-		virtual float getComponentWidth()		{ return 0; }
-		virtual float getComponentHeight()		{ return 0; }
+		virtual int getComponentWidth()			{ return 0; }
+		virtual int getComponentHeight()		{ return 0; }
 		virtual void refresh() {}
 	};
 

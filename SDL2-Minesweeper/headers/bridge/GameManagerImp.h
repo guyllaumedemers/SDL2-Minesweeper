@@ -30,9 +30,9 @@ namespace Toolset {
 		level_context = new LevelHandler<GraphicAPIsRendering>(level_builder);
 		input_context = new InputHandler<GraphicAPIsEvent>();
 
-		/*int w = dynamic_cast<LevelBuilder<GraphicAPIsRendering>>(level_context->getLevel().getLevelBuilder()).getLevelWidth();
-		int h = dynamic_cast<LevelBuilder<GraphicAPIsRendering>>(level_context->getLevel().getLevelBuilder()).getLevelHeight();*/
-		screen_callback(0, 0);
+		int w = dynamic_cast<LevelBuilder<GraphicAPIsRendering>*>(level_context->getLevel().getLevelBuilder())->getLevelWidth();
+		int h = dynamic_cast<LevelBuilder<GraphicAPIsRendering>*>(level_context->getLevel().getLevelBuilder())->getLevelHeight();
+		screen_callback(w, h);
 	}
 
 	template<class GraphicAPIsRendering, class GraphicAPIsEvent>

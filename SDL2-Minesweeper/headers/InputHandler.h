@@ -4,6 +4,7 @@
 
 #include "bridge/InputHandlerImp.h"
 #include "bridge/InputHandlerImpSDL.h"
+#include <type_traits>
 
 namespace Toolset {
 	template<class GraphicAPIsEvent>
@@ -23,7 +24,7 @@ namespace Toolset {
 	template<class GraphicAPIsEvent>
 	inline InputHandler<GraphicAPIsEvent>::InputHandler()
 	{
-		if (std::is_same_v<GraphicAPIsEvent, SDL_Event>) input_imp = new InputHandlerImpSDL<GraphicAPIsEvent>();
+		if (std::is_same<GraphicAPIsEvent, SDL_Event>::value) input_imp = new InputHandlerImpSDL<GraphicAPIsEvent>();
 	}
 
 	template<class GraphicAPIsEvent>

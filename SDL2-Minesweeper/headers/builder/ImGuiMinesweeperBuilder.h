@@ -114,7 +114,7 @@ namespace Minesweeper {
 		/// <summary>
 		/// Window info Canvas, holds the Timer, Flag Count, Reset Button -> Rect Total Size : 80px, BUT ImGuiComponents Total Size : 100px //TODO Fix Height Calculation
 		/// </summary>
-		Canvas* window_info_canvas = new Canvas(Rect(0, 0, w, h_mult * tile));
+		Canvas* window_info_canvas = new Canvas(Rect(0.f, 0, w, h_mult * tile));
 
 		{
 			int timer_w_mult = 3;

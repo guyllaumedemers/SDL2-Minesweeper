@@ -6,6 +6,7 @@
 #include "bridge/ImGuiHandlerImpSDL.h"
 #include "builder/IBuilder.h"
 #include "SDLHandler.h"
+#include <type_traits>
 
 namespace Toolset {
 	template<class GraphicAPIsRendering, class GraphicAPIsEvent>
@@ -27,7 +28,7 @@ namespace Toolset {
 	template<class GraphicAPIsRendering, class GraphicAPIsEvent>
 	inline ImGuiHandler<GraphicAPIsRendering, GraphicAPIsEvent>::ImGuiHandler(IBuilder* builder, const int& w, const int& h)
 	{
-		if (std::is_same_v<GraphicAPIsRendering, SDL_Renderer>)
+		if (std::is_same<GraphicAPIsRendering, SDL_Renderer>::value)
 			imgui_imp = new ImGuiHandlerImpSDL<GraphicAPIsRendering, GraphicAPIsEvent>(builder, new SDLHandler(w, h));
 	}
 

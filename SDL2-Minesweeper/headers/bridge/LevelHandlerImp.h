@@ -10,7 +10,7 @@ namespace Toolset {
         LevelHandlerImp(const LevelHandlerImp&) = delete;
         LevelHandlerImp(LevelHandlerImp&&) = delete;
         LevelHandlerImp() = delete;
-		explicit LevelHandlerImp(IBuilder*);
+		LevelHandlerImp(IBuilder*);
 	    virtual ~LevelHandlerImp() = 0;
 	    LevelHandlerImp& operator=(const LevelHandlerImp&) = delete;
 	    LevelHandlerImp& operator=(LevelHandlerImp&&) = delete;

@@ -17,16 +17,16 @@ namespace Toolset {
 		for (const auto& it : components) it->refresh();
 	}
 
-	float ImGuiComplexComponent::getComponentWidth()
+	int ImGuiComplexComponent::getComponentWidth()
 	{
-		float result = 0;
+		int result = 0;
 		for (const auto& it : components) result += it->getRect().w;
 		return result;
 	}
 
-	float ImGuiComplexComponent::getComponentHeight()
+	int ImGuiComplexComponent::getComponentHeight()
 	{
-		float result = 0;
+		int result = 0;
 		for (const auto& it : components) result += it->getRect().h;
 		return result;
 	}

@@ -17,8 +17,8 @@ namespace Toolset {
 		~ImGuiComplexComponent() override;
 		ImGuiComplexComponent& operator=(const ImGuiComplexComponent&) = delete;
 		ImGuiComplexComponent& operator=(ImGuiComplexComponent&&) = delete;
-		float getComponentWidth() override;
-		float getComponentHeight() override;
+		int getComponentWidth() override;
+		int getComponentHeight() override;
 		void add(ImGuiComponent*);
 		void remove(ImGuiComponent*);
 		void refresh() override;

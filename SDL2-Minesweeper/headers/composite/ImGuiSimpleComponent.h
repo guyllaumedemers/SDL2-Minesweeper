@@ -15,8 +15,8 @@ namespace Toolset {
 		~ImGuiSimpleComponent() override;
 		ImGuiSimpleComponent& operator=(const ImGuiSimpleComponent&) = delete;
 		ImGuiSimpleComponent& operator=(ImGuiSimpleComponent&&) = delete;
-		float getComponentWidth() override	{ return getRect().w; }
-		float getComponentHeight() override	{ return getRect().h; }
+		int getComponentWidth() override	{ return getRect().w; }
+		int getComponentHeight() override	{ return getRect().h; }
 	};
 	
 	inline ImGuiSimpleComponent::ImGuiSimpleComponent(const Rect& rect) : ImGuiComponent(rect)
